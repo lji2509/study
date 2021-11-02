@@ -44,13 +44,28 @@ public class A11_MethodParam {
 	static void student(String name, int kor, int eng, int math) {
 		System.out.println("학생의 이름은 " + name + "이고, 국어점수는 " + kor + "점, 영어점수는 " + eng + "점, 수학점수는 " + math + "점 입니다.");
 	}
-	
 	/*
 	4. 매개변수의 데이터유형에 따른 순서
 	*/
+	static void buyProd(String pname, int price) {
+		System.out.println("#구매 정보#");
+		System.out.println("구매한 물건 : " + pname);
+		System.out.println("구매한 가격 : " + price);
+	}
 	
+	static void inputArray(String[] names) {
+		System.out.println("#매개변수로 배열을 입력#");
+		System.out.println("배열의 갯수 : " + names.length);
+		System.out.println("배열의 첫번째 데이터 : " + names[0]);
+	}
 	
 	public static void main(String[] args) {
+		String[] innames = {"홍길동", "김길동", "마길동"};
+		inputArray(innames);
+		
+		buyProd("사과",3000);
+//		buyProd(3000,"사과"); //선언된 순서에 맞게 데이터를 호출해야 한다.
+		
 		student("홍길동",74,85,93);
 		
 		inputAutoMachine(1000,"커피");

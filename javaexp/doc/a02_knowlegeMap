@@ -304,6 +304,8 @@
 		byte ==> Byte
 		int ==> Integer
 			ex) Integer.parseInt("25") ==> 문자를 숫자로
+	4) Math 수학적 함수처리
+		random() : 
 	
 13. 쓰레드
 	한번에 여러가지 요청을 처리하는 프로그램
