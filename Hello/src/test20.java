@@ -36,7 +36,7 @@ public class test20 {
 				
 				if(date[i].length() != 8) {
 					System.out.println("다시 입력해주세요.");
-					
+					continue;
 				}
 				
 				int year = Integer.parseInt(date[i].substring(0,4));
@@ -44,7 +44,7 @@ public class test20 {
 				int dear = Integer.parseInt(date[i].substring(6,8));
 		
 				
-				if(!(year>=1960 && year<=2030)) {
+				if(!(year>=1931 && year<=2030)) {
 					System.out.println("다시 입력하세요.");
 				} else if((month==1 || month==3 || month==5 || month==7 || month==8 ||month==10 || month==12) && dear<=31 && dear>=1) {
 					date[i] = date[i].substring(2,4) + "/" + date[i].substring(4,6) + "/" + date[i].substring(6,8);
