@@ -35,6 +35,16 @@ public class A10_Method {
 		return weight;
 	}
 	
+	static double getChangeType() {
+		double num1 = 25; //promote(작은 데이터가 큰 데이터유형에 할당)
+		return 35;
+	}
+	
+	static int getChangeTepe2() {
+		int num2 = (int)42.24; //casting(큰 데이터를 작은 데이터유형에 할당)
+		return (int)45.24;
+	}
+	
 	public static void main(String[] args) {
 		String name1 = getName("신길동");
 		System.out.println("메서드 처리후 결과값 : " + name1);

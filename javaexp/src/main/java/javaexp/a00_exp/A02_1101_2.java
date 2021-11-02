@@ -3,8 +3,35 @@ package javaexp.a00_exp;
 import java.util.Scanner;
 
 public class A02_1101_2 {
+	//기본유형 byte, short, char, int, long, double, boolean
+	static byte getByte() {
+		return 25;
+	}
+	static short getShort() {
+		return 35;
+	}
+	static char getChar() {
+		return 'A';
+	}
+	static int getInt() {
+		return 10000;
+	}
+	static long getlong() {
+		return 4225L;
+	}
+	static float getfloat() {
+		return 342.25F;
+	}
+	static double getDouble() {
+		return 2433.22;
+	}
+	static boolean getBoolean() {
+		return true;
+	}
+
 
 	public static void main(String[] args) {
+	
 		//과제1
 		int restMoney = 100000;
 		String date = null;
@@ -58,6 +85,48 @@ public class A02_1101_2 {
 			//라인이 한 화면에서 처리되지 않고 전체 페이지가 변경되는 경우 발생
 			//duplicate local variable
 			num1=24; //데이터 유형을 선언하지 않으면 에러가 발생하지 않는다.
-		
+			
+		//과제4
+			String[] array = null;
+			String array2[] = new String[3];
+			array = new String[] {"사과", "딸기", "바나나"};
+			array2[0] = "홍길동";
+			array2[1] = "김길동";
+			array2[2] = "신길동";
+			String array3[] = {"오렌지", "수박", "딸기"};
+			
+		//과제5
+			String[] singers = {"이무진", "MSG워너비", "정동하"};
+			String[] musics = {"신호등","바라만본다","추억은만남보다 이별에 남아"};
+			System.out.println(singers[0] + " : " + musics[0]);
+			System.out.println(singers[1] + " : " + musics[1]);
+			System.out.println(singers[2] + " : " + musics[2]);
+			
+		//과제6
+			int no = 1;
+			no++;
+			no += 3;
+			System.out.println("현재 no의 데이터 : " + no);
+			
+		//과제7
+			//초기에 배열의 크기가 지정되었는데
+			int[] array4 = new int[3];
+//			array4[2]=25; // 배열의 크기(array.length)는 3이지만, index는 0, 1, 2까지만 할당이 가능하다. index3은 배열의 크기가 4일 때 가능하다.
+			
+		//과제8
+			System.out.println("메서드 호출 : " + getByte());
+			System.out.println("메서드 호출 : " + getBoolean());
+			System.out.println("메서드 호출 : " + getChar());
+			
+
+			
+		//과제9
+//			class 상위클래스 {
+//				구성요소
+//			}
+//			class 하위클래스 extends 상위클래스 {
+//				
+//			
+//			}
 	}
 }
