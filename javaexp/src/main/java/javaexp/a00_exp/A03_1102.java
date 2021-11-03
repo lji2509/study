@@ -3,45 +3,47 @@ package javaexp.a00_exp;
 public class A03_1102 {
 	//과제1
 	/*
-	void는 리턴값이 없는 메서드를 사용할 때 쓰는 리턴유형이다.
-	
-		static void show() {
-		System.out.println("void는 리턴값이 없다.");
-		} 
-		
-	위와 같이 메소드를 선언하고 mian() 부분에서
-	
-		show(); 
-		
-	를 이용하여 리턴값 없이 show 메소드를 사용할 수 있다.
-	위 예제에서는 show 메소드의 System.out.println 으로 "void는 리턴값이 없다."가 출력된다.
+	void는 메서드를 사용할 때, 리턴값이 없는 경우 사용하는 리턴유형이다.
+		1. 콘솔창에 출력만 하고자 할 때
+			void greeting() {
+				Sysout.out.println("안녕하세요");
+			}
+		2. 매개변수를 통해서 객체에 저장하고자 할 때
+			ex) 사람의 귀는 음성정보를 받아서 뇌에 전달한다.
+			객체의 외부의 데이터를 받아서 필드에 전달할 때, 주로 리턴값이 필요없다.
+			void setName(String name) {
+				this.name = name ; 
+			}
+		3. 기능 프로세스만 처리할 때, 리턴값이 없는 경우
+			ex) 사람이 어떤 계획을 하거나 생각을 할 때는 외부에 입력도, 리턴도 하지 않지만 추후에 행동에 영향을 미칠 판단을 하게 된다.
+			void setCalculator()
+				//필드에 있는 데이터를 연산처리하여 필드에 데이터를 할당처리
+				sum = num1 + num2;
 	*/
 	
 	//과제2
 	/*
-	매개변수를 처리하는 3가지 유형에는 3가지가 있다. 
-	1.매개변수의 데이터 유형
-		static 리턴유형 메소드이름(매개변수유형 매개변수이름)
-		에서 매개변수 유형에는 String, int, double... 등이 올 수 있으며, 선언한 매개변수 데이터 유형에 맞는 매개변수를 전달하여야 한다.	
-	2.매개변수의 갯수
-		static 리턴유형 메소드이름(매개변수유형1 매개변수이름1, 매개변수유형2 매개변수이름2...)
-		이렇게 여러개의 매개변수를 전달할 수 있으며, 선언한 매개변수의 갯수에 맞게 매개변수를 전달하여야 한다.
-	3.매개변수의 데이터 유형에 따른 순서
-		static 리턴유형 메소드이름(int num, String str)
-		매개변수를 (int num, String str)로 선언했을 때, 매개변수는 (5, "홍길동)과 같이 데이터유형에 맞는 순서로 매개변수를 전달하여야 한다.
-		("홍길동", 5)로 매개변수를 전달할 수 없다.
+	1) 데이터가 외부에서 입력되는 형태를 말하고, 외부에서도 이에 맞게 입력하여야 한다.
+	2) 메서드를 통해서 데이터의 입력이 없을 때
+		void call() {}
+	3) 데이터의 입력이 하나만 있을 때, 해당 타입에 따라서 호출이 가능하다.
+		void setName(String name) {} setName("홍길동");
+		void setAge(int age) {} setAge(25);
+	4) 데이터가 여러개인 경우 해당 유형과 순서에 맞게 선언하여야 한다.
+		void setPerson(String name, int age, String loc) {}
+			setPerson("홍길동", 25, "서울 강남");
 	*/
 	
 	//과제3
-	static void members(String member, String id, String pw, String name, int point) {
-		System.out.println(member + "\t" + id + "\t" + pw + "\t" + name + "\t" + point);
+	static void members(String id, String pw, String name, int point) {
+		System.out.println(id + "\t" + pw + "\t" + name + "\t" + point);
 	}
 	
 	//과제4
-	static int score(String name, int kor, int eng, int math) {
-		System.out.print(name + "\t" + kor + "\t" + eng + "\t" + math + "\t");
+	static void score(String name, int kor, int eng, int math) {
+		int sum = kor+eng+math;
+		System.out.println(name + "\t" + kor + "\t" + eng + "\t" + math + "\t" + sum + "\t" + sum/3);
 		
-		return kor+eng+math;
 	}
 	
 	//과제5
@@ -62,33 +64,29 @@ public class A03_1102 {
 	
 	public static void main(String[] args) {
 		//과제3
-		System.out.println("회원등록\tID\tPW\t이름\t포인트");
-		members("1", "a123", "1234", "홍길동", 3500);
-		members("2", "b234", "5678", "김길동", 5000);
+		System.out.println("#회원 등록 내역#");
+		System.out.println("ID\tPW\t이름\t포인트");
+		members("a123", "1234", "홍길동", 3500);
+		members("b234", "5678", "김길동", 5000);
 		
 		System.out.println();
 		
 		//과제4
 		int sum = 0;
 		System.out.println("이름\t국어\t영어\t수학\t총점\t평균");
-		sum = score("홍길동",94,75,80);
-		System.out.println(sum + "\t" + (sum/3));
-		sum = score("김길동",84,60,79);
-		System.out.println(sum + "\t" + (sum/3));
+		score("홍길동",94,75,80);
+		score("김길동",84,60,79);
 		
 		System.out.println();
 		
 		//과제5
-		double avg = 0, totAvg = 0;
+		double avg = 0;
 		System.out.println("이름\t국어\t영어\t수학\t총점\t평균");
-		avg = avg("홍길동",94,70,80);
-		totAvg += avg;
-		avg = avg("김길동",80,65,94);
-		totAvg += avg;
-		avg = avg("이길동",88,92,83);
-		totAvg += avg;
-		System.out.printf("전체 총점 : %.2f점\n", totAvg);
-		System.out.printf("전체 평균 : %.2f점\n", totAvg/3.0);
+		avg += avg("홍길동",94,70,80);
+		avg += avg("김길동",80,65,94);
+		avg += avg("이길동",88,92,83);
+		System.out.printf("전체 총점 : %.2f점\n", avg);
+		System.out.printf("전체 평균 : %.2f점\n", avg/3.0);
 		
 		System.out.println();
 		
@@ -113,15 +111,19 @@ public class A03_1102 {
 		System.out.println();
 		
 		//과제9
-		int team1 = (int)(Math.random()*6+1);
-		int team2 = (int)(Math.random()*6+1);
+		int team1_1 = (int)(Math.random()*6+1);
+		int team1_2 = (int)(Math.random()*6+1);
+		int team2_1 = (int)(Math.random()*6+1);
+		int team2_2 = (int)(Math.random()*6+1);
 		
-		System.out.println("team1의 주사위 눈 : " + team1);
-		System.out.println("team2의 주사위 눈 : " + team2);
+		System.out.println("team1의 주사위 눈 : " + team1_1 + ", " + team1_2);
+		System.out.println("team2의 주사위 눈 : " + team2_1 + ", " + team2_2);
+		System.out.println("team1의 주사위 합 : " + (team1_1 + team1_2));
+		System.out.println("team2의 주사위 합 : " + (team2_1 + team2_2));
 		
-		if(team1 > team2) {
+		if((team1_1 + team1_2) > (team2_1 + team2_2)) {
 			System.out.println("team1 승리");
-		} else if(team1 < team2) {
+		} else if((team1_1 + team1_2) < (team2_1 + team2_2)) {
 			System.out.println("team2 승리");
 		} else {
 			System.out.println("무승부");
@@ -129,20 +131,23 @@ public class A03_1102 {
 		
 		System.out.println();
 		
-		//과제10
+		//과제10 1회~10회 진행하여 승리횟수 많은 사람이 승리
 		int team3Cnt = 0, team4Cnt = 0, cnt = 0;
 		
 		for(int i=1; i<=10; i++) {
-			int team3 = (int)(Math.random()*6+1);
-			int team4 = (int)(Math.random()*6+1);
+			int team3_1 = (int)(Math.random()*6+1);
+			int team3_2 = (int)(Math.random()*6+1);
+			int team4_1 = (int)(Math.random()*6+1);
+			int team4_2 = (int)(Math.random()*6+1);
+			System.out.println(i +". team3의 주사위 눈 : " + team3_1 + ", " + team3_2);
+			System.out.println(i +". team4의 주사위 눈 : " + team4_1 + ", " + team4_2);
+			System.out.println("team3의 주사위 합 : " + (team3_1 + team3_2));
+			System.out.println("team4의 주사위 합 : " + (team4_1 + team4_2));
 			
-			System.out.println(i +". team1의 주사위 눈 : " + team3);
-			System.out.println(i +". team2의 주사위 눈 : " + team4);
-			
-			if(team3 > team4) {
+			if((team3_1 + team3_2) > (team4_1 + team4_2)) {
 				System.out.println("team3 승리");
 				team3Cnt++;
-			} else if(team3 < team4) {
+			} else if((team3_1 + team3_2) < (team4_1 + team4_2)) {
 				System.out.println("team4 승리");
 				team4Cnt++;
 			} else {
@@ -154,6 +159,31 @@ public class A03_1102 {
 		System.out.println("team4 승리 횟수 : " + team4Cnt);
 		System.out.println("무승부 횟수 : " + cnt);
 		
+		System.out.println();
+		
+		//과제10 2번씩 총 10번 던져 눈금을 모두 더해 승리한 사람 구하기
+		int fri1Tot = 0, fri2Tot = 0;
+		System.out.println("횟수\t친구1\t친구2");
+		for(int i=1; i<=10; i++) {
+			int friend1 = (int)(Math.random()*11+2);
+			int friend2 = (int)(Math.random()*11+2);
+			System.out.print(i+"\t");
+			System.out.print(friend1+"\t");
+			System.out.print(friend2+"\n");
+			fri1Tot+=friend1;
+			fri2Tot+=friend2;
+		}
+		System.out.println("#현재 총점#");
+		System.out.print("친구1 : " + fri1Tot + "\t");
+		System.out.print("친구2 : " + fri2Tot + "\t");
+		
+		if(fri1Tot>fri2Tot) {
+			System.out.println("친구1의 승");
+		} else if(fri1Tot<fri2Tot) {
+			System.out.println("친구2의 승");
+		} else {
+			System.out.println("무승부");
+		}
 		
 	}
 

@@ -79,7 +79,17 @@ public class A10_Method {
 		System.out.println(name + "¥‘ æ»≥Á«œººø‰.");
 	}
 	
+	static int[] getArray() {
+		int[] a = {100,200,300};
+		return a;
+	}
+	
 	public static void main(String[] args) {
+		int[] a = getArray();
+		for(int i=0; i<a.length; i++) {
+			System.out.println(a[i]);			
+		}
+		
 		method1();
 		method2("»´±Êµø");
 		
