@@ -31,9 +31,9 @@ public class A02_1101 {
 		System.out.println("금액을 입력하세요.");
 		int price = scan.nextInt();
 		System.out.println("날짜\t수입지출구분\t내용\t금액\t처리후금액");
-		if(d == "지출") {
+		if(d.equals("지출")) {
 			System.out.println(date+"\t"+d+"\t"+text+"\t"+price+"\t"+(tot-price));
-			} else if(d == "수입"){
+			} else if(d.equals("수입")){
 				System.out.println(date+"\t"+d+"\t"+text+"\t"+price+"\t"+(tot+price));
 			} else {
 				System.out.println("다시 입력하세요.");

@@ -1,44 +1,68 @@
 package javaexp.a02_middle;
 
 public class A17_ClassExp {
-
+/*
+# 메서드 리턴값 처리와 오버로딩 처리
+1. 객체를 만들고 메서드를 처리할 때 리턴값이 있다.
+	이 리턴값을 해당 메서드에서 호출하는 곳으로 데이터를 전달하는 것을 말한다.
+2. 객체의 경우, 생성자를 통해서 필드값에 데이터를 할당하고 현재 할당한 필드값을 기능메서드에 의해서 호출하여 리턴하여 사용할 수 있다.
+3. 여러 개의 매개변수에 의해 데이터값을 초기화 및 기존 필드값에 영향을 미쳐서 리턴하는 처리
+*/
 	public static void main(String[] args) {
+		Prod p1 = new Prod();
+		String name = p1.getName();
+		System.out.println("리턴된 값 : " + name);
+		Prod p2 = new Prod("딸기");
+		String fpname = p2.getname();
+		System.out.println("생성자 입력 후, 메서드 리턴 값 : " + fpname );
 		
-		System.out.println("no\t출발지\t도착지\t승객수");
-		
-		Bus01 b[] = new Bus01[3];
-		
-		b[0] = new Bus01(1, "잠실", "강남", 6);
-		b[1]= new Bus01(2, "수유", "혜화", 5);
-		b[2] = new Bus01(3, "용산", "왕십리", 7);
-		
-		System.out.println();
-		
-		b[0].loadPerson(4);
-		b[0].loadPerson(5);
-		b[0].loadPerson(2);
-		
+		Prod p3 = new Prod("사과",3000);
+		int lastPrice = p3.disCount(0.2);
+		System.out.println("최종 금액 : " + lastPrice + "원");
 	}
-
 }
 
-class Bus01 {
-	int no, cnt;
-	String start, stop;
+class Prod {
+	String pname;
+	Prod(){}
+	int price;
 	
-	Bus01(){}
-	
-	Bus01(int no, String start, String stop, int cnt) {
-		this.no = no;
-		this.start = start;
-		this.stop = stop;
-		this.cnt = cnt;
-		System.out.println(no+"\t"+start+"\t"+stop+"\t"+cnt);
+	Prod(String pname) {
+		this.pname = pname;
 	}
 	
-	void loadPerson(int count) {
-		cnt += count;
-		System.out.println("탑승한 승객 수 : " + count);
-		System.out.println("총 탑승객 수 : " + cnt);
+	Prod(String pname, int price) {
+		this.pname = pname;
+		this.price = price;
+	}
+	
+	//등록된 기준되는 가격을 기능메서드의 매개변수에 의해 할인되어 할인된 값을 리턴하는 처리
+	int disCount(double dis) {
+		System.out.println("현재 제품 정보");
+		System.out.println("물건명 : " + pname);
+		System.out.println("가격 : " + price);
+		//1.0 ==> 100%, 0.1 ==>10%
+		System.out.println("할인율 : " + (int)(dis*100) + "%");
+		int disPrice = (int)(price - price * dis);
+		return disPrice;
+	}
+	
+	//disCount라는 이름이 동일하지만, 매개변수의 데이터 갯수가 다르기에 선언이 가능하다.
+	/*	1. 이름이 동일하더라도 매개변수의 갯수
+		2. 매개변수의 데이터 유형
+		3. 다수의 매개변수가 다른 데이터 유형의 순서를 처리
+		# 외부에서 메서드 호출 시, 식별할 수 있는 매개데이터를 전달할 때 같은 메서드이름으로 선언이 가능하다.
+	*/
+	
+	int disCount(double dis, String grade) {
+		return 0;
+	}
+	
+	String getName() {
+		return "사과";
+	}
+	
+	String getname() {
+		return pname;
 	}
 }

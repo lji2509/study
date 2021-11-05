@@ -5,40 +5,81 @@ public class A04_1103 {
 	public static void main(String[] args) {
 		//과제1
 			/*
-			클래스는 실제 객체 지향적인 자바 프로그램은 근간되는 Object를 만들기 위한 설계도 역할로, 클래스는 소스코드 그 자체로는 binary파일(기계언어)까지만 만들어진다.
-			실행을 하려면 main()메소드가 있는 곳에서 호출하여야 하고, 클래스를 통해 생성자로 만들어진 것을 객체라고 한다.	
-			즉, 클래스를 만들고 실행하면 객체가 생성된다.
+			클래스는 실제 객체를 만들 설계도 역할을 한다.
+			코드로 만들 클래스는 컴파일 단계까지만 진행되며, 이 컴파일 된 클래스는
+			main()가 있는 클래스에서 실행으로 해당 클래스를 new 생성자()형태로 호출하여 메모리에 로딩할 수 있다.
+			클래스명 참조변수 = new 생성자();
+			하나의 선언된 클래스에서 여러개의 객체를 생성할 수 있고, 이렇게 생성된 객체는 heap영역에 메모리를 만들고,
+			참조변수에 의해서 stack영역에 heap영역의 주소값을 저장하여 처리된다.
 			*/
 		
 		//과제2
 			/*
-			객체가 생성되면 새로운 heap영역에 이 객체가 사용하는 메모리가 할당되고, 그 heap영역의 메모리의 주소값을 참조변수에 할당하여 stack영역에 저장된다.
-			Person03 p01 = new Person03(); 를 통해서 객체를 생성했을 때,
-			new Person03을 통하여 heap 영역이 할당되고, 참조변수 p01는 heap영역의 메모리 주소를 stack영역에 참조명으로 할당한다.
+			객체는 생성이 되면 heap영역에 메모리를 만들어 생성을 하고, 이 heap영역의 주소값을 stack영역에 참조변수로 저장한다.
+			하나의 클래스를 통해서 만들어진 여러 객체들을 각각 다른 heap영역에 저장되기에 다른 주소값을 가진다.
+			Person p1 = new Person();
+			Person p2 = new Person();
+			new Person() : 힙영역에 객체가 생성, p1, p2 참조변수로 힙엽역의 주소값을 스택영역에 저장한다. 
+				ex) 도서관에 실제 책이 있는 것(힙영역에 객체가 생성), 이 책이 있는 곳을 단말기를 통해 검색해서 그 위치를 저장(스택영역에 힙영역의 위치 저장)
 			*/
 		
 		//과제3
 			/*
-			클래스는 모두 기본적인 생성자를 포함하는데, 이것을 default 생성자라고 한다.
-			생성자는 클래스명과 동일하며, 개발자가 정의하여 생성자를 선언할 수 있다.
-			개발자가 생성자를 정의하지 않으면 가장 기본적인 실행자인 default 생성자가 실행된다.
-				ex) 클래스 Person()을 실행할 때, 개발자가 정의한 생성자가 없으면 Person(){} 가 자동적으로 실행된다.
-			코드에 의해 선언된 생성자가 있는 순간, 기존의 default 생성자는 사라진다.
+			class Person {
+			
+			 }
+			 1. 클래스만 선언하여도 내부적으로 Person(){} 모양의 생성자가 default로 선언이 된다.
+			 	그래서, main() 메서드를 통해서 Person p1 = new Person(); 으로 클래스의 생성자를 호출할 수 있다.
+			 2. default생성자는 개발자가 추가 코딩을 통해 생성자를 선언할 때 사라진다.
+			 	이 때는 선언한 생성자가 있을 때만 해당 객체가 생성자를 통해서 생성이 되고 호출이 가능하다.
+			 	ex) main() 메서드
+			 	Person p1 = new Person(); 와 같은 코드의 경우, 생성자를 선언하지 않을 때는 에러가 발생하지 않지만
+			 	위와 같이 생성자를 매개변수가 있는 생성자를 선언했을 때 에러가 발생한다.
+			 	선언하는 순간 default 생성자는 사라진다.
+			 3. 기존에 매개변수가 없는 생성자도 에러없이 사용하고 싶으면, 추가하여 default생성자와 모양이 같은 매개변수가 없는 생성자를 선언하면 된다.
+				class Person {
+					Person(){}
+					Person(String name){}
+				}
 			*/
 		
 		//과제4
 			/*
-			매개변수가 있는 생성자는 일반적으로 필드값을 초기화시킬 때 주로 사용한다.
-			필드값을 초기화할 때, 매개변수와 필드명이 같은 경우에 구분하기 위해서
-			this.필드명 = 매개변수명; 형식으로 매개변수로 넘어온 데이터를 필드명에 할당한다.
+			Class Person {
+				String name;
+				int age;
+				Person(String name, int age) {
+					this.name = name;
+					this.age = age;
+				}
+				this라는 것은 객체가 생성되었을 때, 내부적으로 현재 호출된 이 객체를 지칭한다.
+				this.필드, this.메서드(), this() 현재 객체의 선언된 생성자를 호출한다.
+				외부에서는 참조변수로 호출하여 참조변수.멤버로 처리하지만, 객체에서는 this로 현재 생성된 이 객체를 지칭한다.
+				자바에서는 조금 여유롭게 this라는 키워드를 선언하지 않아도 필드나 메서드를 지칭하지만,
+				객체지향적인 프로그램에서 반드시 선언하여야 하는 경우가 많다.
+			}
+			Person p1 = new Person("홍길동", 25);
+			p1.name;
+			p1.show();
 			*/
-		
+			
 		//과제5
 			/*
-			생성자는 여러 생성자를 매개변수가 다르면 선언이 가능하다.
-			예를 들어 Person의 생성자를 생성할 때,
-			Person(String name, int age); Person(String name, double wieght);
-			위와같이 생성자를 만들 때 매개변수의 타입이나 갯수가 다르면 여러 생성자를 만들 수 있다.
+			Class Person {
+				Person(){System.out.println("생성자1");}
+				Person(){System.out.println("생성자2");}
+				Person(String name){}
+				Person(int name){}
+				Person(String name, int age){}
+			}
+			1. 생성자는 오버로딩규칙에 의해서 여러 개를 하나의 클래스에서 선언할 수 있다.
+			2. 오버로딩규칙이 있는 근본적인 이유는 외부에서 호출할 때, 다르게 식별하여 호출이 가능하기 때문이다.
+			3. 생성자도 메서드도 이름이 같지만 매개변수가 다르면 다른 생성자, 다른 메서드로 식별할 수 있기 때문에 선언이 가능하다.
+				Person p1 = new Person(); : 69, 70라인 둘 다 선언되어 있으면 해당 생성자로 무엇을 호출할지 구분을 할 수 없기 때문에 하나는 삭제해야 에러가 발생하지 않는다.
+				Person p2 = new Person("홍길동"); : 71라인에 있는 생성자를 호출하는 것이 명백하기 때문에 같은 이름이라도 선언을 할 수 있다. 
+				Person p3 = new Person(25); : 72라인을 호출하는것이 명확하기에 선언이 가능하다.
+			4. 결론적으로 생성자나 메서드는 식별이 가능하게 매개변수가 선언되면 선언이 가능하고 이것을 오버로딩이라고 하는데, 
+				일반적으로 매개변수의 갯수, 매개변수의 데이터유형, 매개변수의 선언 순서에 따라서 다른 생성자/메서드를 선언할 수 있는 것을 말한다.
 			*/
 		
 		//과제6
@@ -76,7 +117,7 @@ public class A04_1103 {
 		air[1].speedDown(50);
 		
 		air[0].accConut(30);
-		air[1].accConut(20);
+		air[1].accConut(-20);
 		
 		System.out.println();
 		
@@ -90,7 +131,7 @@ public class A04_1103 {
 		b[2] = new Bus01(3, "용산", "왕십리", 7);
 		
 		b[0].loadPerson(4);
-		b[1].loadPerson(8);
+		b[1].loadPerson(6);
 		b[2].loadPerson(5);
 	}
 
@@ -148,8 +189,17 @@ class AirPlane {
 	}
 	
 	void accConut(int loadCnt) {
+		if(loadCnt>0) {
+			System.out.println("비행기에 탑승하다."); 
+		} else if(loadCnt<0) {
+			System.out.println("비행기에서 하차하다.");
+		} else {
+			System.out.println("비행기에 있습니다.(승하차인원 없음)");
+		}
 		this.loadCnt += loadCnt;
-		System.out.println(make + " 총 탑승객 수는 " + this.loadCnt + "명 입니다.");
+		System.out.println(make + " 변경인원 : " +loadCnt);
+		System.out.println(make + " 현재인원 : " +this.loadCnt);
+		
 	}
 }
 
@@ -169,6 +219,7 @@ class Bus01 {
 	}
 	
 	void loadPerson(int count) {
+		System.out.println("# " + start + "~" + stop + " 노선 " +no + "번 버스 승차 정보 #");
 		cnt += count;
 		System.out.println(no + "번 버스 탑승한 승객 수 : " + count);
 		System.out.println(no + "번 버스 현재 탑승객 수 : " + cnt);
