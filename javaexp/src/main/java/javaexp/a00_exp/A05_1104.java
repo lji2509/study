@@ -3,69 +3,79 @@ package javaexp.a00_exp;
 public class A05_1104 {
 	//과제1
 	/*
+	1)객체 생성시
+	생성자를 통한 데이터처리는 객체 생성시 한번만 처리할 수 있다.
+	ex) Person p1 = new Person("홍길동", 25, "서울");
+		p1 = new Person("신길동", 27, "부산"); //heap영역에 다른 객체가 생성이 되기에 같은 객체라고 할 수 없다.
+	메서드는 계속 2번이상 호출하여 같은 객체에 데이터 변경이 가능하다.
+		p1.setName("신길동");
+		p1.setAge(24);
+		p1.setAge(23);
+	2) 리턴값 처리
+		생성자는 리턴값이 없다. 주로 매개변수를 통해서 필드의 초기화를 위해서 선언하는 경우가 많다.
+		메서드는 리턴값이 있다. 외부에서 호출한 데이터를 return형식으로 처리해준다.
+	3) 공통
+		매개변수를 통해서 데이터 처리
+		오버로딩 : 매개변수의 갯수, 타입, 타입이 다른 순서
+	 
 	생성자는 객체를 생성할 때 값을 받아들여 생성자에 정의한 연산을 실행하고, 필드에 값을 할당한다.
 	메서드는 반복문, 조건문 등 프로세스 동작에 관한 기능이나 출력을 하기 위한 행위를 정의하는 것이다.
 	*/
 	
 	//과제4
 	/*
-	생성자 오버로딩은 매개변수의 데이터타입, 매개변수의 갯수, 매개변수의 순서를 다르게 해서 여러 개 선언하여 사용하는 것이다.
-	메소드 오버로딩도 생성자 오버로딩과 같이 매개변수를 다르게 하고, 메소드의 이름도 같아야한다. 
-
-	class Prod {
-		String pname;
-		int price;
-		
-		Prod(){}
-		
-		Prod(String pname) {
-			this.pname = pname;
-		}
-		
-		Prod(String pname, int price) {
-			this.pname = pname;
-			this.price = price;
-		}
-		
-		생성자는 위와 같이 매개변수가 없는 기본 생성자, String을 받는 생성자, String과 int를 받는 생성자 등 매개변수에 따라 여러 생성자를 사용할 수 있다.
-		
-		위 예제와 같은 경우에는
-		Prod p1 = new Prod();
-		Prod p2 = new Prod("사과");
-		Prod p3 = new Prod("딸기", 5000);
-		와 같이 사용할 수 있다.
-		
-		String getName() {
-			return "사과";
-		}
-		
-		String getName(String name) {
-			this.name = name;
-			return name;
-		}
-		
-		메소드는 위와 같이 메소드 이름을 같게하고, 매개변수만 다르게 하여 필요에 따라 사용할 수 있다.
-		Prod p = new Prod();
-		p.getName(); 을 하면 위 메소드가 실행되어 "사과"가 리턴되고, p.getName("딸기"); 를 하면 아래 메소드가 실행되어 "딸기"가 리턴된다.
+	같은 이름을 생성자와 메서드를 정의할 수 있는 원칙이 있는데, 호출하는 곳에서 식별이 가능할 때를 말한다.
+	일반적으로 매개변수의 갯수, 데이터유형, 다른 데이터유형의 순서 처리로 가능한 것을 말한다.
+		void buy(){}
+		void buy(int no){} 갯수
+		void buy(double discount){} 데이터유형
+		void buy(int no, double discount){}
+		void buy(double discount, int no){} 순서
 	*/
 	
 	//과제5
 	/*
-	static 변수는 클래스에 종속되어 있는 변수이고, 일반변수는 객체에 종속되어 있는 변수이다.
-	따라서 static 변수는 클래스에 종속되어 있는 변수이기 때문에 공유메모리에 값이 할당되어 객체를 여러 개 생성하여 값을 지정해도 결국 모든 객체가 같은 값을 가지게된다.
-	일반 변수는 객체마다 다른 값을 가진다.
+	class Build {
+		String owner; //일반변수
+		String loc; //일반변수 : 각 객체가 가지고 있는 메모리 영역
+		static int drawPay; //static변수 : 객체가 생성되더라도 공유할 수 있는 메모리 영역
+		Build(String owner, String loc) {
+			this.owner = owner;
+			this.loc = loc;
+		}
+	}
+	main()
+	Build b1 = new Build("홍길동", "서울");
+	Build b2 = new Build("김길동", "부산");
+	Build b3 = new Build("신길동", "제주");
+	b1.owner;
+	b1.derawPay = 100000; //하나의 객체에 static변수를 변경하면, 다른 객체에도 영향을 미치기 때문에 참조변수가 아니라 클래스변수라고 하기도 한다.
+							Building.drawPay형식으로 객체생성 없이도 사용할 수 있다.
+	b2.owner;
+	b3.owner;
+	b1.drawPay, b2.drawPay, b3.drawPay 모두가 데이터가 동일하게 처리된다.
 	*/
 	
 	public static void main(String[] args) {
+		//과제2
+		Pencil p1 = new Pencil("HB", 800);
+		p1.showInfo();
+		System.out.println("리턴값 : " + p1.getKind());
+		Pencil p2 = new Pencil("4B", 850);
+		p2.showInfo();
+		System.out.println("리턴값 : " + p2.getKind());
+		
+		System.out.println();
+		
 		//과제3
 		int tot;
 		ElProduct ep = new ElProduct("전자레인지", 140000);
 		tot = ep.buy();
-		System.out.println("1개 구입했을 때 가격 : " + tot + "원");
-		tot = ep.buy2(4);
-		System.out.println(ep.cnt + "개 구입했을 때 가격 : " + tot + "원");
-		tot = ep.buy3(10, 0.1);
-		System.out.println("할인율 " + ep.dis + "%, " + ep.cnt + "개 구입 : " + tot + "원");
+		System.out.println(tot + "원");
+		tot = ep.buy(4);
+		System.out.println(tot + "원");
+//		tot = ep.buy(10, 0.1);
+		System.out.println(ep.buy(10, 0.1) + "원");
 		
 		System.out.println();
 		
@@ -97,18 +107,21 @@ class ElProduct {
 		this.price = price;
 	}
 	
+	//오버로딩
 	int buy() {
+		System.out.println("1개 구입했을 때 가격 : ");
 		return price*1;
 	}
 	
-	int buy2(int cnt) {
-		this.cnt = cnt;
+	int buy(int cnt) {
+		System.out.println(cnt + "개 구입했을 때 가격 : ");
 		return price*cnt;
 	}
-	int buy3(int cnt, double dis) {
-		this.cnt = cnt;
+	int buy(int cnt, double dis) {
 		this.dis = (int)(dis*100);
-		return (int)(price - price * dis);
+		System.out.println("할인율 " + this.dis + "%, " + cnt + "개 구입 : ");
+		int tot = price * cnt;
+		return (int)(tot - tot * dis);
 	}
 }
 
@@ -138,6 +151,31 @@ class Friend {
 			System.out.println("모인금액 : " + totPrice + "원");
 		}
 		
+	}
+}
+
+//과제2
+class Pencil {
+	String kind;
+	int price;
+	
+	Pencil(String kind, int price) {
+		this.kind = kind;
+		this.price = price;
+	}
+	
+	String getKind() {
+		return kind;
+	}
+	
+	int getPrice() {
+		return price;
+	}
+	
+	void showInfo() {
+		System.out.println("# 연필의 정보 #");
+		System.out.println("종류 : " + kind);
+		System.out.println("가격 : " + price);
 	}
 }
 

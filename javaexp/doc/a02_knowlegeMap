@@ -154,9 +154,9 @@
 			boolean isPass = num5>=5;
 		논리연산자
 			비교연산식을 연속해서 논리값을 처리할 때 활용
-			&&(and) : 두개의 비교연산식이 둘다 ture일 때 ture, 그 외는 false
+			&&(and) : 두개의 비교연산식이 둘다 true일 때 true, 그 외는 false
 				age>=14 && age>=18
-			||(or) : 두개의 비교연산식이 둘다 flase일 때 false, 그 외는 ture
+			||(or) : 두개의 비교연산식이 둘다 false일 때 false, 그 외는 true
 	2) 연산자의 우선순위
 		소괄호(연산자)가 최우선, *//(곱셈과 나눗셈), +-(덧셈과 뺄셈)
 			
