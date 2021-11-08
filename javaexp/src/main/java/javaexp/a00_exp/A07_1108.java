@@ -107,25 +107,18 @@ public class A07_1108 {
 				
 				//중복제거해서 카드뽑기
 				for(int q=0; q<n; q++) {
-					if(n==0) {
-						break;
-					} else if(num[q] != r) {
-						continue;
-					} else {
+					if(num[q] == r) {
 						r = (int)(Math.random()*52);
-						q = 0;
-						continue;
-					}
-						
+						q = -1;
+					}		
 				}
-				
 				num[n++] = r;
 				card[r].show();
 				
 				if(j == 7) {
 					System.out.println();
 				} else {
-					System.out.print(" ");
+					System.out.print("\t");
 				}
 				
 			}
