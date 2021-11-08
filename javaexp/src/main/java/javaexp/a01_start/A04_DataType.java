@@ -14,7 +14,7 @@ public class A04_DataType {
 
 		char ch1 = 'A'; //홑따옴표로 문자 하나를 할당
 		System.out.println("문자형 데이터 : " + ch1);
-		// char ==> char[](문자열) ==> String 문자열객체 사용
+		// int ==> char ==> char[](문자열) ==> String 문자열객체 사용
 		
 		int code1 = 66;
 		char ch2 = (char)code1; // int형의 값을 char로 변경

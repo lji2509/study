@@ -12,6 +12,8 @@ public class A03_ClassVsObject {
 		//하나의 클래스로 여러 개의 객체 생성 가능
 		//heap영역상의 객체의 위치는 참조변수에 따라서 다르게 나타난다.
 		//참조변수(위치값)는 stack영역에 할당되어 있다.
+		//javaexp.a02_middle.Food@7de26db8
+		//패키지명.클래스명@힙영역주소
 		System.out.println(f1);
 		System.out.println(f2);
 		System.out.println(f3);

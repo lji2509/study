@@ -5,32 +5,36 @@ import java.util.Scanner;
 public class A06_1105 {
 	//과제1
 	/*
-	Person.java 파일을 코드 작성 후 컴파일하면 Person.class 파일이 생성된다.
-	이 class파일을 실행하면, Person.class 안에 있는 main(){} 블럭을 수행 처리하며 실행된다.
+	컴파일과정(코드==>기계어로 변경, ctrl+s 저장) javac Person.java ==> Person.class
+	실행과정(main()메서드가 있는 클래스에서 호출할 때) java Person ==> memory에 로딩과 내부적인 코딩 내용이 수행
 	*/
 	
 	//과제2
 	/*
-	System.out.println("문자열"); 이와 같은 형태로 문자열을 출력할 수 있고,
-	변수의 값을 출력하고 싶을 때에는 ""표시를 제외해서 System.out.println(변수); 으로 하면 된다.
-	System.out.println("문자열"+변수);와 같은 형태도 가능하다.
-	문자열 안에 특수문자를 통한 기능처리도 할 수 있는데,
-	\(역슬래쉬)는 특수문자에 대한 기능 처리로,
-	\n : 줄바꿈처리, \t : 탭간격	과 같이 문자열 안에 포함시켜 다양한 처리를 할 수 있다.
-		ex)System.out.println("이름\t나이\t주소"); ==> 이름	나이	주소
+	Sysout.out.println("마지막에 줄바꿈 출력");
+	Sysout.out.print("줄바꿈 없는 출력");
+	Sysout.out.println("사과\t바나나\t"); \t: 데이터와 데이터 사이에 고정 크기로 설정된 탭간격
+	Sysout.out.print("안녕\n하세요\n반갑습니다.\n"); \n: 데이터와 데이터 사이에 줄바꿈 처리
 	*/
 	
 	//과제5
 	/*
 	class 클래스명 {
 		//종속된 구성 요소들을 탭간격을 이용하여 하위 계층이라는 것을 표시한다.
+		  
 		데이터타입 필드명;
 		
 		클래스명(){}; //생성자
 		
 		리턴타입 메서드명(필요시 매개변수) {
 			//탭간격으로 하위 계층 표시
+			
 			조건문
+			if(data.equals("홍길동")) {
+				System.out.println("관리자");
+			cf)문자열1.equals(문자열2) : 문자열1과 문자열2가 동일한지를 나타내는 기능메서드
+			== : 주소값 비교로 내용 비교와 차이가 있는 경우 발생
+			
 			반복문
 			...
 		}
@@ -72,7 +76,7 @@ public class A06_1105 {
 		System.out.println();
 		
 		//과제6
-		//기본 데이터유형에는 정수형(byte, short, int, long, char), 실수형(float, double), boolean(true, false)가 있다.
+		//기본 데이터유형에는 정수형(byte, short, *int, long, char), 실수형(float, *double), boolean(true, false)가 있다.
 		byte a = 127;
 		short b = 9999;
 		int c = 10000;
@@ -150,9 +154,33 @@ public class A06_1105 {
 		System.out.println();
 		
 		//과제13
-		Card card = new Card(1234, "신한");
-		card.show();
+		String form[] = {"◆", "♠", "♣", "♥"};
+		String bunho[] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
 		
+		Card[] card = new Card[52];
+
+		int cidx=0;
+		
+		for(int idx=0; idx<form.length; idx++) {
+//			System.out.print(form[idx]);
+		
+			for(int jdx=0; jdx<bunho.length; jdx++) {
+//				System.out.print(cidx+1 + ")" + form[idx] + bunho[jdx] + ", ");
+				card[cidx] = new Card(bunho[jdx], form[idx]);
+				cidx++;
+			}
+//			System.out.println();
+		}
+		for(int idx=0; idx<card.length; idx++) {
+			System.out.print(idx+1 + ")");
+			card[idx].show();
+			if(idx==card.length-1) {
+				System.out.println();
+			} else {
+				System.out.print(", ");				
+			}
+		}
+				
 		System.out.println();
 		
 		//과제14
@@ -165,17 +193,18 @@ public class A06_1105 {
 
 //과제13
 class Card {
-	int bunho;
+	String bunho;
 	String form;
 	
-	Card(int bunho, String form) {
+	Card(String bunho, String form) {
 		this.bunho = bunho;
 		this.form = form;
 	}
 	
 	void show() {
-		System.out.println("카드 번호 : " + bunho);
-		System.out.println("카드 모양 : " + form);
+		System.out.print(form + bunho);
+//		System.out.println("카드 번호 : " + bunho);
+//		System.out.println("카드 모양 : " + form);
 	}
 }
 

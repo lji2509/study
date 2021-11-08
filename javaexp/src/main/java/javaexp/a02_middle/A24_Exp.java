@@ -4,7 +4,9 @@ public class A24_Exp {
 
 	public static void main(String[] args) {
 		Car5 c = new Car5("산타페", 40, 50);
-		c.setDriver(new Driver("홍길동", 31, "서울"));
+//		c.setDriver(new Driver("홍길동", 31, "서울"));
+		Driver d = new Driver("홍길동", 31, "서울");
+		c.setDriver(d);
 		c.driving();
 		int speed = c.speedUp(30);
 		System.out.println("현재 속도는 " + speed + "km/h 입니다.");
