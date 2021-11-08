@@ -8,10 +8,10 @@ public class A06_Exception {
 		System.out.println("1");
 		System.out.println("2");
 		try {
-			System.out.println("3" + 1/0); //¿¡·¯°¡ ¹ß»ýÇÏ¸é ´õ ÀÌ»ó ¼öÇàÇÒ ¼ö ¾ø°Ô µÈ´Ù.
-		//¿¡·¯°¡ ³ª´õ¶óµµ ÇØ´ç ¿¡·¯¿¡ ´ëÇÑ Ç¥½Ã¸¦ ÁY°í Á¤»ó ÇÁ·Î¼¼½º¸¦ ÁøÇàÇÒ ¼ö ÀÖ°Ô ÇÏ´Â °Í ==> ¿¹¿ÜÃ³¸®
+			System.out.println("3" + 1/0); //ì—ëŸ¬ê°€ ë°œìƒí•˜ë©´ ë” ì´ìƒ ìˆ˜í–‰í•  ìˆ˜ ì—†ê²Œ ëœë‹¤.
+		//ì—ëŸ¬ê°€ ë‚˜ë”ë¼ë„ í•´ë‹¹ ì—ëŸ¬ì— ëŒ€í•œ í‘œì‹œë¥¼ í–Šê³  ì •ìƒ í”„ë¡œì„¸ìŠ¤ë¥¼ ì§„í–‰í•  ìˆ˜ ìžˆê²Œ í•˜ëŠ” ê²ƒ ==> ì˜ˆì™¸ì²˜ë¦¬
 		} catch(Exception e) {
-			System.out.println("¿¹¿Ü Ã³¸® : " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ ì²˜ë¦¬ : " + e.getMessage());
 		}
 		System.out.println("4");
 		System.out.println("5");

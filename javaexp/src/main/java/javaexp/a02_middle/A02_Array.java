@@ -5,14 +5,14 @@ public class A02_Array {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		int[] array; //¹è¿­ÀÇ ¼±¾ğ
-		array = new int[3]; //¹è¿­ÀÇ °´Ã¼ »ı¼º : Á¤¼öÇü 3°³
+		int[] array; //ë°°ì—´ì˜ ì„ ì–¸
+		array = new int[3]; //ë°°ì—´ì˜ ê°ì²´ ìƒì„± : ì •ìˆ˜í˜• 3ê°œ
 		array[0] = 25;
 		array[1] = 30;
 		array[2] = 40;
-		System.out.println("¹è¿­¿¡ ÇÒ´çÇÑ µ¥ÀÌÅÍ : " + array[0]);
-		System.out.println("¹è¿­¿¡ ÇÒ´çÇÑ µ¥ÀÌÅÍ : " + array[1]);
-		System.out.println("¹è¿­¿¡ ÇÒ´çÇÑ µ¥ÀÌÅÍ : " + array[2]);
+		System.out.println("ë°°ì—´ì— í• ë‹¹í•œ ë°ì´í„° : " + array[0]);
+		System.out.println("ë°°ì—´ì— í• ë‹¹í•œ ë°ì´í„° : " + array[1]);
+		System.out.println("ë°°ì—´ì— í• ë‹¹í•œ ë°ì´í„° : " + array[2]);
 		
 		
 		int point[] = new int[3];
@@ -20,9 +20,9 @@ public class A02_Array {
 		point[1] = 80;
 		point[2] = 75;
 		
-		System.out.println("±¹¾î Á¡¼ö : " + point[0] + "Á¡");
-		System.out.println("¼öÇĞ Á¡¼ö : " + point[1] + "Á¡");
-		System.out.println("¿µ¾î Á¡¼ö : " + point[2] + "Á¡");
+		System.out.println("êµ­ì–´ ì ìˆ˜ : " + point[0] + "ì ");
+		System.out.println("ìˆ˜í•™ ì ìˆ˜ : " + point[1] + "ì ");
+		System.out.println("ì˜ì–´ ì ìˆ˜ : " + point[2] + "ì ");
 		
 	}
 

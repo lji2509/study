@@ -1,18 +1,18 @@
 package javaexp.a04_vo;
 
 public class A02_Person {
-	//ÇÊµå°ªÀ» private·Î ¼³Á¤ÇÏ¿© ¿ÜºÎÀÇ Á÷Á¢ÀûÀÎ Á¢±ÙÀ» ¸·´Â´Ù.
+	//í•„ë“œê°’ì„ privateë¡œ ì„¤ì •í•˜ì—¬ ì™¸ë¶€ì˜ ì§ì ‘ì ì¸ ì ‘ê·¼ì„ ë§‰ëŠ”ë‹¤.
 	private String name;
 	private int age;
 	private String loc;
 
-	//¸Å°³º¯¼ö°¡ ¾ø´Â »ı¼ºÀÚ ÀÚµ¿»ı¼º
+	//ë§¤ê°œë³€ìˆ˜ê°€ ì—†ëŠ” ìƒì„±ì ìë™ìƒì„±
 	public A02_Person() {
-		//super() : »óÀ§Å¬·¡½ºÀÇ »ı¼ºÀÚ È£Ãâ
+		//super() : ìƒìœ„í´ë˜ìŠ¤ì˜ ìƒì„±ì í˜¸ì¶œ
 		super();
 	}
 
-	//ÇÊµå°ªÀ» ÃÊ±âÈ­ÇÏ´Â »ı¼ºÀÚ ÀÚµ¿ È£Ãâ
+	//í•„ë“œê°’ì„ ì´ˆê¸°í™”í•˜ëŠ” ìƒì„±ì ìë™ í˜¸ì¶œ
 	public A02_Person(String name, int age, String loc) {
 		super();
 		this.name = name;
@@ -20,8 +20,8 @@ public class A02_Person {
 		this.loc = loc;
 	}
 
-	//ÇÊµåÀÇ ÀúÀå¸Ş¼­µå setXXX(), È£Ãâ¸Ş¼­µå getXXX()
-	//ÀĞ±â¿Í ¾²±â·Î ¸Ş¼­µå¸¦ ºĞ¸®½ÃÄÑ °´Ã¼ÀÇ ÇÊµå¸¦ º¸È£ÇÑ´Ù.
+	//í•„ë“œì˜ ì €ì¥ë©”ì„œë“œ setXXX(), í˜¸ì¶œë©”ì„œë“œ getXXX()
+	//ì½ê¸°ì™€ ì“°ê¸°ë¡œ ë©”ì„œë“œë¥¼ ë¶„ë¦¬ì‹œì¼œ ê°ì²´ì˜ í•„ë“œë¥¼ ë³´í˜¸í•œë‹¤.
 	public String getName() {
 		return name;
 	}

@@ -1,19 +1,19 @@
 package javaexp.a02_middle;
 
 public class A10_Method {
-	//staticÀº °´Ã¼ »ı¼º¾øÀÌ »ç¿ëÇÒ ¼ö ÀÖ´Â °øÀ¯¸Ş¸ğ¸® ¿µ¿ªÀÇ ¼Ó¼ºÀ» »ç¿ëÇÒ ¶§ ¼±¾ğµÇ´Â Å°¿öµå
-	//1. ¸Ş¼­µåÀÇ ±¸¼º¿ä¼Ò
-	//	1) ¸®ÅÏÀ¯Çü
-	//	2) ¸Å°³º¯¼ö
-	//	3) ±â´É ÇÁ·Î¼¼½º Ã³¸®
-	//	4) ¸®ÅÏ°ª
+	//staticì€ ê°ì²´ ìƒì„±ì—†ì´ ì‚¬ìš©í•  ìˆ˜ ìˆëŠ” ê³µìœ ë©”ëª¨ë¦¬ ì˜ì—­ì˜ ì†ì„±ì„ ì‚¬ìš©í•  ë•Œ ì„ ì–¸ë˜ëŠ” í‚¤ì›Œë“œ
+	//1. ë©”ì„œë“œì˜ êµ¬ì„±ìš”ì†Œ
+	//	1) ë¦¬í„´ìœ í˜•
+	//	2) ë§¤ê°œë³€ìˆ˜
+	//	3) ê¸°ëŠ¥ í”„ë¡œì„¸ìŠ¤ ì²˜ë¦¬
+	//	4) ë¦¬í„´ê°’
 	
 	static String getName(String name) {
-		name = name + "´Ô^^";
+		name = name + "ë‹˜^^";
 		return name;
 	}
 	
-	//1. ¸®ÅÏÀ¯ÇüÀº ÇØ´ç ¸Ş¼­µå¸¦ ÅëÇØ¼­ ¸®ÅÏÇÏ´Â °ªÀÇ À¯ÇüÀ» ¼±¾ğÇÏ´Â °ÍÀ¸·Î ¸®ÅÏ°ª¿¡ ÇÒ´çÇÒ ¼ö ÀÖ´Â À¯ÇüÀ¸·Î ¼±¾ğ
+	//1. ë¦¬í„´ìœ í˜•ì€ í•´ë‹¹ ë©”ì„œë“œë¥¼ í†µí•´ì„œ ë¦¬í„´í•˜ëŠ” ê°’ì˜ ìœ í˜•ì„ ì„ ì–¸í•˜ëŠ” ê²ƒìœ¼ë¡œ ë¦¬í„´ê°’ì— í• ë‹¹í•  ìˆ˜ ìˆëŠ” ìœ í˜•ìœ¼ë¡œ ì„ ì–¸
 
 	static int getNum() { 
 		return 15;
@@ -37,46 +37,46 @@ public class A10_Method {
 	}
 	
 	static double getChangeType() {
-		double num1 = 25; //promote(ÀÛÀº µ¥ÀÌÅÍ°¡ Å« µ¥ÀÌÅÍÀ¯Çü¿¡ ÇÒ´ç)
+		double num1 = 25; //promote(ì‘ì€ ë°ì´í„°ê°€ í° ë°ì´í„°ìœ í˜•ì— í• ë‹¹)
 		return 35;
 	}
 	
 	static int getChangeTepe2() {
-		int num2 = (int)42.24; //casting(Å« µ¥ÀÌÅÍ¸¦ ÀÛÀº µ¥ÀÌÅÍÀ¯Çü¿¡ ÇÒ´ç)
-//		int num3 = 42.24; //¿¡·¯ ¹ß»ı
+		int num2 = (int)42.24; //casting(í° ë°ì´í„°ë¥¼ ì‘ì€ ë°ì´í„°ìœ í˜•ì— í• ë‹¹)
+//		int num3 = 42.24; //ì—ëŸ¬ ë°œìƒ
 		return (int)45.24;
 	}
 	
 	static int getInt2() {
-		//ÇØ´ç º¯¼ö¸íÀ» ¼±¾ğÇÏ¿© µ¥ÀÌÅÍ¸¦ ¸®ÅÏÇÏ´Â °æ¿ì°¡ ¸¹´Ù.
+		//í•´ë‹¹ ë³€ìˆ˜ëª…ì„ ì„ ì–¸í•˜ì—¬ ë°ì´í„°ë¥¼ ë¦¬í„´í•˜ëŠ” ê²½ìš°ê°€ ë§ë‹¤.
 		int num1 = 25;
 		num1+=3;
 		return num1;
 	}
 	
-//	¸®ÅÏ°ªÀÌ ¾ø´Â °æ¿ì
-//		1. ÀÔ·Â°ªÀ» ÅëÇØ¼­ ÀúÀå
-//		2. ÇÁ·Î¼¼½º Ã³¸®
-//		3. È­¸é Ãâ·Â Ã³¸®
-//		==> ¸®ÅÏÀ¯Çü void ¸¶Áö¸· ¶óÀÎ¿¡ return »èÁ¦
+//	ë¦¬í„´ê°’ì´ ì—†ëŠ” ê²½ìš°
+//		1. ì…ë ¥ê°’ì„ í†µí•´ì„œ ì €ì¥
+//		2. í”„ë¡œì„¸ìŠ¤ ì²˜ë¦¬
+//		3. í™”ë©´ ì¶œë ¥ ì²˜ë¦¬
+//		==> ë¦¬í„´ìœ í˜• void ë§ˆì§€ë§‰ ë¼ì¸ì— return ì‚­ì œ
 	
 	static void show() {
-		System.out.println("Ãâ·ÂÇÏ´Â Ã³¸®(¸®ÅÏ°ª ÇÊ¿ä¾øÀ½)");
+		System.out.println("ì¶œë ¥í•˜ëŠ” ì²˜ë¦¬(ë¦¬í„´ê°’ í•„ìš”ì—†ìŒ)");
 	}
 	
 	static void show2(int num1) {
 		int sum = 30;
 		sum += num1;
-		System.out.println("¸Ş¼­µå¿¡ ÀÔ·ÂµÈ °ª : " + num1);
-		System.out.println("ÃÑÇÕ°è : " +sum);
+		System.out.println("ë©”ì„œë“œì— ì…ë ¥ëœ ê°’ : " + num1);
+		System.out.println("ì´í•©ê³„ : " +sum);
 	}
 
 	static void method1() {
-		System.out.println("¹İ°©½À´Ï´Ù.");
+		System.out.println("ë°˜ê°‘ìŠµë‹ˆë‹¤.");
 	}
 	
 	static void method2(String name) {
-		System.out.println(name + "´Ô ¾È³çÇÏ¼¼¿ä.");
+		System.out.println(name + "ë‹˜ ì•ˆë…•í•˜ì„¸ìš”.");
 	}
 	
 	static int[] getArray() {
@@ -91,22 +91,22 @@ public class A10_Method {
 		}
 		
 		method1();
-		method2("È«±æµ¿");
+		method2("í™ê¸¸ë™");
 		
 		show();
 		show2(25);
 		show2(10);
 		
 		
-		String name1 = getName("½Å±æµ¿");
-		System.out.println("¸Ş¼­µå Ã³¸®ÈÄ °á°ú°ª : " + name1);
-		System.out.println("¸Ş¼­µå Ã³¸®ÈÄ °á°ú°ª : " + getName("½ÉÇı¸í"));
+		String name1 = getName("ì‹ ê¸¸ë™");
+		System.out.println("ë©”ì„œë“œ ì²˜ë¦¬í›„ ê²°ê³¼ê°’ : " + name1);
+		System.out.println("ë©”ì„œë“œ ì²˜ë¦¬í›„ ê²°ê³¼ê°’ : " + getName("ì‹¬í˜œëª…"));
 		System.out.println(getNum()+30);
 		System.out.println(getWeight());
 		
-		System.out.println("»ç¿ø¹øÈ£´Â " + getEmpno(8) + "ÀÔ´Ï´Ù.");
-		System.out.println("»ç¿øÀÇ ÀÌ¸§Àº " + getEname("È«±æµ¿") + "ÀÔ´Ï´Ù.");
-		System.out.println("¸ö¹«°Ô´Â " + getWeight(57.4) + "ÀÔ´Ï´Ù.");
+		System.out.println("ì‚¬ì›ë²ˆí˜¸ëŠ” " + getEmpno(8) + "ì…ë‹ˆë‹¤.");
+		System.out.println("ì‚¬ì›ì˜ ì´ë¦„ì€ " + getEname("í™ê¸¸ë™") + "ì…ë‹ˆë‹¤.");
+		System.out.println("ëª¸ë¬´ê²ŒëŠ” " + getWeight(57.4) + "ì…ë‹ˆë‹¤.");
 	}
 
 }

@@ -3,15 +3,15 @@ package javaexp.a02_middle;
 public class A24_Exp {
 
 	public static void main(String[] args) {
-		Car5 c = new Car5("»êÅ¸Æä", 40, 50);
-//		c.setDriver(new Driver("È«±æµ¿", 31, "¼­¿ï"));
-		Driver d = new Driver("È«±æµ¿", 31, "¼­¿ï");
+		Car5 c = new Car5("ì‚°íƒ€í˜", 40, 50);
+//		c.setDriver(new Driver("í™ê¸¸ë™", 31, "ì„œìš¸"));
+		Driver d = new Driver("í™ê¸¸ë™", 31, "ì„œìš¸");
 		c.setDriver(d);
 		c.driving();
 		int speed = c.speedUp(30);
-		System.out.println("ÇöÀç ¼Óµµ´Â " + speed + "km/h ÀÔ´Ï´Ù.");
+		System.out.println("í˜„ì¬ ì†ë„ëŠ” " + speed + "km/h ì…ë‹ˆë‹¤.");
 		speed = c.speedDown(15);
-		System.out.println("ÇöÀç ¼Óµµ´Â " + speed + "km/h ÀÔ´Ï´Ù.");
+		System.out.println("í˜„ì¬ ì†ë„ëŠ” " + speed + "km/h ì…ë‹ˆë‹¤.");
 	}
 
 }
@@ -29,26 +29,26 @@ class Car5 {
 	
 	void setDriver(Driver div) {
 		this.div = div;
-		System.out.println("±â»ç ÁöÁ¤");
+		System.out.println("ê¸°ì‚¬ ì§€ì •");
 		div.show();
 	}
 	
 	void driving() {
 		if(div != null) {
-			System.out.println(type + " Â÷ Å¾½ÂÇÏ´Ù.");
-			System.out.println("±â»ç´Â " + div.name + "ÀÌ´Ù.");
+			System.out.println(type + " ì°¨ íƒ‘ìŠ¹í•˜ë‹¤.");
+			System.out.println("ê¸°ì‚¬ëŠ” " + div.name + "ì´ë‹¤.");
 		} else {
-			System.out.println("±â»ç°¡ ÁöÁ¤µÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+			System.out.println("ê¸°ì‚¬ê°€ ì§€ì •ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 		}
 	}
 	
 	int speedUp(int speed) {
-		System.out.println("¼Óµµ°¡ ¿Ã¶ú½À´Ï´Ù.");
+		System.out.println("ì†ë„ê°€ ì˜¬ëìŠµë‹ˆë‹¤.");
 		return this.speed += speed;
 	}
 	
 	int speedDown(int speed) {
-		System.out.println("¼Óµµ°¡ ³»·Á°¬½À´Ï´Ù.");
+		System.out.println("ì†ë„ê°€ ë‚´ë ¤ê°”ìŠµë‹ˆë‹¤.");
 		return this.speed -= speed;
 	}
 	
@@ -65,9 +65,9 @@ class Driver {
 	}
 	
 	void show() {
-		System.out.println("±â»çÀÇ ÀÌ¸§ : " + name);
-		System.out.println("±â»çÀÇ ³ªÀÌ : " + age);
-		System.out.println("±â»çÀÇ »ç´Â °÷ : " + address);
+		System.out.println("ê¸°ì‚¬ì˜ ì´ë¦„ : " + name);
+		System.out.println("ê¸°ì‚¬ì˜ ë‚˜ì´ : " + age);
+		System.out.println("ê¸°ì‚¬ì˜ ì‚¬ëŠ” ê³³ : " + address);
 	}
 }
 

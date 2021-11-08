@@ -6,20 +6,20 @@ public class A07_Aarray {
 
 	public static void main(String[] args) {
 		/*
-		 # ¹è¿­ÀÌ¶õ?
-		 	1. °°Àº Å¸ÀÔÀÇ µ¥ÀÌÅÍ¸¦ ¿¬¼ÓµÈ °ø°£¿¡ ÀúÀåÇÏ´Â ÀÚ·á±¸Á¶
+		 # ë°°ì—´ì´ëž€?
+		 	1. ê°™ì€ íƒ€ìž…ì˜ ë°ì´í„°ë¥¼ ì—°ì†ëœ ê³µê°„ì— ì €ìž¥í•˜ëŠ” ìžë£Œêµ¬ì¡°
 			[1000]	[2000]	[3000]	[4000]
 			  0		  2		  3		  4
-			¹è¿­ÀÇ ÀÌ¸§ numbers
+			ë°°ì—´ì˜ ì´ë¦„ numbers
 			numbers[0]		 	
 			numbers[1]		 	
 			numbers[2]		 	
 			numbers[3]		 	
 			numbers[4]		 	
-		 	2. °¢ µ¥ÀÌÅÍ ÀúÀå À§Ä¡´Â ÀÎµ¦½º(0ºÎÅÍ ½ÃÀÛ) ºÎ¿©ÇØ Á¢±Ù
-		 # ¹è¿­ÀÇ ÀåÁ¡
-		 	1. Áßº¹µÈ º¯¼ö ¼±¾ð ÁÙÀÌ±âÀ§ÇØ »ç¿ë
-		 	2. ¹Ýº¹¹® ÀÌ¿ëÇØ ¿ä¼ÒµéÀ» ½±°Ô Ã³¸®
+		 	2. ê° ë°ì´í„° ì €ìž¥ ìœ„ì¹˜ëŠ” ì¸ë±ìŠ¤(0ë¶€í„° ì‹œìž‘) ë¶€ì—¬í•´ ì ‘ê·¼
+		 # ë°°ì—´ì˜ ìž¥ì 
+		 	1. ì¤‘ë³µëœ ë³€ìˆ˜ ì„ ì–¸ ì¤„ì´ê¸°ìœ„í•´ ì‚¬ìš©
+		 	2. ë°˜ë³µë¬¸ ì´ìš©í•´ ìš”ì†Œë“¤ì„ ì‰½ê²Œ ì²˜ë¦¬
 		 		ex)
 		 		int sum = score1;
 		 		sum += score2;
@@ -31,61 +31,61 @@ public class A07_Aarray {
 		 		}
 		 		int avg = sum/30;
 		*/
-		//# ¹è¿­ ¼±¾ð
-		//1. ¹è¿­À» »ç¿ëÇÏ±â À§ÇØ ¿ì¼± ¹è¿­ º¯¼ö¸¦ ¼±¾ðÇÏ¿©¾ß ÇÑ´Ù.
-		//		Å¸ÀÔ[] º¯¼ö, Å¸ÀÔ º¯¼ö[]
+		//# ë°°ì—´ ì„ ì–¸
+		//1. ë°°ì—´ì„ ì‚¬ìš©í•˜ê¸° ìœ„í•´ ìš°ì„  ë°°ì—´ ë³€ìˆ˜ë¥¼ ì„ ì–¸í•˜ì—¬ì•¼ í•œë‹¤.
+		//		íƒ€ìž…[] ë³€ìˆ˜, íƒ€ìž… ë³€ìˆ˜[]
 		int[] intArray;
 		double dblArray[];
-		//2. ¹è¿­ º¯¼ö´Â ÂüÁ¶ º¯¼ö - ¹è¿­ »ý¼ºµÇ±â Àü null ÃÊ±âÈ­ °¡´É
+		//2. ë°°ì—´ ë³€ìˆ˜ëŠ” ì°¸ì¡° ë³€ìˆ˜ - ë°°ì—´ ìƒì„±ë˜ê¸° ì „ null ì´ˆê¸°í™” ê°€ëŠ¥
 		String strArray[] = null;
-		//heap¿µ¿ª¿¡ °´Ã¼°¡ ¸¸µé¾îÁöÁö ¾Ê´Â »óÈ²ÀÌ¶ó¼­ ¹è¿­ÀÇ index¸¦ »ç¿ëÇÏ¸é ¿¡·¯ ¹ß»ý
-		//3. °ª ¸ñ·ÏÀ¸·Î ¹è¿­ »ý¼ºÇÏ´Â ¹æ¹ý
-		// 1) º¯¼ö ¼±¾ð°ú µ¿½Ã¿¡ °ª ¸ñ·Ï ´ëÀÔ
-		//		µ¥ÀÌÅÍÅ¸ÀÔ[] º¯¼ö = {°ª1, °ª2, °ª3..};
+		//heapì˜ì—­ì— ê°ì²´ê°€ ë§Œë“¤ì–´ì§€ì§€ ì•ŠëŠ” ìƒí™©ì´ë¼ì„œ ë°°ì—´ì˜ indexë¥¼ ì‚¬ìš©í•˜ë©´ ì—ëŸ¬ ë°œìƒ
+		//3. ê°’ ëª©ë¡ìœ¼ë¡œ ë°°ì—´ ìƒì„±í•˜ëŠ” ë°©ë²•
+		// 1) ë³€ìˆ˜ ì„ ì–¸ê³¼ ë™ì‹œì— ê°’ ëª©ë¡ ëŒ€ìž…
+		//		ë°ì´í„°íƒ€ìž…[] ë³€ìˆ˜ = {ê°’1, ê°’2, ê°’3..};
 		int[] prices = {3000,4000,5000};
-		// 2) º¯¼ö ¼±¾ð ÈÄ °ª ¸ñ·Ï ´ëÀÔ
-		//		º¯¼ö = new Å¸ÀÔ[]{°ª, °ª2, °ª3..};
+		// 2) ë³€ìˆ˜ ì„ ì–¸ í›„ ê°’ ëª©ë¡ ëŒ€ìž…
+		//		ë³€ìˆ˜ = new íƒ€ìž…[]{ê°’, ê°’2, ê°’3..};
 		intArray = new int[] {10,20,30};
-		//4. new ¿¬»êÀÚ·Î °ªÀÌ ÇÒ´çµÇÁö ¾Ê´Â ¹è¿­ »ý¼º(°´Ã¼ »ý¼º)
-		// 1) ¹è¿­ »ý¼º½Ã °ªÀ» °¡Áö°í ÀÖÁö ¾ÊÀ½
-		// 2) ÇâÈÄ °ªµéÀ» ÀúÀåÇÒ ¹è¿­À» ¹Ì¸® »ý¼ºÇÏ°í ½ÍÀº °æ¿ì
-		//		Å¸ÀÔ[] º¯¼ö = new Å¸ÀÔ[±æÀÌ];
+		//4. new ì—°ì‚°ìžë¡œ ê°’ì´ í• ë‹¹ë˜ì§€ ì•ŠëŠ” ë°°ì—´ ìƒì„±(ê°ì²´ ìƒì„±)
+		// 1) ë°°ì—´ ìƒì„±ì‹œ ê°’ì„ ê°€ì§€ê³  ìžˆì§€ ì•ŠìŒ
+		// 2) í–¥í›„ ê°’ë“¤ì„ ì €ìž¥í•  ë°°ì—´ì„ ë¯¸ë¦¬ ìƒì„±í•˜ê³  ì‹¶ì€ ê²½ìš°
+		//		íƒ€ìž…[] ë³€ìˆ˜ = new íƒ€ìž…[ê¸¸ì´];
 		double heights[] = new double[3];
-		//	½ºÅÃ ¿µ¾ï¿¡ heigths, Èü¿µ¿ª¿¡ ½Ç¼ö°¡ 3°³ µé¾î°¥ ¼ö ÀÖ´Â ¹è¿­Çü °´Ã¼ »ý¼º
-		//5. ¹è¿­ÀÇ ±æÀÌ
-		// 1) ¹è¿­¿¡ ÀúÀåÇÒ ¼ö ÀÖ´Â ÀüÃ¼ Ç×¸ñ¼ö
-		// 2) ¹è¿­ÀÇ ±æÀÌ : ¹è¿­º¯¼ö.length
-		// 3) ¹è¿­ÀÇ ±æÀÌ´Â ÀÐ±â Àü¿ë
-		System.out.println("heigthsÀÇ ±æÀÌ : " + heights.length);
-		//6. ¹è¿­ÀÇ index·Î Á¢±ÙÇÏ¿© È£ÃâÇÏ°Å³ª µ¥ÀÌÅÍ¸¦ ÀúÀåÇÒ ¼ö ÀÖ´Ù.
-		//		¹è¿­¸í[index¹øÈ£] : index¹øÈ£´Â 0ºÎÅÍ ½ÃÀÛ
+		//	ìŠ¤íƒ ì˜ì–µì— heigths, íž™ì˜ì—­ì— ì‹¤ìˆ˜ê°€ 3ê°œ ë“¤ì–´ê°ˆ ìˆ˜ ìžˆëŠ” ë°°ì—´í˜• ê°ì²´ ìƒì„±
+		//5. ë°°ì—´ì˜ ê¸¸ì´
+		// 1) ë°°ì—´ì— ì €ìž¥í•  ìˆ˜ ìžˆëŠ” ì „ì²´ í•­ëª©ìˆ˜
+		// 2) ë°°ì—´ì˜ ê¸¸ì´ : ë°°ì—´ë³€ìˆ˜.length
+		// 3) ë°°ì—´ì˜ ê¸¸ì´ëŠ” ì½ê¸° ì „ìš©
+		System.out.println("heigthsì˜ ê¸¸ì´ : " + heights.length);
+		//6. ë°°ì—´ì˜ indexë¡œ ì ‘ê·¼í•˜ì—¬ í˜¸ì¶œí•˜ê±°ë‚˜ ë°ì´í„°ë¥¼ ì €ìž¥í•  ìˆ˜ ìžˆë‹¤.
+		//		ë°°ì—´ëª…[indexë²ˆí˜¸] : indexë²ˆí˜¸ëŠ” 0ë¶€í„° ì‹œìž‘
 		heights[0] = 30.7;
 		heights[1] = 40.7;
 		heights[2] = 50.7;
-		System.out.println("µÎ ¹øÂ° ¹è¿­ÀÇ µ¥ÀÌÅÍ : " + heights[1]);
-		//	Å©±â ÀÌ»óÀÇ ¹è¿­À» È£ÃâÇÏ¸é ¿¡·¯ ¹ß»ý
+		System.out.println("ë‘ ë²ˆì§¸ ë°°ì—´ì˜ ë°ì´í„° : " + heights[1]);
+		//	í¬ê¸° ì´ìƒì˜ ë°°ì—´ì„ í˜¸ì¶œí•˜ë©´ ì—ëŸ¬ ë°œìƒ
 		
-		String names[] = {"È«±æµ¿", "À¯Àç¼®", "°­È£µ¿"};
+		String names[] = {"í™ê¸¸ë™", "ìœ ìž¬ì„", "ê°•í˜¸ë™"};
 		int kors[] = {30, 80, 55};
 		
 		for(int i=0; i<3; i++) {
-			System.out.println("ÀÌ¸§Àº " + names[i] + "ÀÌ°í, ±¹¾îÁ¡¼ö´Â " + kors[i] + "Á¡ ÀÔ´Ï´Ù.");
+			System.out.println("ì´ë¦„ì€ " + names[i] + "ì´ê³ , êµ­ì–´ì ìˆ˜ëŠ” " + kors[i] + "ì  ìž…ë‹ˆë‹¤.");
 		}
 		
 		Scanner  sc = new Scanner(System.in);
 		String name[] = new String[3];
 		int kor[] = new int[3];
 		for(int i=0; i<3; i++) {
-			System.out.println((i+1) + "¹ø ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.");
+			System.out.println((i+1) + "ë²ˆ ì´ë¦„ì„ ìž…ë ¥í•˜ì„¸ìš”.");
 			name[i] = sc.nextLine();
 		}
 		for(int i=0; i<3; i++) {
-			System.out.println((i+1) + "¹ø ±¹¾îÁ¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+			System.out.println((i+1) + "ë²ˆ êµ­ì–´ì ìˆ˜ë¥¼ ìž…ë ¥í•˜ì„¸ìš”.");
 			kor[i] = sc.nextInt();
 			
 			}
 		for(int i=0; i<3; i++) {
-			System.out.println("ÀÌ¸§Àº " + name[i] + "ÀÌ°í, ±¹¾îÁ¡¼ö´Â " + kor[i] + "Á¡ ÀÔ´Ï´Ù.");
+			System.out.println("ì´ë¦„ì€ " + name[i] + "ì´ê³ , êµ­ì–´ì ìˆ˜ëŠ” " + kor[i] + "ì  ìž…ë‹ˆë‹¤.");
 		}
 	}
 

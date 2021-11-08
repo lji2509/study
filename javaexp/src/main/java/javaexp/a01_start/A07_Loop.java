@@ -4,22 +4,22 @@ public class A07_Loop {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//# ¹İº¹¹®ÀÇ ±âº» Çü½Ä
-		//for(ÃÊ±â°ª¼±¾ğ; ¹İº¹ÇÒÁ¶°Ç; Áõ°¨¿¬»êÀÚ) {
-		//	¹İº¹ÇÒ ³»¿ë
+		//# ë°˜ë³µë¬¸ì˜ ê¸°ë³¸ í˜•ì‹
+		//for(ì´ˆê¸°ê°’ì„ ì–¸; ë°˜ë³µí• ì¡°ê±´; ì¦ê°ì—°ì‚°ì) {
+		//	ë°˜ë³µí•  ë‚´ìš©
 		//	}
 		for(int cnt=1; cnt<=10; cnt++) {
-			System.out.println("Ä«¿îÆ® : " + cnt);
+			System.out.println("ì¹´ìš´íŠ¸ : " + cnt);
 		}
 	
 		System.out.println("# 10 ~ 20 #");
 		for(int cnt=10; cnt<=20; cnt++) {
-			System.out.println("Ä«¿îÆ® : " + cnt);
+			System.out.println("ì¹´ìš´íŠ¸ : " + cnt);
 		}
 	
 		System.out.println("# 30 ~ 50 #");
 		for(int cnt=30; cnt<=50; cnt++) {
-			System.out.println("Ä«¿îÆ® : " + cnt);
+			System.out.println("ì¹´ìš´íŠ¸ : " + cnt);
 		}
 	
 		for(int cnt=100; cnt>=90; cnt--) {

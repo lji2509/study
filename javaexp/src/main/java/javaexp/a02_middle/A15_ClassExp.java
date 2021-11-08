@@ -12,41 +12,41 @@ public class A15_ClassExp {
 			b[i] = new Book12();
 		}
 	
-		b[0].name = "È«±æµ¿";
+		b[0].name = "í™ê¸¸ë™";
 		b[0].price = 14000;
-		b[1].name = "¼¼Á¾´ë¿Õ";
+		b[1].name = "ì„¸ì¢…ëŒ€ì™•";
 		b[1].price = 23000;
-		b[2].name = "ÀÌ¼ø½Å";
+		b[2].name = "ì´ìˆœì‹ ";
 		b[2].price = 16000;
 		
 		for(int i=0; i<3; i++) {
-			System.out.println("Ã¥ ÀÌ¸§ : " +b[i].name+"\t°¡°İ : "+b[i].price+"¿ø");
+			System.out.println("ì±… ì´ë¦„ : " +b[i].name+"\tê°€ê²© : "+b[i].price+"ì›");
 		}
 		
-		Book12 b1 = new Book12("Àå¹ßÀå", 10000);
-		System.out.println("Ã¥ ÀÌ¸§ : " + b1.name + "\t°¡°İ : " + b1.price + "¿ø");
+		Book12 b1 = new Book12("ì¥ë°œì¥", 10000);
+		System.out.println("ì±… ì´ë¦„ : " + b1.name + "\tê°€ê²© : " + b1.price + "ì›");
 		
 		Book12 a[] = new Book12[3];
-		a[0] = new Book12("À¯°ü¼ø", 20000);
-		a[1] = new Book12("±è±¸", 15000);
-		a[2] = new Book12("Àå¿µ½Ç", 19000);
+		a[0] = new Book12("ìœ ê´€ìˆœ", 20000);
+		a[1] = new Book12("ê¹€êµ¬", 15000);
+		a[2] = new Book12("ì¥ì˜ì‹¤", 19000);
 		
 		for(int i=0; i<a.length; i++) {
-			System.out.println("Ã¥ ÀÌ¸§ : " + a[i].name + "\t°¡°İ : " + a[i].price + "¿ø");			
+			System.out.println("ì±… ì´ë¦„ : " + a[i].name + "\tê°€ê²© : " + a[i].price + "ì›");			
 		}
 		
 		
 		
-//		b1.name = "È«±æµ¿";
+//		b1.name = "í™ê¸¸ë™";
 //		b1.price = 14000;
-//		b2.name = "¼¼Á¾´ë¿Õ";
+//		b2.name = "ì„¸ì¢…ëŒ€ì™•";
 //		b2.price = 23000;
-//		b3.name = "ÀÌ¼ø½Å";
+//		b3.name = "ì´ìˆœì‹ ";
 //		b3.price = 16000;
 //		
-//		System.out.println("Ã¥ ÀÌ¸§ : " +b1.name+", °¡°İ : " +b1.price+"¿ø");
-//		System.out.println("Ã¥ ÀÌ¸§ : " +b2.name+", °¡°İ : " +b2.price+"¿ø");
-//		System.out.println("Ã¥ ÀÌ¸§ : " +b3.name+", °¡°İ : " +b3.price+"¿ø");
+//		System.out.println("ì±… ì´ë¦„ : " +b1.name+", ê°€ê²© : " +b1.price+"ì›");
+//		System.out.println("ì±… ì´ë¦„ : " +b2.name+", ê°€ê²© : " +b2.price+"ì›");
+//		System.out.println("ì±… ì´ë¦„ : " +b3.name+", ê°€ê²© : " +b3.price+"ì›");
 		
 	}
 

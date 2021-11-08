@@ -4,13 +4,13 @@ public class A08_Inheritance {
 
 	public static void main(String[] args) {
 		Father f1 = new Father();
-		System.out.println("¾Æ¹öÁö °´Ã¼ : " + f1.runningskill);
+		System.out.println("ì•„ë²„ì§€ ê°ì²´ : " + f1.runningskill);
 		Son s1 = new Son();
-		System.out.println("#¾Æµé °´Ã¼#");
+		System.out.println("#ì•„ë“¤ ê°ì²´#");
 		System.out.println(s1.runningskill);
 		System.out.println(s1.swimminskill);
 		Daughter d1 = new Daughter();
-		System.out.println("#µş °´Ã¼#");
+		System.out.println("#ë”¸ ê°ì²´#");
 		System.out.println(d1.runningskill);
 		System.out.println(d1.jumpskill);
 		
@@ -19,14 +19,14 @@ public class A08_Inheritance {
 
 }
 
-//»ó¼ÓÀÇ °´Ã¼°£ÀÇ ¼­·Î ¿¬°ü°ü°è¸¦ ¸¸µé¾î È¿À²ÀûÀ¸·Î ÄÚµå¸¦ Ã³¸®ÇÏ±â À§ÇØ »ç¿ë
-//1. »ó¼ÓÀÇ ±âÃÊ ±â´ÉÀº »óÀ§ Å¬·¡½ºÀÇ ³»¿ëÀ» ÇÏÀ§ Å¬·¡½º°¢ ¹Ù·Î »ç¿ëÇÒ ¼ö ÀÖ´Ù.
+//ìƒì†ì˜ ê°ì²´ê°„ì˜ ì„œë¡œ ì—°ê´€ê´€ê³„ë¥¼ ë§Œë“¤ì–´ íš¨ìœ¨ì ìœ¼ë¡œ ì½”ë“œë¥¼ ì²˜ë¦¬í•˜ê¸° ìœ„í•´ ì‚¬ìš©
+//1. ìƒì†ì˜ ê¸°ì´ˆ ê¸°ëŠ¥ì€ ìƒìœ„ í´ë˜ìŠ¤ì˜ ë‚´ìš©ì„ í•˜ìœ„ í´ë˜ìŠ¤ê° ë°”ë¡œ ì‚¬ìš©í•  ìˆ˜ ìˆë‹¤.
 class Father {
-	String runningskill = "´Ş¸®±â¸¦ ÀßÇÑ´Ù.";	
+	String runningskill = "ë‹¬ë¦¬ê¸°ë¥¼ ì˜í•œë‹¤.";	
 }
 class Son extends Father {
-	String swimminskill = "¼ö¿µÀ» ÀßÇÑ´Ù.";
+	String swimminskill = "ìˆ˜ì˜ì„ ì˜í•œë‹¤.";
 }
 class Daughter extends Father {
-	String jumpskill = "¹øÁöÁ¡ÇÁ¸¦ ÀßÇÑ´Ù.";
+	String jumpskill = "ë²ˆì§€ì í”„ë¥¼ ì˜í•œë‹¤.";
 }

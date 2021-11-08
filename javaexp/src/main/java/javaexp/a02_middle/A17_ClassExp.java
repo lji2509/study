@@ -2,23 +2,23 @@ package javaexp.a02_middle;
 
 public class A17_ClassExp {
 /*
-# ¸Þ¼­µå ¸®ÅÏ°ª Ã³¸®¿Í ¿À¹ö·Îµù Ã³¸®
-1. °´Ã¼¸¦ ¸¸µé°í ¸Þ¼­µå¸¦ Ã³¸®ÇÒ ¶§ ¸®ÅÏ°ªÀÌ ÀÖ´Ù.
-	ÀÌ ¸®ÅÏ°ªÀ» ÇØ´ç ¸Þ¼­µå¿¡¼­ È£ÃâÇÏ´Â °÷À¸·Î µ¥ÀÌÅÍ¸¦ Àü´ÞÇÏ´Â °ÍÀ» ¸»ÇÑ´Ù.
-2. °´Ã¼ÀÇ °æ¿ì, »ý¼ºÀÚ¸¦ ÅëÇØ¼­ ÇÊµå°ª¿¡ µ¥ÀÌÅÍ¸¦ ÇÒ´çÇÏ°í ÇöÀç ÇÒ´çÇÑ ÇÊµå°ªÀ» ±â´É¸Þ¼­µå¿¡ ÀÇÇØ¼­ È£ÃâÇÏ¿© ¸®ÅÏÇÏ¿© »ç¿ëÇÒ ¼ö ÀÖ´Ù.
-3. ¿©·¯ °³ÀÇ ¸Å°³º¯¼ö¿¡ ÀÇÇØ µ¥ÀÌÅÍ°ªÀ» ÃÊ±âÈ­ ¹× ±âÁ¸ ÇÊµå°ª¿¡ ¿µÇâÀ» ¹ÌÃÄ¼­ ¸®ÅÏÇÏ´Â Ã³¸®
+# ë©”ì„œë“œ ë¦¬í„´ê°’ ì²˜ë¦¬ì™€ ì˜¤ë²„ë¡œë”© ì²˜ë¦¬
+1. ê°ì²´ë¥¼ ë§Œë“¤ê³  ë©”ì„œë“œë¥¼ ì²˜ë¦¬í•  ë•Œ ë¦¬í„´ê°’ì´ ìžˆë‹¤.
+	ì´ ë¦¬í„´ê°’ì„ í•´ë‹¹ ë©”ì„œë“œì—ì„œ í˜¸ì¶œí•˜ëŠ” ê³³ìœ¼ë¡œ ë°ì´í„°ë¥¼ ì „ë‹¬í•˜ëŠ” ê²ƒì„ ë§í•œë‹¤.
+2. ê°ì²´ì˜ ê²½ìš°, ìƒì„±ìžë¥¼ í†µí•´ì„œ í•„ë“œê°’ì— ë°ì´í„°ë¥¼ í• ë‹¹í•˜ê³  í˜„ìž¬ í• ë‹¹í•œ í•„ë“œê°’ì„ ê¸°ëŠ¥ë©”ì„œë“œì— ì˜í•´ì„œ í˜¸ì¶œí•˜ì—¬ ë¦¬í„´í•˜ì—¬ ì‚¬ìš©í•  ìˆ˜ ìžˆë‹¤.
+3. ì—¬ëŸ¬ ê°œì˜ ë§¤ê°œë³€ìˆ˜ì— ì˜í•´ ë°ì´í„°ê°’ì„ ì´ˆê¸°í™” ë° ê¸°ì¡´ í•„ë“œê°’ì— ì˜í–¥ì„ ë¯¸ì³ì„œ ë¦¬í„´í•˜ëŠ” ì²˜ë¦¬
 */
 	public static void main(String[] args) {
 		Prod p1 = new Prod();
 		String name = p1.getName();
-		System.out.println("¸®ÅÏµÈ °ª : " + name);
-		Prod p2 = new Prod("µþ±â");
+		System.out.println("ë¦¬í„´ëœ ê°’ : " + name);
+		Prod p2 = new Prod("ë”¸ê¸°");
 		String fpname = p2.getname();
-		System.out.println("»ý¼ºÀÚ ÀÔ·Â ÈÄ, ¸Þ¼­µå ¸®ÅÏ °ª : " + fpname );
+		System.out.println("ìƒì„±ìž ìž…ë ¥ í›„, ë©”ì„œë“œ ë¦¬í„´ ê°’ : " + fpname );
 		
-		Prod p3 = new Prod("»ç°ú",3000);
+		Prod p3 = new Prod("ì‚¬ê³¼",3000);
 		int lastPrice = p3.disCount(0.2);
-		System.out.println("ÃÖÁ¾ ±Ý¾× : " + lastPrice + "¿ø");
+		System.out.println("ìµœì¢… ê¸ˆì•¡ : " + lastPrice + "ì›");
 	}
 }
 
@@ -36,22 +36,22 @@ class Prod {
 		this.price = price;
 	}
 	
-	//µî·ÏµÈ ±âÁØµÇ´Â °¡°ÝÀ» ±â´É¸Þ¼­µåÀÇ ¸Å°³º¯¼ö¿¡ ÀÇÇØ ÇÒÀÎµÇ¾î ÇÒÀÎµÈ °ªÀ» ¸®ÅÏÇÏ´Â Ã³¸®
+	//ë“±ë¡ëœ ê¸°ì¤€ë˜ëŠ” ê°€ê²©ì„ ê¸°ëŠ¥ë©”ì„œë“œì˜ ë§¤ê°œë³€ìˆ˜ì— ì˜í•´ í• ì¸ë˜ì–´ í• ì¸ëœ ê°’ì„ ë¦¬í„´í•˜ëŠ” ì²˜ë¦¬
 	int disCount(double dis) {
-		System.out.println("ÇöÀç Á¦Ç° Á¤º¸");
-		System.out.println("¹°°Ç¸í : " + pname);
-		System.out.println("°¡°Ý : " + price);
+		System.out.println("í˜„ìž¬ ì œí’ˆ ì •ë³´");
+		System.out.println("ë¬¼ê±´ëª… : " + pname);
+		System.out.println("ê°€ê²© : " + price);
 		//1.0 ==> 100%, 0.1 ==>10%
-		System.out.println("ÇÒÀÎÀ² : " + (int)(dis*100) + "%");
+		System.out.println("í• ì¸ìœ¨ : " + (int)(dis*100) + "%");
 		int disPrice = (int)(price - price * dis);
 		return disPrice;
 	}
 	
-	//disCount¶ó´Â ÀÌ¸§ÀÌ µ¿ÀÏÇÏÁö¸¸, ¸Å°³º¯¼öÀÇ µ¥ÀÌÅÍ °¹¼ö°¡ ´Ù¸£±â¿¡ ¼±¾ðÀÌ °¡´ÉÇÏ´Ù.
-	/*	1. ÀÌ¸§ÀÌ µ¿ÀÏÇÏ´õ¶óµµ ¸Å°³º¯¼öÀÇ °¹¼ö
-		2. ¸Å°³º¯¼öÀÇ µ¥ÀÌÅÍ À¯Çü
-		3. ´Ù¼öÀÇ ¸Å°³º¯¼ö°¡ ´Ù¸¥ µ¥ÀÌÅÍ À¯ÇüÀÇ ¼ø¼­¸¦ Ã³¸®
-		# ¿ÜºÎ¿¡¼­ ¸Þ¼­µå È£Ãâ ½Ã, ½Äº°ÇÒ ¼ö ÀÖ´Â ¸Å°³µ¥ÀÌÅÍ¸¦ Àü´ÞÇÒ ¶§ °°Àº ¸Þ¼­µåÀÌ¸§À¸·Î ¼±¾ðÀÌ °¡´ÉÇÏ´Ù.
+	//disCountë¼ëŠ” ì´ë¦„ì´ ë™ì¼í•˜ì§€ë§Œ, ë§¤ê°œë³€ìˆ˜ì˜ ë°ì´í„° ê°¯ìˆ˜ê°€ ë‹¤ë¥´ê¸°ì— ì„ ì–¸ì´ ê°€ëŠ¥í•˜ë‹¤.
+	/*	1. ì´ë¦„ì´ ë™ì¼í•˜ë”ë¼ë„ ë§¤ê°œë³€ìˆ˜ì˜ ê°¯ìˆ˜
+		2. ë§¤ê°œë³€ìˆ˜ì˜ ë°ì´í„° ìœ í˜•
+		3. ë‹¤ìˆ˜ì˜ ë§¤ê°œë³€ìˆ˜ê°€ ë‹¤ë¥¸ ë°ì´í„° ìœ í˜•ì˜ ìˆœì„œë¥¼ ì²˜ë¦¬
+		# ì™¸ë¶€ì—ì„œ ë©”ì„œë“œ í˜¸ì¶œ ì‹œ, ì‹ë³„í•  ìˆ˜ ìžˆëŠ” ë§¤ê°œë°ì´í„°ë¥¼ ì „ë‹¬í•  ë•Œ ê°™ì€ ë©”ì„œë“œì´ë¦„ìœ¼ë¡œ ì„ ì–¸ì´ ê°€ëŠ¥í•˜ë‹¤.
 	*/
 	
 	int disCount(double dis, String grade) {
@@ -59,7 +59,7 @@ class Prod {
 	}
 	
 	String getName() {
-		return "»ç°ú";
+		return "ì‚¬ê³¼";
 	}
 	
 	String getname() {

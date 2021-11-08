@@ -4,21 +4,21 @@ public class A02_Print {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("¾È³çÇÏ¼¼¿ä1");
-		System.out.println("¾È³çÇÏ¼¼¿ä2(ÁÙ¹Ù²ŞÆ÷ÇÔ)");
-		//	½ÇÇà ´ÜÃàÅ° : ctrl + f11
-		System.out.print("»ç°ú,");
-		System.out.print("¹Ù³ª³ª,");
-		System.out.print("µş±â!!!\n");
+		System.out.println("ì•ˆë…•í•˜ì„¸ìš”1");
+		System.out.println("ì•ˆë…•í•˜ì„¸ìš”2(ì¤„ë°”ê¿ˆí¬í•¨)");
+		//	ì‹¤í–‰ ë‹¨ì¶•í‚¤ : ctrl + f11
+		System.out.print("ì‚¬ê³¼,");
+		System.out.print("ë°”ë‚˜ë‚˜,");
+		System.out.print("ë”¸ê¸°!!!\n");
 		
 		
-		System.out.println("#ÁÁ¾ÆÇÏ´Â °úÀÏ Á¾·ù#");
-		System.out.println("1. µş±â");
-		System.out.println("2. ¹Ù³ª³ª");
-		System.out.println("3. »ç°ú");
-		System.out.println("#ÁÁ¾ÆÇÏ´Â ÀüÀÚÁ¦Ç°#");
-		System.out.print("1. ÇÚµåÆù ");
-		System.out.print("2. ÄÄÇ»ÅÍ ");
+		System.out.println("#ì¢‹ì•„í•˜ëŠ” ê³¼ì¼ ì¢…ë¥˜#");
+		System.out.println("1. ë”¸ê¸°");
+		System.out.println("2. ë°”ë‚˜ë‚˜");
+		System.out.println("3. ì‚¬ê³¼");
+		System.out.println("#ì¢‹ì•„í•˜ëŠ” ì „ìì œí’ˆ#");
+		System.out.print("1. í•¸ë“œí° ");
+		System.out.print("2. ì»´í“¨í„° ");
 		System.out.print("3. UHD TV ");
 	}
 

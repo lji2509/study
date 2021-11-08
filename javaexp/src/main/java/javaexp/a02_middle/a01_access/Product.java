@@ -1,7 +1,7 @@
 package javaexp.a02_middle.a01_access;
 
 public class Product {
-	//private : Á¢±ÙÁ¦¾îÀÚ Áß¿¡ ¿ÜºÎ¿¡¼­ È£ÃâÀÌ ºÒ°¡´É
-	private String name = "»ç°ú";
+	//private : ì ‘ê·¼ì œì–´ì ì¤‘ì— ì™¸ë¶€ì—ì„œ í˜¸ì¶œì´ ë¶ˆê°€ëŠ¥
+	private String name = "ì‚¬ê³¼";
 	int price = 3000;
 }

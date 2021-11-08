@@ -8,16 +8,16 @@ public class A09_InputExp {
 
 		Scanner scan = new Scanner(System.in);
 		
-		System.out.println("ÁÁ¾ÆÇÏ´Â °úÀÏÀ» ÀÔ·ÂÇÏ¼¼¿ä.");
+		System.out.println("ì¢‹ì•„í•˜ëŠ” ê³¼ì¼ì„ ì…ë ¥í•˜ì„¸ìš”.");
 		String fruit = scan.nextLine();
-		System.out.println("ÀÔ·ÂµÈ °úÀÏ¸í : " + fruit);
+		System.out.println("ì…ë ¥ëœ ê³¼ì¼ëª… : " + fruit);
 		
-		System.out.println("°úÀÏÀÇ °¡°İÀ» ÀÔ·ÂÇÏ¼¼¿ä.");
+		System.out.println("ê³¼ì¼ì˜ ê°€ê²©ì„ ì…ë ¥í•˜ì„¸ìš”.");
 		int price = scan.nextInt();
-		System.out.println("±¸¸ÅÇÒ °¹¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+		System.out.println("êµ¬ë§¤í•  ê°¯ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 		int count = scan.nextInt();
 		
-		System.out.println("ÃÑ ºñ¿ëÀº " + (price * count) + "¿ø ÀÔ´Ï´Ù.");		
+		System.out.println("ì´ ë¹„ìš©ì€ " + (price * count) + "ì› ì…ë‹ˆë‹¤.");		
 	}
 
 }

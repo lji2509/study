@@ -3,7 +3,7 @@ package javaexp.a02_middle;
 public class A18_MethodExp {
 
 	public static void main(String[] args) {
-		Music2 m = new Music2("°­³²½ºÅ¸ÀÏ");
+		Music2 m = new Music2("ê°•ë‚¨ìŠ¤íƒ€ì¼");
 		String name = m.getMname();
 		System.out.println(name);
 		

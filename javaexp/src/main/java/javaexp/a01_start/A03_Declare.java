@@ -5,25 +5,25 @@ public class A03_Declare {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		/* 
-		 #¼±¾ğ
-		 µ¥ÀÌÅÍÀ¯Çü »ç¿ëÇÒÀÌ¸§;
+		 #ì„ ì–¸
+		 ë°ì´í„°ìœ í˜• ì‚¬ìš©í• ì´ë¦„;
 		 */
-		int num01; //Á¤¼öÇüµ¥ÀÌÅÍ »ç¿ë, ÀÌ¸§ num01 ¸í¸í
-		// º¯¼ö¸í = ÇÒ´çÇÒ µ¥ÀÌÅÍ
-		num01 = 25; // num01ÀÌ¶ó´Â º¯¼ö¿¡ 25 ÇÒ´ç
-		System.out.println(num01); // num01¿¡ ÇÒ´çµÈ µ¥ÀÌÅÍ Ãâ·Â
-		System.out.println("num01¿¡ ÇÒ´çµÈ µ¥ÀÌÅÍ´Â " + num01 + "ÀÔ´Ï´Ù");
+		int num01; //ì •ìˆ˜í˜•ë°ì´í„° ì‚¬ìš©, ì´ë¦„ num01 ëª…ëª…
+		// ë³€ìˆ˜ëª… = í• ë‹¹í•  ë°ì´í„°
+		num01 = 25; // num01ì´ë¼ëŠ” ë³€ìˆ˜ì— 25 í• ë‹¹
+		System.out.println(num01); // num01ì— í• ë‹¹ëœ ë°ì´í„° ì¶œë ¥
+		System.out.println("num01ì— í• ë‹¹ëœ ë°ì´í„°ëŠ” " + num01 + "ì…ë‹ˆë‹¤");
 	
 		int price = 3000;
 		int cnt = 3;
 		
-		System.out.println("»ç°úÀÇ °¡°İÀº " + price + "¿øÀÌ°í, ±¸¸ÅÇÑ °¹¼ö´Â " + cnt + "°³ ÀÔ´Ï´Ù.");
-		//»ê¼ú¿¬»êÀÚ¿Í ±× °á°ú¸¦ ´ëÀÔ ¿¬»êÀÚ¸¦ ÅëÇØ °á°ú¸¦ ÇÒ´çÇÏ¿© Ã³¸®
+		System.out.println("ì‚¬ê³¼ì˜ ê°€ê²©ì€ " + price + "ì›ì´ê³ , êµ¬ë§¤í•œ ê°¯ìˆ˜ëŠ” " + cnt + "ê°œ ì…ë‹ˆë‹¤.");
+		//ì‚°ìˆ ì—°ì‚°ìì™€ ê·¸ ê²°ê³¼ë¥¼ ëŒ€ì… ì—°ì‚°ìë¥¼ í†µí•´ ê²°ê³¼ë¥¼ í• ë‹¹í•˜ì—¬ ì²˜ë¦¬
 		int tot = price * cnt;
-		System.out.println("ÃÑ ºñ¿ëÀº " + tot + "¿ø ÀÔ´Ï´Ù.");
+		System.out.println("ì´ ë¹„ìš©ì€ " + tot + "ì› ì…ë‹ˆë‹¤.");
 		
-		String name = "È«±æµ¿";
-		System.out.println("ÀÌ¸§ : " + name);
+		String name = "í™ê¸¸ë™";
+		System.out.println("ì´ë¦„ : " + name);
 		
 	}
 

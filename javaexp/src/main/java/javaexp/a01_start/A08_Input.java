@@ -6,27 +6,27 @@ public class A08_Input {
 
 	public static void main(String[] args) {
 	/*
-	 # ÀÚ¹ÙÀÇ ÀÔ·ºµ¥ÀÌÅÍ Ã³¸®¹æ½Ä
-	 1. Scanner È°¿ë
-	 2. ±âº» ÄÚµå
+	 # ìë°”ì˜ ì…ë ‰ë°ì´í„° ì²˜ë¦¬ë°©ì‹
+	 1. Scanner í™œìš©
+	 2. ê¸°ë³¸ ì½”ë“œ
 	 	Scanner sc = new Scanner(System.in);
-	 	Scanner : ÀÔ·ÂÀ» Ã³¸®ÇØÁÖ´Â °´Ã¼(³»ÀåµÈ Å¬·¡½º import ÇÊ¿ä)
-	 	System.in : ÀÚ¹Ù¿¡¼­ consoleÃ¢¿¡ ÀÔ·ÂµÇ´Â ³»¿ëÀ» streamÇü½ÄÀ¸·Î ¹Ş¾Æ Ã³¸®ÇÏ´Â ±âº» °´Ã¼ÀÎ InputStream
-	 	sc.nextLine() : enterÅ° ÀÔ·Â½Ã±îÁö µ¥ÀÌÅÍ¸¦ ¹Ş¾ÆµéÀÎ´Ù.
-	 	sc.nextInt() : Á¤¼öÇü µ¥ÀÌÅÍ¸¦ ÀÔ·Â¹Ş´Â´Ù.
-	 	sc.nextDouble(): ½Ç¼öÇü µ¥ÀÌÅÍ¸¦ ÀÔ·Â¹Ş´Â´Ù.
+	 	Scanner : ì…ë ¥ì„ ì²˜ë¦¬í•´ì£¼ëŠ” ê°ì²´(ë‚´ì¥ëœ í´ë˜ìŠ¤ import í•„ìš”)
+	 	System.in : ìë°”ì—ì„œ consoleì°½ì— ì…ë ¥ë˜ëŠ” ë‚´ìš©ì„ streamí˜•ì‹ìœ¼ë¡œ ë°›ì•„ ì²˜ë¦¬í•˜ëŠ” ê¸°ë³¸ ê°ì²´ì¸ InputStream
+	 	sc.nextLine() : enterí‚¤ ì…ë ¥ì‹œê¹Œì§€ ë°ì´í„°ë¥¼ ë°›ì•„ë“¤ì¸ë‹¤.
+	 	sc.nextInt() : ì •ìˆ˜í˜• ë°ì´í„°ë¥¼ ì…ë ¥ë°›ëŠ”ë‹¤.
+	 	sc.nextDouble(): ì‹¤ìˆ˜í˜• ë°ì´í„°ë¥¼ ì…ë ¥ë°›ëŠ”ë‹¤.
 	 */
 	
 		Scanner sc = new Scanner(System.in);
-		System.out.println("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä");
+		System.out.println("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”");
 		String name = sc.nextLine();
-		System.out.println("ÀÔ·ÂÇÑ ÀÌ¸§Àº " + name + " ÀÔ´Ï´Ù.");
-		System.out.println("³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+		System.out.println("ì…ë ¥í•œ ì´ë¦„ì€ " + name + " ì…ë‹ˆë‹¤.");
+		System.out.println("ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 		int age = sc.nextInt();
-		System.out.println("¸ö¹«°Ô¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+		System.out.println("ëª¸ë¬´ê²Œë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 		double weight = sc.nextDouble();
-		System.out.println("³ªÀÌ : " + age);
-		System.out.println("¸ö¹«°Ô : " + weight);
+		System.out.println("ë‚˜ì´ : " + age);
+		System.out.println("ëª¸ë¬´ê²Œ : " + weight);
 	}
 
 }

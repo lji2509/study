@@ -4,7 +4,7 @@ public class A16_ClassExp {
 
 	public static void main(String[] args) {
 		
-		Car c = new Car("»êÅ¸Æä", 50, 1);
+		Car c = new Car("ì‚°íƒ€í˜", 50, 1);
 		
 		c.speedUp();
 		c.speedUp();
@@ -38,7 +38,7 @@ class Car{
 	}
 	
 	void currentSpeed() {
-		System.out.println(kind + "ÀÇ ÇöÀç ¼Óµµ´Â " + speed + "km/h ÀÔ´Ï´Ù.");
+		System.out.println(kind + "ì˜ í˜„ì¬ ì†ë„ëŠ” " + speed + "km/h ì…ë‹ˆë‹¤.");
 	}
 	
 	void speedUp() {
@@ -47,9 +47,9 @@ class Car{
 	}
 	
 	void loadPerson(int cnt) {
-		loadCnt+=cnt; //±âÁ¸¿¡ ÀÖ´Â ÀÎ¿ø¿¡¼­ ´©ÀûÇÏ¿© ÇÒ´çÃ³¸®
-		System.out.println("¹æ±İ Å¾½ÂÇÑ ÀÎ¿ø : " + cnt);
-		System.out.println("ÃÑ Å¾½Â ÀÎ¿ø : " + loadCnt);
+		loadCnt+=cnt; //ê¸°ì¡´ì— ìˆëŠ” ì¸ì›ì—ì„œ ëˆ„ì í•˜ì—¬ í• ë‹¹ì²˜ë¦¬
+		System.out.println("ë°©ê¸ˆ íƒ‘ìŠ¹í•œ ì¸ì› : " + cnt);
+		System.out.println("ì´ íƒ‘ìŠ¹ ì¸ì› : " + loadCnt);
 	}
 	
 	void speedDown() {

@@ -6,24 +6,24 @@ public class A04_Field {
 		// TODO Auto-generated method stub
 		
 		Book b1 = new Book();
-		//ÂüÁ¶º¯¼ö.ÇÊµå¸í = µ¥ÀÌÅÍÇÒ´ç
-		b1.title = "ÀÚ¹Ù ±âÃÊ";
+		//ì°¸ì¡°ë³€ìˆ˜.í•„ë“œëª… = ë°ì´í„°í• ë‹¹
+		b1.title = "ìžë°” ê¸°ì´ˆ";
 		b1.price = 28000;
 		
 		Book b2 = new Book();
-		b2.title = "jsp ½ÃÀÛ";
+		b2.title = "jsp ì‹œìž‘";
 		b2.price = 30000;
 		
-		System.out.println("# b1 °´Ã¼ÀÇ µ¥ÀÌÅÍ");
+		System.out.println("# b1 ê°ì²´ì˜ ë°ì´í„°");
 		System.out.println(b1.title + " : " + b1.price);
-		System.out.println("# b2 °´Ã¼ÀÇ µ¥ÀÌÅÍ");
+		System.out.println("# b2 ê°ì²´ì˜ ë°ì´í„°");
 		System.out.println(b2.title + " : " + b2.price);
 	}
 
 }
 
 class Book {
-	String title; // °´Ã¼°¡ ÇÒ´çÇÒ ¼ý ÀÖ´Â µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â °÷ ==> ÇÊµå
+	String title; // ê°ì²´ê°€ í• ë‹¹í•  ìˆ« ìžˆëŠ” ë°ì´í„°ë¥¼ ì €ìž¥í•˜ëŠ” ê³³ ==> í•„ë“œ
 	int price;
-	Book(){} //¼±¾ðÇÏÁö ¾Ê´õ¶óµµ »ç¿ëÇÒ ¼ö ÀÖ´Â »ý¼ºÀÚ
+	Book(){} //ì„ ì–¸í•˜ì§€ ì•Šë”ë¼ë„ ì‚¬ìš©í•  ìˆ˜ ìžˆëŠ” ìƒì„±ìž
 }

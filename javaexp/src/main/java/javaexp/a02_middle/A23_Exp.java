@@ -20,15 +20,15 @@ class Com12 {
 	
 	void setMouse(Mouse m) {
 		this.m = m;
-		System.out.println("¸¶¿ì½º ÀåÂø");
+		System.out.println("ë§ˆìš°ìŠ¤ ì¥ì°©");
 	}
 	
 	void showInfo() {
-		System.out.println("Á¦Á¶»ç : " + company);
+		System.out.println("ì œì¡°ì‚¬ : " + company);
 		if(m != null) {
 			m.show();
 		} else {
-			System.out.println("¸¶¿ì½º°¡ ÀåÂøµÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+			System.out.println("ë§ˆìš°ìŠ¤ê°€ ì¥ì°©ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 		}
 		
 	}
@@ -42,7 +42,7 @@ class Mouse {
 	}
 	
 	void show() {
-		System.out.println("¸¶¿ì½º »ö»ó : " + color);
+		System.out.println("ë§ˆìš°ìŠ¤ ìƒ‰ìƒ : " + color);
 	}
 
 }

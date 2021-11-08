@@ -7,111 +7,111 @@ public class A14_Class {
 		Person03 p01 = new Person03();
 		Person03 p02 = new Person03();
 		Person03 p03 = new Person03();
-		//new Person03()À» ÅëÇØ¼­ heap¿µ¿ª¿¡ ¸Þ¸ð¸®°¡ ÇÒ´ç
-		// p01, p02, p03¿¡´Â ±× heap¿µ¿ªÀÇ ¸Þ¸ð¸® ÁÖ¼Ò¸¦ stack¿µ¿ª¿¡ ÂüÁ¶¸íÀ¸·Î ÇÒ´ç
+		//new Person03()ì„ í†µí•´ì„œ heapì˜ì—­ì— ë©”ëª¨ë¦¬ê°€ í• ë‹¹
+		// p01, p02, p03ì—ëŠ” ê·¸ heapì˜ì—­ì˜ ë©”ëª¨ë¦¬ ì£¼ì†Œë¥¼ stackì˜ì—­ì— ì°¸ì¡°ëª…ìœ¼ë¡œ í• ë‹¹
 		System.out.println(p01);
 		System.out.println(p02);
 		System.out.println(p03);
 		//javaexp.a02_middle.Person03@7de26db8
-		//7de26db8 : Èü¿µ¿ªÀÇ ÁÖ¼Ò·Î 16Áø¼ö·Î ÀúÀå
-		//p01.name : p01À§Ä¡¿¡ ÀÖ´Â °´Ã¼¿¡ °¡¼­ nameÀÌ¶ó´Â µ¥ÀÌÅÍ¸¦ È£ÃâÇÏ¿© ÀúÀåÇÏ°Å³ª È£ÃâÇÒ ¼ö ÀÖ´Ù.
-		p01.name = "È«±æµ¿";
+		//7de26db8 : íž™ì˜ì—­ì˜ ì£¼ì†Œë¡œ 16ì§„ìˆ˜ë¡œ ì €ìž¥
+		//p01.name : p01ìœ„ì¹˜ì— ìžˆëŠ” ê°ì²´ì— ê°€ì„œ nameì´ë¼ëŠ” ë°ì´í„°ë¥¼ í˜¸ì¶œí•˜ì—¬ ì €ìž¥í•˜ê±°ë‚˜ í˜¸ì¶œí•  ìˆ˜ ìžˆë‹¤.
+		p01.name = "í™ê¸¸ë™";
 		p01.age = 25;
-		p02.name = "±è±æµ¿";
+		p02.name = "ê¹€ê¸¸ë™";
 		p02.age = 27;
-		p03.name = "½Å±æµ¿";
+		p03.name = "ì‹ ê¸¸ë™";
 		p03.age = 30;
-		System.out.println("p01ÀÇ name : " + p01.name);
-		System.out.println("p01ÀÇ age : " + p01.age);
-		System.out.println("p02ÀÇ name : " + p02.name);
-		System.out.println("p02ÀÇ age : " + p02.age);
-		System.out.println("p03ÀÇ name : " + p03.name);
-		System.out.println("p03ÀÇ age : " + p03.age);
+		System.out.println("p01ì˜ name : " + p01.name);
+		System.out.println("p01ì˜ age : " + p01.age);
+		System.out.println("p02ì˜ name : " + p02.name);
+		System.out.println("p02ì˜ age : " + p02.age);
+		System.out.println("p03ì˜ name : " + p03.name);
+		System.out.println("p03ì˜ age : " + p03.age);
 		
-		Person03 p04 = new Person03("Áö¿µ¼ö", 25);
+		Person03 p04 = new Person03("ì§€ì˜ìˆ˜", 25);
 		System.out.println(p04);
 		
-		Person03 p05 = new Person03("±èÇý·®", 1);
-		//p05.name Çü½ÄÀ¸·Î ÇöÀç ÇÒ´çµÇ¾î ÀÖ´Â ÃÊ±â°ªÀÌ ¼³Á¤µÈ µ¥ÀÌÅÍ¸¦ È®ÀÎÇÒ ¼ö ÀÖ´Ù.
-		System.out.println("p05ÀÇ name : " + p05.name);
-		System.out.println("p05ÀÇ age : " + p05.age);
+		Person03 p05 = new Person03("ê¹€í˜œëŸ‰", 1);
+		//p05.name í˜•ì‹ìœ¼ë¡œ í˜„ìž¬ í• ë‹¹ë˜ì–´ ìžˆëŠ” ì´ˆê¸°ê°’ì´ ì„¤ì •ëœ ë°ì´í„°ë¥¼ í™•ì¸í•  ìˆ˜ ìžˆë‹¤.
+		System.out.println("p05ì˜ name : " + p05.name);
+		System.out.println("p05ì˜ age : " + p05.age);
 		
-		p05.seeWithEye("¾Æ¸§´Ù¿î °¡À» Ç³°æ");
-		System.out.println("p05ÀÇ greatView() ¸Þ¼­µå È£Ãâ : " +p05.greatView());
+		p05.seeWithEye("ì•„ë¦„ë‹¤ìš´ ê°€ì„ í’ê²½");
+		System.out.println("p05ì˜ greatView() ë©”ì„œë“œ í˜¸ì¶œ : " +p05.greatView());
 	} 
 
 }
-/* Å¬·¡½º¸¦ ÅëÇÑ °´Ã¼ÀÇ ±¸¼º¿ä¼ÒµéÀÇ Á¶ÇÕ »ç¿ë
-1. Å¬·¡½º¶õ °´Ã¼¸¦ »ý¼ºÇÏ±â À§ÇÑ ±âº» ÄÚµåÀÌ´Ù.
-	ºñÀ¯ÀûÀ¸·Î ¸»ÇÏ´Â °´Ã¼¸¦ À§ÇÑ ¼³°èµµ ¿ªÇÒÀ» ÇÑ´Ù.
-2. Å¬·¡½º¸¦ ¼±¾ðÇÏ¸é .class±îÁö ¸¸µé¾îÁö°í, °´Ã¼¸¦ »ç¿ëÇÏ·Á¸é main()À» ÅëÇØ¼­ »ý¼ºÀÚ¸¦ È£ÃâÇÏ¿© °´Ã¼¸¦ »ý¼ºÇÏ¿©¾ßÇÑ´Ù.
-3. Å¬·¡½º´Â ³»ºÎÀûÀ¸·Î ±âº» »ý¼ºÀÚ°¡ ¼±¾ðµÇ¾î ÀÖ´Ù.
-	- Å¬·¡½º¸í°ú µ¿ÀÏÇÑ »ý¼ºÀÚ°¡ default·Î Áö¿øµÇ°í ÀÖÀ½
-4. ÇÏ³ªÀÇ Å¬·¡½º(µµ¸é)À» ¹ÙÅÁÀ¸·Î ¿©·¯ °³ÀÇ °´Ã¼°¡ »ý¼ºµÉ ¼ö ÀÖ´Ù.
-5. °´Ã¼°¡ »ý¼ºµÇ¸é »õ·Î¿î heap¿µ¿ª¿¡ ÀÌ °´Ã¼°¡ »ç¿ëÇÏ´Â ¸Þ¸ð¸®°¡ ÇÒ´çµÇ°í,
-	±× heap¿µ¿ªÀÇ ¸Þ¸ð¸®ÀÇ ÁÖ¼Ò°ªÀ» ÂüÁ¶º¯¼ö¿¡ ÇÒ´çÇÏ¿© stack¿µ¿ª¿¡ ÀúÀåµÈ´Ù.
-	stack/heap¿µ¿ª
-	ÂüÁ¶º¯¼ö : ¾î¶²À§Ä¡(heap¿µ¿ª¿¡ °´Ã¼°¡ ÀÖ´Â ÁÖ¼Ò°ª)¸¦ ÂüÁ¶ÇÏ´Â º¯¼ö
-		ÂüÁ¶º¯¼ö¾È¿¡ °´Ã¼ÀÇ ÁÖ¼Ò°ªÀÌ ÇÒ´çµÇ¾îÀÖÀ½
-6. Å¬·¡½º¸í ¹Ù·Î ¹Ø¿¡ º¯¼ö¸¦ µ¥ÀÌÅÍÀ¯Çü°ú º¯¼ö¸íÀ¸·Î ¼±¾ðÇÏ¸ç, °¢ °´Ã¼°¡ »ç¿ëÇÒ ¼ö ÀÖ´Â º¯¼ö°¡ ¼±¾ðµÈ °ÍÀÌ´Ù.
-7. Å¬·¡½º´Â ±âº»ÀûÀÎ »ý¼ºÀÚ¸¦ Æ÷ÇÔÇÑ´Ù.
-	ÀÌ°ÍÀ» default »ý¼ºÀÚ¶ó°í ÇÑ´Ù.
-	»ý¼ºÀÚ´Â Å¬·¡½º¸í°ú µ¿ÀÏÇÏ¸ç, °³¹ßÀÚ°¡ Á¤ÀÇÇÏ¿© »ý¼ºÀÚ¸¦ ¼±¾ðÇÒ ¼ö ÀÖ´Ù.
-	ÄÚµå¿¡ ÀÇÇØ ¼±¾ðµÈ »ý¼ºÀÚ°¡ ÀÖ´Â ¼ø°£, ±âÁ¸ÀÇ default »ý¼ºÀÚ´Â »ç¶óÁø´Ù.
-8. »ý¼ºÀÚ´Â ¿©·¯ »ý¼ºÀÚ¸¦ ¸Å°³º¯¼ö°¡ ´Ù¸£¸é ¼±¾ðÀÌ °¡´ÉÇÏ´Ù.
-9. ¸Å°³º¯¼ö°¡ ÀÖ´Â »ý¼ºÀÚ´Â ÀÏ¹ÝÀûÀ¸·Î ÇÊµå°ªÀ» ÃÊ±âÈ­½ÃÅ³ ¶§ ÁÖ·Î »ç¿ëÇÑ´Ù.
-	ex) ¿ì¸®³ª¶ó »ç¶÷ÀÇ °æ¿ì »ç¶÷ÀÌ ÅÂ¾î³ª¸é ÀÌ¸§À» Á¤ÇÏ°í, ³ªÀÌ1»ìÀ» Á¤ÇÏµíÀÌ °´Ã¼¸¦ »ý¼ºÇÏ¿© °´Ã¼°¡ °¡Áö°í ÀÖÀ» ¼Ó¼º(ÇÊµå)¸¦ ÃÊ±âÈ­ÇÏ¿© »ç¿ëÇÏ´Âµ¥ È°¿ëÇÑ´Ù.
-	1) ÇÊµå°ªÀ» ÃÊ±âÈ­ÇÒ ¶§, ¸Å°³º¯¼ö¿Í ÇÊµå¸íÀÌ °°Àº °æ¿ì¿¡ ±¸ºÐÇÏ±â À§ÇØ¼­
-		ÇÊµå¸íÀº this.ÇÊµå¸í = ¸Å°³º¯¼ö¸í; Çü½ÄÀ¸·Î ¸Å°³º¯¼ö·Î ³Ñ¾î¿Â µ¥ÀÌÅÍ¸¦ ÇÊµå¸í¿¡ ÇÒ´çÇÑ´Ù.
-10. ±â´É ¸Þ¼­µå´Â ÁÖ·Î °´Ã¼ÀÇ ÇÁ·Î¼¼½º Ã³¸®, ÀÔ·Â°ªÃ³¸®, ¸®ÅÏ°ª Ã³¸®µîÀÇ ±â´ÉÀ» ¼öÇàÇÑ´Ù.
-	ex) ´«À¸·Î »ç¹°À» º¸¸é ½Ã°¢Á¤º¸°¡ ÀÔ·ÂµÇ¾î ±â¾ïÀ» ÇÒ ¼ö ÀÖ°ÔÇÑ´Ù.
-		Å¬·¡½ºµµ ¿ÜºÎ¿¡¼­ ÀÔ·ÂµÇ´Â µ¥ÀÌÅÍ¸¦ ÇÊµå¿¡ ÀúÀåÇÒ ¼ö ÀÖ´Ù.
-	ex) ÀÔÀ¸·Î ¿©·¯ Ä£±¸µé°ú ÀÌ¾ß±â¸¦ ÇÒ ¼ö ÀÖ´Ù. ±â¾ïµÈ Á¤º¸¸¦ À½¼ºÀ¸·Î ¸Þ½ÃÁö·Î ¹Ù²Ù¾î ¿ÜºÎ¿¡ Àü´ÞÇÑ´Ù.
-		°´Ã¼µµ ¸Þ¼­µå¸¦ ÅëÇØ¼­ ÇÊµåÀÇ µ¥ÀÌÅÍ¸¦ ÇÁ·Î¼¼½º¸¦ Ã³¸®ÇÏ¿© ¿ÜºÎ¿¡ ¸®ÅÏÇÏ¿© Àü´ÞÇÒ ¼ö ÀÖ´Ù.
-	ex) »óÈ²¿¡ ÀûÀýÇÑ ÇØ°á¹æ¹ýÀ» ¸¶·ÃÇÏ°í, »ý°¢°ú ±â¾ïÀ» Á¶ÇÕÇÏ¿© È¿°úÀûÀ¸·Î ´ëÀÀÀü·«À» ¸¸µé°í, ÃÖÀûÀÇ ¹æ¹ýÀ» ¸¶·ÃÇÒ ¼ö ÀÖ´Ù.
-		°´Ã¼µµ ¸Þ¼­µå¸¦ ÅëÇÏ¿© Á¶°Ç¹®°ú ¹Ýº¹¹®À» È°¿ëÇÏ¿© ÇÁ·Î¼¼½º¸¦ ¸¸µé°í, ±× °á°ú¸¦ ÀúÀåÇÏ¿© ÃßÈÄ¿¡ ´Ù¸¥ ±â´É¸Þ¼­µå¸¦ ÅëÇØ¼­ Ã³¸®ÇÒ ¶§ È°¿ëÇÒ ¼ö ÀÖ´Ù.
+/* í´ëž˜ìŠ¤ë¥¼ í†µí•œ ê°ì²´ì˜ êµ¬ì„±ìš”ì†Œë“¤ì˜ ì¡°í•© ì‚¬ìš©
+1. í´ëž˜ìŠ¤ëž€ ê°ì²´ë¥¼ ìƒì„±í•˜ê¸° ìœ„í•œ ê¸°ë³¸ ì½”ë“œì´ë‹¤.
+	ë¹„ìœ ì ìœ¼ë¡œ ë§í•˜ëŠ” ê°ì²´ë¥¼ ìœ„í•œ ì„¤ê³„ë„ ì—­í• ì„ í•œë‹¤.
+2. í´ëž˜ìŠ¤ë¥¼ ì„ ì–¸í•˜ë©´ .classê¹Œì§€ ë§Œë“¤ì–´ì§€ê³ , ê°ì²´ë¥¼ ì‚¬ìš©í•˜ë ¤ë©´ main()ì„ í†µí•´ì„œ ìƒì„±ìžë¥¼ í˜¸ì¶œí•˜ì—¬ ê°ì²´ë¥¼ ìƒì„±í•˜ì—¬ì•¼í•œë‹¤.
+3. í´ëž˜ìŠ¤ëŠ” ë‚´ë¶€ì ìœ¼ë¡œ ê¸°ë³¸ ìƒì„±ìžê°€ ì„ ì–¸ë˜ì–´ ìžˆë‹¤.
+	- í´ëž˜ìŠ¤ëª…ê³¼ ë™ì¼í•œ ìƒì„±ìžê°€ defaultë¡œ ì§€ì›ë˜ê³  ìžˆìŒ
+4. í•˜ë‚˜ì˜ í´ëž˜ìŠ¤(ë„ë©´)ì„ ë°”íƒ•ìœ¼ë¡œ ì—¬ëŸ¬ ê°œì˜ ê°ì²´ê°€ ìƒì„±ë  ìˆ˜ ìžˆë‹¤.
+5. ê°ì²´ê°€ ìƒì„±ë˜ë©´ ìƒˆë¡œìš´ heapì˜ì—­ì— ì´ ê°ì²´ê°€ ì‚¬ìš©í•˜ëŠ” ë©”ëª¨ë¦¬ê°€ í• ë‹¹ë˜ê³ ,
+	ê·¸ heapì˜ì—­ì˜ ë©”ëª¨ë¦¬ì˜ ì£¼ì†Œê°’ì„ ì°¸ì¡°ë³€ìˆ˜ì— í• ë‹¹í•˜ì—¬ stackì˜ì—­ì— ì €ìž¥ëœë‹¤.
+	stack/heapì˜ì—­
+	ì°¸ì¡°ë³€ìˆ˜ : ì–´ë–¤ìœ„ì¹˜(heapì˜ì—­ì— ê°ì²´ê°€ ìžˆëŠ” ì£¼ì†Œê°’)ë¥¼ ì°¸ì¡°í•˜ëŠ” ë³€ìˆ˜
+		ì°¸ì¡°ë³€ìˆ˜ì•ˆì— ê°ì²´ì˜ ì£¼ì†Œê°’ì´ í• ë‹¹ë˜ì–´ìžˆìŒ
+6. í´ëž˜ìŠ¤ëª… ë°”ë¡œ ë°‘ì— ë³€ìˆ˜ë¥¼ ë°ì´í„°ìœ í˜•ê³¼ ë³€ìˆ˜ëª…ìœ¼ë¡œ ì„ ì–¸í•˜ë©°, ê° ê°ì²´ê°€ ì‚¬ìš©í•  ìˆ˜ ìžˆëŠ” ë³€ìˆ˜ê°€ ì„ ì–¸ëœ ê²ƒì´ë‹¤.
+7. í´ëž˜ìŠ¤ëŠ” ê¸°ë³¸ì ì¸ ìƒì„±ìžë¥¼ í¬í•¨í•œë‹¤.
+	ì´ê²ƒì„ default ìƒì„±ìžë¼ê³  í•œë‹¤.
+	ìƒì„±ìžëŠ” í´ëž˜ìŠ¤ëª…ê³¼ ë™ì¼í•˜ë©°, ê°œë°œìžê°€ ì •ì˜í•˜ì—¬ ìƒì„±ìžë¥¼ ì„ ì–¸í•  ìˆ˜ ìžˆë‹¤.
+	ì½”ë“œì— ì˜í•´ ì„ ì–¸ëœ ìƒì„±ìžê°€ ìžˆëŠ” ìˆœê°„, ê¸°ì¡´ì˜ default ìƒì„±ìžëŠ” ì‚¬ë¼ì§„ë‹¤.
+8. ìƒì„±ìžëŠ” ì—¬ëŸ¬ ìƒì„±ìžë¥¼ ë§¤ê°œë³€ìˆ˜ê°€ ë‹¤ë¥´ë©´ ì„ ì–¸ì´ ê°€ëŠ¥í•˜ë‹¤.
+9. ë§¤ê°œë³€ìˆ˜ê°€ ìžˆëŠ” ìƒì„±ìžëŠ” ì¼ë°˜ì ìœ¼ë¡œ í•„ë“œê°’ì„ ì´ˆê¸°í™”ì‹œí‚¬ ë•Œ ì£¼ë¡œ ì‚¬ìš©í•œë‹¤.
+	ex) ìš°ë¦¬ë‚˜ë¼ ì‚¬ëžŒì˜ ê²½ìš° ì‚¬ëžŒì´ íƒœì–´ë‚˜ë©´ ì´ë¦„ì„ ì •í•˜ê³ , ë‚˜ì´1ì‚´ì„ ì •í•˜ë“¯ì´ ê°ì²´ë¥¼ ìƒì„±í•˜ì—¬ ê°ì²´ê°€ ê°€ì§€ê³  ìžˆì„ ì†ì„±(í•„ë“œ)ë¥¼ ì´ˆê¸°í™”í•˜ì—¬ ì‚¬ìš©í•˜ëŠ”ë° í™œìš©í•œë‹¤.
+	1) í•„ë“œê°’ì„ ì´ˆê¸°í™”í•  ë•Œ, ë§¤ê°œë³€ìˆ˜ì™€ í•„ë“œëª…ì´ ê°™ì€ ê²½ìš°ì— êµ¬ë¶„í•˜ê¸° ìœ„í•´ì„œ
+		í•„ë“œëª…ì€ this.í•„ë“œëª… = ë§¤ê°œë³€ìˆ˜ëª…; í˜•ì‹ìœ¼ë¡œ ë§¤ê°œë³€ìˆ˜ë¡œ ë„˜ì–´ì˜¨ ë°ì´í„°ë¥¼ í•„ë“œëª…ì— í• ë‹¹í•œë‹¤.
+10. ê¸°ëŠ¥ ë©”ì„œë“œëŠ” ì£¼ë¡œ ê°ì²´ì˜ í”„ë¡œì„¸ìŠ¤ ì²˜ë¦¬, ìž…ë ¥ê°’ì²˜ë¦¬, ë¦¬í„´ê°’ ì²˜ë¦¬ë“±ì˜ ê¸°ëŠ¥ì„ ìˆ˜í–‰í•œë‹¤.
+	ex) ëˆˆìœ¼ë¡œ ì‚¬ë¬¼ì„ ë³´ë©´ ì‹œê°ì •ë³´ê°€ ìž…ë ¥ë˜ì–´ ê¸°ì–µì„ í•  ìˆ˜ ìžˆê²Œí•œë‹¤.
+		í´ëž˜ìŠ¤ë„ ì™¸ë¶€ì—ì„œ ìž…ë ¥ë˜ëŠ” ë°ì´í„°ë¥¼ í•„ë“œì— ì €ìž¥í•  ìˆ˜ ìžˆë‹¤.
+	ex) ìž…ìœ¼ë¡œ ì—¬ëŸ¬ ì¹œêµ¬ë“¤ê³¼ ì´ì•¼ê¸°ë¥¼ í•  ìˆ˜ ìžˆë‹¤. ê¸°ì–µëœ ì •ë³´ë¥¼ ìŒì„±ìœ¼ë¡œ ë©”ì‹œì§€ë¡œ ë°”ê¾¸ì–´ ì™¸ë¶€ì— ì „ë‹¬í•œë‹¤.
+		ê°ì²´ë„ ë©”ì„œë“œë¥¼ í†µí•´ì„œ í•„ë“œì˜ ë°ì´í„°ë¥¼ í”„ë¡œì„¸ìŠ¤ë¥¼ ì²˜ë¦¬í•˜ì—¬ ì™¸ë¶€ì— ë¦¬í„´í•˜ì—¬ ì „ë‹¬í•  ìˆ˜ ìžˆë‹¤.
+	ex) ìƒí™©ì— ì ì ˆí•œ í•´ê²°ë°©ë²•ì„ ë§ˆë ¨í•˜ê³ , ìƒê°ê³¼ ê¸°ì–µì„ ì¡°í•©í•˜ì—¬ íš¨ê³¼ì ìœ¼ë¡œ ëŒ€ì‘ì „ëžµì„ ë§Œë“¤ê³ , ìµœì ì˜ ë°©ë²•ì„ ë§ˆë ¨í•  ìˆ˜ ìžˆë‹¤.
+		ê°ì²´ë„ ë©”ì„œë“œë¥¼ í†µí•˜ì—¬ ì¡°ê±´ë¬¸ê³¼ ë°˜ë³µë¬¸ì„ í™œìš©í•˜ì—¬ í”„ë¡œì„¸ìŠ¤ë¥¼ ë§Œë“¤ê³ , ê·¸ ê²°ê³¼ë¥¼ ì €ìž¥í•˜ì—¬ ì¶”í›„ì— ë‹¤ë¥¸ ê¸°ëŠ¥ë©”ì„œë“œë¥¼ í†µí•´ì„œ ì²˜ë¦¬í•  ë•Œ í™œìš©í•  ìˆ˜ ìžˆë‹¤.
  */
 class Person03 {
-//	 Person03(){}  //±âº»»ý¼ºÀÚ°¡ ÀÚµ¿À¸·Î ½ÇÇà
-	String name; //ÇÊµå : °´Ã¼¸¶´Ù ´Ù¸£°Ô »ç¿ëÇÒ µ¥ÀÌÅÍ º¯¼ö
+//	 Person03(){}  //ê¸°ë³¸ìƒì„±ìžê°€ ìžë™ìœ¼ë¡œ ì‹¤í–‰
+	String name; //í•„ë“œ : ê°ì²´ë§ˆë‹¤ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•  ë°ì´í„° ë³€ìˆ˜
 	int age;
-	String imgInfo; //°´Ã¼ ÀúÀåÇÒ ½Ã°¢Á¤º¸
-	String msg; //È£ÃâÇÏ´Â °÷¿¡ Àü´ÞÇÒ À½¼º Á¤º¸
+	String imgInfo; //ê°ì²´ ì €ìž¥í•  ì‹œê°ì •ë³´
+	String msg; //í˜¸ì¶œí•˜ëŠ” ê³³ì— ì „ë‹¬í•  ìŒì„± ì •ë³´
 	String planWithFriend;
 	
 	void seeWithEye(String imgInfo) {
 		this.imgInfo = imgInfo;
 	}
-	//p04.setWithEye("¾Æ¸§´ÙÀº °¡À»»ê Ç³°æ");
+	//p04.setWithEye("ì•„ë¦„ë‹¤ì€ ê°€ì„ì‚° í’ê²½");
 	
 	String greatView() {
-		return "³»°¡ º» ÃÖ°íÀÇ Ç³°æ : " + imgInfo;
+		return "ë‚´ê°€ ë³¸ ìµœê³ ì˜ í’ê²½ : " + imgInfo;
 	}
 	
 	String speakWithMouth() {
 		return msg;
 	}
-	//System.out.println("ÀÌ¾ß±âÇÒ ³»¿ë : " + p.04.speakWithMouth());
+	//System.out.println("ì´ì•¼ê¸°í•  ë‚´ìš© : " + p.04.speakWithMouth());
 	
 	void thinkGoodplan() {
-		//ÇÊµå³»ÀÇ ÀúÀåµÇ¾î ÀÖ´Â Á¤º¸¸¦ Á¶ÇÕÇØ¼­
-		//ifÁ¶°Ç
-		//for È°¿ëÇÏ¿©
-		//ÃÖÀûÀÇ µ¥ÀÌÅÍ¸¦ ¸¸µé¾î ÀúÀåÇÑ´Ù.
-		if(imgInfo.equals("ÁÁÀº Ç³°æ")) {
-			//°¨Á¤Á¤º¸ = "¾ÆÁÖÁÁÀ½";
+		//í•„ë“œë‚´ì˜ ì €ìž¥ë˜ì–´ ìžˆëŠ” ì •ë³´ë¥¼ ì¡°í•©í•´ì„œ
+		//ifì¡°ê±´
+		//for í™œìš©í•˜ì—¬
+		//ìµœì ì˜ ë°ì´í„°ë¥¼ ë§Œë“¤ì–´ ì €ìž¥í•œë‹¤.
+		if(imgInfo.equals("ì¢‹ì€ í’ê²½")) {
+			//ê°ì •ì •ë³´ = "ì•„ì£¼ì¢‹ìŒ";
 		}
-		planWithFriend = "Á¤º¸";
+		planWithFriend = "ì •ë³´";
 	}
 	
-	Person03() { //main() ¸Þ¼­µå¿¡¼­ new Person03()ÀÌ¶ó°í È£ÃâÇÏ´Â ¼ø°£ ÇØ´ç Áß°ýÈ£ ºí·°¿¡ ÀÖ´Â ³»¿ë ¼öÇà
-		System.out.println("±âº» »ý¼ºÀÚ");
+	Person03() { //main() ë©”ì„œë“œì—ì„œ new Person03()ì´ë¼ê³  í˜¸ì¶œí•˜ëŠ” ìˆœê°„ í•´ë‹¹ ì¤‘ê´„í˜¸ ë¸”ëŸ­ì— ìžˆëŠ” ë‚´ìš© ìˆ˜í–‰
+		System.out.println("ê¸°ë³¸ ìƒì„±ìž");
 	}
 	
-	//new Person03("È«±æµ¿", 25); Çü½ÄÀ¸·Î °´Ã¼ »ý¼º½Ã ¼±ÅÃÀûÀ¸·Î »ý¼ºÀÚ¸¦ È£ÃâÇÒ ¼ö ÀÖ´Ù.
+	//new Person03("í™ê¸¸ë™", 25); í˜•ì‹ìœ¼ë¡œ ê°ì²´ ìƒì„±ì‹œ ì„ íƒì ìœ¼ë¡œ ìƒì„±ìžë¥¼ í˜¸ì¶œí•  ìˆ˜ ìžˆë‹¤.
 	Person03(String name, int age) {
 		this.name = name;
 		this.age = age;
-		System.out.println("¸Å°³º¯¼ö°¡ µÎ°³ÀÎ »ý¼ºÀÚ ¼±¾ð");
+		System.out.println("ë§¤ê°œë³€ìˆ˜ê°€ ë‘ê°œì¸ ìƒì„±ìž ì„ ì–¸");
 	}
 }

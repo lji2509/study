@@ -15,12 +15,12 @@ public class test2 {
 	
 	public static void main(String[] args) {
 		double avg = 0;
-		System.out.println("ÀÌ¸§\t±¹¾î\t¿µ¾î\t¼öÇĞ\tÃÑÁ¡\tÆò±Õ");
-		avg = avg("È«±æµ¿",94,70,80);
-		avg = avg("±è±æµ¿",80,65,94);
-		avg = avg("ÀÌ±æµ¿",88,92,83);
-		System.out.println("ÀüÃ¼ ÃÑÁ¡ : " + totSum + "Á¡");
-		System.out.printf("ÀüÃ¼ Æò±Õ : %.2fÁ¡\n", avg/3);
+		System.out.println("ì´ë¦„\têµ­ì–´\tì˜ì–´\tìˆ˜í•™\tì´ì \tí‰ê· ");
+		avg = avg("í™ê¸¸ë™",94,70,80);
+		avg = avg("ê¹€ê¸¸ë™",80,65,94);
+		avg = avg("ì´ê¸¸ë™",88,92,83);
+		System.out.println("ì „ì²´ ì´ì  : " + totSum + "ì ");
+		System.out.printf("ì „ì²´ í‰ê·  : %.2fì \n", avg/3);
 	}
 
 }

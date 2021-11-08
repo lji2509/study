@@ -8,9 +8,9 @@ public class A01_Memory {
 		// TODO Auto-generated method stub
 		Person p01 = new Person();
 		Person p02 = new Person();
-		//Person°´Ã¼´Â heap¿µ¿ª¿¡ ÀúÀåµÇ´Âµ¥, stack¿µ¿ª¿¡¼­´Â ÇØ´ç °´Ã¼ÀÇ ÁÖ¼Ò¸¸ ÀúÀå
-		System.out.println("p1°´Ã¼ÀÇ heap¿µ¿ª ÁÖ¼Ò : " + p01);
-		System.out.println("p2°´Ã¼ÀÇ heap¿µ¿ª ÁÖ¼Ò : " + p02);
+		//Personê°ì²´ëŠ” heapì˜ì—­ì— ì €ì¥ë˜ëŠ”ë°, stackì˜ì—­ì—ì„œëŠ” í•´ë‹¹ ê°ì²´ì˜ ì£¼ì†Œë§Œ ì €ì¥
+		System.out.println("p1ê°ì²´ì˜ heapì˜ì—­ ì£¼ì†Œ : " + p01);
+		System.out.println("p2ê°ì²´ì˜ heapì˜ì—­ ì£¼ì†Œ : " + p02);
 		
 		Scanner scan = new Scanner(System.in);
 
@@ -20,4 +20,4 @@ public class A01_Memory {
 	}
 
 }
-class Person{} //Person Å¬·¡½º ¼±¾ğ
+class Person{} //Person í´ë˜ìŠ¤ ì„ ì–¸

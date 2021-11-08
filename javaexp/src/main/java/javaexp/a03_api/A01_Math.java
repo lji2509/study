@@ -4,18 +4,18 @@ public class A01_Math {
 
 	public static void main(String[] args) {
 		/*
-		# Math api Å¬·¡½º
-		1. ¼öÇĞÀûÀÎ µ¥ÀÌÅÍ¸¦ Ã³¸®ÇØÁÖ´Â api³»ºÎ Å¬·¡½º
-		2. ¸Ş¼­µå°¡ staticÀ¸·Î Áö¿øÇÏ¿©, ¦Ã¼¸¦ »ı¼ºÇÏÁö ¾Ê°íµµ ¹Ù·Î »ç¿ë °¡´É
+		# Math api í´ë˜ìŠ¤
+		1. ìˆ˜í•™ì ì¸ ë°ì´í„°ë¥¼ ì²˜ë¦¬í•´ì£¼ëŠ” apië‚´ë¶€ í´ë˜ìŠ¤
+		2. ë©”ì„œë“œê°€ staticìœ¼ë¡œ ì§€ì›í•˜ì—¬, ê²ì²´ë¥¼ ìƒì„±í•˜ì§€ ì•Šê³ ë„ ë°”ë¡œ ì‚¬ìš© ê°€ëŠ¥
 		*/
-		System.out.println("Math.floor(28.75) : " + Math.floor(28.75)); //¼Ò¼ıÁ¡ ÀÌÇÏÀÇ °ª ³»¸²
-		System.out.println("Math.ceil(25.263) : " + Math.ceil(25.263)); //¼Ò¼ıÁ¡ ÀÌÇÏÀÇ °ª ¿Ã¸²
-		System.out.println("Math.round(25.62) : " + Math.round(25.62)); //¹İ¿Ã¸²ÇÏ¿© Á¤¼ö°ªÀ» ¸¸µë
-		System.out.println("Math.round(25.22) : " + Math.round(25.22)); //¹İ¿Ã¸²ÇÏ¿© Á¤¼ö°ªÀ» ¸¸µë
+		System.out.println("Math.floor(28.75) : " + Math.floor(28.75)); //ì†Œìˆ«ì  ì´í•˜ì˜ ê°’ ë‚´ë¦¼
+		System.out.println("Math.ceil(25.263) : " + Math.ceil(25.263)); //ì†Œìˆ«ì  ì´í•˜ì˜ ê°’ ì˜¬ë¦¼
+		System.out.println("Math.round(25.62) : " + Math.round(25.62)); //ë°˜ì˜¬ë¦¼í•˜ì—¬ ì •ìˆ˜ê°’ì„ ë§Œë“¬
+		System.out.println("Math.round(25.22) : " + Math.round(25.22)); //ë°˜ì˜¬ë¦¼í•˜ì—¬ ì •ìˆ˜ê°’ì„ ë§Œë“¬
 		System.out.println("Math.floor(25.75) : " + (int)Math.floor(25.75));
-		//Math.floor(), Math.ceil()Àº ¸®ÅÏ°ªÀÌ ½Ç¼öÀÌ±â¿¡ Á¤¼ö°ªÀ¸·Î Ã³¸®ÇÏ±â À§ÇØ¼­´Â casting ÇÊ¿ä
+		//Math.floor(), Math.ceil()ì€ ë¦¬í„´ê°’ì´ ì‹¤ìˆ˜ì´ê¸°ì— ì •ìˆ˜ê°’ìœ¼ë¡œ ì²˜ë¦¬í•˜ê¸° ìœ„í•´ì„œëŠ” casting í•„ìš”
 		/*
-		3. Math.random() : 0.0 <= Math.random() < 1.0 »çÀÌ ÀÓÀÇÀÇ ½Ç¼ö ¸®ÅÏ
+		3. Math.random() : 0.0 <= Math.random() < 1.0 ì‚¬ì´ ì„ì˜ì˜ ì‹¤ìˆ˜ ë¦¬í„´
 		*/
 		System.out.println("Math.random() : " + Math.random());
 		System.out.println("Math.random() : " + Math.random()*10);
@@ -25,30 +25,30 @@ public class A01_Math {
 		
 		int team1 = (int)(Math.random()*6+1);
 		int team2 = (int)(Math.random()*6+1);
-		System.out.println("ÆÀ1ÀÌ ³ª¿Â ÁÖ»çÀ§ : " + team1);
-		System.out.println("ÆÀ2ÀÌ ³ª¿Â ÁÖ»çÀ§ : " + team2);
+		System.out.println("íŒ€1ì´ ë‚˜ì˜¨ ì£¼ì‚¬ìœ„ : " + team1);
+		System.out.println("íŒ€2ì´ ë‚˜ì˜¨ ì£¼ì‚¬ìœ„ : " + team2);
 		
 		if(team1>team2) {
-			System.out.println("ÆÀ1 ¿ì½Â");
+			System.out.println("íŒ€1 ìš°ìŠ¹");
 		} else if(team1<team2) {
-			System.out.println("ÆÀ2 ¿ì½Â");
+			System.out.println("íŒ€2 ìš°ìŠ¹");
 		} else {
-			System.out.println("¹«½ÂºÎ");
+			System.out.println("ë¬´ìŠ¹ë¶€");
 		}
 		
-		// (int)(Math.random()*°æ¿ìÀÇ ¼ö+½ÃÀÛ¹øÈ£)
+		// (int)(Math.random()*ê²½ìš°ì˜ ìˆ˜+ì‹œì‘ë²ˆí˜¸)
 		
 		int a = (int)(Math.random()*2+1);
-		System.out.println("1 ¶Ç´Â 2 : " + a);
+		System.out.println("1 ë˜ëŠ” 2 : " + a);
 		int b = (int)(Math.random()*5+1);
-		System.out.println("1~5»çÀÌÀÇ ÀÓÀÇÀÇ °ª : " + b);
+		System.out.println("1~5ì‚¬ì´ì˜ ì„ì˜ì˜ ê°’ : " + b);
 		int c = (int)(Math.random()*3);
 		if(c==0) {
-			System.out.println("°¡À§");
+			System.out.println("ê°€ìœ„");
 		} else if(c==1) {
-			System.out.println("¹ÙÀ§");
+			System.out.println("ë°”ìœ„");
 		} else {
-			System.out.println("º¸");
+			System.out.println("ë³´");
 		}
 		
 		

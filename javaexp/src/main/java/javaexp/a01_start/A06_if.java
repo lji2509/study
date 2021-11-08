@@ -4,28 +4,28 @@ public class A06_if {
 
 	public static void main(String[] args) {
 		/*
-		#Á¶°Ç¹®
-		1. if(ºñ±³¿¬»êÀÚ) 
+		#ì¡°ê±´ë¬¸
+		1. if(ë¹„êµì—°ì‚°ì) 
 		 */
 		int inputPoint = 80;
-		System.out.println("ÀÔ·ÂÇÑ Á¡¼ö : " + inputPoint);
+		System.out.println("ì…ë ¥í•œ ì ìˆ˜ : " + inputPoint);
 		if(inputPoint>=70) {
-			System.out.println("Åë°ú!!");
+			System.out.println("í†µê³¼!!");
 		}
-		System.out.println("Ã³¸® ³¡!!");
+		System.out.println("ì²˜ë¦¬ ë!!");
 		/*
-		2. if(ºñ±³¿¬»êÀÚ) {
-			ºñ±³¿©³­ÀÚ°¡ trueÀÏ ¶§ Ã³¸®ÇÒ ºÎºĞ
+		2. if(ë¹„êµì—°ì‚°ì) {
+			ë¹„êµì—¬ë‚œìê°€ trueì¼ ë•Œ ì²˜ë¦¬í•  ë¶€ë¶„
 		} else {
-			ºñ±³¿¬»êÀÚ°¡ true°¡ ¾Æ´Ò ¶§ Ã³¸®ÇÒ ºÎºĞ
+			ë¹„êµì—°ì‚°ìê°€ trueê°€ ì•„ë‹ ë•Œ ì²˜ë¦¬í•  ë¶€ë¶„
 		}
 		 */
 		int age = 25;
-		System.out.println("ÀÔ·ÂÇÑ ³ªÀÌ : " + age);
+		System.out.println("ì…ë ¥í•œ ë‚˜ì´ : " + age);
 		if(age>=18) {
-			System.out.println("¼ºÀÎÀÔ´Ï´Ù!");
+			System.out.println("ì„±ì¸ì…ë‹ˆë‹¤!");
 		} else {
-			System.out.println("¹Ì¼º³âÀÔ´Ï´Ù!");
+			System.out.println("ë¯¸ì„±ë…„ì…ë‹ˆë‹¤!");
 		}
 		
 		int price=3000, cnt=4; 
@@ -41,7 +41,7 @@ public class A06_if {
 			tot = tot-(tot*0.05);
 			sale = "5%";
 		}
-		System.out.println(sale + " ÇÒÀÎµÇ¾ú°í, ÇÒÀÎ ±İ¾×Àº " + (int)totprice + "¿øÀÌ°í, ÃÑ °¡°İÀº " + (int)tot + "¿ø ÀÔ´Ï´Ù.");
+		System.out.println(sale + " í• ì¸ë˜ì—ˆê³ , í• ì¸ ê¸ˆì•¡ì€ " + (int)totprice + "ì›ì´ê³ , ì´ ê°€ê²©ì€ " + (int)tot + "ì› ì…ë‹ˆë‹¤.");
 	
 	} 
 

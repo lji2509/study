@@ -15,7 +15,7 @@ public class test19 {
 
 		while(true) {
 			int a = 0;
-			System.out.println("³¡³»½Ã·Á¸é À½¼ö¸¦ ÀÔ·ÂÇÏ½Ã°í, °è¼Ó ÇÏ½Ã·Á¸é ¾ç¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+			System.out.println("ëë‚´ì‹œë ¤ë©´ ìŒìˆ˜ë¥¼ ì…ë ¥í•˜ì‹œê³ , ê³„ì† í•˜ì‹œë ¤ë©´ ì–‘ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 			a = scan.nextInt();
 					
 			if(a<0) {
@@ -24,12 +24,12 @@ public class test19 {
 				
 			scan.nextLine();
 			
-			System.out.println("³¯Â¥¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.(YYYYDDMM)");
+			System.out.println("ë‚ ì§œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.(YYYYDDMM)");
 			for(;;) {
 				date[i] = scan.nextLine();
 				
 				if(date[i].length() != 8) {
-					System.out.println("´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					System.out.println("ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 					
 				}
 				
@@ -39,7 +39,7 @@ public class test19 {
 		
 				
 				if(!(year>=1960 && year<=2030)) {
-					System.out.println("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.");
+					System.out.println("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”.");
 				} else if((month==1 || month==3 || month==5 || month==7 || month==8 ||month==10 || month==12) && dear<=31 && dear>=1) {
 					date[i] = date[i].substring(2,4) + "/" + date[i].substring(4,6) + "/" + date[i].substring(6,8);
 					break;
@@ -51,14 +51,14 @@ public class test19 {
 						date[i] = date[i].substring(2,4) + "/" + date[i].substring(4,6) + "/" + date[i].substring(6,8);
 						break;
 					} else {
-						System.out.println("´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+						System.out.println("ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 					}
 				} else if(year%4==0 && year%100!=0 || year%400==0) {
 					if(month==2 && dear>=1 && dear<=29) {
 						date[i] = date[i].substring(2,4) + "/" + date[i].substring(4,6) + "/" + date[i].substring(6,8);
 						break;
 					} else {
-						System.out.println("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.");
+						System.out.println("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”.");
 					}
 				} else {
 					date[i] = date[i].substring(2,4) + "/" + date[i].substring(4,6) + "/" + date[i].substring(6,8);
@@ -67,26 +67,26 @@ public class test19 {
 		}
 			
 		
-		System.out.println("¼öÀÔÁöÃâ ±¸ºĞÀ» ÀÔ·ÂÇÏ¼¼¿ä.(\"¼öÀÔ\" ¶Ç´Â \"ÁöÃâ\")");
+		System.out.println("ìˆ˜ì…ì§€ì¶œ êµ¬ë¶„ì„ ì…ë ¥í•˜ì„¸ìš”.(\"ìˆ˜ì…\" ë˜ëŠ” \"ì§€ì¶œ\")");
 		for(;;) {
 			d[i] = scan.nextLine();
-			if(d[i].equals("ÁöÃâ")) {
+			if(d[i].equals("ì§€ì¶œ")) {
 				break;
-			} else if(d[i].equals("¼öÀÔ")) {
+			} else if(d[i].equals("ìˆ˜ì…")) {
 				break;
 			} else {
-				System.out.println("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.");
+				System.out.println("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”.");
 			}
 		}
 	
-		System.out.println("³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä.");
+		System.out.println("ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”.");
 		text[i] = scan.nextLine();
 		
-		System.out.println("±İ¾×À» ÀÔ·ÂÇÏ¼¼¿ä.");
+		System.out.println("ê¸ˆì•¡ì„ ì…ë ¥í•˜ì„¸ìš”.");
 		for(;;) {
 			price[i] = scan.nextInt();
 			if(price[i] < 0) {
-				System.out.println("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.");
+				System.out.println("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”.");
 			} else {
 				break;
 			}
@@ -95,10 +95,10 @@ public class test19 {
 		i++;
 	}
 		
-		System.out.println("³¯Â¥\t\t±¸ºĞ\t³»¿ë\t±İ¾×\tÃ³¸®ÈÄ±İ¾×");
+		System.out.println("ë‚ ì§œ\t\têµ¬ë¶„\të‚´ìš©\tê¸ˆì•¡\tì²˜ë¦¬í›„ê¸ˆì•¡");
 		
 		for(int j=0; j<i; j++) {
-			if(d[j].equals("ÁöÃâ")) {
+			if(d[j].equals("ì§€ì¶œ")) {
 				System.out.println(date[j]+"\t"+d[j]+"\t"+text[j]+"\t"+price[j]+"\t"+(tot=tot-price[j]));
 			} else {
 				System.out.println(date[j]+"\t"+d[j]+"\t"+text[j]+"\t"+price[j]+"\t"+(tot=tot+price[j]));

@@ -6,49 +6,49 @@ public class A25_ArrayList {
 
 	public static void main(String[] args) {
 		/*
-		# µ¿Àû¹è¿­À» Ã³¸®ÇÏ´Â ¼±Çü ArrayList Collections
-		1. ¹è¿­Àº Á¤Àûµ¥ÀÌÅÍ¿©¼­ ±¸Á¶ÀÚÃ¼°¡ ÃÊ±â¿¡ Å©±â°¡ Á¤ÇØÁö¸é º¯°æÇÏÁö ¸øÇÑ´Ù.
-		2. ÀÚ¹Ù¿¡¼­´Â Collection ÇÏÀ§¿¡ ¼±Çü±¸Á¶·Î List ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹ŞÀº ArrayList°´Ã¼¸¦ ÅëÇØ µ¿Àû¹è¿­À» Áö¿øÇÏ°í ÀÖ´Ù.
-		3. °´Ã¼ »ı¼º
+		# ë™ì ë°°ì—´ì„ ì²˜ë¦¬í•˜ëŠ” ì„ í˜• ArrayList Collections
+		1. ë°°ì—´ì€ ì •ì ë°ì´í„°ì—¬ì„œ êµ¬ì¡°ìì²´ê°€ ì´ˆê¸°ì— í¬ê¸°ê°€ ì •í•´ì§€ë©´ ë³€ê²½í•˜ì§€ ëª»í•œë‹¤.
+		2. ìë°”ì—ì„œëŠ” Collection í•˜ìœ„ì— ì„ í˜•êµ¬ì¡°ë¡œ List ì¸í„°í˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ì€ ArrayListê°ì²´ë¥¼ í†µí•´ ë™ì ë°°ì—´ì„ ì§€ì›í•˜ê³  ìˆë‹¤.
+		3. ê°ì²´ ìƒì„±
 			ArrayList list = new ArrayList();
-		4. Áö¿ø¸Ş¼­µå
-			.add("Ãß°¡µ¥ÀÌÅÍ");
-			.set(index, "º¯°æÇÒµ¥ÀÌÅÍ");
-			.get(index); : ÇØ´ç µ¥ÀÌÅÍ °¡Á®¿À±â
-			.size() : ArrayList¿¡ ÇÒ´çµÈ µ¥ÀÌÅÍ °Ç¼ö °¡Á®¿À±â
-		5. ÇÒ´çÇÒ µ¥ÀÌÅÍ À¯ÇüÀ» ±âº»ÀûÀ¸·Î Object ÇüÅÂÀÇ °´Ã¼°¡ Áö¿øÇÏ°í ÀÖ´Ù.
-			ArrayList<µ¥ÀÌÅÍÀ¯Çü°´Ã¼>
+		4. ì§€ì›ë©”ì„œë“œ
+			.add("ì¶”ê°€ë°ì´í„°");
+			.set(index, "ë³€ê²½í• ë°ì´í„°");
+			.get(index); : í•´ë‹¹ ë°ì´í„° ê°€ì ¸ì˜¤ê¸°
+			.size() : ArrayListì— í• ë‹¹ëœ ë°ì´í„° ê±´ìˆ˜ ê°€ì ¸ì˜¤ê¸°
+		5. í• ë‹¹í•  ë°ì´í„° ìœ í˜•ì„ ê¸°ë³¸ì ìœ¼ë¡œ Object í˜•íƒœì˜ ê°ì²´ê°€ ì§€ì›í•˜ê³  ìˆë‹¤.
+			ArrayList<ë°ì´í„°ìœ í˜•ê°ì²´>
 		*/
 		
 		ArrayList list = new ArrayList();
 		
-		//Ãß°¡ Ã³¸®
-		list.add("»ç°ú");
-		list.add("¹Ù³ª³ª");
-		list.add("µş±â");
-		list.add("¸á·Ğ");
+		//ì¶”ê°€ ì²˜ë¦¬
+		list.add("ì‚¬ê³¼");
+		list.add("ë°”ë‚˜ë‚˜");
+		list.add("ë”¸ê¸°");
+		list.add("ë©œë¡ ");
 		
-		//ÇöÀç Å©±â È®ÀÎ
+		//í˜„ì¬ í¬ê¸° í™•ì¸
 		System.out.println(list.size());
 		
-		//µ¥ÀÌÅÍÀÇ º¯°æ
-		list.set(0,  "¿À·»Áö");
-		list.set(3,  "¼ö¹Ú");
+		//ë°ì´í„°ì˜ ë³€ê²½
+		list.set(0,  "ì˜¤ë Œì§€");
+		list.set(3,  "ìˆ˜ë°•");
 		
-		//°¢ µ¥ÀÌÅÍ¸¦ indexº°·Î È®ÀÎ
-		System.out.println("1¹øÂ° µ¥ÀÌÅÍ : " + list.get(0));
-		System.out.println("2¹øÂ° µ¥ÀÌÅÍ : " + list.get(1));
-		System.out.println("3¹øÂ° µ¥ÀÌÅÍ : " + list.get(2));
-		System.out.println("4¹øÂ° µ¥ÀÌÅÍ : " + list.get(3));
+		//ê° ë°ì´í„°ë¥¼ indexë³„ë¡œ í™•ì¸
+		System.out.println("1ë²ˆì§¸ ë°ì´í„° : " + list.get(0));
+		System.out.println("2ë²ˆì§¸ ë°ì´í„° : " + list.get(1));
+		System.out.println("3ë²ˆì§¸ ë°ì´í„° : " + list.get(2));
+		System.out.println("4ë²ˆì§¸ ë°ì´í„° : " + list.get(3));
 		
 		ArrayList food = new ArrayList();
 		
-		food.add("°öÃ¢");
-		food.add("Ä¡Å²");
-		food.add("ÃÊ¹ä");
+		food.add("ê³±ì°½");
+		food.add("ì¹˜í‚¨");
+		food.add("ì´ˆë°¥");
 		
 		for(int i=0; i<food.size(); i++) {
-			System.out.println("ÁÁ¾ÆÇÏ´Â À½½Ä" + (i+1) + ": " + food.get(i));
+			System.out.println("ì¢‹ì•„í•˜ëŠ” ìŒì‹" + (i+1) + ": " + food.get(i));
 		}
 		
 	}

@@ -2,76 +2,76 @@ package javaexp.a02_middle;
 
 public class A11_MethodParam {
 	/*
-	# ¸Å°³º¯¼ö
-	1. ¸Ş¼­µå³ª »ı¼ºÀÚ¿¡¼­ Àü´ŞµÇ¾î¿Â µ¥ÀÌÅÍ¸¦ ¹Ş¾Æ Ã³¸®ÇÒ ¶§ »ç¿ëµÇ´Â ¼Ò°ıÈ£() ¾È¿¡ ¼±¾ğµÈ º¯¼ö
-	2. ¸Å°³º¯¼öÀÇ µ¥ÀÌÅÍ À¯Çü
-		1) ¼±¾ğµÈ µ¥ÀÌÅÍ À¯Çü¿¡ ¸Â°Ô µ¥ÀÌÅÍ¸¦ Àü´ŞÇÏ¿©¾ß ÇÑ´Ù.
-			ex) ÀÚÆÇ±â¿¡ ÁöÆó¸¸ ÀÔ·ÂµÇ°Ô Ã³¸®ÇßÀ¸¸é, ÇØ´ç ÀÔ·Â°¡´ÉÇÑ ÁöÆä¸¸ ÀÔ·ÂÇÏ¿©¾ßÇÑ´Ù.
-				µ¿ÀüÀÌ³ª ´Ù¸¥ ¼ö´ÜÀ¸·Î´Â ÀÔ·ÂÀÌ µÇÁö ¾Ê´Â´Ù.
+	# ë§¤ê°œë³€ìˆ˜
+	1. ë©”ì„œë“œë‚˜ ìƒì„±ìì—ì„œ ì „ë‹¬ë˜ì–´ì˜¨ ë°ì´í„°ë¥¼ ë°›ì•„ ì²˜ë¦¬í•  ë•Œ ì‚¬ìš©ë˜ëŠ” ì†Œê´„í˜¸() ì•ˆì— ì„ ì–¸ëœ ë³€ìˆ˜
+	2. ë§¤ê°œë³€ìˆ˜ì˜ ë°ì´í„° ìœ í˜•
+		1) ì„ ì–¸ëœ ë°ì´í„° ìœ í˜•ì— ë§ê²Œ ë°ì´í„°ë¥¼ ì „ë‹¬í•˜ì—¬ì•¼ í•œë‹¤.
+			ex) ìíŒê¸°ì— ì§€íë§Œ ì…ë ¥ë˜ê²Œ ì²˜ë¦¬í–ˆìœ¼ë©´, í•´ë‹¹ ì…ë ¥ê°€ëŠ¥í•œ ì§€í˜ë§Œ ì…ë ¥í•˜ì—¬ì•¼í•œë‹¤.
+				ë™ì „ì´ë‚˜ ë‹¤ë¥¸ ìˆ˜ë‹¨ìœ¼ë¡œëŠ” ì…ë ¥ì´ ë˜ì§€ ì•ŠëŠ”ë‹¤.
 	*/
 	static void callString(String str) {
-		System.out.println("¹®ÀÚ¿­ µ¥ÀÌÅÍ ¸Å°³º¯¼ö : " + str);
+		System.out.println("ë¬¸ìì—´ ë°ì´í„° ë§¤ê°œë³€ìˆ˜ : " + str);
 	}
 	
 	static void callInt(int num1) {
-		System.out.println("ÀÔ·ÂÇÑ ¼ıÀÚ : " + num1);
+		System.out.println("ì…ë ¥í•œ ìˆ«ì : " + num1);
 	}
 	
 	static void name(String name) {
-		System.out.println("ÀÌ¸§Àº " + name + " ÀÔ´Ï´Ù.");
+		System.out.println("ì´ë¦„ì€ " + name + " ì…ë‹ˆë‹¤.");
 	}
 	
 	static void age(int age) {
-		System.out.println("³ªÀÌ´Â " + age + "¼¼ ÀÔ´Ï´Ù.");
+		System.out.println("ë‚˜ì´ëŠ” " + age + "ì„¸ ì…ë‹ˆë‹¤.");
 	}
 	
 	static void weight(double weight) {
-		System.out.println("¸ö¹«°Ô´Â " + weight + "kg ÀÔ´Ï´Ù.");
+		System.out.println("ëª¸ë¬´ê²ŒëŠ” " + weight + "kg ì…ë‹ˆë‹¤.");
 	}
 	/*
-	3. ¸Å°³º¯¼öÀÇ °¹¼ö
-		1) ¸Å°³º¯¼ö¸¦ È£ÃâÇÒ ¶§, ÇÑ¹ø¿¡ ¿©·¯°¡Áö µ¥ÀÌÅÍ¸¦ ÀÔ·ÂÇÒ ¼ö ÀÖ´Ù.
-			ÀÌ ¶§, "¸Å°³º¯¼ö1, ¸Å°³º¯¼ö2, ¸Å°³º¯¼ö3" ÇüÅÂ·Î µ¥ÀÌÅÍ¸¦ ¼±¾ğÇÏ°í, ÇØ´ç °¹¼ö¿¡ ¸Â°Ô µ¥ÀÌÅÍ¸¦ Àü´ŞÇÏ¸é µÈ´Ù.
-			ex) ÀÚÆÇ±â¿¡ ÁöÆó¸¦ ÀÔ·ÂÇÏ°í, ¹øÈ£¸¦ ¼±ÅÃÇÏ´Â 2°¡Áö ÀÔ·ÂÃ³¸®¸¦ ÇÏ´Â °æ¿ì°¡ ÀÖ´Ù.
-				ÀÌ·¸°Ô 1°³ ÀÌ»óÀÇ ÀÔ·Â Á¤º¸¸¦ Ã³¸®ÇÒ ¶§ È°¿ë
+	3. ë§¤ê°œë³€ìˆ˜ì˜ ê°¯ìˆ˜
+		1) ë§¤ê°œë³€ìˆ˜ë¥¼ í˜¸ì¶œí•  ë•Œ, í•œë²ˆì— ì—¬ëŸ¬ê°€ì§€ ë°ì´í„°ë¥¼ ì…ë ¥í•  ìˆ˜ ìˆë‹¤.
+			ì´ ë•Œ, "ë§¤ê°œë³€ìˆ˜1, ë§¤ê°œë³€ìˆ˜2, ë§¤ê°œë³€ìˆ˜3" í˜•íƒœë¡œ ë°ì´í„°ë¥¼ ì„ ì–¸í•˜ê³ , í•´ë‹¹ ê°¯ìˆ˜ì— ë§ê²Œ ë°ì´í„°ë¥¼ ì „ë‹¬í•˜ë©´ ëœë‹¤.
+			ex) ìíŒê¸°ì— ì§€íë¥¼ ì…ë ¥í•˜ê³ , ë²ˆí˜¸ë¥¼ ì„ íƒí•˜ëŠ” 2ê°€ì§€ ì…ë ¥ì²˜ë¦¬ë¥¼ í•˜ëŠ” ê²½ìš°ê°€ ìˆë‹¤.
+				ì´ë ‡ê²Œ 1ê°œ ì´ìƒì˜ ì…ë ¥ ì •ë³´ë¥¼ ì²˜ë¦¬í•  ë•Œ í™œìš©
 	*/
 	static void inputAutoMachine(int money, String menu) {
-		System.out.println("#ÀÚÆÇ±â ÀÔ·Â Ã³¸®#");
-		System.out.println("ÀÔ·ÂÇÑ ±İ¾× : " + money);
-		System.out.println("¼±ÅÃÇÑ ¸Ş´º : " + menu);
+		System.out.println("#ìíŒê¸° ì…ë ¥ ì²˜ë¦¬#");
+		System.out.println("ì…ë ¥í•œ ê¸ˆì•¡ : " + money);
+		System.out.println("ì„ íƒí•œ ë©”ë‰´ : " + menu);
 	}
 	
 	static void student(String name, int kor, int eng, int math) {
-		System.out.println("ÇĞ»ıÀÇ ÀÌ¸§Àº " + name + "ÀÌ°í, ±¹¾îÁ¡¼ö´Â " + kor + "Á¡, ¿µ¾îÁ¡¼ö´Â " + eng + "Á¡, ¼öÇĞÁ¡¼ö´Â " + math + "Á¡ ÀÔ´Ï´Ù.");
+		System.out.println("í•™ìƒì˜ ì´ë¦„ì€ " + name + "ì´ê³ , êµ­ì–´ì ìˆ˜ëŠ” " + kor + "ì , ì˜ì–´ì ìˆ˜ëŠ” " + eng + "ì , ìˆ˜í•™ì ìˆ˜ëŠ” " + math + "ì  ì…ë‹ˆë‹¤.");
 	}
 	/*
-	4. ¸Å°³º¯¼öÀÇ µ¥ÀÌÅÍÀ¯Çü¿¡ µû¸¥ ¼ø¼­
+	4. ë§¤ê°œë³€ìˆ˜ì˜ ë°ì´í„°ìœ í˜•ì— ë”°ë¥¸ ìˆœì„œ
 	*/
 	static void buyProd(String pname, int price) {
-		System.out.println("#±¸¸Å Á¤º¸#");
-		System.out.println("±¸¸ÅÇÑ ¹°°Ç : " + pname);
-		System.out.println("±¸¸ÅÇÑ °¡°İ : " + price);
+		System.out.println("#êµ¬ë§¤ ì •ë³´#");
+		System.out.println("êµ¬ë§¤í•œ ë¬¼ê±´ : " + pname);
+		System.out.println("êµ¬ë§¤í•œ ê°€ê²© : " + price);
 	}
 	
 	static void inputArray(String[] names) {
-		System.out.println("#¸Å°³º¯¼ö·Î ¹è¿­À» ÀÔ·Â#");
-		System.out.println("¹è¿­ÀÇ °¹¼ö : " + names.length);
-		System.out.println("¹è¿­ÀÇ Ã¹¹øÂ° µ¥ÀÌÅÍ : " + names[0]);
+		System.out.println("#ë§¤ê°œë³€ìˆ˜ë¡œ ë°°ì—´ì„ ì…ë ¥#");
+		System.out.println("ë°°ì—´ì˜ ê°¯ìˆ˜ : " + names.length);
+		System.out.println("ë°°ì—´ì˜ ì²«ë²ˆì§¸ ë°ì´í„° : " + names[0]);
 	}
 	
 	public static void main(String[] args) {
-		String[] innames = {"È«±æµ¿", "±è±æµ¿", "¸¶±æµ¿"};
+		String[] innames = {"í™ê¸¸ë™", "ê¹€ê¸¸ë™", "ë§ˆê¸¸ë™"};
 		inputArray(innames);
 		
-		buyProd("»ç°ú",3000);
-//		buyProd(3000,"»ç°ú"); //¼±¾ğµÈ ¼ø¼­¿¡ ¸Â°Ô µ¥ÀÌÅÍ¸¦ È£ÃâÇØ¾ß ÇÑ´Ù.
+		buyProd("ì‚¬ê³¼",3000);
+//		buyProd(3000,"ì‚¬ê³¼"); //ì„ ì–¸ëœ ìˆœì„œì— ë§ê²Œ ë°ì´í„°ë¥¼ í˜¸ì¶œí•´ì•¼ í•œë‹¤.
 		
-		student("È«±æµ¿",74,85,93);
+		student("í™ê¸¸ë™",74,85,93);
 		
-		inputAutoMachine(1000,"Ä¿ÇÇ");
-		inputAutoMachine(2000,"»çÀÌ´Ù");
+		inputAutoMachine(1000,"ì»¤í”¼");
+		inputAutoMachine(2000,"ì‚¬ì´ë‹¤");
 		
-		name("È«±æµ¿");
+		name("í™ê¸¸ë™");
 		age(24);
 		weight(54.2);
 	}
@@ -80,10 +80,10 @@ public class A11_MethodParam {
 
 class Person12 {
 	String getName() {
-		return "È«±æµ¿";
+		return "í™ê¸¸ë™";
 	}
 	
 	void call() {
-		System.out.println("¾È³ç");
+		System.out.println("ì•ˆë…•");
 	}
 }

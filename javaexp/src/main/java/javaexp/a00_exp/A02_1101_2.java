@@ -3,7 +3,7 @@ package javaexp.a00_exp;
 import java.util.Scanner;
 
 public class A02_1101_2 {
-	//±âº»À¯Çü byte, short, char, int, long, double, boolean
+	//ê¸°ë³¸ìœ í˜• byte, short, char, int, long, double, boolean
 	static byte getByte() {
 		return 25;
 	}
@@ -32,7 +32,7 @@ public class A02_1101_2 {
 
 	public static void main(String[] args) {
 	
-		//°úÁ¦1
+		//ê³¼ì œ1
 		int restMoney = 100000;
 		String date = null;
 		String div = null;
@@ -41,90 +41,90 @@ public class A02_1101_2 {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("³¯Â¥¸¦ ÀÔ·ÂÇÏ¼¼¿ä(MM/DD) : ");
+		System.out.println("ë‚ ì§œë¥¼ ì…ë ¥í•˜ì„¸ìš”(MM/DD) : ");
 		date = sc.nextLine();
-		System.out.println("¼öÀÔÁöÃâ±¸ºĞ(¼öÀÔ/ÁöÃâ) : " );
+		System.out.println("ìˆ˜ì…ì§€ì¶œêµ¬ë¶„(ìˆ˜ì…/ì§€ì¶œ) : " );
 		div = sc.nextLine();
-		System.out.println("³»¿ªÀ» ÀÔ·Â : ");
+		System.out.println("ë‚´ì—­ì„ ì…ë ¥ : ");
 		content = sc.nextLine();
-		System.out.println("±İ¾×À» ÀÔ·Â : ");
+		System.out.println("ê¸ˆì•¡ì„ ì…ë ¥ : ");
 		money = sc.nextInt();
-		System.out.println("#Ã³¸® °á°ú#");
-		System.out.println("³¯Â¥\t±¸ºĞ\t³»¿ë\t±İ¾×\tÀÜ¾×");
+		System.out.println("#ì²˜ë¦¬ ê²°ê³¼#");
+		System.out.println("ë‚ ì§œ\têµ¬ë¶„\të‚´ìš©\tê¸ˆì•¡\tì”ì•¡");
 		System.out.print(date+"\t");
 		System.out.print(div+"\t");
 		System.out.print(content+"\t");
 		System.out.print(money+"\t");
 //		System.out.print(restMoney+"\t");
 		
-		if(div.equals("¼öÀÔ")) {
+		if(div.equals("ìˆ˜ì…")) {
 			restMoney += money;
 		} else {
 			restMoney -= money;
 		}
 		System.out.println(restMoney+"\n");
 		
-		//°úÁ¦2
-		/* ÀÚ¹Ù¿¡¼­ »ç¿ëµÇ´Â °ıÈ£ÀÇ Á¾·ù ¹× »ç¿ë¹æ¹ı
-		¼Ò°ıÈ£() : ¸Ş¼­µå³ª »ı¼ºÀÇ ¸Å°³º¯¼ö¸¦ ¼±¾ğ/È£Ãâ½Ã
+		//ê³¼ì œ2
+		/* ìë°”ì—ì„œ ì‚¬ìš©ë˜ëŠ” ê´„í˜¸ì˜ ì¢…ë¥˜ ë° ì‚¬ìš©ë°©ë²•
+		ì†Œê´„í˜¸() : ë©”ì„œë“œë‚˜ ìƒì„±ì˜ ë§¤ê°œë³€ìˆ˜ë¥¼ ì„ ì–¸/í˜¸ì¶œì‹œ
 			Person(String name){}
-			Person p = new Person("È«±æµ¿");
-		Áß°ıÈ£{} : Å¬·¡½º, »ı¼ºÀÚ, ¸Ş¼­µå, Á¶°Ç, ¹İº¹¹®
+			Person p = new Person("í™ê¸¸ë™");
+		ì¤‘ê´„í˜¸{} : í´ë˜ìŠ¤, ìƒì„±ì, ë©”ì„œë“œ, ì¡°ê±´, ë°˜ë³µë¬¸
 			class Person{}
-			ÀÚ¹Ù¿¡¼­¸¸ ¹è¿­¿¡¼­ µ¥ÀÌÅÍ¸¦ ÇÑ²¨¹ø¿¡ ÀÔ·Â°ú ÇÒ´ç½Ã »ç¿ë
-			String[] array = {"»ç°ú", "¹Ù³ª³ª", "µş±â"};
-		´ë°ıÈ£[] : ¹è¿­À» ¼±¾ğÇÏ°í, indexº°·Î µ¥ÀÌÅÍ¸¦ ÀúÀå È£ÃâÇÒ ¶§
+			ìë°”ì—ì„œë§Œ ë°°ì—´ì—ì„œ ë°ì´í„°ë¥¼ í•œêº¼ë²ˆì— ì…ë ¥ê³¼ í• ë‹¹ì‹œ ì‚¬ìš©
+			String[] array = {"ì‚¬ê³¼", "ë°”ë‚˜ë‚˜", "ë”¸ê¸°"};
+		ëŒ€ê´„í˜¸[] : ë°°ì—´ì„ ì„ ì–¸í•˜ê³ , indexë³„ë¡œ ë°ì´í„°ë¥¼ ì €ì¥ í˜¸ì¶œí•  ë•Œ
 			String[] array = null;
 			array = new String[3];
-			array = new String[]{"»ç°ú", "¹Ù³ª³ª", "µş±â"};		
+			array = new String[]{"ì‚¬ê³¼", "ë°”ë‚˜ë‚˜", "ë”¸ê¸°"};		
 		*/
 		
-		//°úÁ¦3
+		//ê³¼ì œ3
 			int num1;
-			//int num1=24; //¼±¾ğÇÏ°í ´Ù½Ã µ¥ÀÌÅÍÀ¯ÇüÀ» ¼±¾ğÇÏ°í °°Àº ÀÌ¸§À¸·Î ¼±¾ğ½Ã ¿À·ù¹ß»ı
-			//¶óÀÎÀÌ ÇÑ È­¸é¿¡¼­ Ã³¸®µÇÁö ¾Ê°í ÀüÃ¼ ÆäÀÌÁö°¡ º¯°æµÇ´Â °æ¿ì ¹ß»ı
+			//int num1=24; //ì„ ì–¸í•˜ê³  ë‹¤ì‹œ ë°ì´í„°ìœ í˜•ì„ ì„ ì–¸í•˜ê³  ê°™ì€ ì´ë¦„ìœ¼ë¡œ ì„ ì–¸ì‹œ ì˜¤ë¥˜ë°œìƒ
+			//ë¼ì¸ì´ í•œ í™”ë©´ì—ì„œ ì²˜ë¦¬ë˜ì§€ ì•Šê³  ì „ì²´ í˜ì´ì§€ê°€ ë³€ê²½ë˜ëŠ” ê²½ìš° ë°œìƒ
 			//duplicate local variable
-			num1=24; //µ¥ÀÌÅÍ À¯ÇüÀ» ¼±¾ğÇÏÁö ¾ÊÀ¸¸é ¿¡·¯°¡ ¹ß»ıÇÏÁö ¾Ê´Â´Ù.
+			num1=24; //ë°ì´í„° ìœ í˜•ì„ ì„ ì–¸í•˜ì§€ ì•Šìœ¼ë©´ ì—ëŸ¬ê°€ ë°œìƒí•˜ì§€ ì•ŠëŠ”ë‹¤.
 			
-		//°úÁ¦4
+		//ê³¼ì œ4
 			String[] array = null;
 			String array2[] = new String[3];
-			array = new String[] {"»ç°ú", "µş±â", "¹Ù³ª³ª"};
-			array2[0] = "È«±æµ¿";
-			array2[1] = "±è±æµ¿";
-			array2[2] = "½Å±æµ¿";
-			String array3[] = {"¿À·»Áö", "¼ö¹Ú", "µş±â"};
+			array = new String[] {"ì‚¬ê³¼", "ë”¸ê¸°", "ë°”ë‚˜ë‚˜"};
+			array2[0] = "í™ê¸¸ë™";
+			array2[1] = "ê¹€ê¸¸ë™";
+			array2[2] = "ì‹ ê¸¸ë™";
+			String array3[] = {"ì˜¤ë Œì§€", "ìˆ˜ë°•", "ë”¸ê¸°"};
 			
-		//°úÁ¦5
-			String[] singers = {"ÀÌ¹«Áø", "MSG¿ö³Êºñ", "Á¤µ¿ÇÏ"};
-			String[] musics = {"½ÅÈ£µî","¹Ù¶ó¸¸º»´Ù","Ãß¾ïÀº¸¸³²º¸´Ù ÀÌº°¿¡ ³²¾Æ"};
+		//ê³¼ì œ5
+			String[] singers = {"ì´ë¬´ì§„", "MSGì›Œë„ˆë¹„", "ì •ë™í•˜"};
+			String[] musics = {"ì‹ í˜¸ë“±","ë°”ë¼ë§Œë³¸ë‹¤","ì¶”ì–µì€ë§Œë‚¨ë³´ë‹¤ ì´ë³„ì— ë‚¨ì•„"};
 			System.out.println(singers[0] + " : " + musics[0]);
 			System.out.println(singers[1] + " : " + musics[1]);
 			System.out.println(singers[2] + " : " + musics[2]);
 			
-		//°úÁ¦6
+		//ê³¼ì œ6
 			int no = 1;
 			no++;
 			no += 3;
-			System.out.println("ÇöÀç noÀÇ µ¥ÀÌÅÍ : " + no);
+			System.out.println("í˜„ì¬ noì˜ ë°ì´í„° : " + no);
 			
-		//°úÁ¦7
-			//ÃÊ±â¿¡ ¹è¿­ÀÇ Å©±â°¡ ÁöÁ¤µÇ¾ú´Âµ¥
+		//ê³¼ì œ7
+			//ì´ˆê¸°ì— ë°°ì—´ì˜ í¬ê¸°ê°€ ì§€ì •ë˜ì—ˆëŠ”ë°
 			int[] array4 = new int[3];
-//			array4[2]=25; // ¹è¿­ÀÇ Å©±â(array.length)´Â 3ÀÌÁö¸¸, index´Â 0, 1, 2±îÁö¸¸ ÇÒ´çÀÌ °¡´ÉÇÏ´Ù. index3Àº ¹è¿­ÀÇ Å©±â°¡ 4ÀÏ ¶§ °¡´ÉÇÏ´Ù.
+//			array4[2]=25; // ë°°ì—´ì˜ í¬ê¸°(array.length)ëŠ” 3ì´ì§€ë§Œ, indexëŠ” 0, 1, 2ê¹Œì§€ë§Œ í• ë‹¹ì´ ê°€ëŠ¥í•˜ë‹¤. index3ì€ ë°°ì—´ì˜ í¬ê¸°ê°€ 4ì¼ ë•Œ ê°€ëŠ¥í•˜ë‹¤.
 			
-		//°úÁ¦8
-			System.out.println("¸Ş¼­µå È£Ãâ : " + getByte());
-			System.out.println("¸Ş¼­µå È£Ãâ : " + getBoolean());
-			System.out.println("¸Ş¼­µå È£Ãâ : " + getChar());
+		//ê³¼ì œ8
+			System.out.println("ë©”ì„œë“œ í˜¸ì¶œ : " + getByte());
+			System.out.println("ë©”ì„œë“œ í˜¸ì¶œ : " + getBoolean());
+			System.out.println("ë©”ì„œë“œ í˜¸ì¶œ : " + getChar());
 			
 
 			
-		//°úÁ¦9
-//			class »óÀ§Å¬·¡½º {
-//				±¸¼º¿ä¼Ò
+		//ê³¼ì œ9
+//			class ìƒìœ„í´ë˜ìŠ¤ {
+//				êµ¬ì„±ìš”ì†Œ
 //			}
-//			class ÇÏÀ§Å¬·¡½º extends »óÀ§Å¬·¡½º {
+//			class í•˜ìœ„í´ë˜ìŠ¤ extends ìƒìœ„í´ë˜ìŠ¤ {
 //				
 //			
 //			}

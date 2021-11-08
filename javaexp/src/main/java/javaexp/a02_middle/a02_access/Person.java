@@ -2,10 +2,10 @@ package javaexp.a02_middle.a02_access;
 
 public class Person {
 		
-	//´Ù¸¥ ÆĞÅ°Áö¿¡ ÀÖ´Â field
-		private String name = "È«±æµ¿";
+	//ë‹¤ë¥¸ íŒ¨í‚¤ì§€ì— ìˆëŠ” field
+		private String name = "í™ê¸¸ë™";
 		int age = 25;
-		public String loc = "¼­¿ï";
+		public String loc = "ì„œìš¸";
 	}
 
 

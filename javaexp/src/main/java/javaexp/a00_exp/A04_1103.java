@@ -3,47 +3,47 @@ package javaexp.a00_exp;
 public class A04_1103 {
 
 	public static void main(String[] args) {
-		//°úÁ¦1
+		//ê³¼ì œ1
 			/*
-			Å¬·¡½º´Â ½ÇÁ¦ °´Ã¼¸¦ ¸¸µé ¼³°èµµ ¿ªÇÒÀ» ÇÑ´Ù.
-			ÄÚµå·Î ¸¸µé Å¬·¡½º´Â ÄÄÆÄÀÏ ´Ü°è±îÁö¸¸ ÁøÇàµÇ¸ç, ÀÌ ÄÄÆÄÀÏ µÈ Å¬·¡½º´Â
-			main()°¡ ÀÖ´Â Å¬·¡½º¿¡¼­ ½ÇÇàÀ¸·Î ÇØ´ç Å¬·¡½º¸¦ new »ý¼ºÀÚ()ÇüÅÂ·Î È£ÃâÇÏ¿© ¸Þ¸ð¸®¿¡ ·ÎµùÇÒ ¼ö ÀÖ´Ù.
-			Å¬·¡½º¸í ÂüÁ¶º¯¼ö = new »ý¼ºÀÚ();
-			ÇÏ³ªÀÇ ¼±¾ðµÈ Å¬·¡½º¿¡¼­ ¿©·¯°³ÀÇ °´Ã¼¸¦ »ý¼ºÇÒ ¼ö ÀÖ°í, ÀÌ·¸°Ô »ý¼ºµÈ °´Ã¼´Â heap¿µ¿ª¿¡ ¸Þ¸ð¸®¸¦ ¸¸µé°í,
-			ÂüÁ¶º¯¼ö¿¡ ÀÇÇØ¼­ stack¿µ¿ª¿¡ heap¿µ¿ªÀÇ ÁÖ¼Ò°ªÀ» ÀúÀåÇÏ¿© Ã³¸®µÈ´Ù.
+			í´ëž˜ìŠ¤ëŠ” ì‹¤ì œ ê°ì²´ë¥¼ ë§Œë“¤ ì„¤ê³„ë„ ì—­í• ì„ í•œë‹¤.
+			ì½”ë“œë¡œ ë§Œë“¤ í´ëž˜ìŠ¤ëŠ” ì»´íŒŒì¼ ë‹¨ê³„ê¹Œì§€ë§Œ ì§„í–‰ë˜ë©°, ì´ ì»´íŒŒì¼ ëœ í´ëž˜ìŠ¤ëŠ”
+			main()ê°€ ìžˆëŠ” í´ëž˜ìŠ¤ì—ì„œ ì‹¤í–‰ìœ¼ë¡œ í•´ë‹¹ í´ëž˜ìŠ¤ë¥¼ new ìƒì„±ìž()í˜•íƒœë¡œ í˜¸ì¶œí•˜ì—¬ ë©”ëª¨ë¦¬ì— ë¡œë”©í•  ìˆ˜ ìžˆë‹¤.
+			í´ëž˜ìŠ¤ëª… ì°¸ì¡°ë³€ìˆ˜ = new ìƒì„±ìž();
+			í•˜ë‚˜ì˜ ì„ ì–¸ëœ í´ëž˜ìŠ¤ì—ì„œ ì—¬ëŸ¬ê°œì˜ ê°ì²´ë¥¼ ìƒì„±í•  ìˆ˜ ìžˆê³ , ì´ë ‡ê²Œ ìƒì„±ëœ ê°ì²´ëŠ” heapì˜ì—­ì— ë©”ëª¨ë¦¬ë¥¼ ë§Œë“¤ê³ ,
+			ì°¸ì¡°ë³€ìˆ˜ì— ì˜í•´ì„œ stackì˜ì—­ì— heapì˜ì—­ì˜ ì£¼ì†Œê°’ì„ ì €ìž¥í•˜ì—¬ ì²˜ë¦¬ëœë‹¤.
 			*/
 		
-		//°úÁ¦2
+		//ê³¼ì œ2
 			/*
-			°´Ã¼´Â »ý¼ºÀÌ µÇ¸é heap¿µ¿ª¿¡ ¸Þ¸ð¸®¸¦ ¸¸µé¾î »ý¼ºÀ» ÇÏ°í, ÀÌ heap¿µ¿ªÀÇ ÁÖ¼Ò°ªÀ» stack¿µ¿ª¿¡ ÂüÁ¶º¯¼ö·Î ÀúÀåÇÑ´Ù.
-			ÇÏ³ªÀÇ Å¬·¡½º¸¦ ÅëÇØ¼­ ¸¸µé¾îÁø ¿©·¯ °´Ã¼µéÀ» °¢°¢ ´Ù¸¥ heap¿µ¿ª¿¡ ÀúÀåµÇ±â¿¡ ´Ù¸¥ ÁÖ¼Ò°ªÀ» °¡Áø´Ù.
+			ê°ì²´ëŠ” ìƒì„±ì´ ë˜ë©´ heapì˜ì—­ì— ë©”ëª¨ë¦¬ë¥¼ ë§Œë“¤ì–´ ìƒì„±ì„ í•˜ê³ , ì´ heapì˜ì—­ì˜ ì£¼ì†Œê°’ì„ stackì˜ì—­ì— ì°¸ì¡°ë³€ìˆ˜ë¡œ ì €ìž¥í•œë‹¤.
+			í•˜ë‚˜ì˜ í´ëž˜ìŠ¤ë¥¼ í†µí•´ì„œ ë§Œë“¤ì–´ì§„ ì—¬ëŸ¬ ê°ì²´ë“¤ì„ ê°ê° ë‹¤ë¥¸ heapì˜ì—­ì— ì €ìž¥ë˜ê¸°ì— ë‹¤ë¥¸ ì£¼ì†Œê°’ì„ ê°€ì§„ë‹¤.
 			Person p1 = new Person();
 			Person p2 = new Person();
-			new Person() : Èü¿µ¿ª¿¡ °´Ã¼°¡ »ý¼º, p1, p2 ÂüÁ¶º¯¼ö·Î Èü¿±¿ªÀÇ ÁÖ¼Ò°ªÀ» ½ºÅÃ¿µ¿ª¿¡ ÀúÀåÇÑ´Ù. 
-				ex) µµ¼­°ü¿¡ ½ÇÁ¦ Ã¥ÀÌ ÀÖ´Â °Í(Èü¿µ¿ª¿¡ °´Ã¼°¡ »ý¼º), ÀÌ Ã¥ÀÌ ÀÖ´Â °÷À» ´Ü¸»±â¸¦ ÅëÇØ °Ë»öÇØ¼­ ±× À§Ä¡¸¦ ÀúÀå(½ºÅÃ¿µ¿ª¿¡ Èü¿µ¿ªÀÇ À§Ä¡ ÀúÀå)
+			new Person() : íž™ì˜ì—­ì— ê°ì²´ê°€ ìƒì„±, p1, p2 ì°¸ì¡°ë³€ìˆ˜ë¡œ íž™ì—½ì—­ì˜ ì£¼ì†Œê°’ì„ ìŠ¤íƒì˜ì—­ì— ì €ìž¥í•œë‹¤. 
+				ex) ë„ì„œê´€ì— ì‹¤ì œ ì±…ì´ ìžˆëŠ” ê²ƒ(íž™ì˜ì—­ì— ê°ì²´ê°€ ìƒì„±), ì´ ì±…ì´ ìžˆëŠ” ê³³ì„ ë‹¨ë§ê¸°ë¥¼ í†µí•´ ê²€ìƒ‰í•´ì„œ ê·¸ ìœ„ì¹˜ë¥¼ ì €ìž¥(ìŠ¤íƒì˜ì—­ì— íž™ì˜ì—­ì˜ ìœ„ì¹˜ ì €ìž¥)
 			*/
 		
-		//°úÁ¦3
+		//ê³¼ì œ3
 			/*
 			class Person {
 			
 			 }
-			 1. Å¬·¡½º¸¸ ¼±¾ðÇÏ¿©µµ ³»ºÎÀûÀ¸·Î Person(){} ¸ð¾çÀÇ »ý¼ºÀÚ°¡ default·Î ¼±¾ðÀÌ µÈ´Ù.
-			 	±×·¡¼­, main() ¸Þ¼­µå¸¦ ÅëÇØ¼­ Person p1 = new Person(); À¸·Î Å¬·¡½ºÀÇ »ý¼ºÀÚ¸¦ È£ÃâÇÒ ¼ö ÀÖ´Ù.
-			 2. default»ý¼ºÀÚ´Â °³¹ßÀÚ°¡ Ãß°¡ ÄÚµùÀ» ÅëÇØ »ý¼ºÀÚ¸¦ ¼±¾ðÇÒ ¶§ »ç¶óÁø´Ù.
-			 	ÀÌ ¶§´Â ¼±¾ðÇÑ »ý¼ºÀÚ°¡ ÀÖÀ» ¶§¸¸ ÇØ´ç °´Ã¼°¡ »ý¼ºÀÚ¸¦ ÅëÇØ¼­ »ý¼ºÀÌ µÇ°í È£ÃâÀÌ °¡´ÉÇÏ´Ù.
-			 	ex) main() ¸Þ¼­µå
-			 	Person p1 = new Person(); ¿Í °°Àº ÄÚµåÀÇ °æ¿ì, »ý¼ºÀÚ¸¦ ¼±¾ðÇÏÁö ¾ÊÀ» ¶§´Â ¿¡·¯°¡ ¹ß»ýÇÏÁö ¾ÊÁö¸¸
-			 	À§¿Í °°ÀÌ »ý¼ºÀÚ¸¦ ¸Å°³º¯¼ö°¡ ÀÖ´Â »ý¼ºÀÚ¸¦ ¼±¾ðÇßÀ» ¶§ ¿¡·¯°¡ ¹ß»ýÇÑ´Ù.
-			 	¼±¾ðÇÏ´Â ¼ø°£ default »ý¼ºÀÚ´Â »ç¶óÁø´Ù.
-			 3. ±âÁ¸¿¡ ¸Å°³º¯¼ö°¡ ¾ø´Â »ý¼ºÀÚµµ ¿¡·¯¾øÀÌ »ç¿ëÇÏ°í ½ÍÀ¸¸é, Ãß°¡ÇÏ¿© default»ý¼ºÀÚ¿Í ¸ð¾çÀÌ °°Àº ¸Å°³º¯¼ö°¡ ¾ø´Â »ý¼ºÀÚ¸¦ ¼±¾ðÇÏ¸é µÈ´Ù.
+			 1. í´ëž˜ìŠ¤ë§Œ ì„ ì–¸í•˜ì—¬ë„ ë‚´ë¶€ì ìœ¼ë¡œ Person(){} ëª¨ì–‘ì˜ ìƒì„±ìžê°€ defaultë¡œ ì„ ì–¸ì´ ëœë‹¤.
+			 	ê·¸ëž˜ì„œ, main() ë©”ì„œë“œë¥¼ í†µí•´ì„œ Person p1 = new Person(); ìœ¼ë¡œ í´ëž˜ìŠ¤ì˜ ìƒì„±ìžë¥¼ í˜¸ì¶œí•  ìˆ˜ ìžˆë‹¤.
+			 2. defaultìƒì„±ìžëŠ” ê°œë°œìžê°€ ì¶”ê°€ ì½”ë”©ì„ í†µí•´ ìƒì„±ìžë¥¼ ì„ ì–¸í•  ë•Œ ì‚¬ë¼ì§„ë‹¤.
+			 	ì´ ë•ŒëŠ” ì„ ì–¸í•œ ìƒì„±ìžê°€ ìžˆì„ ë•Œë§Œ í•´ë‹¹ ê°ì²´ê°€ ìƒì„±ìžë¥¼ í†µí•´ì„œ ìƒì„±ì´ ë˜ê³  í˜¸ì¶œì´ ê°€ëŠ¥í•˜ë‹¤.
+			 	ex) main() ë©”ì„œë“œ
+			 	Person p1 = new Person(); ì™€ ê°™ì€ ì½”ë“œì˜ ê²½ìš°, ìƒì„±ìžë¥¼ ì„ ì–¸í•˜ì§€ ì•Šì„ ë•ŒëŠ” ì—ëŸ¬ê°€ ë°œìƒí•˜ì§€ ì•Šì§€ë§Œ
+			 	ìœ„ì™€ ê°™ì´ ìƒì„±ìžë¥¼ ë§¤ê°œë³€ìˆ˜ê°€ ìžˆëŠ” ìƒì„±ìžë¥¼ ì„ ì–¸í–ˆì„ ë•Œ ì—ëŸ¬ê°€ ë°œìƒí•œë‹¤.
+			 	ì„ ì–¸í•˜ëŠ” ìˆœê°„ default ìƒì„±ìžëŠ” ì‚¬ë¼ì§„ë‹¤.
+			 3. ê¸°ì¡´ì— ë§¤ê°œë³€ìˆ˜ê°€ ì—†ëŠ” ìƒì„±ìžë„ ì—ëŸ¬ì—†ì´ ì‚¬ìš©í•˜ê³  ì‹¶ìœ¼ë©´, ì¶”ê°€í•˜ì—¬ defaultìƒì„±ìžì™€ ëª¨ì–‘ì´ ê°™ì€ ë§¤ê°œë³€ìˆ˜ê°€ ì—†ëŠ” ìƒì„±ìžë¥¼ ì„ ì–¸í•˜ë©´ ëœë‹¤.
 				class Person {
 					Person(){}
 					Person(String name){}
 				}
 			*/
 		
-		//°úÁ¦4
+		//ê³¼ì œ4
 			/*
 			Class Person {
 				String name;
@@ -52,60 +52,60 @@ public class A04_1103 {
 					this.name = name;
 					this.age = age;
 				}
-				this¶ó´Â °ÍÀº °´Ã¼°¡ »ý¼ºµÇ¾úÀ» ¶§, ³»ºÎÀûÀ¸·Î ÇöÀç È£ÃâµÈ ÀÌ °´Ã¼¸¦ ÁöÄªÇÑ´Ù.
-				this.ÇÊµå, this.¸Þ¼­µå(), this() ÇöÀç °´Ã¼ÀÇ ¼±¾ðµÈ »ý¼ºÀÚ¸¦ È£ÃâÇÑ´Ù.
-				¿ÜºÎ¿¡¼­´Â ÂüÁ¶º¯¼ö·Î È£ÃâÇÏ¿© ÂüÁ¶º¯¼ö.¸â¹ö·Î Ã³¸®ÇÏÁö¸¸, °´Ã¼¿¡¼­´Â this·Î ÇöÀç »ý¼ºµÈ ÀÌ °´Ã¼¸¦ ÁöÄªÇÑ´Ù.
-				ÀÚ¹Ù¿¡¼­´Â Á¶±Ý ¿©À¯·Ó°Ô this¶ó´Â Å°¿öµå¸¦ ¼±¾ðÇÏÁö ¾Ê¾Æµµ ÇÊµå³ª ¸Þ¼­µå¸¦ ÁöÄªÇÏÁö¸¸,
-				°´Ã¼ÁöÇâÀûÀÎ ÇÁ·Î±×·¥¿¡¼­ ¹Ýµå½Ã ¼±¾ðÇÏ¿©¾ß ÇÏ´Â °æ¿ì°¡ ¸¹´Ù.
+				thisë¼ëŠ” ê²ƒì€ ê°ì²´ê°€ ìƒì„±ë˜ì—ˆì„ ë•Œ, ë‚´ë¶€ì ìœ¼ë¡œ í˜„ìž¬ í˜¸ì¶œëœ ì´ ê°ì²´ë¥¼ ì§€ì¹­í•œë‹¤.
+				this.í•„ë“œ, this.ë©”ì„œë“œ(), this() í˜„ìž¬ ê°ì²´ì˜ ì„ ì–¸ëœ ìƒì„±ìžë¥¼ í˜¸ì¶œí•œë‹¤.
+				ì™¸ë¶€ì—ì„œëŠ” ì°¸ì¡°ë³€ìˆ˜ë¡œ í˜¸ì¶œí•˜ì—¬ ì°¸ì¡°ë³€ìˆ˜.ë©¤ë²„ë¡œ ì²˜ë¦¬í•˜ì§€ë§Œ, ê°ì²´ì—ì„œëŠ” thisë¡œ í˜„ìž¬ ìƒì„±ëœ ì´ ê°ì²´ë¥¼ ì§€ì¹­í•œë‹¤.
+				ìžë°”ì—ì„œëŠ” ì¡°ê¸ˆ ì—¬ìœ ë¡­ê²Œ thisë¼ëŠ” í‚¤ì›Œë“œë¥¼ ì„ ì–¸í•˜ì§€ ì•Šì•„ë„ í•„ë“œë‚˜ ë©”ì„œë“œë¥¼ ì§€ì¹­í•˜ì§€ë§Œ,
+				ê°ì²´ì§€í–¥ì ì¸ í”„ë¡œê·¸ëž¨ì—ì„œ ë°˜ë“œì‹œ ì„ ì–¸í•˜ì—¬ì•¼ í•˜ëŠ” ê²½ìš°ê°€ ë§Žë‹¤.
 			}
-			Person p1 = new Person("È«±æµ¿", 25);
+			Person p1 = new Person("í™ê¸¸ë™", 25);
 			p1.name;
 			p1.show();
 			*/
 			
-		//°úÁ¦5
+		//ê³¼ì œ5
 			/*
 			Class Person {
-				Person(){System.out.println("»ý¼ºÀÚ1");}
-				Person(){System.out.println("»ý¼ºÀÚ2");}
+				Person(){System.out.println("ìƒì„±ìž1");}
+				Person(){System.out.println("ìƒì„±ìž2");}
 				Person(String name){}
 				Person(int name){}
 				Person(String name, int age){}
 			}
-			1. »ý¼ºÀÚ´Â ¿À¹ö·Îµù±ÔÄ¢¿¡ ÀÇÇØ¼­ ¿©·¯ °³¸¦ ÇÏ³ªÀÇ Å¬·¡½º¿¡¼­ ¼±¾ðÇÒ ¼ö ÀÖ´Ù.
-			2. ¿À¹ö·Îµù±ÔÄ¢ÀÌ ÀÖ´Â ±Ùº»ÀûÀÎ ÀÌÀ¯´Â ¿ÜºÎ¿¡¼­ È£ÃâÇÒ ¶§, ´Ù¸£°Ô ½Äº°ÇÏ¿© È£ÃâÀÌ °¡´ÉÇÏ±â ¶§¹®ÀÌ´Ù.
-			3. »ý¼ºÀÚµµ ¸Þ¼­µåµµ ÀÌ¸§ÀÌ °°Áö¸¸ ¸Å°³º¯¼ö°¡ ´Ù¸£¸é ´Ù¸¥ »ý¼ºÀÚ, ´Ù¸¥ ¸Þ¼­µå·Î ½Äº°ÇÒ ¼ö ÀÖ±â ¶§¹®¿¡ ¼±¾ðÀÌ °¡´ÉÇÏ´Ù.
-				Person p1 = new Person(); : 69, 70¶óÀÎ µÑ ´Ù ¼±¾ðµÇ¾î ÀÖÀ¸¸é ÇØ´ç »ý¼ºÀÚ·Î ¹«¾ùÀ» È£ÃâÇÒÁö ±¸ºÐÀ» ÇÒ ¼ö ¾ø±â ¶§¹®¿¡ ÇÏ³ª´Â »èÁ¦ÇØ¾ß ¿¡·¯°¡ ¹ß»ýÇÏÁö ¾Ê´Â´Ù.
-				Person p2 = new Person("È«±æµ¿"); : 71¶óÀÎ¿¡ ÀÖ´Â »ý¼ºÀÚ¸¦ È£ÃâÇÏ´Â °ÍÀÌ ¸í¹éÇÏ±â ¶§¹®¿¡ °°Àº ÀÌ¸§ÀÌ¶óµµ ¼±¾ðÀ» ÇÒ ¼ö ÀÖ´Ù. 
-				Person p3 = new Person(25); : 72¶óÀÎÀ» È£ÃâÇÏ´Â°ÍÀÌ ¸íÈ®ÇÏ±â¿¡ ¼±¾ðÀÌ °¡´ÉÇÏ´Ù.
-			4. °á·ÐÀûÀ¸·Î »ý¼ºÀÚ³ª ¸Þ¼­µå´Â ½Äº°ÀÌ °¡´ÉÇÏ°Ô ¸Å°³º¯¼ö°¡ ¼±¾ðµÇ¸é ¼±¾ðÀÌ °¡´ÉÇÏ°í ÀÌ°ÍÀ» ¿À¹ö·ÎµùÀÌ¶ó°í ÇÏ´Âµ¥, 
-				ÀÏ¹ÝÀûÀ¸·Î ¸Å°³º¯¼öÀÇ °¹¼ö, ¸Å°³º¯¼öÀÇ µ¥ÀÌÅÍÀ¯Çü, ¸Å°³º¯¼öÀÇ ¼±¾ð ¼ø¼­¿¡ µû¶ó¼­ ´Ù¸¥ »ý¼ºÀÚ/¸Þ¼­µå¸¦ ¼±¾ðÇÒ ¼ö ÀÖ´Â °ÍÀ» ¸»ÇÑ´Ù.
+			1. ìƒì„±ìžëŠ” ì˜¤ë²„ë¡œë”©ê·œì¹™ì— ì˜í•´ì„œ ì—¬ëŸ¬ ê°œë¥¼ í•˜ë‚˜ì˜ í´ëž˜ìŠ¤ì—ì„œ ì„ ì–¸í•  ìˆ˜ ìžˆë‹¤.
+			2. ì˜¤ë²„ë¡œë”©ê·œì¹™ì´ ìžˆëŠ” ê·¼ë³¸ì ì¸ ì´ìœ ëŠ” ì™¸ë¶€ì—ì„œ í˜¸ì¶œí•  ë•Œ, ë‹¤ë¥´ê²Œ ì‹ë³„í•˜ì—¬ í˜¸ì¶œì´ ê°€ëŠ¥í•˜ê¸° ë•Œë¬¸ì´ë‹¤.
+			3. ìƒì„±ìžë„ ë©”ì„œë“œë„ ì´ë¦„ì´ ê°™ì§€ë§Œ ë§¤ê°œë³€ìˆ˜ê°€ ë‹¤ë¥´ë©´ ë‹¤ë¥¸ ìƒì„±ìž, ë‹¤ë¥¸ ë©”ì„œë“œë¡œ ì‹ë³„í•  ìˆ˜ ìžˆê¸° ë•Œë¬¸ì— ì„ ì–¸ì´ ê°€ëŠ¥í•˜ë‹¤.
+				Person p1 = new Person(); : 69, 70ë¼ì¸ ë‘˜ ë‹¤ ì„ ì–¸ë˜ì–´ ìžˆìœ¼ë©´ í•´ë‹¹ ìƒì„±ìžë¡œ ë¬´ì—‡ì„ í˜¸ì¶œí• ì§€ êµ¬ë¶„ì„ í•  ìˆ˜ ì—†ê¸° ë•Œë¬¸ì— í•˜ë‚˜ëŠ” ì‚­ì œí•´ì•¼ ì—ëŸ¬ê°€ ë°œìƒí•˜ì§€ ì•ŠëŠ”ë‹¤.
+				Person p2 = new Person("í™ê¸¸ë™"); : 71ë¼ì¸ì— ìžˆëŠ” ìƒì„±ìžë¥¼ í˜¸ì¶œí•˜ëŠ” ê²ƒì´ ëª…ë°±í•˜ê¸° ë•Œë¬¸ì— ê°™ì€ ì´ë¦„ì´ë¼ë„ ì„ ì–¸ì„ í•  ìˆ˜ ìžˆë‹¤. 
+				Person p3 = new Person(25); : 72ë¼ì¸ì„ í˜¸ì¶œí•˜ëŠ”ê²ƒì´ ëª…í™•í•˜ê¸°ì— ì„ ì–¸ì´ ê°€ëŠ¥í•˜ë‹¤.
+			4. ê²°ë¡ ì ìœ¼ë¡œ ìƒì„±ìžë‚˜ ë©”ì„œë“œëŠ” ì‹ë³„ì´ ê°€ëŠ¥í•˜ê²Œ ë§¤ê°œë³€ìˆ˜ê°€ ì„ ì–¸ë˜ë©´ ì„ ì–¸ì´ ê°€ëŠ¥í•˜ê³  ì´ê²ƒì„ ì˜¤ë²„ë¡œë”©ì´ë¼ê³  í•˜ëŠ”ë°, 
+				ì¼ë°˜ì ìœ¼ë¡œ ë§¤ê°œë³€ìˆ˜ì˜ ê°¯ìˆ˜, ë§¤ê°œë³€ìˆ˜ì˜ ë°ì´í„°ìœ í˜•, ë§¤ê°œë³€ìˆ˜ì˜ ì„ ì–¸ ìˆœì„œì— ë”°ë¼ì„œ ë‹¤ë¥¸ ìƒì„±ìž/ë©”ì„œë“œë¥¼ ì„ ì–¸í•  ìˆ˜ ìžˆëŠ” ê²ƒì„ ë§í•œë‹¤.
 			*/
 		
-		//°úÁ¦6
+		//ê³¼ì œ6
 		Computer com = new Computer("intel", "i5-1044F", 8, 256);
 		com.showInfo();
 		
 		System.out.println();
 		
-		//°úÁ¦7
-		com.cpuChange("¶óÀÌÁ¨ 5600x");
+		//ê³¼ì œ7
+		com.cpuChange("ë¼ì´ì   5600x");
 		
 		System.out.println();
 		
-		//°úÁ¦8
+		//ê³¼ì œ8
 		int ram = com.ramUpgrade();
-		System.out.println("RAMÀÌ " + ram + "GB·Î ¾÷±×·¹ÀÌµå µÇ¾ú½À´Ï´Ù.");
+		System.out.println("RAMì´ " + ram + "GBë¡œ ì—…ê·¸ë ˆì´ë“œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		
 		System.out.println();
 		
-		//°úÁ¦9
+		//ê³¼ì œ9
 		AirPlane[] air = new AirPlane[2];
 		
-		air[0] = new AirPlane("¾Æ½Ã¾Æ³ª", 120, 45);
-		air[1] = new AirPlane("´ëÇÑÇ×°ø", 180, 60);
+		air[0] = new AirPlane("ì•„ì‹œì•„ë‚˜", 120, 45);
+		air[1] = new AirPlane("ëŒ€í•œí•­ê³µ", 180, 60);
 		
-		System.out.println("Ç×°ø»ç\t¼Óµµ\tÅ¾½Â°´¼ö");
+		System.out.println("í•­ê³µì‚¬\tì†ë„\tíƒ‘ìŠ¹ê°ìˆ˜");
 		for(int i=0; i<air.length; i++) {
 			System.out.println(air[i].make + "\t" + air[i].speed + "\t" + air[i].loadCnt);
 		}
@@ -121,14 +121,14 @@ public class A04_1103 {
 		
 		System.out.println();
 		
-		//°úÁ¦10
-		System.out.println("no\tÃâ¹ßÁö\tµµÂøÁö\t½Â°´¼ö");
+		//ê³¼ì œ10
+		System.out.println("no\tì¶œë°œì§€\të„ì°©ì§€\tìŠ¹ê°ìˆ˜");
 		
 		Bus01 b[] = new Bus01[3];
 		
-		b[0] = new Bus01(1, "Àá½Ç", "°­³²", 6);
-		b[1]= new Bus01(2, "¼öÀ¯", "ÇýÈ­", 5);
-		b[2] = new Bus01(3, "¿ë»ê", "¿Õ½Ê¸®", 7);
+		b[0] = new Bus01(1, "ìž ì‹¤", "ê°•ë‚¨", 6);
+		b[1]= new Bus01(2, "ìˆ˜ìœ ", "í˜œí™”", 5);
+		b[2] = new Bus01(3, "ìš©ì‚°", "ì™•ì‹­ë¦¬", 7);
 		
 		b[0].loadPerson(4);
 		b[1].loadPerson(6);
@@ -136,7 +136,7 @@ public class A04_1103 {
 	}
 
 }
-//°úÁ¦6
+//ê³¼ì œ6
 class Computer {
 	String make, cpu;
 	int ram, hdd;
@@ -149,25 +149,25 @@ class Computer {
 	}
 	
 	void showInfo() {
-		System.out.println("Á¦Á¶»ç : " + make);
+		System.out.println("ì œì¡°ì‚¬ : " + make);
 		System.out.println("CPU : " + cpu);
 		System.out.println("RAM : " + ram);
 		System.out.println("HDD : " + hdd);
 	}
 	
-//°úÁ¦7
+//ê³¼ì œ7
 	void cpuChange(String cpu) {
-		System.out.println(this.cpu + "°¡ " + cpu + "·Î º¯°æµÇ¾ú½À´Ï´Ù.");
+		System.out.println(this.cpu + "ê°€ " + cpu + "ë¡œ ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		this.cpu = cpu;
 	}
 	
-//°úÁ¦8
+//ê³¼ì œ8
 	int ramUpgrade() {
 		return ram *= 2;
 	}
 }
 
-//°úÁ¦9
+//ê³¼ì œ9
 class AirPlane {
 	String make;
 	int speed, loadCnt;
@@ -180,30 +180,30 @@ class AirPlane {
 	
 	void speedUp(int speed) {
 		this.speed += speed;
-		System.out.println(make + " ¼Óµµ°¡ Áõ°¡ÇÏ¿© ÇöÀç ¼Óµµ´Â " + this.speed + "km/h ÀÔ´Ï´Ù.");
+		System.out.println(make + " ì†ë„ê°€ ì¦ê°€í•˜ì—¬ í˜„ìž¬ ì†ë„ëŠ” " + this.speed + "km/h ìž…ë‹ˆë‹¤.");
 	}
 	
 	void speedDown(int speed) {
 		this.speed -= speed;
-		System.out.println(make + " ¼Óµµ°¡ °¨¼ÒÇÏ¿© ÇöÀç ¼Óµµ´Â " + this.speed + "km/h ÀÔ´Ï´Ù.");
+		System.out.println(make + " ì†ë„ê°€ ê°ì†Œí•˜ì—¬ í˜„ìž¬ ì†ë„ëŠ” " + this.speed + "km/h ìž…ë‹ˆë‹¤.");
 	}
 	
 	void accConut(int loadCnt) {
 		if(loadCnt>0) {
-			System.out.println("ºñÇà±â¿¡ Å¾½ÂÇÏ´Ù."); 
+			System.out.println("ë¹„í–‰ê¸°ì— íƒ‘ìŠ¹í•˜ë‹¤."); 
 		} else if(loadCnt<0) {
-			System.out.println("ºñÇà±â¿¡¼­ ÇÏÂ÷ÇÏ´Ù.");
+			System.out.println("ë¹„í–‰ê¸°ì—ì„œ í•˜ì°¨í•˜ë‹¤.");
 		} else {
-			System.out.println("ºñÇà±â¿¡ ÀÖ½À´Ï´Ù.(½ÂÇÏÂ÷ÀÎ¿ø ¾øÀ½)");
+			System.out.println("ë¹„í–‰ê¸°ì— ìžˆìŠµë‹ˆë‹¤.(ìŠ¹í•˜ì°¨ì¸ì› ì—†ìŒ)");
 		}
 		this.loadCnt += loadCnt;
-		System.out.println(make + " º¯°æÀÎ¿ø : " +loadCnt);
-		System.out.println(make + " ÇöÀçÀÎ¿ø : " +this.loadCnt);
+		System.out.println(make + " ë³€ê²½ì¸ì› : " +loadCnt);
+		System.out.println(make + " í˜„ìž¬ì¸ì› : " +this.loadCnt);
 		
 	}
 }
 
-//°úÁ¦10
+//ê³¼ì œ10
 class Bus01 {
 	int no, cnt;
 	String start, stop;
@@ -219,24 +219,24 @@ class Bus01 {
 	}
 	
 	void loadPerson(int count) {
-		System.out.println("# " + start + "~" + stop + " ³ë¼± " +no + "¹ø ¹ö½º ½ÂÂ÷ Á¤º¸ #");
+		System.out.println("# " + start + "~" + stop + " ë…¸ì„  " +no + "ë²ˆ ë²„ìŠ¤ ìŠ¹ì°¨ ì •ë³´ #");
 		cnt += count;
-		System.out.println(no + "¹ø ¹ö½º Å¾½ÂÇÑ ½Â°´ ¼ö : " + count);
-		System.out.println(no + "¹ø ¹ö½º ÇöÀç Å¾½Â°´ ¼ö : " + cnt);
+		System.out.println(no + "ë²ˆ ë²„ìŠ¤ íƒ‘ìŠ¹í•œ ìŠ¹ê° ìˆ˜ : " + count);
+		System.out.println(no + "ë²ˆ ë²„ìŠ¤ í˜„ìž¬ íƒ‘ìŠ¹ê° ìˆ˜ : " + cnt);
 	}
 }
 
 /*
-1. Å¬·¡½º¿Í °´Ã¼ÀÇ °ü°è¸¦ ±â¼úÇÏ¼¼¿ä.
-2. ÀÚ¹ÙÀÇ ¸Þ¸ð¸® Áß stack°ú heap¿µ¿ªÀÌ ÀÖ´Âµ¥, °´Ã¼°¡ ÀÌ ¸Þ¸ð¸®¸¦ ¾î¶»°Ô È°¿ëÇÏ´ÂÁö¸¦ Å¬·¡½º, °´Ã¼¼±¾ðÀ» ÅëÇØ¼­ ¼³¸íÇÏ¼¼¿ä.
-3. Å¬·¡½º¸¦ ÅëÇØ¼­ ¼±¾ðÇÒ »ý¼ºÀÚ Áß¿¡ default »ý¼ºÀÚ¶ó´Â °³³äÀÌ ÀÖ´Ù. ÀÌ°ÍÀ» ¾ðÁ¦ »ç¿ëµÇ°í, ¼Ò¸êÀÌ µÇ´ÂÁö ±â¼úÇÏ¼¼¿ä.
-4. »ý¼ºÀÚ¸¦ ÅëÇØ¼­ ÇÊµå¸¦ ÃÊ±âÈ­ÇÒ ¶§, this¸¦ »ç¿ëÇÏ´Â ÀÌÀ¯¸¦ ±â¼úÇÏ¼¼¿ä.
-5. »ý¼ºÀÚ¸¦ ¿©·¯ °³ ¼±¾ðÇÒ ¼ö ÀÖ´Ù. ÀÌ·¸°Ô ¿©·¯ °³ÀÇ »ý¼ºÀÚ¸¦ ¼±¾ðÇÒ ¼ö ÀÖ´Â ±ÔÄ¢ÀÌ ¹«¾ùÀÎÁö ±â¼úÇÏ¼¼¿ä.
-6. ÄÄÇ»ÅÍ Å¬·¡½º¸¦ ¼±¾ðÇÏ°í, ÄÄÇ»ÅÍÀÇ ¼Ó¼º(Á¦Á¶»ç, cpu, ram, hdd)¸¦ ÇÊµå·Î ¼±¾ðÇÏ¿© »ý¼ºÀÚ¸¦ ÅëÇØ ÇÒ´çÇÏ°í, showInfo()±â´É ¸Þ¼­µå¸¦ ÅëÇØ Ãâ·ÂÇÏ¼¼¿ä.
-7. À§ Å¬·¡½º¿¡¼­ cpu¸¦ ±³Ã¼ÇÏ´Â ¸Þ¼­µå¸¦ ¼±¾ðÇÏ¿©, º¯°æÀÌ µÇ°Ô Ã³¸®ÇÏ¼¼¿ä.
-8. À§ Å¬·¡½º¿¡¼­ ramÀÇ ±â´ÉÀ» µÎ¹è³ª Çâ»óÇÏ¿© µ¥ÀÌÅÍ¸¦ ¸®ÅÏÇÏ´Â ¸Þ¼­µå¸¦ ¼±¾ðÇÏ¿© È£ÃâÇÏ¼¼¿ä.
-9. AirPlane Å¬·¡½º¸¦ ¼±¾ðÇÏ¿© Á¦ÀÛ»ç, ÇöÀç¼Óµµ, Å¾½Â°´¼ö¸¦ ÇÊµå·Î ¼±¾ðÇÏ°í 
-	ÃÊ±â°ªÀ» »ý¼ºÀÚ¸¦ ÅëÇØ¼­ »ý¼ºÇÏ°í, ¸Þ¼­µå·Î ÇöÀç¼Óµµ¸¦ ¿Ã¸®´Â Ã³¸®, ÇöÀç¼Óµµ¸¦ ³»¸®´Â Ã³¸®¸¦ ÇÏ°í, Å¾½Â°´¼ö´Â ¸Å°³º¯¼ö¸¦ ÅëÇØ¼­ Å¾½Â°´ÀÇ ÀÎ¿ø ¼ö¸¦ ÀÔ·Â¹Þ¾Æ¼­ ´©ÀûÃ³¸®µÇ°Ô ÇÏ¼¼¿ä.
-	(ºñÇà±â µÎ °³°¡ Å¾½Â°´À» ÅÂ¿ì°í, ¼Óµµ¸¦ ¿Ã¸®°í, ¼Óµµ´Â ³»¸®°í, Å¾½Â°´¿¡ ³»¸®´Â Ã³¸®¸¦ ÇÏ¼¼¿ä.)
-10. Bus Å¬·¡½º¸¦ ¸¸µé°í ÇÊµå·Î ¹ö½º¹øÈ£, ³ë¼±ÀÇ Ãâ¹ßÁö, ³ë¼±ÀÇ Á¾ÂøÁö, ½Â°´¼ö »ý¼ºÀÚ¸¦ ÅëÇØ¼­ ÃÊ±âÈ­ÇÏ°í loadPersonÀ» ÅëÇØ¼­ ¸Å°³º¯¼öÀÇ ½Â°´¼ö¸¸Å­ Å¾½Â
+1. í´ëž˜ìŠ¤ì™€ ê°ì²´ì˜ ê´€ê³„ë¥¼ ê¸°ìˆ í•˜ì„¸ìš”.
+2. ìžë°”ì˜ ë©”ëª¨ë¦¬ ì¤‘ stackê³¼ heapì˜ì—­ì´ ìžˆëŠ”ë°, ê°ì²´ê°€ ì´ ë©”ëª¨ë¦¬ë¥¼ ì–´ë–»ê²Œ í™œìš©í•˜ëŠ”ì§€ë¥¼ í´ëž˜ìŠ¤, ê°ì²´ì„ ì–¸ì„ í†µí•´ì„œ ì„¤ëª…í•˜ì„¸ìš”.
+3. í´ëž˜ìŠ¤ë¥¼ í†µí•´ì„œ ì„ ì–¸í•  ìƒì„±ìž ì¤‘ì— default ìƒì„±ìžë¼ëŠ” ê°œë…ì´ ìžˆë‹¤. ì´ê²ƒì„ ì–¸ì œ ì‚¬ìš©ë˜ê³ , ì†Œë©¸ì´ ë˜ëŠ”ì§€ ê¸°ìˆ í•˜ì„¸ìš”.
+4. ìƒì„±ìžë¥¼ í†µí•´ì„œ í•„ë“œë¥¼ ì´ˆê¸°í™”í•  ë•Œ, thisë¥¼ ì‚¬ìš©í•˜ëŠ” ì´ìœ ë¥¼ ê¸°ìˆ í•˜ì„¸ìš”.
+5. ìƒì„±ìžë¥¼ ì—¬ëŸ¬ ê°œ ì„ ì–¸í•  ìˆ˜ ìžˆë‹¤. ì´ë ‡ê²Œ ì—¬ëŸ¬ ê°œì˜ ìƒì„±ìžë¥¼ ì„ ì–¸í•  ìˆ˜ ìžˆëŠ” ê·œì¹™ì´ ë¬´ì—‡ì¸ì§€ ê¸°ìˆ í•˜ì„¸ìš”.
+6. ì»´í“¨í„° í´ëž˜ìŠ¤ë¥¼ ì„ ì–¸í•˜ê³ , ì»´í“¨í„°ì˜ ì†ì„±(ì œì¡°ì‚¬, cpu, ram, hdd)ë¥¼ í•„ë“œë¡œ ì„ ì–¸í•˜ì—¬ ìƒì„±ìžë¥¼ í†µí•´ í• ë‹¹í•˜ê³ , showInfo()ê¸°ëŠ¥ ë©”ì„œë“œë¥¼ í†µí•´ ì¶œë ¥í•˜ì„¸ìš”.
+7. ìœ„ í´ëž˜ìŠ¤ì—ì„œ cpuë¥¼ êµì²´í•˜ëŠ” ë©”ì„œë“œë¥¼ ì„ ì–¸í•˜ì—¬, ë³€ê²½ì´ ë˜ê²Œ ì²˜ë¦¬í•˜ì„¸ìš”.
+8. ìœ„ í´ëž˜ìŠ¤ì—ì„œ ramì˜ ê¸°ëŠ¥ì„ ë‘ë°°ë‚˜ í–¥ìƒí•˜ì—¬ ë°ì´í„°ë¥¼ ë¦¬í„´í•˜ëŠ” ë©”ì„œë“œë¥¼ ì„ ì–¸í•˜ì—¬ í˜¸ì¶œí•˜ì„¸ìš”.
+9. AirPlane í´ëž˜ìŠ¤ë¥¼ ì„ ì–¸í•˜ì—¬ ì œìž‘ì‚¬, í˜„ìž¬ì†ë„, íƒ‘ìŠ¹ê°ìˆ˜ë¥¼ í•„ë“œë¡œ ì„ ì–¸í•˜ê³  
+	ì´ˆê¸°ê°’ì„ ìƒì„±ìžë¥¼ í†µí•´ì„œ ìƒì„±í•˜ê³ , ë©”ì„œë“œë¡œ í˜„ìž¬ì†ë„ë¥¼ ì˜¬ë¦¬ëŠ” ì²˜ë¦¬, í˜„ìž¬ì†ë„ë¥¼ ë‚´ë¦¬ëŠ” ì²˜ë¦¬ë¥¼ í•˜ê³ , íƒ‘ìŠ¹ê°ìˆ˜ëŠ” ë§¤ê°œë³€ìˆ˜ë¥¼ í†µí•´ì„œ íƒ‘ìŠ¹ê°ì˜ ì¸ì› ìˆ˜ë¥¼ ìž…ë ¥ë°›ì•„ì„œ ëˆ„ì ì²˜ë¦¬ë˜ê²Œ í•˜ì„¸ìš”.
+	(ë¹„í–‰ê¸° ë‘ ê°œê°€ íƒ‘ìŠ¹ê°ì„ íƒœìš°ê³ , ì†ë„ë¥¼ ì˜¬ë¦¬ê³ , ì†ë„ëŠ” ë‚´ë¦¬ê³ , íƒ‘ìŠ¹ê°ì— ë‚´ë¦¬ëŠ” ì²˜ë¦¬ë¥¼ í•˜ì„¸ìš”.)
+10. Bus í´ëž˜ìŠ¤ë¥¼ ë§Œë“¤ê³  í•„ë“œë¡œ ë²„ìŠ¤ë²ˆí˜¸, ë…¸ì„ ì˜ ì¶œë°œì§€, ë…¸ì„ ì˜ ì¢…ì°©ì§€, ìŠ¹ê°ìˆ˜ ìƒì„±ìžë¥¼ í†µí•´ì„œ ì´ˆê¸°í™”í•˜ê³  loadPersonì„ í†µí•´ì„œ ë§¤ê°œë³€ìˆ˜ì˜ ìŠ¹ê°ìˆ˜ë§Œí¼ íƒ‘ìŠ¹
 */

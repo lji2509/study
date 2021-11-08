@@ -2,23 +2,23 @@ package javaexp.a02_middle;
 
 public class A12_MethodProcess {
 	/*
-	#¸Ş¼­µåÀÇ ±â´É ÇÁ·Î¼¼½º Ã³¸®
-	1. ¸Ş¼­µå´Â ÀÔ·Â°ªÀ» ÅëÇØ Á¶°Ç¹®ÀÌ³ª ¹İº¹¹®À» ÀÌ¿ëÇÏ¿© ¿øÇÏ´Â °á°ú°ªÀ» ÇÁ·Î¼¼½º·Î Ã³¸®ÇÏ¸ç,
-		ÀúÀå, Ãâ·Â, ¸®ÅÏ Ã³¸®ÇÒ ¼ö ÀÖ´Ù.
-		ex) ÀÚÆÇ±â¿¡ ±İ¾×À» ÀÔ·ÂÇÏ°í ¼±ÅÃÀ» ÇßÀ» ¶§ ÇØ´çÇÏ´Â ¹°°ÇÀÌ ³ª¿À°í, ÀÜ¾×µµ Ã³¸®ÇÏ¿© ³ª¿À´Â °æ¿ì¿Í °°ÀÌ ¸Ş¼­µå´Â ±â´É ÇÁ·Î¼¼½º¸¦ Áß°ıÈ£{}¿¡¼­ Ã³¸®ÇÑ´Ù.
+	#ë©”ì„œë“œì˜ ê¸°ëŠ¥ í”„ë¡œì„¸ìŠ¤ ì²˜ë¦¬
+	1. ë©”ì„œë“œëŠ” ì…ë ¥ê°’ì„ í†µí•´ ì¡°ê±´ë¬¸ì´ë‚˜ ë°˜ë³µë¬¸ì„ ì´ìš©í•˜ì—¬ ì›í•˜ëŠ” ê²°ê³¼ê°’ì„ í”„ë¡œì„¸ìŠ¤ë¡œ ì²˜ë¦¬í•˜ë©°,
+		ì €ì¥, ì¶œë ¥, ë¦¬í„´ ì²˜ë¦¬í•  ìˆ˜ ìˆë‹¤.
+		ex) ìíŒê¸°ì— ê¸ˆì•¡ì„ ì…ë ¥í•˜ê³  ì„ íƒì„ í–ˆì„ ë•Œ í•´ë‹¹í•˜ëŠ” ë¬¼ê±´ì´ ë‚˜ì˜¤ê³ , ì”ì•¡ë„ ì²˜ë¦¬í•˜ì—¬ ë‚˜ì˜¤ëŠ” ê²½ìš°ì™€ ê°™ì´ ë©”ì„œë“œëŠ” ê¸°ëŠ¥ í”„ë¡œì„¸ìŠ¤ë¥¼ ì¤‘ê´„í˜¸{}ì—ì„œ ì²˜ë¦¬í•œë‹¤.
 	*/
 	static int calcuTot(int cnt) {
-		System.out.println("ÁÖ¹®ÇÑ ±è¹äÀÇ °¹¼ö : " + cnt);
+		System.out.println("ì£¼ë¬¸í•œ ê¹€ë°¥ì˜ ê°¯ìˆ˜ : " + cnt);
 		int price = 2500;
-		System.out.println("±è¹äÀÇ ´Ü°¡ : " + price);
+		System.out.println("ê¹€ë°¥ì˜ ë‹¨ê°€ : " + price);
 		
 		return price*cnt;
 	}
 	
 	static int appleTot(int cnt) {
 		int applePrice = 2000;
-		System.out.println("±¸¸ÅÇÒ »ç°úÀÇ °¹¼ö : " + cnt);
-		System.out.println("»ç°úÀÇ ´Ü°¡ : " + applePrice);
+		System.out.println("êµ¬ë§¤í•  ì‚¬ê³¼ì˜ ê°¯ìˆ˜ : " + cnt);
+		System.out.println("ì‚¬ê³¼ì˜ ë‹¨ê°€ : " + applePrice);
 		
 		return applePrice*cnt;
 	}
@@ -43,20 +43,20 @@ public class A12_MethodProcess {
 		gobtot += gugudan(2, 5);
 		gobtot += gugudan(4, 6);
 		
-		System.out.println("ÃÑ ÇÕ : " + gobtot);
+		System.out.println("ì´ í•© : " + gobtot);
 		
 		int tot = 0;
-		System.out.println("#¹°°Ç ±¸¸Å ³»¿ª#");
-		tot+=productTot("»ç°ú",3000,2);
-		tot+=productTot("¹Ù³ª³ª",4000,3);
-		tot+=productTot("¿À·»Áö",2000,5);
-		System.out.println("ÃÑºñ¿ë : " + tot + "¿ø");
+		System.out.println("#ë¬¼ê±´ êµ¬ë§¤ ë‚´ì—­#");
+		tot+=productTot("ì‚¬ê³¼",3000,2);
+		tot+=productTot("ë°”ë‚˜ë‚˜",4000,3);
+		tot+=productTot("ì˜¤ë Œì§€",2000,5);
+		System.out.println("ì´ë¹„ìš© : " + tot + "ì›");
 		
 		int appleMoney = appleTot(4);
-		System.out.println("ÃÑ ºñ¿ë : " + appleMoney);
+		System.out.println("ì´ ë¹„ìš© : " + appleMoney);
 		
 		int toMoney = calcuTot(3);
-		System.out.println("ÃÑ ºñ¿ë : " + toMoney);
+		System.out.println("ì´ ë¹„ìš© : " + toMoney);
 		
 	}
 

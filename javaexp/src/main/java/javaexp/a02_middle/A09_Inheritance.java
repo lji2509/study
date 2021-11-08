@@ -11,7 +11,7 @@ public class A09_Inheritance {
 		
 		Bus1[] c = new Bus1[3];
 		
-		System.out.println("¼Óµµ´Â " + v.speed + "kmÀÌ°í, ½Â°´ÀÎ¿ø¼ö´Â " + b.cnt + "¸íÀÌ°í, ¹«°Ô´Â " + t.weight + "kg ÀÔ´Ï´Ù.");
+		System.out.println("ì†ë„ëŠ” " + v.speed + "kmì´ê³ , ìŠ¹ê°ì¸ì›ìˆ˜ëŠ” " + b.cnt + "ëª…ì´ê³ , ë¬´ê²ŒëŠ” " + t.weight + "kg ì…ë‹ˆë‹¤.");
 	}
 
 }

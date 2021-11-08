@@ -4,41 +4,41 @@ public class A04_DataType {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//1. Á¤¼öÇü°ú ½Ç¼öÇüÀÇ µ¥ÀÌÅÍÃ³¸®
-		//2. char À¯ÇüÀÇ º¯°æ
+		//1. ì •ìˆ˜í˜•ê³¼ ì‹¤ìˆ˜í˜•ì˜ ë°ì´í„°ì²˜ë¦¬
+		//2. char ìœ í˜•ì˜ ë³€ê²½
 		
 		int num1 = 25;
 		double num2 = 30.45;
-		System.out.println("Á¤¼öÇü µ¥ÀÌÅÍ : " + num1);
-		System.out.println("½Ç¼öÇü µ¥ÀÌÅÍ : " + num2);
+		System.out.println("ì •ìˆ˜í˜• ë°ì´í„° : " + num1);
+		System.out.println("ì‹¤ìˆ˜í˜• ë°ì´í„° : " + num2);
 
-		char ch1 = 'A'; //È¬µû¿ÈÇ¥·Î ¹®ÀÚ ÇÏ³ª¸¦ ÇÒ´ç
-		System.out.println("¹®ÀÚÇü µ¥ÀÌÅÍ : " + ch1);
-		// int ==> char ==> char[](¹®ÀÚ¿­) ==> String ¹®ÀÚ¿­°´Ã¼ »ç¿ë
+		char ch1 = 'A'; //í™‘ë”°ì˜´í‘œë¡œ ë¬¸ì í•˜ë‚˜ë¥¼ í• ë‹¹
+		System.out.println("ë¬¸ìí˜• ë°ì´í„° : " + ch1);
+		// int ==> char ==> char[](ë¬¸ìì—´) ==> String ë¬¸ìì—´ê°ì²´ ì‚¬ìš©
 		
 		int code1 = 66;
-		char ch2 = (char)code1; // intÇüÀÇ °ªÀ» char·Î º¯°æ
-		System.out.println("¹®ÀÚ : " + ch2);
+		char ch2 = (char)code1; // intí˜•ì˜ ê°’ì„ charë¡œ ë³€ê²½
+		System.out.println("ë¬¸ì : " + ch2);
 		
-		String name = "È«±æµ¿";
+		String name = "í™ê¸¸ë™";
 		int kor = 60, eng = 85, mat = 95, sum = kor+eng+mat;
 		double avg = sum/3.0;
-		System.out.println("ÇĞ»ı ÀÌ¸§ : " + name);
-		System.out.println("±¹¾î : " + kor);
-		System.out.println("¼öÇĞ : " + mat);
-		System.out.println("¿µ¾î : " + eng);
-		System.out.println("ÃÑÁ¡ : " + sum);
-		System.out.println("Æò±Õ : " + avg);
+		System.out.println("í•™ìƒ ì´ë¦„ : " + name);
+		System.out.println("êµ­ì–´ : " + kor);
+		System.out.println("ìˆ˜í•™ : " + mat);
+		System.out.println("ì˜ì–´ : " + eng);
+		System.out.println("ì´ì  : " + sum);
+		System.out.println("í‰ê·  : " + avg);
 		
 		int papp = 3000, capp = 2;
 		int pban = 4000, cban = 3;
 		int pstr = 12000, cstr = 5;
 		int tot = (papp*capp) + (pban*cban) + (pstr*cstr);
 		double avg1 = tot / capp+cban+cstr;
-		System.out.println("»ç°úÀÇ °¡°İÀº " + papp + "¿øÀÌ°í, »ç°úÀÇ °¹¼ö´Â " + capp + "°³ ÀÔ´Ï´Ù.");
-		System.out.println("¹Ù³ª³ªÀÇ °¡°İÀº " + pban + "¿øÀÌ°í, ¹Ù³ª³ªÀÇ °¹¼ö´Â " + cban + "°³ ÀÔ´Ï´Ù.");
-		System.out.println("µş±âÀÇ °¡°İÀº " + pstr + "¿øÀÌ°í, µş±âÀÇ °¹¼ö´Â " + cstr + "°³ ÀÔ´Ï´Ù.");
-		System.out.println("ÃÑ °¡°İÀº " + tot + "¿øÀÌ°í, Æò±ÕÀº " + avg1 + "¿ø ÀÔ´Ï´Ù.");
+		System.out.println("ì‚¬ê³¼ì˜ ê°€ê²©ì€ " + papp + "ì›ì´ê³ , ì‚¬ê³¼ì˜ ê°¯ìˆ˜ëŠ” " + capp + "ê°œ ì…ë‹ˆë‹¤.");
+		System.out.println("ë°”ë‚˜ë‚˜ì˜ ê°€ê²©ì€ " + pban + "ì›ì´ê³ , ë°”ë‚˜ë‚˜ì˜ ê°¯ìˆ˜ëŠ” " + cban + "ê°œ ì…ë‹ˆë‹¤.");
+		System.out.println("ë”¸ê¸°ì˜ ê°€ê²©ì€ " + pstr + "ì›ì´ê³ , ë”¸ê¸°ì˜ ê°¯ìˆ˜ëŠ” " + cstr + "ê°œ ì…ë‹ˆë‹¤.");
+		System.out.println("ì´ ê°€ê²©ì€ " + tot + "ì›ì´ê³ , í‰ê· ì€ " + avg1 + "ì› ì…ë‹ˆë‹¤.");
 		
 		
 	}

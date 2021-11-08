@@ -1,12 +1,12 @@
 package javaexp.a01_start;
 
 public class A99_Class {
-	//ÇÊµå
+	//í•„ë“œ
 	
-	//¸Þ¼­µå
+	//ë©”ì„œë“œ
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("½ÃÀÛ");
+		System.out.println("ì‹œìž‘");
 		
 	}
 

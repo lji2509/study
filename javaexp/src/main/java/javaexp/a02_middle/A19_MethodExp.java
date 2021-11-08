@@ -3,9 +3,9 @@ package javaexp.a02_middle;
 public class A19_MethodExp {
 
 	public static void main(String[] args) {
-		Screen sc = new Screen("°î¼º", 9000);
+		Screen sc = new Screen("ê³¡ì„±", 9000);
 		int tot = sc.buy(53);
-		System.out.println("ÃÑ ºñ¿ë : " + tot);
+		System.out.println("ì´ ë¹„ìš© : " + tot);
 		
 	}
 
@@ -22,10 +22,10 @@ class Screen {
 	
 	int buy(int cnt) {
 		this.cnt = cnt;
-		System.out.println("# ¿µÈ­ ±¸¸Å #");
-		System.out.println("¿µÈ­¸í : " + title);
-		System.out.println("ÀÔÀå·á : " + price);
-		System.out.println("ÀÔÀå°ü°´¼ö : " + cnt);
+		System.out.println("# ì˜í™” êµ¬ë§¤ #");
+		System.out.println("ì˜í™”ëª… : " + title);
+		System.out.println("ì…ì¥ë£Œ : " + price);
+		System.out.println("ì…ì¥ê´€ê°ìˆ˜ : " + cnt);
 		
 		return cnt*price;
 	}

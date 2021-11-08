@@ -3,22 +3,22 @@ package javaexp.a02_middle;
 public class A22_ObjectVsObject {
 
 	public static void main(String[] args) {
-		SmartMan s = new SmartMan("È«±æµ¿");
-//		Phone p = new Phone("»ï¼º");
+		SmartMan s = new SmartMan("í™ê¸¸ë™");
+//		Phone p = new Phone("ì‚¼ì„±");
 //		s.buyPhone(p));
-		s.buyPhone(new Phone("»ï¼º"));
+		s.buyPhone(new Phone("ì‚¼ì„±"));
 		s.showInfo();
 		
 	}
 
 }
 
-/* ex)»ç¶÷ÀÌ ¼ÒÀ¯ÇÑ ÆùÀ» 1:1°ü°è·Î ¼³Á¤ÇÏ¿© Ã³¸®
-	1. (ÀÌ¸§, Æù) Å¬·¡½º ¼±¾ğ
-	2. °´Ã¼ »ı¼º SmartMan = new SmartMan("È«±æµ¿");
-	3. ¸Ş¼­µå¸¦ ÅëÇØ¼­ ¿ÜºÎ¿¡ °´Ã¼°¡ »ı¼ºµÇ¾î ¸Å°³º¯¼ö·Î ÇÒ´çµÇ°í, ÀÌ°ÍÀÌ ÇÊµå(Phone p1)¿¡ ÇÒ´çµÈ´Ù.
-		s.buyPhone(new Phone("»ï¼ºÀüÀÚ"));
-	4. s.showInfo(); ¸¦ ÅëÇØ¼­ ÇöÀç Á¤º¸ Ãâ·Â
+/* ex)ì‚¬ëŒì´ ì†Œìœ í•œ í°ì„ 1:1ê´€ê³„ë¡œ ì„¤ì •í•˜ì—¬ ì²˜ë¦¬
+	1. (ì´ë¦„, í°) í´ë˜ìŠ¤ ì„ ì–¸
+	2. ê°ì²´ ìƒì„± SmartMan = new SmartMan("í™ê¸¸ë™");
+	3. ë©”ì„œë“œë¥¼ í†µí•´ì„œ ì™¸ë¶€ì— ê°ì²´ê°€ ìƒì„±ë˜ì–´ ë§¤ê°œë³€ìˆ˜ë¡œ í• ë‹¹ë˜ê³ , ì´ê²ƒì´ í•„ë“œ(Phone p1)ì— í• ë‹¹ëœë‹¤.
+		s.buyPhone(new Phone("ì‚¼ì„±ì „ì"));
+	4. s.showInfo(); ë¥¼ í†µí•´ì„œ í˜„ì¬ ì •ë³´ ì¶œë ¥
 */
 
 class SmartMan {
@@ -31,16 +31,16 @@ class SmartMan {
 	
 	void buyPhone(Phone p) {
 		this.p1 = p;
-		System.out.println(name + " ÇÚµåÆùÀ» ±¸ÀÔÇß½À´Ï´Ù.");
+		System.out.println(name + " í•¸ë“œí°ì„ êµ¬ì…í–ˆìŠµë‹ˆë‹¤.");
 	}
 	
 	void showInfo() {
-		System.out.println("ÀÌ¸§ : " + name);
-		if(p1 != null) { //p1ÀÌ heap¿µ¿ª¿¡ °´Ã¼°¡ »ı¼ºµÇ¾î ÀÖÀ» ¶§
-			System.out.println("°¡Áö°í ÀÖ´Â ÇÚµåÆù");
+		System.out.println("ì´ë¦„ : " + name);
+		if(p1 != null) { //p1ì´ heapì˜ì—­ì— ê°ì²´ê°€ ìƒì„±ë˜ì–´ ìˆì„ ë•Œ
+			System.out.println("ê°€ì§€ê³  ìˆëŠ” í•¸ë“œí°");
 			p1.show();
 		} else {
-			System.out.println("±¸¸ÅÇÑ ÇÚµåÆùÀÌ ¾ø½À´Ï´Ù.");
+			System.out.println("êµ¬ë§¤í•œ í•¸ë“œí°ì´ ì—†ìŠµë‹ˆë‹¤.");
 		}
 		
 	}
@@ -54,6 +54,6 @@ class Phone {
 	}
 	
 	void show() {
-		System.out.println("ÇÚµåÆù Á¦Á¶»ç : " + make);
+		System.out.println("í•¸ë“œí° ì œì¡°ì‚¬ : " + make);
 	}
 }
