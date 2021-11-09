@@ -13,11 +13,25 @@ public class A25_ArrayList {
 			ArrayList list = new ArrayList();
 		4. 지원메서드
 			.add("추가데이터");
+			.add(index,"추가데이터"); : 해당 위치에 데이터 추가
 			.set(index, "변경할데이터");
 			.get(index); : 해당 데이터 가져오기
 			.size() : ArrayList에 할당된 데이터 건수 가져오기
+			.remove(index); : 해당 데이터 삭제
 		5. 할당할 데이터 유형을 기본적으로 Object 형태의 객체가 지원하고 있다.
-			ArrayList<데이터유형객체>
+			1) 1단계 : 
+				ArrayList<데이터유형객체> : 자바의 상속 구조상 최상위 객체
+				ArrayList<String> : Object는 기본적으로 String을 지원한다.
+			2) 2단계 : 
+				여러가지 데이터 유형 처리
+				- 문자열형 데이터 : ArrayList<String>
+				- 정수형 데이터 : ArrayList<Integer>
+				- 실수형 데이터 : ArrayList<Double>
+			3) 3단계 : 
+				사용자 정의 객체 유형 처리
+				ArrayList<Person>
+				ArrayList<Card>
+				cf) 데이터베이스 테이블의 데이터는 위와 같은 형식으로 처리하여, 화면에 로딩한다.
 		*/
 		
 		ArrayList list = new ArrayList();
