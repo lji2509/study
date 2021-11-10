@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%
+	String name = "홍길동";
+%>
+	<h2><%=name %></h2>
 </body>
 </html>
