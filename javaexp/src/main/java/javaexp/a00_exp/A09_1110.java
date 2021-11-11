@@ -1,17 +1,19 @@
 package javaexp.a00_exp;
 
+import java.util.ArrayList;
+
 public class A09_1110 {
 
 	//과제1
 	/*
-	- p 태그는 본문 글자 생성하는 태그로 <p>본문내용</p> 형식으로 사용한다.
-		align속성을 이용하여 왼쪽, 가운데, 오른쪽 정렬을 할 수 있다.
-	- hr 태그는 다른 태그 내부에 삽입되어 처리되지 않는다.
-		주로 수평선을 입력해서 처리할 때 활용되나, hr은 수평선이기 때문에 프로그래밍적으로 줄바꿈 기능을 포함하고 있다.
-	- br 태그는 다른 글자 태그 내부에 삽입하여 줄 바꾸기 기능을 수행한다.
-		html에서는 코드로 줄바꾸어지지 않기 때문에, 명시적으로 br태그나 태그 자체에서 줄바꿈 기능을 포함한 태그를 수행하여야 한다.
-	- a 태그는 다른 웹 페이지나 웹 페이지 내부의 특정 위치로 이동할 때 사용한다.
-		href 속성으로 이동할 페이지를 입력하여 이동할 수 있다.
+	p: 문단을 의미하며 화면에서 문단을 처리할 때 사용된다.
+		align속성을 지원하여 문단의 왼쪽, 오른쪽, 중앙 정렬을 처리할 수 있다.
+	hr : 수평선을 처리하는 역할을 한다.
+		화면단위로 수평선의 경계를 처리하고 구분되는 내용을 확인할 수 있다.
+	br : 기본적으로 태그없이는 공백(2칸이상)이나 줄바꿈을 웹화면에서 지원하지 않는다.
+		br태그를 통해서 명시적으로 줄바꿈 처리를 할 수 있다.
+	a : anchor로 하이퍼링크로 특정한 페이지를 호출할 수 있게 한다.
+		외부사이트, 내부사이트(상대경로/절대경로)를 통해서 하이퍼텍스트를 호출할 수 있다.
 	*/
 	
 	//과제2
@@ -39,21 +41,21 @@ public class A09_1110 {
 	
 	//과제3
 	/*
-	a 태그는 <a href="이동할페이지">출력내용</a> 형식으로 사용한다.
-	이동할 페이지에는 페이지의 상대경로, 절대경로 등을 입력하고, 출력내용에 적은 글을 누르면 해당 페이지로 넘어간다.
+	형식 :  <a href="이동할페이지">출력내용</a> 
+	속성 : href - 이동페이지를 지정한 속성
 	*/
 	
 	//과제4
 	/*
-	하이퍼링크란, 사용자의 선택에 따라 특정 정보로 이동하는 조직된 문서이며 하이퍼텍스트라고도 한다.
-	절대적 주소란, C:/Users/user/git/repository/javaexp/src/main/webapp/test.html 와 같이 해당 html 파일의 주소를 전부 적어주어야한다.
-		그러나 C:/Users/user/git/repository/javaexp/src/main/webapp 는 로컬서버의 절대경로로 정해져있기 때문에,
-		href에 입력할 때에는 프로젝트명과 해당 파일에 가기 위한 폴더 경로, 파일명만 적어주면 된다. ex)javaexp/test.html
-		프로그램은 javaexp/src/main/webapp에 있는 폴더와 파일만을 탐색하기 때문에, javaexp만 적어주어도 무방하다.
-	상대적 주소란, 현재 자신의 작업하고 있는 파일의 위치를 기준으로 경로를 설정하는 것이다.
-		../ 는 상위폴더로, ./ 는 현재폴더를 가리킨다.
-		예를 들어, javaexp폴더 안에 a02_htmlStart 폴더와 a03_basicTag 폴더가 있고, 현재 a02_htmlStart폴더에서 작업 중일 때,
-		../a03_basicTag/파일명.html 로 적으면, a03_basicTag폴더에 있는 파일과 연결할 수 있다.
+	하이퍼텍스트 : 특정한 문서가 다른 문서로 이동되어서 확인 가능한 형식의 문서를 말한다.
+	하이퍼링크 : 하이퍼텍스트가 이동할 때, 연결된 내용을 전달할 수 있게 된 것을 말한다.
+	# 상대경로 : 현재 로딩되는 페이지를 기준으로 경로를 설정
+		<a href="call.html">현재 폴더에 파일이 있을 때</a>
+	# 절대경로 : 서버의 특정 위치를 경로의 기준으로 설정하는 것을 말한다.
+		웹 서버의 경우 root 경로 즉, 프로젝트 기준으로 javaexp\src\main\webapp 를 말하는데,
+		이는 서버가 기동되었을 때, http://localhost:7080/javaexp/ 의 경로를 말한다.
+			http://localhost:7080는 생략이 가능하다.
+			<a href="/javaexp/index.html"> 서버의 최상위 경로에 index.html</a>
 	*/
 	
 	//과제5
@@ -63,7 +65,7 @@ public class A09_1110 {
 	 
 	 	<p align="center"> <a href="/javaexp/a01_html/index.html">index</a></p> : 절대경로를 이용하여 내부페이지로 이동이 가능하다. p 태그를 이용하여 하이퍼텍스트 바깥에 텍스트 추가가 가능하며, p 태그의 align 속성으로 정렬도 가능하다.
 	 
-	 	<a href="https://www.naver.com/">네이버</a><br> : 웹사이트의 주소를 절대경로로 이용할 수 있다.
+	 	<a href="https://www.naver.com/">네이버</a><br> : 웹사이트의 주소로 외부페이지로 이동이 가능하다.
  	</body>
 	*/
 	
@@ -82,14 +84,14 @@ public class A09_1110 {
 	/*
 		<body>
 		<h2>frondend</h2>
-		 	<ol type="a" >
+		 	<ol type="a" > : 순서O, type="A|a|I|i|1(디폴트)"
 		 		<li>CSS</li>
 		 		<li>자바스크립트</li>
 		 		<li>HTML</li>
 		 	</ol>
 		 	
 		 	<h2>backend</h2>
-		 	<ul type="circle">
+		 	<ul type="circle"> : 순서X, type="cirle|disc(디폴트)|square"
 		 		<li>JSP</li>
 		 		<li>JAVA</li>
 		 		<li>SPRING</li>
@@ -98,6 +100,31 @@ public class A09_1110 {
 	*/
 	
 	public static void main(String[] args) {
+		
+		//과제8
+		ArrayList<Integer> ranList = new ArrayList<Integer>();
+		for(int cnt=1; cnt<=10; cnt++) {
+			int ran = (int)(Math.random()*100+1);
+			ranList.add(ran);
+			System.out.print(ran+"\t");
+		}
+		System.out.println();
+		int max1=0;
+		int min1=100;
+		
+		for(int idx=0; idx<ranList.size(); idx++) {
+			int data = ranList.get(idx);
+			if(data > max1) {
+				max1 = ranList.get(idx);
+			}
+			if(data < min1) {
+				min1 = ranList.get(idx);
+			}
+		}
+		System.out.println("최대값 : " + max1);
+		System.out.println("최소값 : " + min1);
+		
+		
 		int num[] = new int[10];
 		int max=0, min=100;
 		
