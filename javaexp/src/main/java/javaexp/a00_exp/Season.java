@@ -1,27 +1,27 @@
 package javaexp.a00_exp;
 
 public class Season {
-	private String season;
-	private String weather;
-	private String date;
+	private String sname;
+	private String weather; 
+	private String priod;
 	
 	public Season() {
 		super();
 	}
 
-	public Season(String season, String weather, String date) {
+	public Season(String sname, String weather, String priod) {
 		super();
-		this.season = season;
+		this.sname = sname;
 		this.weather = weather;
-		this.date = date;
+		this.priod = priod;
 	}
 
-	public String getSeason() {
-		return season;
+	public String getSname() {
+		return sname;
 	}
 
-	public void setSeason(String season) {
-		this.season = season;
+	public void setSname(String sname) {
+		this.sname = sname;
 	}
 
 	public String getWeather() {
@@ -32,13 +32,14 @@ public class Season {
 		this.weather = weather;
 	}
 
-	public String getDate() {
-		return date;
+	public String getPriod() {
+		return priod;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setPriod(String priod) {
+		this.priod = priod;
 	}
+	
 	
 	
 }

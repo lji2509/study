@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="javaexp.a00_exp.Season"
+    import="javaexp.a00_exp.Product"
+    import="java.util.ArrayList"
     %>
 <!DOCTYPE html>
 <html>
@@ -10,37 +11,24 @@
 </head>
 <body>
 <%
-	String[] object = new String[3];
-	int[] price = new int[3];
-	int[] cnt = new int[3];
-	int[] sum = new int[3];
+	ArrayList<Product> list = new ArrayList<Product>();
+
+	list.add(new Product("HDD", 34000, 2));
+	list.add(new Product("SDD", 62000, 2));
+	list.add(new Product("CPU", 124000, 1));
+	list.add(new Product("RAM", 51000, 2));
 	
-	object[0] = "화장품";
-	object[1] = "책";
-	object[2] = "옷";
-	
-	price[0] = 30000;
-	price[1] = 8000;
-	price[2] = 16000;
-	
-	cnt[0] = 2;
-	cnt[1] = 4;
-	cnt[2] = 1;
-	
-	sum[0] = price[0]*cnt[0];
-	sum[1] = price[1]*cnt[1];
-	sum[2] = price[2]*cnt[2];
+	int tot = list.get(0).getPrice() * list.get(0).getCnt() + list.get(1).getPrice() * list.get(1).getCnt() + list.get(2).getPrice() * list.get(2).getCnt() + list.get(3).getPrice() * list.get(3).getCnt();
 %>
 
-<table align="center" border="1" width="50%">
-	<h2 align="center">구매한 물건정보</h2>
-	<style>td{text-align:center;}</style>
-		<tr><th>이름</th><td><%=object[0] %></td><td><%=object[1] %></td><td><%=object[2] %></td></tr>
-		<tr><th>가격</th><td><%=price[0] %></td><td><%=price[1] %></td><td><%=price[2] %></td></tr>
-		<tr><th>갯수</th><td><%=cnt[0] %></td><td><%=cnt[1] %></td><td><%=cnt[2] %></td></tr>
-		<tr><th>합계</th><td><%=sum[0] %></td><td><%=sum[1] %></td><td><%=sum[2] %></td></tr>
-		<tr><th>총계</th><td colspan="3"><%=sum[0] + sum[1] + sum[2] %></td></tr>
-	
-</table>
+	<h2 align="center">구매할 컴퓨터 부품목록</h2>
+	<table align="center" border style="border-collapse:collapse;" width="50%">
+		<col width="20%"> <col width="25%"> <col width="10%"> <col width="25%"> <col width="25%">
+		<tr><th>이름</th><th>가격</th><th>갯수</th><th>합계</th><th>총계</th></tr>
+		<tr><td><%=list.get(0).getName() %></td><td><%=list.get(0).getPrice() %></td><td><%=list.get(0).getCnt() %></td><td><%=list.get(0).getPrice() * list.get(0).getCnt() %></td><td rowspan="4"><%=tot %></td></tr>
+		<tr><td><%=list.get(1).getName() %></td><td><%=list.get(1).getPrice() %></td><td><%=list.get(1).getCnt() %></td><td><%=list.get(1).getPrice() * list.get(1).getCnt() %></td></tr>
+		<tr><td><%=list.get(2).getName() %></td><td><%=list.get(2).getPrice() %></td><td><%=list.get(2).getCnt() %></td><td><%=list.get(2).getPrice() * list.get(2).getCnt() %></td></tr>
+		<tr><td><%=list.get(3).getName() %></td><td><%=list.get(3).getPrice() %></td><td><%=list.get(3).getCnt() %></td><td><%=list.get(3).getPrice() * list.get(3).getCnt() %></td></tr>
+	</table>
 </body>
 </html>

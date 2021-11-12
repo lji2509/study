@@ -4,22 +4,24 @@ public class A10_1111 {
 
 	//과제1
 	/*
-	1) 최상위 태그
-		table : 일반표를 삽입하기 위한 태그이다.
-			border : 굵기 지정
-			align : 포함하고 있는 요소 객체 대비 정렬 위치 지정
-			width : 넓이 지정	/ %, px|pt 단위 지정 / %는 전체 화면대비 크기를 %로 지정
-			height : 높이 지정
-	2) 차상위 태그
-		thead : 표의 머리를 생성하는 부분이다.
-		tbody : 표의 본문을 생성하는 부분이다.
-		tfoot : 표의 꼬리를 생성하는 부분이다.
-	3) 행단위 태그 
-		tr : table row로 행단위로 row를 생성한다.
-	4) 열단위 태그
-		th : table header로 상단에 테이블의 head로 타이틀 컬럼을 처리할 때 사용된다.
-		td : table data로 테이블의 실제 데이터를 처리할 때 사용된다.
-	
+	table 속성 = "속성값"
+	1. 속성
+		border : 테두리 굵기
+		align : 포함하고 있는 요소객체 대비 정렬
+		width/height : 높이와 넓이
+		style : 개별적인 css속성을 지정할 때 활용
+		cf) style속성은 모든 요소객체(태그)에서 해당 태그만 css속성을 지정할 때 사용된다.
+	2. 하위 요소객체
+		1)차상위
+			col : 각 컬럼별로 공통적으로 정의
+			thead
+			tbody
+			tfoot
+		2) 행단위 처리
+			tr
+		3) 열단위 처리
+			th : 테이블 상단의 컬럼 지정
+			td : 테이블 셀에 데이터를 입력처리
 	*/
 	
 	//과제2
@@ -63,7 +65,18 @@ public class A10_1111 {
 	
 	//과제3
 	/*
-	jsp ==> @@@.java ==> @@@.class ==> 결과 html파일 만들기 ==> client에게 html파일 전달 ==> 브라우저를 통해서 html 받기(화면출력)
+	1. [서버]서버단에서 jsp를 작성시, 작성후, 저장하는 순간
+		@@@.jsp ==> @@@.java ==> @@@.class
+	2. [서버]tomcat을 실행하는 순간 @@@.class가 컨테이너 메모리에 로딩되어 객체가 생성이 된다.
+	3. [클라이언트(브라우저) ==> 서버 요청]사용자가 url주소로 해당 jsp를 호출하는 순간
+		@@@.class의 내용이 실행이 되어, java+html 코드의 최종 결과 html을 만들어서 스트림을 html코드를 client에 전달한다.
+		cf) Stream 자바 또는 애플리케이션의 api객체로, network 파일로 데이터를 전송해주는 역할을 하는 객체
+	4. [클라이언트(브라우저)]
+		받은 html을 문자(태그와 문자, javascript 등)을 받아 태그와 css는 해당 내용을 랜더링하고,
+		javascript는 브라우저 내의 컴파일러에 의해 해석해서 메모리에 로딩시켜 실행한다.
+		cf) node 계열 프로그램에서는 javascript를 서버에서 컴파일 시켜 보낸다.
+	5. [클라이언트(브라우저)]
+		원하는 웹화면과 javascript 실행결과를 볼 수 있다.	
 	*/
 	
 	//과제4
@@ -135,14 +148,15 @@ public class A10_1111 {
 	
 	//과제6
 	/*
-	1) src : 이미지가 있는 경로를 절대경로, 상대경로로 지정하여 해당 이미지를 불러올 수 있다.
-	2) alt : src에 해당 이미지가 없을 때, 대체되어 나오는 문자열을 지정할 수 있다.
-	3) width : 이미지의 너비를 지정
-	4) height : 이미지의 높이를 지정
-	
-	ex) 
-		 <img src="하니.jpg" width="100px" height="100px"/> : 같은 폴더에 있는 이미지파일
-	 	 <img src="../../a01_img/쮸.jpg" width="100px" height="100px"/> : 상위폴더의 상위폴더의 a01_img폴더에 있는 이미지 파일
+	<img src="경로및파일명" 속성="속성값"/>
+	1. 속성
+		src : 이미지 파일의 절대/상대 경로
+		width/height : 이미지의 폭과 넓이
+		alt : 이미지가 존재하지 않을 경우 출력할 문자열
+	2. 상대적 경로 처리
+		현재 파일을 기준으로 같은 폴더에 파일이 있을 때 src="파일명"
+		상위 폴더에 파일이 있을 때 src="../파일명"
+		하위 폴더에 파일이 있을 때 src="./폴더명/파일명"
 	*/
 	
 	//과제7
@@ -178,7 +192,7 @@ public class A10_1111 {
 	*/
 	public static void main(String[] args) {
 		//과제8
-		int[] num = new int[3];
+		int[] num = new int[5];
 		
 		System.out.print("처음 값 : ");
 		for(int i=0; i<num.length; i++) {
@@ -186,8 +200,18 @@ public class A10_1111 {
 			System.out.print(num[i] + "\t");
 		}
 		System.out.println();
-		for(int i=0;i<num.length-1; i++) {
-			for(int j=1; j<num.length; j++) {
+//		for(int i=0;i<num.length; i++) {
+//			for(int j=0; j<num.length-1; j++) {
+//				if(num[j] > num[j+1]) {
+//					int tmp = num[j];
+//					num[j] = num[j+1];
+//					num[j+1] = tmp;
+//				}
+//			}
+//		}
+		
+		for(int i=0; i<num.length-1; i++) {
+			for(int j=i+1; j<num.length; j++) {
 				if(num[i] > num[j]) {
 					int tmp = num[i];
 					num[i] = num[j];
@@ -195,6 +219,7 @@ public class A10_1111 {
 				}
 			}
 		}
+		
 		System.out.print("정렬된 값 : ");
 		for(int i=0; i<num.length; i++) {
 			System.out.print(num[i] + "\t");
