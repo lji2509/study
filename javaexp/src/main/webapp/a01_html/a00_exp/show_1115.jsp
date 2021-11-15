@@ -7,13 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	String panme=request.getParameter("pname");
-%>
 
-	<h3>물건명 : ${parma.pname}</h3>
-	<h3>가격 : ${param.price}</h3>
-	<h3>갯수 : ${param.cnt}</h3>
-	<h3>할인여부 : ${param.discount}</h3>
+	<h3>물건 이름 : ${param.pname}</h3>
+	<h3>물건 가격 : ${param.price}</h3>
+	<h3>물건 갯수 : ${param.cnt}</h3>
+
 </body>
 </html>

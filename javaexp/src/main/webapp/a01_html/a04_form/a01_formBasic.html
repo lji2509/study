@@ -11,6 +11,15 @@
 		</script>
 	</head>
 	<body>
+	<!--
+	# 폼 태그
+		궁극적인 목적은 client에서 입력한 데이터를 서버에 전송하기 위한 목적이다.
+		client(브라우저) ===> server(톰캣)
+		ipnut name="id" ==> 페이지명?id=himan ==> 서버안에 요청된 jsp나 java
+		value = "himan"										request.getParameter("id) 
+	
+	 -->
+	
 	<!-- 
 	# 입력 양식 태그
 	1. form 태그
@@ -23,6 +32,14 @@
 				post : 별도의 방법을 사용해 데이터를 해당 주소로 전달
 	 -->
 	 <h2>서버에 데이터 전송 양식</h2>
+	 <!-- 
+	 submit버튼을 클릭하는 순간 아래의 내용을
+	 	a02_rev.jsp?name=홍길동
+	 	형식으로 브라우저에서 서버에 요청을 한다. ==> 서버에 있는 파일 중에 a02_rev.jsp를 호출하고, ${param.name1}을 통해서 화면에 호출
+	 																			또는, request.getParameter("name1"); 서버에 요청된 데이터를 전달한다.		
+	 																			${param.age}
+	 																			request.getParameter("age");																
+	  -->
 	 <form action="a02_rev.jsp">
 	 	<input type="text" name="name"/>
 	 	<input type="submit" value="확인"/>
