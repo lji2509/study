@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<h1 onclick="change(this)">클릭하세요</h1>
+		<h1 onclick="change(this)">클릭하세요</h1>
+		<h1 onclick="change(this)">클릭하세요</h1>
+	<script type = "text/javascript">
+		/*
+		ex) h1을 선언해서 클릭시, 안녕하세요라고 변경되게 처리하세요.
+		*/
+		function change(obj) {
+			obj.innerText = "안녕하세요";
+			obj.align="center";
+			obj.style.background="pink";
+		}
+	</script>
+	</body>
+</html>

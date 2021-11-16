@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<table border style="border-collapse:collapse;" width="30%">
+			<style>th,td{text-align:center}</style>
+			<col width="10%">
+			<col width="20%">
+			<tr><th>물견명</th><td></td></tr>
+			<tr><th>가격</th><td></td></tr>
+			<tr><th>갯수</th><td></td></tr>
+		</table>
+		
+		
+		<script type="text/javascript">
+			var pname = "화장품";
+			var price = "15000";
+			var cnt = 2;
+			
+			var Array = document.querySelectorAll("td");
+			Array[0].innerText = pname;
+			Array[1].innerText = price;
+			Array[2].innerText = cnt;
+		</script>
+	</body>
+</html>

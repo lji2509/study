@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	
+	<script type="text/javascript">
+		/*
+		# 함수 : 함수는 코드의 집합을 나타내는 자료형
+		1. 익명함수(변수형 함수)
+			var 함수명 = function() {
+			
+			};
+			함수명(); //선언된 함수를 호출
+		*/
+		//call1(); 선언되기 전에 호출하면 에러가 발생
+		var call1 = function() {
+			alert("익명함수 호출")
+		}
+		//소스 코드상 호출
+		call1();
+		/*
+		2. 선언적 함수
+			function 함수명() {
+			
+		}
+		선언되기 전에 호출하여도 처리가 된다.
+		*/
+		call2();
+		function call2() {
+			alert("선언적 함수");
+		}
+		/*
+		3. 매개변수 처리
+			리턴값 : 함수의 마지막에 리턴값을 호출할 수 있다.
+			function 함수명(매개변수1, 매개변수2) { //데이터타입은 선언하지 않음
+				데이터 처리
+				return 호출한 곳에 넘길 데이터;
+			}
+		*/
+		function call3(num1, num2) {
+			return num1+num2;
+		}
+		alert("최종값 : " + call3(25,30));
+		
+		function call4(obj) {
+			obj.innerText="내용 변경!!";
+		}
+	</script>
+		<h2 onclick="call1()">익명함수 호출1(클릭! 클릭!!)</h2>
+		<h2 onclick="call2()">선언적 함수 호출2(클릭! 클릭!!)</h2>
+		<h2 onclick="call4(this)">객체를 매개변수로(클릭! 클릭!!)</h2>
+		<h2 onclick="call4(this)">객체를 매개변수로(클릭! 클릭!!)</h2>
+		<h2 onclick="call4(this)">객체를 매개변수로(클릭! 클릭!!)</h2>
+		<h2 onclick="call4(this)">객체를 매개변수로(클릭! 클릭!!)</h2>
+	</body>
+</html>
