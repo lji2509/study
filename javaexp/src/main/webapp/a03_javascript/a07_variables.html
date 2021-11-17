@@ -3,12 +3,21 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
-		<style>
-		
-		</style>
-
+		<script>
+		/*
+		javascript는 순차별로 실행된다.
+		DOM을 인식(document.querySelector())할려면 먼저 태그를 선언하고, 하단에 해당 코드를 호출하거나 함수로 해당 내용 클릭시 호출하면 인식할 수 있다.
+			- 화면이 모두 다 로딩된 상황이기에 상단에 선언하여도 인식을 하여 처리할 수 있다.
+		*/
+		//var h1Array = document.querySelectorAll("h2"); 에러발생
+		function call() {
+			var h1Array = document.querySelectorAll("h2");
+			h1Array[0].innerText = "함수호출은 상단이라도 처리된다.";
+		}
+		</script>
 	</head>
 	<body>
+		<h2 onclick="call()">여기</h2>
 		<h2></h2>
 		<h2></h2>
 		<h2></h2>

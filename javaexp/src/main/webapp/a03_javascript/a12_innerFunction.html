@@ -15,6 +15,10 @@
 		# 자바스크립트의 내장함수
 		1. 시간관련
 			setInterval(반복할함수, 반복할시간(1/1000))
+			ex) 1초 단위로 변경 처리
+			setInterval(function(){
+				//1초 마다 처리할 내용
+			}, 1000);
 		*/
 		var tdArray = document.querySelectorAll("td");
 		var idx=0;
@@ -24,6 +28,7 @@
 			tdArray[jdx].style.background="";			
 			}
 			//0.5초마다 하나씩 배경색상이 변경처리
+			//idx++%9 : index를 테이블의 td의 index 범위인 0~8까지 반복하게 하기 위해서 나머지 연산자를 이용한다.
 			tdArray[idx++%9].style.background="yellow";
 			console.log(idx);
 		}, 500);

@@ -18,19 +18,23 @@
 	<script type="text/javascript">
 		//# 문자열
 		// 1) "문자열1", '문자열2', `문자열3`
+		// ecma6 버전이후 처리가능
 		var str1 = `문자열3`;
 		var str2 = `문자열
 			줄바꿈도 그대로 적용`;
 		console.log(str1);
 		console.log(str2);
-		var str3 = `문자열1 ${str1} 문자열2`; //`문자열` 형식만 문자열 안에 변수 사용 가능
+		var str3 = `문자열1 ${str1} 문자열2`; 
+		//`문자열` 형식만 문자열 안에 변수 사용 가능
+		// ${str1}는 "",'' 사이에서는 지원하지 않는다.
 		console.log(str3);
 		//실행 후, ctrl+f12로 확인
 		//# javascript 연산자 허용(자동형변환과 명시적형변환)
 		var num1S = '25';
 		var num2S = '5';
 		var h2Arr = document.querySelectorAll("h2");
-		// + 연산을 위해서 Number(), parseInt()가 필요하다.
+		// + 연산을 위해서 Number(), parseInt()가 필요하다.(명시적 형변환)
+		// 매개변수가 숫자형 문자열("25")이어야 가능하다. 만약에 숫자형이 아니면 NaN(Not a Number)에러 메시지가 나온다.
 		// + 이외에는 자동형변환을 처리해준다.
 		h2Arr[0].innerText = num1S + " + " + num2S + " = " + (Number(num1S)+Number(num2S));
 		h2Arr[1].innerText = num1S + " - " + num2S + " = " + (num1S-num2S);

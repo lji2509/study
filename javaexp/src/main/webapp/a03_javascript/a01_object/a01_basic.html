@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	
+	<script>
+
+	</script>
+	</body>
+		<script>
+		/*
+		# 객체
+		1. 배열 []
+			배열의 index를 기준으로 데이터를 접근한다.
+			var 배열명 = [데이터1, 데이터2, 데이터3];
+			배열명[index번호], 배열명['index번호']
+		*/
+		var array = ["홍길동", "김길동", "신길동"];
+		console.log("index0 : " +array[0]);
+		console.log("index1 : " +array['1']);
+		console.log("index2 : " +array["2"]);
+		
+		var music = ["가요", "발라드", "트로트"];
+		var fruit = ["딸기", "복숭아", "귤"];
+		
+		console.log(music);
+
+		for(var i=0; i<fruit.length; i++) {
+			console.log("과일" + (i+1) + " : " + fruit[i]);
+		}
+		
+		/*
+		2. 객체 {}
+			속성인 키와 할당된 값 활용
+			var 객체 = {속성1:속성1값, 속성2:속성2값};
+			객체.속성1 = 속성값; //속성값 변경
+			객체['속성1']
+		*/
+		var person = {name:"홍길동", age:25, loc:"서울"};
+		console.log("이름 : " + person.name);
+		console.log("나이 : " + person.age);
+		console.log("사는곳 : " + person['loc']);
+		
+		var book = {title:"자바의정석", price:21000, make:"도우출판"};
+		console.log("제목 : " + book.title);
+		console.log("가격 : " + book.price);
+		console.log("출판사 : " + book.make);
+		</script>
+</html>
