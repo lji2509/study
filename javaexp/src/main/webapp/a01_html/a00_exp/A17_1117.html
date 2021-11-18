@@ -26,6 +26,7 @@
 	<script>
 		//과제2
 		var movie = {title:"곡성", price:8000, place:"7관"};
+		//prdp나 idx는 사용자가 임의로 사용해도 되나 객체인지 배열인지 구분할 수 있는 변수를 사용하는 것이 가독성을 높일 수 있다.
 		for(m in movie) {
 			console.log(m + " : " + movie[m]);
 		}
@@ -37,14 +38,16 @@
 		ticketA[1].innerText = "도착역 : " + ticket.last;
 		ticketA[2].innerText = "가격 : " + ticket.price;
 		ticketA[3].innerText = "총계 : " + ticket.buy(4);
+		//+연산이 일어날 때는 앞 문자열에 의해 문자열로 자동형변환이 일어나기에 ()괄호를 이용해서 형변환을 피하고 연산부터 처리하게 한다.
+		//()괄호는 연산자처리의 최상위이기에 활용을 요한다.
+		//console.log("총비용 : " + (this.price*cnt));
 		
 		//과제4
 		var trank = ["두산", "SK", "KT", "키움"];
 		var trankHtml = "";
 		var trankArr = document.querySelector("#trank");
 		for(i in trank) {
-			trankHtml += "<tr><td>" + (Number(i)+1) + "</td>";
-			trankHtml += "<td>" + trank[i] + "</td></tr>"
+			trankHtml += "<tr><td>" + (Number(i)+1) + "</td><td>" + trank[i] + "</td></tr>";
 		}
 		trankArr.innerHTML += trankHtml;
 		
@@ -64,26 +67,11 @@
 </html>
 <!-- 
 //과제1
-1. 배열 []
-	배열의 선언은 var 배열명 = []; 형식으로 하며,
-	배열의 할당은 배열명 = [데이터1, 데이터2, 데이터3]; 으로 할 수 있다.
-	var 배열명 = [데이터1, 데이터2, 데이터3]; 으로 쓰면 배열의 선언과 할당을 동시에 할 수 있다.
-	배열명[index번호], 배열명['index번호'] 와 같이 사용할 수 있다.
-	ex)
-	var array = ["홍길동", "김길동"];
-		console.log("index0 : " +array[0]); ==> index0 : 홍길동
-		console.log("index1 : " +array['1']); ==> index1 : 김길동
-			
-2. 객체 {}
-	객체의 선언은 var 객체 = {}; 형식으로 하며,
-	객체의 할당은 객체 = {속성1:속성1값, 속성2:속성2값}; 으로 할 수 있다.
-	var 객체 = {속성1:속성1값, 속성2:속성2값}; 으로 쓰면 객체의 선언과 할당을 동시에 할 수 있다.
-	객체.속성1 = 속성값; 을 사용하면 객체의 속성값을 변경할 수 있고,
-	객체['속성1'], 객체.속성1 와 같이 사용할 수 있다.
-	ex)	
-	var person = {name:"홍길동", age:25};
-		console.log("이름 : " + person.name); ==> 이름 : 홍길동
-		console.log("나이 : " + person['age']); ==> 나이 : 25
+	var arry = [1000,2000,3000];
+	arry[3]=4000; //배열의 데이터를 추가하여 할당한다.
+	var person = {name:"홍길동"};
+	person["age"] = 25; //객체명 ['속성명'] 형식으로 속성과 속성값 추가
+	person.loc = "서울 신림동";
  -->
 
 <!-- 

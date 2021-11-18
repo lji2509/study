@@ -28,14 +28,18 @@
 		/*
 		# 객체와 반복문
 		객체는 for in 구문을 통해서 속성을 접근하여, 속성값을 활용할 수 있다.
+		특정하게 배열의 갯수나 속성의 갯수를 식별하지 않더라도, 해당 배열의 크기나 속성의 갯수만큼 반복하여 해당 배열의 index와 속성을 표현하고, 값을 확인할 수 있다.
 		1. 배열
 			for(idx in 배열명) {
-				idx : index 번호
 				배열명[idx] : 배열의 값
+					idx : index 번호, 일반적인 index번호와 달리 데이터 유형이 문자열이다.
+					+ 연산을 통해서 번호를 1부터 카운트하는 처리를 하려면 Number()나 parseInt() 내장함수로 형변환을 하여야 한다.
+					cf) 배열명['인덱스번호']
 			}
 		2. 객체
 			for(var prop in 객체명) {
-				prop : 객체의 속성
+				prop : 객체의 속성을 문자열로 가져온다
+				cf) 위 배열의 idx나 객체의 prop는 변수명을 임의로 정해도 무방하다. cf) 객체명['속성명'] ==> 속성값
 				객체명[prop] : 객체의 속성값
 			}
 		*/
@@ -45,9 +49,13 @@
 		}
 		
 		var kor = [85, 79, 93, 97, 81];
+		//DOM을 쓸 때는 해당 태그가 script 상단에 반드시 선언되어 있어야 한다.
+		//<tabe align="center" id="tab1">
+		//기본적으로 태그, id, class가 지원되고 ("태그명") ("#아이디명") (.클래스명) 으로 선택할 수 있다.
 		var tab1 = document.querySelector("#tab1");
 		var addHtml="";
 		for(var i in kor) {
+			//var addHtml=""; for 내부에 선언하면 1개 row만 생성되고, 계속 초기화 되기에 for문 밖에서 선언하여 누적이 가능하도록 한다.
 			//반복문을 통해서 들어가 태그를 만들어간다.
 			//i가 문자열이라 숫자형으로 변환 후에 +1로 연산하여 번호가 나오게 처리한다.
 			addHtml+="<tr><td>"+(Number(i)+1)+"</td><td>"+kor[i]+"</td></tr>";
@@ -59,7 +67,11 @@
 		//addHtml : html태그를 삽입하고, 랜더링을 처리하여 그 결과를 보여준다.
 		//.innerText : 문자열 그대로 출력
 		//.innerHTML : 문자열에 있는 태그를 랜더링하여 추가하여 화면에 출력
+		//tab1.innerHTML = addHtml;
+			//기존에 table의 구성 태그를 삭제하고 반복문에 의해 추가된 내용을 할당
+			//타이틀 내용이 있으면 타이틀까지 삭제되고 데이터만 추가된다.
 		tab1.innerHTML += addHtml;
+		//+= : 기존에 있는 table 하위의 태그들에 추가하여, 태그를 처리할 때 활용된다.
 		
 		var prod = {name:"사과", price:3000, cnt:2};
 		for(var prop in prod) {

@@ -20,7 +20,12 @@
 			객체.속성 = 속성값; //객체의 속성값 할당
 		4. 메서드 : 객체의 속성 중 함수 자료형인 속성을 특별히 메서드라고 부른다.
 			var 객체 = {메서드:function(){메서드의 수행 내용}};
-			객체.메서드();
+			객체.메서드명 = function() {
+				
+				
+			}; //기존에 객체에서 메서드 추가
+			객체.메서드(); //정의된 기능메서드를 호출 수행
+			cf) ()주의 : 객체.메서드 - 해당 객체의 메서드의 정의 내용을 문자열로 가져오는 작업만하지 수행하지 않는다.
 			this. : 메서드에서 현재 객체의 속성을 호출할 때, 접두어로 활용된다.
 		*/
 		var prod = {name:"사과", price:3000, buy:function(cnt){
@@ -28,7 +33,17 @@
 			console.log("과일명 : " + this.name);
 			console.log("가격 : " + this.price);
 			console.log("총비용 : " + this.price*cnt);
+			//매개변수로 할인율을 넘기면
+			console.log("할인율적용(10%) : " + this.discount(0.1));
+			console.log("할인율적용(20%) : " + this.discount(0.2));
+			},
+			discount:function(ratio) {
+				//할인율을 받아서 할인율이 적용된 금액을 리턴한다.
+				return this.price*(1-ratio);
 		}};
+		//메서드의 매개변수는 이 매개변수를 통해서, 기본 객체에 프로세서나 데이터의 변형을 위해 넘겨주는 데이터이다.
+		//아래와 같이 매개변수에 5를 전송하면 function(cnt){} cnt에 5가 할당이 되고, 기능메서드에 정의된대로 데이터가 처리된다.
+		//위 예제같은 경우 총비용을 출력하는데 사용된다.
 		prod.buy(5);
 		
 		var prod = {name:function(name){this.name=name;}, price:function(price){this.price=price;}, buy:function(cnt){
@@ -48,7 +63,28 @@
 		calculator.num2(22);
 		calculator.plus();
 		
-		var cal = {num1:20, num2:30, add(){console.log(this.num1+this.num2)}};
+		var cal = {num1:20, num2:30, add(){console.log(this.num1+this.num2)},
+				calcu:function(cal){
+					var tot=0;
+					if(cal=="+") {
+						tot = this.num1+this.num2;
+					}
+					if(cal=="-") {
+						tot = this.num1-this.num2;
+					}
+					if(cal=="*") {
+						tot = this.num1*this.num2;
+					}
+					if(cal=="/") {
+						tot = this.num1/this.num2;
+					}
+					console.log(this.num1+" "+cal+" "+this.num2+" = "+tot);
+				}};
 		cal.add();
+		//기능별 매개변수로 하나의 메서드로 여러가지 내용을 처리할 수 있다.
+		cal.calcu("+");
+		cal.calcu("-");
+		cal.calcu("*");
+		cal.calcu("/");
 		</script>
 </html>

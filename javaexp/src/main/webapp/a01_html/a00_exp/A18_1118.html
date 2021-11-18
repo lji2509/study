@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	<!-- 과제2, 3 -->
+	<input type="text" name="num1" value="20"/> + <input type="text" name="num2" value="5"/> = <input type="text" name="sum"/>
+
+	<!-- 과제5 -->
+	<table border="1" id="tab1" style="border-collapse:collapse;">
+	<style>td{text-align:center}</style>
+		<tr><th>순위</th><th>제목</th></tr>
+	</table>
+	<h3></h3>
+	<h3></h3>
+	<h3></h3>
+	
+	<!-- 과제6 -->
+	오늘로부터 <input type="text" name="even"/>일	<input type="button" value="확인" onclick="date(this)"/>
+	<h2></h2>
+	
+	<!-- 과제7 -->
+	<input type="button" value="버튼1" onclick="win1()"/>
+	<input type="button" value="버튼2" onclick="win2()"/>
+	
+	<script>
+	//과제2, 3
+	var sumObj = document.querySelector("[name=sum]");
+	var num1Obj = document.querySelector("[name=num1]");
+	var num2Obj = document.querySelector("[name=num2]");
+	var set = setTimeout(function(){
+		if(sumObj.value=="") {
+			 alert("입력 실패");
+		} else {
+			alert("입력 성공");
+		}
+		if(Number(num1Obj.value)+Number(num2Obj.value) == Number(sumObj.value)) {
+			alert("정답!");
+		} else if(sumObj.value!="") {
+			alert("오답!");
+		}
+	},5000);
+	
+	//과제5
+	var music = ["회전목마", "쉬어", "Wake UP"];
+	var musicHtml = "";
+	var musicText = document.querySelectorAll("h3");
+	music.forEach(function(music, i){
+		musicHtml += "<td>"+(Number(i)+1)+"</td><td>"+music+"</td></tr>";
+		musicText[i].innerText = i+1 + "위 : " + music;
+	});
+	document.querySelector("#tab1").innerHTML += musicHtml;
+	
+	//과제6
+	function date(obj) {
+		var d = new Date();
+		var evenObj = document.querySelector("[name=even]");
+		d.setDate(d.getDate()+Number(evenObj.value));
+		var dateArr = document.querySelector("h2");
+		var days = ["일","월","화","수","목","금","토"];
+		dateArr.innerText = d.getFullYear() + "년 " + (Number(d.getMonth())+1) + "월 "  + d.getDate() + "일 " + days[d.getDay()] + "요일";
+	}
+	
+	//과제7
+	function win1(){
+		window.open("../../a03_javascript/a01_object/a10_bom.html","","width=300, height=300");
+	}
+	function win2(){
+		window.open("../../a03_javascript/a01_object/a11_bom.html","","width=300, height=300");
+	}
+	</script>
+	</body>
+</html>
+<!-- 
+//과제1
+	setTimeout : 해당 시간 후, 실행할 함수 처리
+	setInterval : 해당 시간 마다, 실행할 함수 처리
+	
+//과제4
+	function(단위데이터, index, 전체배열){} 
+	forEach의 기본 형식은 위와 같으며, 매개변수로 단위데이터, 숫자형index, 전체배열을 받아 처리할 수 있다.
+	매개변수 이름은 원하는 이름을 사용할 수 있지만, 가독성을 위해 알아보기 쉬운걸로 하는 것이 좋다.
+
+//과제8
+	<h2 onclick="callEvent()">
+	위와 같은 이벤트 형식이 있을 때,
+		이벤트 대상은 h2 
+		클릭(click)은 이벤트명 
+		이벤트 발생으로 인해 수행되는 함수(callEvent())와 연결해주는 핸들러가 있다.
+ -->
+
+<!-- 
+1. setTimeout과 setInterval의 차이점을 기술하세요.
+2. [20] + [5] = []로 화면을 구성하고 화면이 로딩된지 5초안에 입력하면 입력성공, 그렇지 못하면 입력실패라고 뜨게 하세요.
+3. 위 내용에서 []에 정답을 입력함녀 정답, 그렇지 못하면 오답을 출력하게 처리하세요.
+4. forEach의 기본 형식과 매개변수에 대해서 기술하세요.
+5. forEach를 활용하여 멜론 차트 1~3위 음악을 배열로 선언하고 h3 또는 테이블로 출력하세요
+6. 날짜 객체를 이용하여 기념일을 출력하세요. 오늘로부터 []일 [확인] 클릭시 하단에 해당 날짜 정보를 h2로 출력
+7. 버튼1, 버튼2를 만들어 해당 버튼을 클릭시, 각각 윈도우 창이 뜨게 하세요.
+8. 이벤트의 기본형식을 기술하세요.
+ -->
