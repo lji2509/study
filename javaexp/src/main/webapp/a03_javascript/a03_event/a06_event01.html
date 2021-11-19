@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script>
+		window.onload = function() {
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "시작";
+			
+			var h3Obj = document.querySelectorAll("h3"); //1개 선택하면 첫번째만
+			//id값 이용, id="ch1" id="ch2" id="ch3"
+			//	document.querySelector("#ch1");
+			//배열선택자 document.querySelectorAll("h3")
+			for(var i=0; i<3; i++){
+				h3Obj[i].onmouseover = function(){
+					this.style.background = "blue";
+				};
+				h3Obj[i].onmouseout = function(){
+					this.style.background = "yellow";
+				};
+			}
+			
+		}
+		</script>
+	</head>
+	<body>
+		<h2></h2>
+		<h3>커서를 옮겨보세요</h3>
+		<h3>커서를 옮겨보세요</h3>
+		<h3>커서를 옮겨보세요</h3>
+	</body>
+</html>

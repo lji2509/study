@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>#h3Obj{text-align:center;}</style>
+		<script>
+		window.onload = function() {
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "폼이벤트 연습";
+		
+			var btnObj = document.querySelector("#btn");
+			btnObj.onclick = function(){
+				var idObj = document.querySelector("[name=id]").value;
+				document.querySelector("#h3Obj").innerText = "id : " + idObj;
+			};
+		}
+		/*
+		ex) 화면에 id값을 입력할 수 있게 input태그와 버튼을 클릭하게 만들고, 아이디를 입력하고 버튼을 클릭하면 하단에 id : @@@를 출력하게 하세요.
+			1) [body]화면 구성 : id입력, 버튼, 출력h3
+				- 식별할 이름을 지정 : name=@@, id=@@, class=@@, 태그
+			2) [script] 사용할 요소객체 선언 : DOM객체로 선언
+				- document.querySelector("[name=id]");
+			3) 이벤트 처리할 요소객체에 이벤트 핸들러(익명함수) 할당
+				-btnObj.onclick=function(){}
+			4) 이벤트핸들러(익명함수)에 처리할 내용 구현
+				- 특정요소객체의 내용/value값 가져오기
+				- 출력할 내용을 만들어 출력할 요소(DOM)에 출력처리하기
+		*/
+		</script>
+	</head>
+	<body>
+		<h2 align="center"></h2>
+		<p align="center">
+			<input type="text" name="id" size="5">
+			<!-- id속성으로 식별할 수도 있지만, name 속성은 서버에 전송할 때 필요하기 때문에 form객체의 요소객체로 사용된다. -->
+			<input type="button" id="btn" value="아이디등록">
+			<h3 id="h3Obj">출력할공간</h3>
+		</p>
+	</body>
+</html>

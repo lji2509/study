@@ -24,6 +24,11 @@
 	2. forEach함수를 활용하면 효과적인 처리가 가능하다.
 		함수를 매개변수로 받고, 그 함수의 매개변수로 단위데이터, 숫자형 index, 전체 배열을 받아 처리할 수 있다.
 		function(price, idx, array){}
+	
+		배열명.forEach(함수(매개변수1, 매개변수2, 매개변수3));
+		매개변수1 : 단위 데이터를 입력받아 처리
+		매개변수2 : index 값을 받아 처리
+		매개변수3 : 배열데이터 받아 처리
 	*/
 	var array = [1000,2000,3000];
 	h2Arry = document.querySelectorAll("h2");
@@ -49,6 +54,7 @@
 	];
 	var listHtml="";
 	studs.forEach(function(std,idx) {
+		//std = {name:"홍길동", kor:70};
 		listHtml+="<tr><td>"+(idx+1)+"</td><td>"+std.name+"</td><td>"+std.kor+"</td></tr>";
 	});
 	document.querySelector("#tab1").innerHTML += listHtml;

@@ -6,7 +6,7 @@
 	</head>
 	<body>
 	<!-- 과제2, 3 -->
-	<input type="text" name="num1" value="20"/> + <input type="text" name="num2" value="5"/> = <input type="text" name="sum"/>
+	<input type="text" name="num1"/> + <input type="text" name="num2"/> = <input type="text" name="sum"/>
 
 	<!-- 과제5 -->
 	<table border="1" id="tab1" style="border-collapse:collapse;">
@@ -18,18 +18,23 @@
 	<h3></h3>
 	
 	<!-- 과제6 -->
-	오늘로부터 <input type="text" name="even"/>일	<input type="button" value="확인" onclick="date(this)"/>
-	<h2></h2>
+	<p align="center">
+		오늘로부터 <input type="text" name="even" value="0" size="2"/>일
+		<input type="button" value="확인" onclick="date(this)"/>
+		<h2></h2>
+	</p>
 	
 	<!-- 과제7 -->
-	<input type="button" value="버튼1" onclick="win1()"/>
-	<input type="button" value="버튼2" onclick="win2()"/>
+	<input type="button" value="버튼1" onclick="openwin()"/>
+	<input type="button" value="버튼2" onclick="openwin()"/>
 	
 	<script>
 	//과제2, 3
 	var sumObj = document.querySelector("[name=sum]");
 	var num1Obj = document.querySelector("[name=num1]");
 	var num2Obj = document.querySelector("[name=num2]");
+	num1Obj.value = Math.floor(Math.random()*20+1);
+	num2Obj.value = Math.floor(Math.random()*20+1);
 	var set = setTimeout(function(){
 		if(sumObj.value=="") {
 			 alert("입력 실패");
@@ -48,47 +53,63 @@
 	var musicHtml = "";
 	var musicText = document.querySelectorAll("h3");
 	music.forEach(function(music, i){
-		musicHtml += "<td>"+(Number(i)+1)+"</td><td>"+music+"</td></tr>";
+		musicHtml += "<td>"+(i+1)+"</td><td>"+music+"</td></tr>";
 		musicText[i].innerText = i+1 + "위 : " + music;
 	});
 	document.querySelector("#tab1").innerHTML += musicHtml;
 	
 	//과제6
 	function date(obj) {
+		//Date객체는 기본적으로 현재 날짜를 가져온다.
 		var d = new Date();
-		var evenObj = document.querySelector("[name=even]");
-		d.setDate(d.getDate()+Number(evenObj.value));
+		//입력된 데이터를 바로 가져온다. parseInt(), Number()를 통해서 형변환처리
+		var evenObj = parseInt(document.querySelector("[name=even]").value);
+		//날짜의 변경
+		d.setDate(d.getDate()+evenObj);
+		//출력할 DOM객체 선언
 		var dateArr = document.querySelector("h2");
-		var days = ["일","월","화","수","목","금","토"];
-		dateArr.innerText = d.getFullYear() + "년 " + (Number(d.getMonth())+1) + "월 "  + d.getDate() + "일 " + days[d.getDay()] + "요일";
+		//toLocaleString() : 날짜와 시간정보를 해당 지역에 맞게 출력
+		//toLocaleDateString() : 날짜정보를 해당 지역에 맞게 출력
+		//toLocaleTimeString() : 시간저옵를 해당 지역에 맞게 출력
+		dateArr.innerText = d.toLocaleDateString();
+	//	var days = ["일","월","화","수","목","금","토"];
+	//	dateArr.innerText = d.getFullYear() + "년 " + (Number(d.getMonth())+1) + "월 "  + d.getDate() + "일 " + days[d.getDay()] + "요일";
 	}
 	
 	//과제7
-	function win1(){
-		window.open("../../a03_javascript/a01_object/a10_bom.html","","width=300, height=300");
-	}
-	function win2(){
-		window.open("../../a03_javascript/a01_object/a11_bom.html","","width=300, height=300");
+	var cnt = 1;
+	function openwin(){
+		var win = window.open("","","width=100, height=100")
+		win.document.write("<h2 align='center'>"+(cnt++)+"번째 창!!</h2>");		
 	}
 	</script>
 	</body>
 </html>
 <!-- 
 //과제1
-	setTimeout : 해당 시간 후, 실행할 함수 처리
-	setInterval : 해당 시간 마다, 실행할 함수 처리
+	var set1 = setTimeout(함수, 1/1000시간)
+		시간이후에 수행할 함수를 지정하는 처리르 한다.
+		clearTimeout(set1) : 수행할 함수를 메모리 제거
+	var set2 = setInterval(함수, 1/1000시간)
+		해당 시간마다 반복할 함수를 지정하는 처리를 한다.
+		clearInterval(set2) : 반복 수행한 함수 메모리 제거
 	
 //과제4
-	function(단위데이터, index, 전체배열){} 
-	forEach의 기본 형식은 위와 같으며, 매개변수로 단위데이터, 숫자형index, 전체배열을 받아 처리할 수 있다.
-	매개변수 이름은 원하는 이름을 사용할 수 있지만, 가독성을 위해 알아보기 쉬운걸로 하는 것이 좋다.
+	배열명.forEach(function(단위객체, index, 배열자체){});
+	단위객체 : 배열 안에 있는 단위 객체를 받아와서 처리할 수 있게 한다.
+	index : 배열을 접근 단위인 index를 가져와서 처리할 수 있게 한다.
+	배열자체 : 배열의 전체 데이터를 받아와서 사용할 수 있게 한다.
+
 
 //과제8
-	<h2 onclick="callEvent()">
-	위와 같은 이벤트 형식이 있을 때,
-		이벤트 대상은 h2 
-		클릭(click)은 이벤트명 
-		이벤트 발생으로 인해 수행되는 함수(callEvent())와 연결해주는 핸들러가 있다.
+	이벤트 처리의 기본 구성요소 : 이벤트 대상, 이벤트, 이벤트 핸들러 함수
+	1. 바로 태그에서 처리하기
+		<태그명 on이벤트명="이벤트핸들러함수()"/>
+	2. javascript의 DOM객체로 처리하기
+		var targetObj = document.querySelector("선택자");
+		targetObj.on이벤트명 = function(){
+			이벤트 핸들러 내용
+		};
  -->
 
 <!-- 
