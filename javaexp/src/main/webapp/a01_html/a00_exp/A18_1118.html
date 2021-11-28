@@ -21,7 +21,7 @@
 	<p align="center">
 		오늘로부터 <input type="text" name="even" value="0" size="2"/>일
 		<input type="button" value="확인" onclick="date(this)"/>
-		<h2></h2>
+		<h2 align="center"></h2>
 	</p>
 	
 	<!-- 과제7 -->
@@ -70,7 +70,7 @@
 		var dateArr = document.querySelector("h2");
 		//toLocaleString() : 날짜와 시간정보를 해당 지역에 맞게 출력
 		//toLocaleDateString() : 날짜정보를 해당 지역에 맞게 출력
-		//toLocaleTimeString() : 시간저옵를 해당 지역에 맞게 출력
+		//toLocaleTimeString() : 시간정보를 해당 지역에 맞게 출력
 		dateArr.innerText = d.toLocaleDateString();
 	//	var days = ["일","월","화","수","목","금","토"];
 	//	dateArr.innerText = d.getFullYear() + "년 " + (Number(d.getMonth())+1) + "월 "  + d.getDate() + "일 " + days[d.getDay()] + "요일";

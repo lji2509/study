@@ -26,15 +26,6 @@
 	<h2>입력한 패스워드 : <%=pass%></h2>
 	<h2>결과 : <%=result %></h2>
 	
-	<script>
-		//java ==> javascript
-		var result = "<%=result%>";
-		if(result=="인증 실패") {
-			alert("인증실패\n로그인 다시 하겠습니다.");
-			//a href 작용을 하는 javascript 코드, 페이지가 이동된다.
-			location.href="a04_webProgProcess.jsp"
-		}
-	
-	</script>
+
 </body>
 </html>

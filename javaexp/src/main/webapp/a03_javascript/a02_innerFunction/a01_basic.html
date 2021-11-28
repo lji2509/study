@@ -37,7 +37,7 @@
 			//1. 입력한 DOM객체 호출
 			var idObj = document.querySelector("[name=id]");
 			//버튼의 레이블은 value이므로 속성을 value로 하여 할당한다.
-			obj.value = "아이디 입력중!";
+			idObj.value = "아이디 입력중!";
 			var set = setTimeout(function(){
 				alert("입력이 종료되었습니다.");
 				if(idObj.value=="") {

@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<body>
 <%--
 # jsp
 1. java코드와 html코드를 혼합하여 최종 html코드를 만들어서 client(브라우저를 가지고 요청한 사용자)에 WAS를 통해서 전달 처리한다.
@@ -25,6 +26,5 @@
  		<tr><th>가격</th><td><%=price %></td></tr>
  		<tr><th>갯수</th><td><%=cnt %></td></tr>
  	</table>
- <body>
 </body>
 </html>
