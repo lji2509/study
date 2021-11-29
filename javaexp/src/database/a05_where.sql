@@ -67,6 +67,7 @@ WHERE mgr IS NULL;
 /*
 # null인 데이터의 함수 처리
 1. 위의 예제와 같이 데이터가 null인 경우에 연산처리가 불가능해진다.
+	컬럼명 = null;(X) // null데이터는 데이터가 없는 것이기 때문에 비교연산을 통해서 처리가 어렵다.
 2. 이럴 경우, 특정한 null인 경우에 default 데이터를 설정함으로 효과적인 데이터 처리를 할 수 있는데, 이것이 함수를 통한 null 의 기본값 설정이라고 한다.
 3. 위 내용을 지원하는 함수가 nvl(데이터, null일 때 초기값)이다.
 4. 기본 형식
@@ -77,7 +78,7 @@ WHERE mgr IS NULL;
 	nvl(ename, '') : ename이 문자형이기에 default로 문자열형인 ''이 설정가능하다.
 6. select뿐만 아니라 조건문에도 활용하여 효과적으로 프로그램을 처리할 수 있다.	
 */
-SELECT ename, sal, comm, nvl(comm,0) "보너스 초기처리", sal+nvl(comm,0) "합산"
+SELECT ename, sal, comm, nvl(comm,0) "보너스 초기처리", sal+nvl(comm,0) "합산" --comm이 null일 때 합산되지 않음
 FROM emp;
 
 SELECT ename, mgr, comm

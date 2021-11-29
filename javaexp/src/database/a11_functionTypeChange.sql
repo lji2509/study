@@ -92,7 +92,7 @@ SELECT ename, sal,
 	to_char(sal,'$99999') "형식3",
 	to_char(sal,'9,999') "형식4",
 	to_char(sal,'9,999.999') "형식5",
-	to_char(sal*100000,'9,999.999,') "형식6"
+	to_char(sal*100000,'9,999.999') "형식6"
 FROM emp;
 --ex) 사원명, 급여, 급여2(천단위 콤마 앞에 $표기, 소숫점 1자리 표기)
 SELECT ename "사원명", sal "급여", TO_char(sal,'$9,999.9') "급여2"

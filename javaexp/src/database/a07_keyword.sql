@@ -16,6 +16,9 @@
 		select empno, ename
 		from emp
 		where ename LIKE '%N'; -- N으로 끝나는 문자열이 있을 때 검색
+	4) 키워드 검색에 있어서 외부에 받는 데이터에 대한 처리
+		외부에 입력되는 데이터를 ''안에 바로 쓸 수 없기 때문에 구분자(||)를 활용하여 입력된 데이터와 keyword처리하는 부분을 구분하여 사용하여야한다.
+		where ename like '%'||'himan'||'%';
 */
 SELECT empno, ename
 FROM emp
