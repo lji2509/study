@@ -1,16 +1,30 @@
 /*
 --과제1
-1) 	case when 논리|산술|관계 then 처리할데이터
-		when 논리|산술|관계 then 처리할데이터
-		else 기타처리할데이터
-	end 새로운 컬럼명
-2) 	case 컬럼명
-		when 데이터1 then 처리할데이터
-		when 데이터2 then 처리할데이터
-		else 그외데이터
-	end	새로운 컬럼명
-위와 같은 형식으로, 1번 같은 경우엔 when에 컬럼명과 논리|산술|관계 연산자 등을 사용하여 데이터를 처리하고
-2번은 case에 컬럼명, when에 데이터를 넣어 '='연산자로 데이터를 처리한다. (decode와 같은 기능)
+	1)
+		case 컬럼명
+			when 데이터1 then 리턴할데이터
+			when 데이터2 then 리턴할데이터
+			else 데이터1, 데이터2도 아닐 때 리턴할 데이터
+		end
+		as 지정한 컬럼명
+		case deptno
+			when 10 then '총무'
+			when 20 then '인사'
+			when 30 then '아이티사업'
+			else '기타'
+		as "부서명"
+	2)
+		case
+			when 조건1(논리|비교연산) then 조건1일때 리턴할데이터
+			when 조건2(논리|비교연산) then 조건2일때 리턴할데이터
+			when 조건3(논리|비교연산) then 조건3일때 리턴할데이터
+			else 위에 나열된 조건이 아닐 때 리턴할 데이터
+		as 지정한 컬럼명
+		case
+			when sal>=3000 then '상급'
+			else '하급'
+		end
+		as "급여등급"
 
 --과제2
 decode문은 '='연산자만 사용할 수 있지만,
@@ -34,25 +48,28 @@ stddev(컬럼) : null을 제외한 모든 행의 표준편차
 variance(컬럼) : null을 제외한 모든 행의 분산
 
 --과제11
-char은 고정형 데이터 타입이고, varchar2는 가변형 데이터 타입이다.
-예를 들어, name char(3)으로 지정하고 데이터를 '홍길동', '길동' 으로 데이터를 입력하면 '길동'데이터가 실제로는 크기가 2이지만 name의 크기는 3으로 고정되어있기 때문에 3으로 설정된다.
-name varchar(3)으로 지정하고 '홍길동', '길동'을 입력하면 name의 크기는 고정되어있지 않고 최대 3까지 데이터 입력이 가능하기 때문에 '홍길동'은 3, '길동'은 2로 크기가 설정된다.
+char(크기) : 해당 크기에 고정적으로 문자열데이터를 저장할 수 있게 처리하는 것을 말한다.
+	작은 데이터를 넣더라도 해당 크기를 가지고 있다.
+varchar2(크기) : 해당 크기에 가변적으로 문자열데이터를 저장한다.
+	최대 크기가 설정이되면 입력되는 크기에 따라 가변적으로 문자열 데이터를 저장할 수 있다.                                                                                                                                                               
 */
 --과제3
-SELECT ename, hiredate, 
+SELECT ename, to_char(hiredate,'mm') 월, 
 	decode(to_char(hiredate,'mm'), '02', '29일',
 									'04', '30일',						
 									'06', '30일',						
 									'09', '30일',						
 									'11', '30일',
 									'31일') "마지막 날짜"
-FROM emp;
+FROM emp
+ORDER BY to_char(hiredate,'mm');
 
 --과제4
 SELECT ename, sal,
 	CASE WHEN sal>=5000 THEN '상'
 		WHEN sal>=2000 THEN '중'
-		ELSE '하'
+		WHEN sal>=0 THEN '하'
+		ELSE '분류안됨'
 	END 등급
 FROM emp;
 
@@ -97,6 +114,7 @@ CREATE TABLE team (
 INSERT INTO team VALUES ('KT', 76, 59, 9, 0.875, '2021-10-28');
 INSERT INTO team VALUES ('두산', 71, 65, 8, 0.743, '2021/11/03');
 INSERT INTO team VALUES ('삼성', 76, 59, 9, 0.644, '20211119');
+INSERT INTO team VALUES ('키움', 51, 25, 27, 0.572, to_date('2021/11/23','YYYY/MM/DD'));
 
 SELECT*FROM team;
 
