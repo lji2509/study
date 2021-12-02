@@ -1,42 +1,25 @@
 /*
 1. subquery란 무엇인가 기본 형식을 기술하세요
-하나의 SQL명령문의 결과를 다른 SQL명령문에게 전달하기 위해 두 개 이상의 SQL명령문을 하나의 SQL명령문으로 연결하여 처리할 수 있다.
-
-#단일 행 서브쿼리
-	SELECT 컬럼
-	FROM 테이블명
-	WHERE 받아올 컬럼 = (
-		SELECT 전달할 컬럼
-		FROM 테이블명
-	);
-	
-#다중 행 서브쿼리
-	SELECT 컬럼
-	FROM 테이블명
-	WHERE (받아올 컬럼1, 컬럼2 ...) IN (
-		SELECT 전달할 컬럼1, 컬럼2...
-		FROM 테이블명
-	);
+sql에서 main query 안 포함된 query를 말한다.
+크게,
+1. where조건문에서 사용되는 경우
+	where (컬럼1, 컬럼2) in (subquery)
+2. inline view로 테이블을 지정할 때, 사용되는 경우
+	from (sql1) a, (sql2) b
+	where a.컬럼 = b.컬럼
+	and ...
+3. select (select max(@@) from @@ sss), ...
+4. insert, update, delect문 여러가지 형태로 subquery를 사용한다.
+	update 테이블명
+	set (컬럼1, 컬럼2) in (subquery)
 */
 /*
 2. inline view란 무엇인가? 기본 예제를 통해 기술하세요.
-from절에 ()를 이용하여 가상의 테이블을 만들고, 다른 테이블과 join관계를 처리할 때 사용된다.
-	SELECT 컬럼
-	FROM (
-		SELECT 컬럼
-		FROM 테이블명
-	) 별칭, 테이블2
-	WHERE  INLINE테이블.컬럼 = 테이블2.컬럼;
-	
-	SELECT *
-	FROM (
-		SELECT deptno, max(sal) msal
-		FROM emp
-		GROUP BY deptno
-	) a, --가상의 a테이블을 먼저 생성한다.
-		emp e
-	WHERE a.deptno = e.deptno
-	AND a.msal = e.sal;
+subquery형태의 하나로, 임시테이블 개념인 view를 하나의 테이블로 선언하여 사용하는 것을 말한다.
+	select 출력할 컬럼
+	from (임시 테이블에 해당하는 sql 작성) a, 실제테이블 b
+	where a.연관관계컬럼1 = b.연관관계컬럼1
+	...
 */
 /*
 3. 아래와 같은 문제를 해결하기 위하여 subquery를 이용해서  처리해보자
@@ -70,6 +53,14 @@ WHERE (e.deptno, sal) IN (
 	FROM emp
 	GROUP BY deptno
 ) AND e.DEPTNO = d.DEPTNO ; 
+
+SELECT *
+FROM (
+	SELECT deptno, min(sal) sal
+	FROM emp
+	GROUP BY deptno
+) a, emp e
+WHERE a.deptno=e.deptno AND a.sal=e.sal;
 /*
 6. 복사테이블을 만드는  형식 2가지를 기술하세요.
 #테이블 구조 + 데이터

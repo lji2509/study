@@ -16,7 +16,7 @@
 		ex) 학번, 주민번호, 사원번호를 중복되지 않아야 한다.
 	3) primary key : 해당 컬럼 값은 반드시 존재해야 하며 유일해야 한다.
 		not null과 unique가 결합된 형태
-		주로 테이블에서 식별해야할 컼ㄹ럼 즉 key를 설정할 때 사용된다.
+		주로 테이블에서 식별해야할 컬럼 즉 key를 설정할 때 사용된다.
 		ex) emp테이블의 empno, dept테이블의 deptno
 	4) foreign key : 한 열과 참조된 테이블의 열 간에 외래키 관계를 설정하고 시행
 		ex) 사원의 테이블의 부서번호는 반드시 부서테이블에 있는 부서번호이어야 한다.
@@ -24,3 +24,48 @@
 		ex) student테이블의 학년을 1,2,3,4만 데이터로 넣을 수 있다.
 		
 */
+SELECT *
+FROM sys.ALL_CONSTRAINTS
+WHERE TABLE_name LIKE 'EMP%';
+--내장된 테이블로 현재 오라클 서버에 있는 모든 제약 조건을 볼 수 있다.
+--not null
+--컬럼명 데이터유형 constraint 테이블명_컬럼명_nn not null
+CREATE TABLE student1(
+	name varchar2(30) CONSTRAINTS student1_name_nn NOT NULL
+);
+
+CREATE TABLE student2(
+	name varchar2(30) NOT NULL --자동으로 규칙에 의해서 constraint이름 지정
+);
+
+SELECT *
+FROM sys.ALL_CONSTRAINTS
+WHERE TABLE_name LIKE 'STUDENT%';
+
+INSERT INTO student1(name) VALUES ('himan');
+SELECT*FROM student1;
+INSERT INTO student1(name) VALUES(null);
+
+CREATE TABLE student5(
+	name varchar2(20) CONSTRAINT nn NOT NULL,
+	kor number(4,2)
+);
+
+CREATE TABLE student6(
+	name varchar2(20) NOT NULL,
+	kor number(4,2)
+);
+
+INSERT INTO student5 VALUES ('홍길동',91.2);
+INSERT INTO student6 VALUES ('홍길동',91.2);
+INSERT INTO student6 VALUES ('김길동',84.3);
+
+SELECT *
+FROM sys.ALL_CONSTRAINTS
+WHERE table_name LIKE 'STUDENT%';
+
+INSERT INTO student5 VALUES (NULL, 54.2);
+INSERT INTO student5(kor) VALUES (73.8);
+INSERT INTO student5(name) VALUES ('홍길동');
+
+SELECT * FROM student5;
