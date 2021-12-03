@@ -1,33 +1,28 @@
 /*
 1. 제약조건을 하는 이유에 대하여 기술하세요.
-데이터의 정확성과 일관성을 보장하고, 데이터의 정확성을 유지하여 다양한 종류의 업무규칙을 고려한다.
+	데이터의 무결성(일관성유지 : 다른 테이블과의 관계에서 데이터) 확보를 위하여 제약조건을 사전에 설정(테이블 생성)한다.
+	특정한 경우 공백데이터 입력불가, 중복데이터 입력불가, 지정된 데이터만 입력처리, 기준이 되는 테이블의 데이터만 입력가능하게 처리할 수 있게 하는 것을 말한다.
 */
 /*
 2. oracle의 제약조건의 종류와 기본 형식에 대하여 기술하세요.
-#제약조건 이름 설정 할 때 : 컬럼명 데이터유형 constraint 제약조건명 제약조건
-	name varchar2(30) CONSTRAINTS student1_name_nn NOT NULL
-#제약조건 이름 설정하지 않을 때 : 컬럼명 데이터유형 제약조건
-	name varchar2(30) NOT NULL
-	
-	1) not null : 열이 null을 포함할 수 없다.
-	2) unique key : 증복된 값을 가질 수 없다.
-	3) primary key : null값을 가질 수 없고, 중복된 값을 가질 수 없다.
-	4) foreign key : 한 열과 참조된 테이블의 열 간에 외래키 관계를 설정한다.
-	5) check : 해당 컬럼에 저장 가능한 데이터 값의 범위나 조건을 지정한다.
+	컬렴명 데이터유형 constraint 제약조건명 제약조건
+	컬럼명 데이터유형 제약조건
+		ex) empno number(4) constraint emp_empno_pk primary key
+
+	1) not null : 반드시 데이터를 입력해야 하는 경우
+	2) unique key : 데이터가 행단위 다르게 저장되어야 한다. 중복 데이터 불가(예외 null은 중복 가능)
+	3) primary key : not null, unique가 설정되는 경우로 테이블에 식별할 수 있는 key 설정할 때 사용된다.
+	4) foreign key : 다른 외부 테이블에 저장된 데이터만 입력가능하도록 한다.
+	5) check : 해당 컬럼에 지정된 데이터의 범위만 등록이 가능하도록 하는 것을 말한다.
 */
 /*
 3. 제약조건의 이름을 지정하는 규칙과 이를 확인하는 oracle DB 시스템상 테이블을 이용해서 조회하는 sql을 작성하세요.
-#제약조건 이름 지정
 	컬럼명 데이터유형 constraint 제약조건명 제약조건
-	name varchar2(30) CONSTRAINTS student1_name_nn NOT NULL
-#제약조건 확인
+	제약조건명 : 일반적으로 가독성이 좋게 하기 위하여 테이블명_컬럼명_제약조건약어
+		지정하지 않으면 오라클 서버 시스템에서 자동으로 namming을 설정해준다.
 	select *
 	from sys.ALL_CONSTRAINTS
-	where table name = '테이블명(대문자)'; -- like 활용 가능
-		SELECT *
-		FROM sys.ALL_CONSTRAINTS
-		WHERE TABLE_name LIKE 'STUDENT%';
-
+	where table_name = '테이블명(대문자)';
 */
 /*
 4. person 테이블에 이름을 not null로 지정하여 만들고 데이터를 입력 확인하세요.
@@ -79,15 +74,17 @@ CREATE TABLE member(
 	id varchar2(10) PRIMARY KEY,
 	pass varchar2(20) NOT NULL,
 	name varchar2(10) NOT NULL,
-	point number(5) CHECK (point BETWEEN 0 AND 10000),
-	registration date
+	point number CHECK (point >= 0),
+	registration DATE check(to_char(registration, 'yyyy')='2021')
 );
 INSERT INTO MEMBER VALUES('a123', '1234', '홍길동', 5600, sysdate);
 INSERT INTO MEMBER VALUES('a123', '1234', '홍길동', 5600, sysdate); --오류
 INSERT INTO MEMBER VALUES(null, '1234', '홍길동', 5600, sysdate); --오류
 INSERT INTO MEMBER VALUES('a123', null, '홍길동', 5600, sysdate); --오류
 INSERT INTO MEMBER VALUES('a123', '1234', null, 5600, sysdate); --오류
-INSERT INTO MEMBER VALUES('a123', '1234', '홍길동', 100000, sysdate); --오류
+INSERT INTO MEMBER VALUES('b123', '5678', '김길동', 7800, sysdate);
+
+ALTER TABLE MEMBER MODIFY point NOT NULL;
 
 SELECT*FROM MEMBER;
 /*
@@ -98,6 +95,7 @@ CREATE TABLE baseball(
 	name varchar(10) NOT NULL,
 	team varchar(10) NOT NULL,
 	avg number(4,3) check(avg>=0 AND avg<1) NOT NULL
+	--승률은 승/무/패를 통해서 계산되어 나오는 데이터이기에 일반적으로 DB관리르 하지 않는다.
 );
 INSERT INTO baseball VALUES (1, '강백호', 'KT', 0.500);
 INSERT INTO baseball VALUES (null, '강백호', 'KT', 0.500); --오류
