@@ -10,8 +10,10 @@
 	4) query rewrite : 함수 기반 인덱스 생성 권한
 	5) backup any table : 테이블 백업 권한
 	6) create session : 데이터베이스에 접속할 수 있는 권한
+		==> dba 권한으로 위의 내용을 포함하는 권한으로 설정하여 처리할 수 있다.
 	7) create table/view/sequence/procedure
 		데이터베이스의 객체들을 생성하는 권한
+		==> 데이터베이스 내에 여러가지 객체들을 사용할 수 있는 권한 : resource
 */
 /*
 #사용자 생성하기
@@ -45,3 +47,24 @@ GRANT CREATE TABLE TO orauser01;
 SELECT *
 FROM DBA_USERS
 WHERE username='ORAUSER01';
+
+/*
+# 사용자 암호변경
+1. 기본형식
+alter user 사용자명 identified by 패스워드;
+*/
+SELECT *
+FROM dba_users;
+
+ALTER USER user01 IDENTIFIED BY 5555;
+--cmd창에서 sqlplus로 접근확인
+
+/*
+# 계정이 lock 걸린 경우
+1. 계정 정책에 의해 @@회 이상 암호를 잘못 입력한 경우
+2. 계정 정책에 의해 계정만료기간 도래시
+3. 처리할 sql
+	alter user 사용자계정 identified by 패스워드 account unlock;
+*/
+CREATE USER himan IDENTIFIED BY 1111;
+ALTER USER himan IDENTIFIED BY 7777 account unlock;

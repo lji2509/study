@@ -27,6 +27,8 @@
 SELECT *
 FROM sys.ALL_CONSTRAINTS
 WHERE TABLE_name LIKE 'EMP%';
+--sys.ALL_CONSTRAINTS : sys. : 오라클 DB 시스템을 의미
+--	ALL_CONSTRAINTS : 전체 제약조건을 테이블과 제약조건명, 타입으로 설정하여 확인할 수 있다.
 --내장된 테이블로 현재 오라클 서버에 있는 모든 제약 조건을 볼 수 있다.
 --not null
 --컬럼명 데이터유형 constraint 테이블명_컬럼명_nn not null

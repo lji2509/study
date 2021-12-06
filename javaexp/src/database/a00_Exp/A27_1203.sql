@@ -1,7 +1,13 @@
 /*
 1. 테이블 구조변경의 기본형식을 기술하세요.
-	alter table 테이블명
-	add 컬럼명 데이터유형 [default 디폴트데이터, 제약조건]
+	1. 공통 : alter table 테이블명
+	2. 추가 옵션
+		1) add 컬럼명 데이터유형 [default 디폴트데이터, 제약조건]
+		2) modify 컬럼명 데이터유형 [default 디폴트데이터, 제약조건]
+		3) drop column 컬럼명 데이터유형 [default 디폴트데이터, 제약조건]
+		4) rename column 변경전 to 변경후
+		5) rename 변경전 to 변경후
+	3. 테이블 삭제 : drop table 테이블명
 */
 /*
 2. emp21복사테이블을 만들고 부서정보(부서명, 부서이름, 부서위치)를 컬럼을 추가하세요.
@@ -82,10 +88,16 @@ DROP TABLE emp23_new;
 CREATE TABLE emp24 AS SELECT * FROM emp;
 CREATE TABLE dept24 AS SELECT * FROM dept;
 
+ALTER TABLE emp24 ADD CONSTRAINT emp24_empno_pk PRIMARY KEY (empno);
 ALTER TABLE dept24 ADD CONSTRAINT dept24_deptno_pk PRIMARY KEY (deptno);
 ALTER TABLE emp24 ADD CONSTRAINT emp24_deptno_fk FOREIGN KEY (deptno) REFERENCES dept24(deptno);
 /*
 11. user01/8888계정을 생성하여, 접속하여 테이블을 만들 수 있게 권한을 설정하세요.
 */
-create user user01 indentified by 8888;
-GRANT CREATE SESSION TO user01;
+sqlplus
+SYSTEM/1111
+CREATE USER user01 identified BY 8888;
+GRANT CREATE SESSION, CREATE TABLE, resource TO user01;
+-- resource : DB안에 들어갈 구성요소에 대한 권한을 설정
+conn user01/8888;
+show USER;
