@@ -13,8 +13,8 @@
 3. 로그인화면을 구성하고, form id/pass가 himan/7777일때, 인증 그외는 미인증으로 처리하세요. 
 -->
 <form>
-아이디 : <input type="text" name="id"><br>
-비밀번호 : <input type="text" name="pw"><br>
+아이디 : <input type="text" name="id" value=""><br>
+비밀번호 : <input type="password" name="pw" value=""><br>
 <input type="submit" value="로그인">
 </form>
 <%
