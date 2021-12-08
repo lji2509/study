@@ -13,6 +13,7 @@
 		alert("함수호출 : " + obj.align);
 		//obj : DOM - html태그를 객체화하여 사용
 		obj.align="right";
+		//var obj = document.querySelectorAll("h2")[1]; 화면에서 2번째 DOM객체
 	}
 </script>
 </head>

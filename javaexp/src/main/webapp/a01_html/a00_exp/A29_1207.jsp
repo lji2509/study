@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import = "javaexp.a04_vo.A02_Person"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -112,18 +113,20 @@ function ex6(obj){
 	<h3>성별 : <%=sex %></h3>
 	
 <!--
-[2단계:개념] 8. jsp에서 변수, 객체, 배열을 선언하여 화면에 출력하세요.
+8. jsp에서 변수, 객체, 배열을 선언하여 화면에 출력하세요.
 -->
 <% 
    String pname="햄버거";
    int price = 6900;
    int pcnt = 3;
    String str[] = {"사과", "6900", "3"};
+   A02_Person p1 = new A02_Person("홍길동", 25, "서울신림");
 %>
    <h2 align="center">물건명 : <%=pname %></h2>
    <h2 align="center">가격 : <%=price %></h2>
    <h2 align="center">갯수 : <%=pcnt %></h2>
    <h2 align="center">가격 : <%=str[1] %></h2>
+   <h2 align="center">이름 : <%=p1.getName() %></h2>
 
 </body>
 </html>
