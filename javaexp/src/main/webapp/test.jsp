@@ -10,25 +10,79 @@
 <title>Insert title here</title>
 </head>
 <body>
+<table border="1">
+	<tr>
+		<th>번호</th><th>문제</th><th>정답</th>
+	</tr>
 <%
-	ArrayList<Product> list = new ArrayList<Product>();
-
-	list.add(new Product("HDD", 34000, 2));
-	list.add(new Product("SDD", 62000, 2));
-	list.add(new Product("CPU", 124000, 1));
-	list.add(new Product("RAM", 51000, 2));
+	int num1 = 0;
+	int num2 = 0;
+	String[] gu = {"X", "+", "-", "/"};
+	int bun = 0;
+	for(int i=0; i<10; i++) {
+		num1 = (int)(Math.random()*9+1);
+		num2 = (int)(Math.random()*9+1);
+		bun = (int)(Math.random()*4);
+		
 	
-	int tot = list.get(0).getPrice() * list.get(0).getCnt() + list.get(1).getPrice() * list.get(1).getCnt() + list.get(2).getPrice() * list.get(2).getCnt() + list.get(3).getPrice() * list.get(3).getCnt();
 %>
-
-	<h2 align="center">구매할 컴퓨터 부품목록</h2>
-	<table align="center" border style="border-collapse:collapse;" width="50%">
-		<col width="20%"> <col width="25%"> <col width="10%"> <col width="25%"> <col width="25%">
-		<tr><th>이름</th><th>가격</th><th>갯수</th><th>합계</th><th>총계</th></tr>
-		<tr><td><%=list.get(0).getName() %></td><td><%=list.get(0).getPrice() %></td><td><%=list.get(0).getCnt() %></td><td><%=list.get(0).getPrice() * list.get(0).getCnt() %></td><td rowspan="4"><%=tot %></td></tr>
-		<tr><td><%=list.get(1).getName() %></td><td><%=list.get(1).getPrice() %></td><td><%=list.get(1).getCnt() %></td><td><%=list.get(1).getPrice() * list.get(1).getCnt() %></td></tr>
-		<tr><td><%=list.get(2).getName() %></td><td><%=list.get(2).getPrice() %></td><td><%=list.get(2).getCnt() %></td><td><%=list.get(2).getPrice() * list.get(2).getCnt() %></td></tr>
-		<tr><td><%=list.get(3).getName() %></td><td><%=list.get(3).getPrice() %></td><td><%=list.get(3).getCnt() %></td><td><%=list.get(3).getPrice() * list.get(3).getCnt() %></td></tr>
-	</table>
+<form>
+	<tr>
+		<td align="center">
+		<%=i+1%>
+		</td>
+		<td align="center">
+		<input type="text" name="num1" size="2" value=<%=num1%>>
+		<input type="text" name="gu" size="2" value=<%=gu[bun]%>>
+		<input type="text" name="num2" size="2" value=<%=num2%>>
+		</td>
+		<td align="center">
+		<input type="text" name="result" size="2">
+		</td>
+	</tr>
+<%
+	}
+%>
+	<tr>
+		<td colspan="3" align="center"><input type="submit" value="점수확인"></td>
+	</tr>
+</form>
+</table>
+	
+<%
+	int cnt = 0;
+	String[] num1S = request.getParameterValues("num1");
+	String[] num2S = request.getParameterValues("num2");
+	String[] resultS = request.getParameterValues("result");
+	String[] gu1 = request.getParameterValues("gu");
+	if(num1S!=null && num2S!=null && resultS!=null && gu1!=null) {
+		for(int i=0; i<10; i++) {
+			int num11 = Integer.parseInt(num1S[i]);
+			int num21 = Integer.parseInt(num2S[i]);
+			int result1 = Integer.parseInt(resultS[i]);
+			String gu2 = gu1[i];
+			if(gu2.equals("X")) {
+				if((num11*num21)==result1) {
+					cnt+=10;
+				}
+			}else if(gu2.equals("+")) {
+				if((num11+num21)==result1) {
+					cnt+=10;
+				}
+			}else if(gu2.equals("-")) {
+				if((num11-num21)==result1) {
+					cnt+=10;
+				}
+			}else if(gu2.equals("/")) {
+				if((num11/num21)==result1) {
+					cnt+=10;
+				}
+			}
+		}
+%>
+	<h3>점수확인 : <%=cnt %></h3>
+<%
+	}
+%>
 </body>
 </html>

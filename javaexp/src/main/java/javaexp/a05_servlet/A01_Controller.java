@@ -33,12 +33,15 @@ public class A01_Controller extends HttpServlet {
 		// TODO Auto-generated method stub
 		//#controller
 		//1. 요청값 처리
-		
-		//2. model 데이터 설정
+		String schKeyword = request.getParameter("q");
+		//2. model 데이터 설정 : DB서버 접속
 		//	key/value 형식으로 모델데이터를 만들어 넣을 수 있다.
+		request.setAttribute("modelData", "DB에서 검색해온 데이터");
+		
 		request.setAttribute("show"," 안녕하세요(모델데이터)");
 		
 		//3. view단 호출
+		//	위 요청값에 따라서 출력할 화면을 결정할 수 있다.
 		String viewPage="a05_comp\\a09_mvc_view.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPage);
 		rd.forward(request, response);

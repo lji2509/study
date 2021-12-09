@@ -27,5 +27,6 @@
  --%>
  	<h2>View단</h2>
  	<h3>controller에서 온 모델 : ${show}</h3>
+ 	<h3>controller에서 온 모델 : ${modelData}</h3>
 </body>
 </html>
