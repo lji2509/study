@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="javaexp.a00_exp.Product"
+    import="javaexp.a04_vo.Product"
     import="java.util.ArrayList"
     %>
 <!DOCTYPE html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<!-- 
+		# 테이블 안에 이미지 처리하기
+		1. 테이블 구조를 만들고,
+		2. td안에 이미지 태그를 처리
+		 -->
+		 <table>
+		 	<tr>
+		 	<td><img src="하니.jpg" width="200px" height="200px"/></td>
+		 	<td><img src="/javaexp/a01_img/애기.jpg" width="200px" height="200px"/><td>
+		 	<td><img src="/javaexp/a01_img/쮸.jpg" width="200px" height="200px"/><td>
+		 	</tr>
+		 </table>
+		
+		<table border>
+			<tr><td rowspan="2"><img src="하니.jpg" width="200px" height="200px"/></td><td>하니</td></tr>
+			<tr><td>강아지</td></tr>
+			<tr><td rowspan="2"><img src="/javaexp/a01_img/애기.jpg" width="200px" height="200px"/></td><td>애기</td></tr>
+			<tr><td>고양이</td></tr>
+			<tr><td rowspan="2"><img src="../../a01_img/쮸.jpg" width="200px" height="200px"/></td><td>쮸</td></tr>
+			<tr><td>고양이</td></tr>
+		</table>
+	</body>
+</html>

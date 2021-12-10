@@ -35,7 +35,7 @@
 <form>
 	<input type="text" name="num1" size="2" value=<%=grade %>> X <input type="text" name="num2" size="2" value=<%=cnt %>> 
 	= <input type="text" name="result" size="2"/><br> <%--입력할 정답 --%>
-	<input type="submit" value="결과확인">
+	<input type="submit" value="결과확인">1
 </form>
 <%
 	String num1SS = request.getParameter("num1");

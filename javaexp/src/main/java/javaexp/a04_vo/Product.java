@@ -1,4 +1,4 @@
-package javaexp.a00_exp;
+package javaexp.a04_vo;
 
 public class Product {
 	private String name;
