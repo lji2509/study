@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script>
+		window.onload = function() {
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "시작";
+		}
+		</script>
+	</head>
+	<body>
+		<h2></h2>
+		<form action="a13_buyList.jsp" method="post">
+			물건명 : <input type="text" name="pname" value=""/><br>
+			구매갯수 : <input type="text" name="cnt" value=""/><br>
+			<input type="submit" value="구매"/>
+		</form>
+	</body>
+</html>

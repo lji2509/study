@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>[figure 태그 활용]</title>
+		<script>
+		//window.onload : 브라우저가 로딩된 후, 
+		//(body에 있는 모든 태그들을 객체로 인식이 가능한 상황)
+		//DOM 객체를 활용할 수 있는 상황이 됨
+		//var h2Obj = document.querySelector("h2");
+		//태그를 객체로 인식을 해서
+		//h2Obj.innerText = "figure 태그 활용";
+		//속성 innerText(출력을 처리)를 활용해서 문자열을 h2로 출력한다.
+		window.onload = function() {
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "figure 태그 활용";
+		}
+		</script>
+	</head>
+	<body>
+		<h2></h2>
+		<figure>
+			<figcaption>alert()함수 활용</figcaption>
+			<pre><!--  br &nbsp 없이 화면에 코딩한 그대로 출력하게 해주는 태그 -->
+				<code><!-- 코드내용을 그대로 화면에 보이고자 할 때, 처리하는 내용 실행은 되지 않음 -->
+					function fun1() {
+						alert("경고합니다.");
+				</code>
+			</pre>
+			<hr>
+			<small>실행결과</small><!-- 시맨틱 태그 유형 -->
+			<pre>
+				<img src="media/alert.png" alt="실행결과"/>
+			</pre>
+		</figure>
+	</body>
+</html>
