@@ -1,42 +1,42 @@
 # 폼 태그 <form> 태그로 둘러싸는 모양
-1) name 속성
-	- 폼의 이름 지정
-2) action 속성
-	- 폼 데이터를 처리할 웹 서버 응용프로그램의 이름
-	- submit 버튼이 눌리면 브라우저는 action에 지정된 웹 서버 응용프로그램 실행 요청
-	- 웹 서버 응용프로그램은 Java, JSP, PHP, C/C++ 등 다양한 언어로 작성
-3) method 속성
-	- 폼 데이터를 웹 서버로 전송하는 형식
-	- 대표적인 전송 방식 : GET, POST
+	1) name 속성
+		- 폼의 이름 지정
+	2) action 속성
+		- 폼 데이터를 처리할 웹 서버 응용프로그램의 이름
+		- submit 버튼이 눌리면 브라우저는 action에 지정된 웹 서버 응용프로그램 실행 요청
+		- 웹 서버 응용프로그램은 Java, JSP, PHP, C/C++ 등 다양한 언어로 작성
+	3) method 속성
+		- 폼 데이터를 웹 서버로 전송하는 형식
+		- 대표적인 전송 방식 : GET, POST
 	
 # 폼 요소의 종류
-1) <input type="text"> : 한 줄 텍스트 입력 창
-2) <input type="password"> : 암호 입력을 위한 한 줄 텍스트 입력창
-3) <input type="button"> : 단순 버튼
-4) <input type="submit"> : 웹 서버로 폼 데이터를 전송시키는 버튼
-5) <input type="reset"> : 입력된 폼 데이터를 초기화시키는 버튼
-6) <input type="image"> : 이미지 버튼
-7) <input type="checkbox | radio"> : 체크박스와 라디오 버튼
-8) <select> : 드롭다운 리스트를 가진 콤보박스
-9) <input type="month | week | date | time | datetime-local"> : 년, 월, 일, 시간 등의 시간 정보 입력 창
-10) <input type="number | range"> : 스핀 버튼과 슬라이드바로 편리한 숫자 입력 창
-11) <input type="color"> : 색 입력을 쉽게 하는 컬러 다이얼로그
-12) <input type="email | url | tel | search"> : 이메일, URL, 전화번호, 검색키워드 등 형식 검사 기능을 가진 텍스트 입력 창
-13) <input type="file"> : 로컬 컴퓨터의 파일을 선택하는 폼 요소
-14) <button type="button | reset | submit"> : 단순 버튼, reset, submit 버튼
-15) <textarea> : 여러 줄의 텍스트 입력 창
+	1) <input type="text"> : 한 줄 텍스트 입력 창
+	2) <input type="password"> : 암호 입력을 위한 한 줄 텍스트 입력창
+	3) <input type="button"> : 단순 버튼
+	4) <input type="submit"> : 웹 서버로 폼 데이터를 전송시키는 버튼
+	5) <input type="reset"> : 입력된 폼 데이터를 초기화시키는 버튼
+	6) <input type="image"> : 이미지 버튼
+	7) <input type="checkbox | radio"> : 체크박스와 라디오 버튼
+	8) <select> : 드롭다운 리스트를 가진 콤보박스
+	9) <input type="month | week | date | time | datetime-local"> : 년, 월, 일, 시간 등의 시간 정보 입력 창
+	10) <input type="number | range"> : 스핀 버튼과 슬라이드바로 편리한 숫자 입력 창
+	11) <input type="color"> : 색 입력을 쉽게 하는 컬러 다이얼로그
+	12) <input type="email | url | tel | search"> : 이메일, URL, 전화번호, 검색키워드 등 형식 검사 기능을 가진 텍스트 입력 창
+	13) <input type="file"> : 로컬 컴퓨터의 파일을 선택하는 폼 요소
+	14) <button type="button | reset | submit"> : 단순 버튼, reset, submit 버튼
+	15) <textarea> : 여러 줄의 텍스트 입력 창
 
 # 선택형 입력 : 체크박스와 라디오버튼
-1) <input type="checkbox"> : 체크박스 만들기
-2) <input type="radio"> : 라디오버튼 만들기
-	name속성 값이 같은 라디오버튼들이 하나의 그룹 형성
-<input type="checkbox | radio"
-	name="요소 이름"
-	value="요소 값"
-	checked>
-value : 폼 요소가 선택된 상태일 때, 웹서버에 전송되는 값
-checked : 이 속성이 있으면, 초기에 선택 상태로 출력	
+	1) <input type="checkbox"> : 체크박스 만들기
+	2) <input type="radio"> : 라디오버튼 만들기
+		name속성 값이 같은 라디오버튼들이 하나의 그룹 형성
+	<input type="checkbox | radio"
+		name="요소 이름"
+		value="요소 값"
+		checked>
+	value : 폼 요소가 선택된 상태일 때, 웹서버에 전송되는 값
+	checked : 이 속성이 있으면, 초기에 선택 상태로 출력	
 
 #선택형 입력 : 콤보 박스
-<select> : 드롭다운 리스트에 목록 출력, 목록을 선택하는 입력 방식
-	<option> 태그로 항목 하나 표현
+	<select> : 드롭다운 리스트에 목록 출력, 목록을 선택하는 입력 방식
+		<option> 태그로 항목 하나 표현
