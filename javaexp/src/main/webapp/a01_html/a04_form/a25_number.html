@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>[숫자 입력]</title>
+		<script>
+		window.onload = function() {
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "홈 제어 시스템 - 온도 조절";
+		}
+		</script>
+	</head>
+	<body>
+		<h2></h2>
+		<form>
+			지속시간 (0.0~10.0시간) : 
+			<input type="number" min="0.0" max="10.0" step="0.5"><br>
+			온도설정 : 10&deg;
+			<input type="range" min="10" max="30" list="temperatures">30&deg;
+				<datalist id="temperatures">
+					<option value="12" label="Low"/>
+					<option value="20" label="Medium"/>
+					<option value="28" label="Hight"/>
+				</datalist>
+		</form>
+		
+		<form>
+			<h3>커피 주문</h3>
+			가격 : <input type="number" min="4500" max="7200" step="500" list="prices">
+				<datalist id="prices">
+					<option value="4500">
+					<option value="5000">
+					<option value="6500">
+					<option value="7200">
+				</datalist><br>
+			주문수량 : <input type="number" min="1" max="10" step="1"><br>
+			크기 : <input type="range" min="1" max="3" list="sizes">
+				<datalist id="sizes">
+					<option value="1" label="small"></option>
+					<option value="2" label="medium"></option>
+					<option value="3" label="large"></option>
+				</datalist>
+		</form>
+	</body>
+</html>
