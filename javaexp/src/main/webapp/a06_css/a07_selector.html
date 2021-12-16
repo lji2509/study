@@ -8,12 +8,14 @@
 		# 태그 이름 셀렉터
 		1. 태그 이름은 그대로 셀렉터로 사용할 수 있다.
 			- 같은 이름의 모든 태그에 css3 스타일 시트 적용
+			선택자1, 선택자2, ..{속성:속성값;} 해당 선택자들을 동일한 속성을 지정할 때, 활용된다.
 		*/
 		h2, li{color:brown;}
 		.warning{color:red;} /* 클래스 선언 */
 		body.main{background:aliceblue;} /* 태그가 body이고 속성으로 클래스가 선언된 경우 */
 		#list{background:mistyrose;}
 		div#etc{background:pink;}
+		/* 특정한 태그에 속성으로 클래스이거나 아이디일 때, 활용하는 패턴 */
 		</style>
 		<script>
 		window.onload = function() {

@@ -67,3 +67,17 @@
 		자손 관계인 2개 이상의 태그 나열
 		ex) ul strong {color:dodgerblue;}
 			<ul>의 자손 <strong>에 적용되는 스타일 시트
+			
+# 전체 셀렉터와 속성 셀렉터
+	1) 전체 셀렉터
+		와일드 문자(*)를 사용하여 모든 태그에 적용시키는 셀렉터
+		ex) * {color:green;}
+			웹 페이지의 모든 태그에 적용. 텍스트 색을 green으로 칠함
+	2) 속성 셀렉터
+		HTML태그의 특정 속성(attribute)에 대해 값이 일치하는 태그에서만 스타일을 적용하는 셀렉터
+		ex) input[type=text] {color:red;}
+			type 속성값이 "text"인 <input> 태그에 적용
+			<input type="text">
+			
+# 가상 클래스(pseudo-class) 셀렉터
+	어떤 조건이나 상황에서 스타일을 적용하도록 만든 셀렉터
