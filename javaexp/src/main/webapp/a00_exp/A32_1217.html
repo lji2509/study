@@ -17,29 +17,55 @@
 		<h2></h2>
 		<!-- 
 		1. 화면배치에 관련된 속성을 기술하고, 위치를 설정하는 옵션을 기본예제와 함께 기술하세요
-		
+			static : 기본값으로 상->하로 요소를 배치한다.
+			relative :원래 배치되어야 할 위치에서 지정한 값만큼 떨어진곳에 요소를 배치한다. 
+			absolute : 가장 가까운 상위 요소의 위치를 기준으로 지정한 값만큼 떨어진 곳에 요소를 배치한다.
+			fixed : 웹 브라우저 화면 전체를 기준으로 배치한다. 스크롤을 하더라도 위치가 고정된다. 
+			z-index : 요소객체들 간에 position을 절대 위치(absolute)를 지정할 때, 겹쳐서 화면에 나올 때가 있는데, 이 겹친 요소객체의 화면에 나오는 우선순위를 지정할 때, 활용된다.
+         div{
+            display:inline-block;
+            position:absolute;
+            border:1px solid lightgray;
+         }
+         #fixed{
+            position:fixed;
+            bottom:10px; right:10px;
+            width:100px; padding: 5px;
+            background: red; color:white;
+         }
+         #float{
+            float:right; border:1px dotted black;
+            width:8em; padding: 0, 25em; margin:1em;
+         }
+         #spade2{z-index:1; left:40px; top:20px;}
+         .top {
+           position: relative;
+           top: 5px;
+           z-index: 1;
+      }
+			
 		2. 작은 이미지로 하단에 나열된 상품 5개를 마우스 커서를 위치시켰을 때, 상단에 이미지를 확대하여 처리하세요.
 		-->
-		<style>
-            div{
-                display: inline-block;
-            }
-            .image {
-            	position:absolute;
-            	bottom:20px;
-                height:50px; width:50px;
-            }
-            .image:hover {
-                position:absolute;
-               	top:20px;
-                width:200px; height:200px;
-            }
-            
-        </style>
-		
-		<div><img class="image" style="left:50px;" src="media/apple.png"></div>
-        <div><img class="image" style="left:100px;" src="media/banana.png"></div>
-        <div><img class="image" style="left:150px;" src="media/mango.png"></div>
+			<style>
+	            div{
+	                display: inline-block;
+	            }
+	            .image {
+	            	position:absolute;
+	            	bottom:20px;
+	                height:50px; width:50px;
+	            }
+	            .image:hover {
+	                position:absolute;
+	               	top:20px;
+	                width:200px; height:200px;
+	            }
+	            
+	        </style>
+			
+			<div><img class="image" style="left:50px;" src="media/apple.png"></div>
+	        <div><img class="image" style="left:100px;" src="media/banana.png"></div>
+	        <div><img class="image" style="left:150px;" src="media/mango.png"></div>
 		<!-- 
 		3. float 속성과 position:fixed의 차이점을 기술하세요.
 			float 속성
@@ -50,7 +76,29 @@
    				 화면에 특정한 위치에 공정되어서, 스크롤을 하더라도 해당 위치에 계속 고정적으로 보이게 할 때 사용된다.
 		
 		4. 예제이미지로 리스트된 카드를 넓게 겹쳐서 나타내고, 해당 카드를 클릭하는 순간 가장 앞으로 나오게 처리하세요.
-		
+		-->
+		<style>
+	        div, img{position:absolute;}
+	        img{height:140px; width:100px;}
+	        #spadeA{z-index:1; left:10px; top:300px;}
+	        #spade2{z-index:2; left:80px; top:300px;}
+	        #spade3{z-index:3; left:150px; top:300px;}
+	        #spade7{z-index:4; left:220px; top:300px;}
+	     </style>
+	      
+	      <script>
+	         function change(obj) {
+	            obj.style.zIndex = "5";
+	         }
+	      </script>
+	      
+		  <h2 align="center"></h2>
+          <img id="spadeA" src="media/spade-A.png" alt="스페이드A" onclick="change(this)">
+          <img id="spade2" src="media/spade-2.png" alt="스페이드2" onclick="change(this)">
+          <img id="spade3" src="media/spade-3.png" alt="스페이드3" onclick="change(this)">
+          <img id="spade7" src="media/spade-7.png" alt="스페이드7" onclick="change(this)">
+     
+		<!--
 		5. visibility속성과 overflow는 어떤 속성인지 속성값과 함께 기술하세요.
 		 	overflow: 요소객체로 설정한 넓이나 높이 보다, 내용 문자열이나 요소객체들이 더 많을 때 이에대한 처리 옵션을 설정한다.
             hidden : 보이지 않게 처리한다.
@@ -81,6 +129,7 @@
 				list-style-type:none;
 				padding:0px 15px;
 				font-size:10px;
+				font-weight:bold;
 			}
 			#menubar ul li a{
 				color:navy;text-decoration:none; 

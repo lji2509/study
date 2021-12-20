@@ -15,6 +15,9 @@
 		body.main{background:aliceblue;} /* 태그가 body이고 속성으로 클래스가 선언된 경우 */
 		#list{background:mistyrose;}
 		div#etc{background:pink;}
+		.cls1{background-color:yellow;}
+		.cls2{color:green;}
+		.cls3{border:1px solid green;}
 		/* 특정한 태그에 속성으로 클래스이거나 아이디일 때, 활용하는 패턴 */
 		</style>
 		<script>
@@ -25,6 +28,8 @@
 		</script>
 	</head>
 	<body class="main">
+		<!-- 하나의 태그에 여러가지 클래스가 적용될 때, class="클래스명1 클래스명2 클래스명3.. 로 선언하여 사용할 수 있다. -->
+		<h4 class="cls1 cls2 cls3">여러 클래스 적용</h4>
 		<h2></h2>
 		<hr>
 		<div>

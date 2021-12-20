@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>[prompt]</title>
+		<style>
+		
+		</style>
+		<script>
+		window.onload = function() {
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "외부에서 데이터 입력";
+			
+			//prompt("타이틀", "default값")
+			var name = prompt("이름을 입력하세요", "여기에");
+			if(name != null) {
+				h2Obj.innerText = "이름 : " + name;				
+			} else {
+				alert('이름을 입력하세요!');
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<h2></h2>
+	
+	</body>
+</html>

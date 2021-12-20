@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>title</title>
+		<style>
+		
+		</style>
+		<script>
+		//1. 실행은 코드 순서로 처리된다.
+		//2. DOM은 선언 후, 호출하여야 한다.
+		//3. window.onload=function(){} 내용은 맨마지막에 로딩 후, 실행된다.
+		//	그래서 body에 있는 모든 DOM을 호출할 수 있다.
+		//4. 함수는 로딩된 후, 이벤트를 통해 처리 되기에 선언적 함수의 경우 순서가 앞에 선언되어도 호출이 된다.
+		function call() {
+			alert('함수 호출');
+		}
+		
+		console.log("실행11");
+		
+		window.onload = function() {
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "시작";
+			//body에 있는 h1 객체 속성 변경
+			document.querySelector("h1").style.background="orange";
+			console.log("실행2(마지막에 수행)");
+		}
+		
+		console.log("실행3");
+		</script>
+	</head>
+	<body>
+		<h2></h2>
+		<h1 onclick="call()">안녕하세요</h1>
+		<script>
+			console.log("실행4");
+			document.querySelecotr("h1").innerText = "선언 후 호출";
+		</script>
+	
+	</body>
+</html>
