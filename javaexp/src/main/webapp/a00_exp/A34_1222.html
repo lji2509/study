@@ -15,7 +15,27 @@
 		<!--
 		1. if else문을 활용하여 입력받은 성별과 나이에 따라 구분하여 입장을 처리하게 출력하세요. 
                 성별: 남/여 ==> 나이 18세이상 신사/숙녀, 18세미만 소년/소녀
+        -->
+        <script>
+	        var gender = prompt("성별 입력 남/여","남")
+	        var age = prompt("나이 입력",15)
+	        
+	        if (gender=="남"&&age>=18){
+	            h2Obj.innerText = "신사";
+	        }else if(gender=="여"&&age>=18){
+	            h2Obj.innerText = "숙녀";
+	        }else if(gender=="남"&&age<18){
+	            h2Obj.innerText = "소년";
+	        }else if(gender=="여"&&age<18){
+	            h2Obj.innerText = "소녀";
+	        }
+        </script>
+        
+        <!--
 		2. switch case break를 활용하여 부서번호에 따른 부서명을 출력하세요. 10~40(인사/재무/회계/기획)
+		-->
+		
+		<!-- 
 		3. for문과 배열을 활용하여, 무지개 색상을 배경으로 h3로 글자와 함께 출력하세요
 		-->
 		<h3></h3>
@@ -33,11 +53,49 @@
 	        	h3Arr[i].style.background = color[i];
 	        }
         </script>
+        
 		<!-- 
 		4. 물건명과 가격을 입력받아 for문을 활용하여 1개~10개까지의 가격을 출력하세요 @@@ @@개 @@@원
+		-->
+	        <h2></h2>
+	        <h2></h2>
+	        <h2></h2>
+	        <h2></h2>
+	        <h2></h2>
+	        <h2></h2>
+	        <h2></h2>
+	        <h2></h2>
+	        <h2></h2>
+	        <h2></h2>
+			<script>
+	        	var h2Arr = document.querySelectorAll("h2");
+	            var pname = prompt("물건명을 입력하세요", "");
+	            var price = prompt("가격을 입력하세요", 3000);
+	            for(var i=1;i<=10;i++){
+	                h2Arr[i].innerText = pname+"을(를) "+i+"개 구매시: "+(price*i)
+	            }
+	       </script>
+	       
+		<!-- 
 		5. while문과 prompt를 활용하여 주문한 음식리스트를 ul/li를 통해서 출력하세요
+		-->
+		
+		<!-- 
 		6. 함수의 구성요소별로 기본 예제를 통해서 기술하세요. 
-
+			function 함수이름(arg1, arg2,,){
+			    .. 프로그램 코드
+			    결과를 리턴하는 return 문
+			}
+		-->
+		<script>
+			var exx6 = ex6(3000,2000)
+			function ex6(num01, num02){
+                var sum = num01+num02;
+                return sum
+            }
+		</script>
+		
+		<!-- 
 		7. 밑면과 높이를 입력받아 삼각형의 면적을 구하는 함수를 정의하고 호출하여 그 결과값을 출력하세요.
 		-->
 		<h2></h2>
