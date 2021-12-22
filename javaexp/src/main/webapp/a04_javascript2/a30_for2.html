@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>title</title>
+		<style>
+		
+		</style>
+		<script>
+		window.onload = function() {
+			var h2Arr = document.querySelectorAll("h2");
+			var tdArr = document.querySelectorAll("td");
+			var dan = prompt("단수를 입력하세요.","2");
+			h2Arr[0].innerText = "## " + dan + "단 ##";
+			tdArr[0].innerText = "## " + dan + "단 ##";
+			var colors = ["red", "orange", "pink"];
+			for(var i=1; i<=9; i++) {
+				h2Arr[i].innerText = dan + " X " + i + " = " + (dan*i);
+				tdArr[i].innerText = dan + " X " + i + " = " + (dan*i);
+				//<h2 style="background:red">
+				h2Arr[i].style.background = colors[i%3];
+				//i%3 나머지 연산을 활용하면 0, 1, 2로 반복되어 처리되고, 위에 지정한 색상을 배경색상으로 반복되어 처리할 수 있다.
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<h2></h2>
+		<h2></h2>
+		<h2></h2>
+		<h2></h2>
+		<h2></h2>
+		<h2></h2>
+		<h2></h2>
+		<h2></h2>
+		<h2></h2>
+		<h2></h2>
+		<table border>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+		</table>
+	</body>
+</html>

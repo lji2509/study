@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>[변수선언]</title>
+		<style>
+		
+		</style>
+		<script>
+		window.onload = function() {
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "변수선언과 활용";
+			//변수의 선언
+			var name;
+			var age, loc;
+			var date = "2021/12/21";
+			console.log(name);
+			//변수를 선언하고 초기화를 하지 않은 상태에서는 undefined로 처리됨
+			console.log(date);
+//			console.log(no);
+			//선언되지 조차 않은 변수를 호출하면 에러 발생
+			var score; //js에서는 데이터유형을 선언하지 않는다.
+			//int num1; js에서는 java와 같이 데이터 유형을 선언하는 순간 에러 발생
+			var var1 = 25;
+			console.log(typeof(var1)+" : "+var1);
+			var1 = "문자열";
+			console.log(typeof(var1)+" : "+var1);
+			var1 = function(){};
+			console.log(typeof(var1)+" : "+var1);
+			//이와 같이 js에서는 데이터를 할당하는 순간 변수의 데이터 유형이 결정된다.
+			/*
+			# ecma6 변수
+			1. let : 지역변수/전역변수 명확하게 구분하여 처리
+			2. const : 상수형 변수 선언
+			*/
+			let num1 = 25;
+			const num2 = 3.14; //상수 선언으로 데이터를 변경하지 못하게 처리
+		}
+		</script>
+	</head>
+	<body>
+		<h2></h2>
+	
+	</body>
+</html>

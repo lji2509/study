@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>[함수연습]</title>
+		<style>
+		
+		</style>
+		<script>
+		window.onload = function() {
+			var h2Arr = document.querySelectorAll("h2");
+			var book = show("자바의정석",17000);
+			h2Arr[0].innerText = book;
+		}
+		function show(bname, bprice) {
+			return bname+"("+bprice+")";
+		}
+		</script>
+	</head>
+	<body>
+		<h2></h2>
+	
+	</body>
+</html>

@@ -7,6 +7,22 @@
 <body>
 <!-- 
 1. js의 실행형식 3가지를 예제와 함께 기술하세요.
+	1.기본 script 실행
+    	<script>
+	        window.onload=function(){
+	            var h2Obj = document.querySelector("h2");
+	            h2Obj.innerText = "시작";
+	         }            
+		</script>
+      
+      2. a 링크를 통해 실행
+    	  <a href="javascript:alert('js내장 함수 호출')">a link로 js호출!!</a>
+       
+       3. outer js 호출
+	      <script type="text/javascript" src="z01_outer.js"></script>
+	      function call(){
+	         alert("외부파일 호출!!"); 
+	      }
 
 2. js의 DOM의 관계에서 실행 순서의 원칙을 예제를 통해서 기술하세요.
 	1) 실행을 코드 순서로 처리된다.
@@ -48,10 +64,26 @@
 -->
 	<script type="text/javascript" src="z01_outer.js"></script>
     <h2 onclick="call(this)">안녕하세요</h2>
+    
 
 <!-- 
 4. 회원 정보(아이디, 패스워드, 이름, 포인트)를 입력받아 테이블형태로 출력하세요.
+-->
+	<script>
+    	var id=prompt("아이디를 입력하세요","아이디");
+        var pass=prompt("패스워드를 입력하세요","패스워드");
+        var name=prompt("이름를 입력하세요","이름");
+        var point=prompt("포인트를 입력하세요","포인트");
+        if(id!=null && pass!=null && name!=null && point!=null ){
+        	document.write("<table><tr><th>아이디</th><th>패스워드</th><th>이름</th><th>포인트</th></tr>");
+            document.write("<tr><td>"+id+"</td><td>"+pass+"</td><td>"+name+"</td><td>"+point+"</td></tr></table>")
+        } else {
+            alert("내용을 입력해주세요");
+        }
+	</script>
 
+
+<!-- 
 5. 성인인지 여부를 확인하여 성인인증완료 미성년자로 나누어 출력되게 하세요.
 -->
 	<script>
@@ -103,6 +135,5 @@
         var arry = [30, 40, 50];//배열형
         document.write("<h3>" + arry + ":" + typeof arry + "</h3>");
 	</script>
- -->
 </body>
 </html>

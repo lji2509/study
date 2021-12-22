@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>title</title>
+		<style>
+		
+		</style>
+		<script>
+		window.onload = function() {
+			var h2Arr = document.querySelectorAll("h2");
+			//함수의 호출
+			var sum = plus(20, 30);
+			h2Arr[0].innerText = "함수호출 결과값 : " + sum;
+			
+			var h3Obj = document.querySelector("h3");
+			var tot = calcu(3000, 4);
+			h3Obj.innerText = "총계 : " + tot + "원";
+		}
+		//함수의 선언
+		function plus(num1, num2) {
+			var sum;
+			sum = num1 + num2;
+			return sum;
+		}
+		
+		function calcu(price, cnt) {
+			var tot; 
+			tot = price*cnt;
+			return tot;
+		}
+		
+		</script>
+	</head>
+	<body>
+		<h2></h2>
+		<h3></h3>
+	</body>
+</html>
