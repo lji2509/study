@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>[함수의 활용]</title>
+		<style>
+		
+		</style>
+		<script>
+		window.onload = function() {
+			var h2Arr = document.querySelectorAll("h2");
+			h2Arr[0].innerText = "함수 사용";
+		}
+		//이벤트 핸들러로 사용하는 함수
+		function call1(){
+			alert("함수호출");
+		}
+		function call2(num){
+			alert("숫자 전송 : " + (num*5));
+		}
+		function call3(name) {
+			alert("문자 전송 : " + name);
+		}
+		function call4(pname, price, cnt) {
+			alert("문자와 숫자 전송 : " + pname + ", 총계 : " + (price*cnt));
+		}
+		function plus(cnt1, cnt2) {
+			alert("총계 : " + (cnt1+cnt2) + "개");
+		} 
+		function player(name, score) {
+			alert("선수의 이름 : " + name + ", 점수 : " + score + "점");
+		}
+		//DOM을 활용한 데이터 처리(DOM에서 구체적인 내용 진행)
+		function calcu(){
+			var num1 = document.querySelector("[name=num1]").value;
+			var num2 = document.querySelector("[name=num2]").value;
+			var sum = Number(num1) + Number(num2); //Number() : 숫자형문자열을 숫자로 변환 처리
+			var show = document.querySelector("h4");
+			show.innerText = num1 + " + " + num2 + " = " + sum;
+		}
+		</script>
+	</head>
+	<body>
+		<h2></h2>
+		<h3 onclick="call1()">함수호출1</h3>
+		<h3 onclick="call2(5)">함수호출2</h3>
+		<h3 onclick="call3('홍길동')">함수호출3</h3>
+		<h3 onclick="call4('사과',3000,2)">함수호출4</h3>
+		<h3 onclick="plus(3, 5)">함수호출5</h3>
+		<h3 onclick="player('홍길동', 85)">함수호출6</h3>
+		<input type="text" name="num1" value="0" size="3"/>
+		+ <input type="text" name="num2" value="0" size="3"/><br>
+		<input type="button" value="합산" onclick="calcu()"/>
+		<h4></h4>
+		
+	</body>
+</html>

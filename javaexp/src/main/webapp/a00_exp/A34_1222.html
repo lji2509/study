@@ -34,6 +34,18 @@
         <!--
 		2. switch case break를 활용하여 부서번호에 따른 부서명을 출력하세요. 10~40(인사/재무/회계/기획)
 		-->
+         <h2></h2>
+		 <script>
+         	var h2Arr = document.querySelectorAll("h2");
+            var deptno = prompt("부서번호를 입력하세요",10)
+            switch(deptno){
+               case "10" :h2Arr[0].innerText="부서번호는"+deptno+",인사과입니다";break;
+               case "20" : h2Arr[0].innerText="부서번호는"+deptno+",재무과입니다";break;
+               case "30" : h2Arr[0].innerText="부서번호는"+deptno+", 회계과입니다";break;
+               case "40" : h2Arr[0].innerText="부서번호는"+deptno+", 기획과입니다";break;
+               default : h2Arr[0].innerText = "부서번호 입력범위는 1~40입니다";
+            }
+      </script>
 		
 		<!-- 
 		3. for문과 배열을 활용하여, 무지개 색상을 배경으로 h3로 글자와 함께 출력하세요
@@ -52,7 +64,7 @@
 	        	h3Arr[i].innerText = color[i];
 	        	h3Arr[i].style.background = color[i];
 	        }
-        </script>
+       	</script>
         
 		<!-- 
 		4. 물건명과 가격을 입력받아 for문을 활용하여 1개~10개까지의 가격을 출력하세요 @@@ @@개 @@@원
@@ -79,6 +91,17 @@
 		<!-- 
 		5. while문과 prompt를 활용하여 주문한 음식리스트를 ul/li를 통해서 출력하세요
 		-->
+		<ul></ul>
+		<script>   
+		var ulObj = document.querySelector("ul");
+        ulObj.innerText = "주문하신 음식 리스트"
+        do{
+        	var orderMenu = prompt("주문하실 음식은?","");
+        	if(orderMenu!=null && order!="") {
+            	ulObj.innerHTML += "<li>"+orderMenu+"</li>";  
+        	}
+        } while(confirm("계속하시겠습니까?"));
+		</script>
 		
 		<!-- 
 		6. 함수의 구성요소별로 기본 예제를 통해서 기술하세요. 
@@ -91,7 +114,7 @@
 			var exx6 = ex6(3000,2000)
 			function ex6(num01, num02){
                 var sum = num01+num02;
-                return sum
+                return sum;
             }
 		</script>
 		

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>[ECMA6형 함수]</title>
+		<style>
+		
+		</style>
+		<script>
+		window.onload = function() {
+			var h2Arr = document.querySelectorAll("h2");
+			//1. 변수형 함수
+			//	var 함수명 = function(){}; 형태로 선언 후, 호출이 가능하다.
+			var fun1 = function(num1, num2) {
+				alert(num1 + " + " + num2 + " = " + (num1+num2));
+				return num1 + " + " + num2 + " = " + (num1+num2);
+			};
+			//호출
+			h2Arr[0].innerText = fun1(30,25);
+			//2. 화살표 함수
+			//	함수명 = (매개변수1, 매개변수2) => 리턴값;
+			const multi = (num1, num2) => num1*num2;
+			h2Arr[1].innerText = multi(20,30);
+			
+			const age = (age) => (age>=18)?"성인":"미성년";
+			var inputAge = prompt("나이를 입력하세요","1");
+			h2Arr[2].innerText = age(inputAge);
+			
+			const Age = (Age) => (Age<5||Age>=65)?"무료":"유료";
+			var inputage = prompt("나이를 입력하세요","1");
+			h2Arr[3].innerText = Age(inputage);
+			}
+		</script>
+	</head>
+	<body>
+		<h2></h2>
+		<h2></h2>
+		<h2></h2>
+		<h2></h2>
+	
+	</body>
+</html>
