@@ -15,11 +15,17 @@
 		window.onload = function() {
 			var h2Obj = document.querySelector("h2");
 			h2Obj.innerText = "script 태그로 실행예제";
+			//코드로 대상객체의 리스너 속성에 함수로 할당하여 처리
+			//객체.onclick = 함수;
+			h2Obj.onclick=function() {
+				//this : 이벤트가 일어나는 대상객체
+				this.innerText = "js코드로 익명함수 할당"
+			}
 		}
 		function chText(obj) { //chText(this) 를 통해 객체를 받아서
 			//obj : 매개변수로 받은 객체, 하단에 클릭한 h3 을 매개변수로 받아서
 			//h3의 DOM 출력처리 속성 (innerText)을 통해서 화면에 출력 처리한다.
-			obj`.innerText = "안녕하세요!(글자 변경됨)";
+			obj.innerText = "안녕하세요!(글자 변경됨)";
 		}
 		</script>
 	</head>

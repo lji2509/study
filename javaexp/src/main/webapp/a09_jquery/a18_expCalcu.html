@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>title</title>
+		<style>
+		
+		</style>
+		<script src="/javaexp/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
+		<script>
+			$(document).ready(function(){
+				$("h2").text("연산처리");
+				/*
+				아래와 같이 화면에서 임의의 값이 입력되고 사칙연산 식을 선택시마다, 값이 결과값이 처리되게 출력하세요.
+				[4][select +,-,X,/][5] ==> 4*5 = 20
+				*/
+				var num1R = Math.floor(Math.random()*10+1);
+				var num2R = Math.floor(Math.random()*10+1);
+				$("[name=num1]").val(num1R);
+				$("[name=num2]").val(num2R);
+				$("[name=cal]").change(function(){
+					var num1 = Number($("[name=num1]").val());
+					var num2 = Number($("[name=num2]").val());
+					var sums = [num1+num2, num1-num2, num1*num2, num1/num2];
+					//sums[0~3] 결과값이 +, -, *, /
+					var calIdx = $("[name=cal] :selected").val();
+					var cal = $("[name=cal] :selected").text();
+					
+					//console.log($("[name=cal] :selected").text() + " : " +  $("[name=cal] :selected").val());
+					//console.log("총계 : " + sums[calIdx]);
+					$("h4").text(num1 + " " + cal + " " + num2 + " = " + sums[calIdx]);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h2></h2>
+		<input type="text" name ="num1" size="1"/>
+		<select name="cal">
+			<option value="0"> + </option>
+			<option value="1"> - </option>
+			<option value="2"> X </option>
+			<option value="3"> / </option>
+		</select>
+		<input type="text" name="num2" size="1"/>
+		<h4></h4>	
+	</body>
+</html>

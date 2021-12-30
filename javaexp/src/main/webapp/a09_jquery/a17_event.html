@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>title</title>
+		<style>
+		
+		</style>
+		<script src="/javaexp/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
+		<script>
+			$(document).ready(function(){
+				$("h2").text("jquery event");
+				/*
+				# jquery이벤트 처리
+					1. $("선택자").이벤트명(핸들러 함수);
+					2. $("선택자").on("이벤트명", 핸들러함수);
+					3. $("선택자").on({"이벤트명1":핸들러함수, "이벤트명2":핸들러함수});
+				*/
+				$("h2").mouseover(function(){
+					$(this).css("background","yellow");
+				});
+				$("h2").on("mouseout",function(){
+					$(this).css("background","pink");
+				});
+				$("[name]").on(
+					{
+						"focus":function(){
+							$(this).css("background","yellow");
+						},
+						"blur":function(){
+							$(this).css("background","");
+						},
+						"keyup":function(){
+							$("div").text($(this).val());
+							$("span:eq(0)").text($(this).val().length + "/20");
+						}
+					}
+				);
+				
+				$("textarea").keyup(function(){
+					//event.keyCode : 키의 고유코드값으로 여러가지 동적인 처리가 가능
+					var length = $(this).val().length;
+					$("span:eq(1)").text(length + "/10");
+					if(length > 10) {
+						$(this).css("color","red");
+					} else {
+						$(this).css("color","black");
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h2></h2>
+		이름 : <input type="text" name="name"/>
+		<span></span>
+		<div></div>
+		내용 : <br>
+		<textarea rows="15px" cols="30px"></textarea>
+		<span></span>
+	</body>
+</html>

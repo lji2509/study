@@ -19,10 +19,44 @@
 				//동적으로 변화되게 처리할 수 있다.				
 				h2Arr[idx].style.fontSize=idx*10+"px";
 			}
+			/*
+			# js에서의 반복문과 객체/배열과의 관계 처리
+			1. for(var 속성 in 객체) {
+				속성
+				객체[속성]
+			}
+			var person = {name:"홍길동", age:25, loc:"서울신림"};
+			for(var prop in person) {
+				prop : name, age, loc
+				person[prop] : "홍길동", 25 , "서울신림"
+			}
+			
+			2. for(var index in 배열) {
+				index :
+				배열[index]
+			}
+			var arry = [2000,3000,4000];
+			for(var idx in arry) {
+				idx : 문자열로 "0", "1", "2"
+				arry[idx] : 2000, 3000, 4000
+			}
+			
+			# forEach구문
+			1. 배열의 데이터를 보다 효과적으로 처리하기 위하여 익명함수와 매개변수로 데이터를 처리하는 방법
+			2. 기본형식
+				배열명.forEach(function(단위객체, 인덱스) {
+					
+				});
+			*/
+			var arry = ["사과", "바나나", "딸기"];
+			arry.forEach(function(fruit, idx) {
+				console.log(idx + " : " + fruit)
+			});
 		}
 		</script>
 	</head>
 	<body>
+		<h2></h2>
 		<h2></h2>
 		<h2></h2>
 		<h2></h2>
