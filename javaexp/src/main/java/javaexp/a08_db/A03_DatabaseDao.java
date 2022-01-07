@@ -78,7 +78,6 @@ public class A03_DatabaseDao {
 				}
 			}
 		}
-		
 	}
 	/*
 	 1. Dept(deptno, dname, loc) VO 생성
@@ -301,6 +300,33 @@ public class A03_DatabaseDao {
 		return list;
 	}
 	
+	public void closeRsc(SQLException e) {
+		System.out.println("에러 : "+e.getMessage());
+		if(rs!=null) {
+			try {
+				rs.close();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("에러 : "+e.getMessage());
+			}
+		}
+		if(stmt!=null) {
+			try {
+				stmt.close();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("에러 : "+e.getMessage());
+			}
+		}
+		if(con!=null) {
+			try {
+				con.close();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("에러 : "+e.getMessage());
+			}
+		}
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
