@@ -1,6 +1,6 @@
 package javaexp.a08_db;
 // javaexp.a08_db.A03_DatabaseDao
-// javaexp.a04_vo.Dept
+// javaexp.a04_vo.*
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -33,6 +33,34 @@ public class A04_DatabaseDao {
 		String info = "jdbc:oracle:thin:@localhost:1521:xe";
 		con = DriverManager.getConnection(info, "scott","tiger");
 		System.out.println("DB 접속 성공!!");
+	}
+	
+	void closeRsc() {
+		if(rs!=null) { 
+			try {
+				rs.close();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} 
+		}
+		if(stmt!=null) { 
+			try {
+				stmt.close();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} 
+		}
+		if(con!=null) { 
+			try {
+				con.close();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} 
+		}		
+		
 	}
 	public void deptList() {
 		try {
@@ -79,33 +107,7 @@ public class A04_DatabaseDao {
 			}
 		}
 	}
-	void closeRsc() {
-		if(rs!=null) { 
-			try {
-				rs.close();
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} 
-		}
-		if(stmt!=null) { 
-			try {
-				stmt.close();
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} 
-		}
-		if(con!=null) { 
-			try {
-				con.close();
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} 
-		}		
-		
-	}
+
 	public ArrayList<Emp> getEmpListSch(EmpSch sch){
 		ArrayList<Emp> list = new ArrayList<Emp>();
 		String sql = "	SELECT *\r\n"
@@ -118,11 +120,104 @@ public class A04_DatabaseDao {
 		return list;
 	}
 	
-	
-	
+	public ArrayList<Emp> getJobMaxSal(String job) {
+		ArrayList<Emp> list = new ArrayList<Emp>();
+		try {
+			setConn();
+			String sql = "SELECT *\r\n"
+					+ "FROM emp\r\n"
+					+ "WHERE (job, sal) = (SELECT job, max(sal) msal\r\n"
+					+ "					FROM emp\r\n"
+					+ "					GROUP BY job\r\n"
+					+ "					HAVING job='"+job+"')";
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				Emp e = new Emp(rs.getInt("empno"), rs.getString("ename"), rs.getString("job"), rs.getInt("mgr"), rs.getDate("hiredate"), rs.getDouble("sal"), rs.getDouble("comm"), rs.getInt("deptno"));
+				list.add(e);
+			}
+			rs.close();
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("sql예외:"+e.getMessage());
+			if(rs!=null) {
+				try {
+					rs.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			if(stmt!=null) {
+				try {
+					stmt.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			if(con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		}
+		return list;
+	}
+
+	public ArrayList<String> getJobs() {
+		ArrayList<String> jobs = new ArrayList<String>();
+		try {
+			setConn();
+			String sql = "SELECT DISTINCT job\r\n"
+					+ "FROM emp";
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				jobs.add(rs.getString("job"));
+			}
+			rs.close();
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("sql예외:"+e.getMessage());
+			if(rs!=null) {
+				try {
+					rs.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			if(stmt!=null) {
+				try {
+					stmt.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			if(con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		}
+		return jobs;
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		A05_DatabaseDao dao = new A05_DatabaseDao();
+		A04_DatabaseDao dao = new A04_DatabaseDao();
 		dao.deptList();
 
 		

@@ -7,9 +7,12 @@ public class A09_ObjVsArray {
    public static void main(String[] args) {
       // TODO Auto-generated method stub
       /*
-       * # 1대 다 관계 처리.. 1. 하나의 객체안에 여러개의 객체들을 연결되어 처리되는 것을 말한다. 2. 종류에 따라 1) 동일한 종류는
-       * 배열이나 ArrayList<객체>를 사용하거나, 2) 다른 종류는 객체1, 객체2, ArrayList<상위공통객체>
-       */
+      # 1대 다 관계 처리.. 
+      1. 하나의 객체안에 여러개의 객체들을 연결되어 처리되는 것을 말한다. 
+      2. 종류에 따라 
+      	1) 동일한 종류는 배열이나 ArrayList<객체>를 사용하거나, 
+      	2) 다른 종류는 객체1, 객체2, ArrayList<상위공통객체>
+      */
       Mart m1 = new Mart("행복마트");
       m1.showList();
       m1.buyProduct(new MPorduct("사과",2000));

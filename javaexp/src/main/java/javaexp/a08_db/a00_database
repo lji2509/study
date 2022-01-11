@@ -99,10 +99,20 @@
 
 # 단계별 연습과제 
 1. sql을 이용한 동적 sql 문자열 선언과 VO 만들기
-	ex)public ArrayList<Job> getJobList(String job){
-		ArrayList<Job> list = new ArrayList<Job>();
-		return list;
-	   }
+	메서드의 리턴 유형 : ArrayList<Emp>
+	매개변수 : String job
+	String sql = "select * from emp where job like '%'||'"+job+"'||'%'";
+
+2. 기능 메서드 선언.
+	리턴할유형  메서드명( 매개변수){
+		리턴할 객체 = 객체 생성
+		return 객체;
+	}		
+		ex) 
+		public ArrayList<Emp> getEmpList(String job){
+			ArrayList<Emp> list = new ArrayList<Emp>();
+			return list;
+		}
 	1) 리턴할 유형과 리턴할 객체
 		기능메서드를 통해서 최종적으로 리턴할 객체를 의미한다
 		ArrayList<Job> : 이차원의 테이블 형식의 데이터를 리턴할 때 사용
@@ -144,8 +154,7 @@
 						 "from emp "+
 						 "where ename = '"+ename+"'"; 작은따옴표 조심해서
 						 "and job = '"+job+"'"; 
-						 //숫자데이터와 문자열데이터 입력시, 동적 sql은 구분하여야한다
-						 
+						 //숫자데이터와 문자열데이터 입력시, 동적 sql은 구분하여야한다				 
 		}
 		
 3. ResultSet 객체처리
@@ -165,4 +174,87 @@
 				ArrayList<Emp> list = new ArrayList<Emp>();
 				while(rs.next()) {
 					list.add(new Emp(rs.getInt("empno"),...));
-				}
+			}
+
+# Database 처리
+1. 요구사항 정의서로 DB처리한 부분 확인
+	ex) 직책별 가장 많은 연봉자 검색(조회:직책명)
+2. sql작성
+3. 기능메서드를 위한 사전 준비 작업
+	리턴할 변수/VO객체/ArrayList 결정 및 생성
+	매개변수로 처리할 변수/VO 결정 및 생성
+	ex) 메서드1 : 리턴할 VO객체 ArrayList<Emp>, 매개변수는 job
+		메서드2 : 리턴할 VO객체 Array<String>, 매개변수 ()			
+4. 기능메서드 선언
+	1) 리턴유형, 메서드명, 매개변수 처리
+		ex) public ArrayList<Emp> getJobMaxSal(String job)
+		ex) public ArrayList<String> getJobs()
+	2) 리턴할 객체 선언과 리턴
+		ex) ArrayList<Emp> list = new ArrayList<Emp>();
+			return list;
+		ex) ArrayList<String> jobs = new ArrayList<String>();
+			return jobs;
+	3) 동적 sql 작성 - 매개변수의 값을 받아서 문자열과 매개값을 통한 sql 작성
+		ex)
+		String sql = "SELECT *\n"+
+					"FROM emp\n"+
+					"WHERE (job, sal) = (SELECT job, max(sal) msal\n"+
+										"FROM emp\n"+
+										"GROUP BY job\n"+
+										"HAVING job='CLERK')";
+		String sql = "SELECT DISTINCT JOB FROM EMP"
+5. 기능메서드 주요 내용 구현
+	1) 공통 연결 메서드 호출
+	2) 대화객체 생성 : stmt = conn.createStatement()
+	3) 결과객체 생성 : rs = stmt.executeQuery(sql);	stmt.updateQuery(sql);
+	4) while, if을 통한 데이터 처리
+		rs.next(), rs.getXXX("컬럼명")
+		리턴할 변수/VO객체/ArrayList에 할당
+	5) 자원 해제 : DML의 경우 commit 처리
+	6) 예외 처리 : DML의 경우 rollback 처리
+		자원해제를 취한 처리
+		
+# select형 화면 처리
+1. jsp파일 생성 및 DAO, VO, ArrayList import 하기
+2. Dao 객체 생성
+3. for문을 통한 ArrayList 처리
+
+# DML 처리
+1. 수정
+	1) sql문 작성 및 동적sql 작성
+		update emp2
+			SET ename = 'himan',
+				job = '사원',
+				sal = 5000,
+				hiredate = to_date('20220110', 'YYYYMMDD'),
+				deptno = 10
+			where empno = 7780;
+	2) 기능메서드 선언
+		public void updateEmp2(Emp upt) {}
+	3) 기능메서드 내용
+		연결공통메서드
+		setAutocommit(false)
+		stmt.executeUpdate(sql);
+		commit()
+		자원해제
+		예외처리 : rollback()
+	
+# PreparedStatement
+1. 보안상에 이슈가 되는 sql injection을 막고, 속도 향상을 하기 위한 처리를 말한다.
+2. 처리를 위해 필드에 PreparedStatement psmt라고 선언언하고,
+3. 입력된 값은 ?로 표기하여, 우선 입력되기 전에 sql을 전송하고,
+	String sql = "update emp2
+			SET ename = ?
+				job = ?,
+				sal = ?,
+				hiredate = to_date(?, 'YYYYMMDD'),
+				dateno = ?
+			where empno = ?";
+4. ?에 해당하는 값은 순서로 pstmt.setString(1, 입력할데이터); 형식으로 처리하는 것을 말한다.
+	?에 입력할 데이터 유형에 맞게 .setXXX()를 설정해주고, ?의 순서로 1부터 시작하여 연결한다.
+	psmt.setString(1, upt.getEname());
+	psmt.setString(2, upt.getJob());
+	psmt.setDouble(3, upt.getSal());
+	psmt.setString(4, upt.getHiredate()); //문자열로 만들어 설정한다.
+	psmt.setInt(5, upt.getDeptno());
+	psmt.setInt(6, upt.getEmpno());
