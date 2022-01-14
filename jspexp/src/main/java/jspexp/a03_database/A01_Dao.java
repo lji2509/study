@@ -186,7 +186,7 @@ public class A01_Dao {
 			stmt = con.createStatement();
 			String sql = "SELECT  * \r\n"
 					+ "FROM dept \r\n"
-					+ "WHERE loc like '%'||'A'||'%'";
+					+ "WHERE loc like '%'||upper('"+loc+"')||'%'";
 			rs = stmt.executeQuery(sql);
 			int rowNum=1;
 			while(rs.next()) {
