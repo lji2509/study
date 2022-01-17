@@ -30,6 +30,7 @@
  	2) 기본객체에서 지원하는 처리도 할 수 있다.
  		- 요청값 처리
  			${param.요청키} ${paramValues.요청키}
+ 			${paramValues.요청키[]} : request.getParameterValues("요청키")
  		- 비교연산식 처리
  			${empty 변수명} : 해당 변수명이 null이 아니고, ""(공백)도 아닐 때, boolean 체크
  			${not 비교연산식} : 해당 비교연산식의 not(!) 논리연산자 처리
