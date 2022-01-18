@@ -1,0 +1,27 @@
+# jsp 지식계열화 check point
+1. 웹프로그램에서 server와 client란 무엇이며, client는 서버를 접속할 때, 어떻게 접속하는가?
+	client : 브라우저
+	server : 톰캣
+	client가 url을 입력하면, server는 자원을 찾아서 jsp인 경우 컴파일, html변환과정, controller(MVC) 문자열전달 과정을 거쳐 jsp를 호출하고, 해당 자원(html, jsp..)을 넘겨준다.
+	client는 server에서 넘겨받은 자원을 화면에 랜더링한다.
+
+2. 웹프로그램에서 요청값이란 무엇이며, 반응값은 무엇을 말하는가?
+	요청 : 브라우저에서 서버에 특정 자원이 해당 url로 호출하는 부분
+			query string형식으로 데이터를 전달하는 것을 말한다.
+	반응 : jsp나 servlet을 통해서 response 객체에 의해 전달할 화면, 문자열(json)데이터를 처리하기 위한 객체
+	
+	요청값(request) : 웹브라우저에서 서버에 요청하는 정보
+	반응값(response) : 클라이언트의 요청에 응답
+
+3. 요청값의 형태인 query string이 무엇인지 아는가? 해당 내용을 기술하고, 이것은 form 하위 요소객체에 어떤 영향을 미치는지 기술하세요.
+	요청페이지?key1=value1&key2=value2 와 같은 형태로 이루어져있으며, 입력값에 따라 name이 key와 같은 것의 value값에 영향을 끼친다.
+
+4. 웹서버호출 시 구성요소인 http://localhost:7080/jspexp/call.jsp를 아는가?
+	http : 여러 통신 규약 중에 html 화면을 전송에 효율적인 통신 규약
+	localhost : 원격에 있는 경우 ip주소를 mapping하여 호출하여 처리
+	7080 : 특정한 webserver의 port번호로, 여러 개의 port 사용 가능
+	jspexp : 패키지명
+	call.jsp : jsp파일명
+	
+5. 위 call.jsp를 호출하였을 때, jsp가 html을 전달하는 과정을 기술하세요.
+	jsp ===> 

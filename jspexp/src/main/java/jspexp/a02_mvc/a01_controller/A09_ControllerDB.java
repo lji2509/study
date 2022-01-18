@@ -43,12 +43,14 @@ public class A09_ControllerDB extends HttpServlet {
 		//2. model : db데이터 json문자열 처리
 		A01_Dao dao = new A01_Dao();
 		Gson gson = new Gson();
+		//ArrayList<Emp>(java) ==> [{},{}](json객체)
 		String empJson = gson.toJson(dao.empListPre(ename, job));
 		
 		//3. json 문자열 처리
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
+		//ajax를 호출하년 success:function(){}
 		out.print(empJson);
 	}
 
