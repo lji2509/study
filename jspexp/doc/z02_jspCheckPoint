@@ -9,12 +9,14 @@
 	요청 : 브라우저에서 서버에 특정 자원이 해당 url로 호출하는 부분
 			query string형식으로 데이터를 전달하는 것을 말한다.
 	반응 : jsp나 servlet을 통해서 response 객체에 의해 전달할 화면, 문자열(json)데이터를 처리하기 위한 객체
-	
-	요청값(request) : 웹브라우저에서 서버에 요청하는 정보
-	반응값(response) : 클라이언트의 요청에 응답
 
 3. 요청값의 형태인 query string이 무엇인지 아는가? 해당 내용을 기술하고, 이것은 form 하위 요소객체에 어떤 영향을 미치는지 기술하세요.
-	요청페이지?key1=value1&key2=value2 와 같은 형태로 이루어져있으며, 입력값에 따라 name이 key와 같은 것의 value값에 영향을 끼친다.
+	페이지?key=value&key2=value2&key3=value3
+	<form action="이동할페이지">
+		<input name="key" value="value">
+		<input name="key2" value="value2">
+		<input name="key3" value="value3">
+		<input type="submit"/>
 
 4. 웹서버호출 시 구성요소인 http://localhost:7080/jspexp/call.jsp를 아는가?
 	http : 여러 통신 규약 중에 html 화면을 전송에 효율적인 통신 규약
