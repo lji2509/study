@@ -26,4 +26,5 @@
 	call.jsp : jsp파일명
 	
 5. 위 call.jsp를 호출하였을 때, jsp가 html을 전달하는 과정을 기술하세요.
-	jsp ===> 
+	jsp ==> java(servlet) ==> class ==> response.getWriter.print("html태그") 클라이언트에 html을 java와 함께 코드를 전달.
+	out.print("<html><body><h1>안녕</h1></html>");	

@@ -22,6 +22,9 @@
 # ajax 처리는 위한 내용
 1. controller json DB 처리
 2. jsp에서 jquery ajax 처리 방식
+      1)  controller(/ajaxExp01)  화면 버튼 클릭시  "서버호출" 출력
+      2)  controller(/ajaxExp02)  선수명[  ] 버튼 클릭시  요청값 출력
+      3)  controller(/ajaxExp03)  버튼 클릭시 {"todya","2022/01/01"} 호출
 3. .$.each 구문을 통한 배열형 객체에 대한 이해 및 출력
 
 # ajax를 위한 연습
@@ -50,14 +53,15 @@
 		- vo
 		- 매개변수를 통해 DB 처리
 	위 프로그램이 id와 pass를 넘겨주어야 한다?
-	# client
-		요청페이지?id=@@&&pass=### (client에서 넘겨주는 부분)
-		jsp를 통해서 요청값을 받고 요청값을 DB에 넘겨준다.
-	# controller
-		request.getParameter("id")
-		request.getParameter("pass")
-		만들어진 DAO 객체 호출
-		json데이터로 다시 client에 response 전달
+		# client
+			요청페이지?id=@@&&pass=### (client에서 넘겨주는 부분)
+			jsp를 통해서 요청값을 받고 요청값을 DB에 넘겨준다.
+		# controller
+			request.getParameter("id")
+			request.getParameter("pass")
+			만들어진 DAO 객체 호출
+			json데이터로 다시 client에 response 전달
+			out.print("");
 	화면단에 ajax로 처리할 내용
 		1) 이벤트 : key, click
 			$("#btn").click(function(){
@@ -66,11 +70,11 @@
 		2) 넘길 데이터 정리
 			//누구한테(url-서버의 컨트롤러), 무엇을 넘기고(data) 받을 것(success)인가?
 			넘길 데이터와 받을 데이터
-			$.jajx({
-				url:"",
-				data:"",
-				dataType:"",
-				success:function(){
+			$.ajax({
+				url:"해당 url 주소",
+				data:"요청값",
+				dataType:"받는 데이터 유형",
+				success:function(data){
 				
 				}
 			});
