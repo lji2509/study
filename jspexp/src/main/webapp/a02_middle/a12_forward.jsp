@@ -31,7 +31,13 @@
 		location.href="이동페이지"
 	# backend단위 : 서버 프로그램 자체 내에서 페이지를 이동해서 client에 이동된 페이지 보이게 처리
 		response.sendRedirect("페이지이동");
-		<jsp:forward/>
+	# forward	
+		form객체의 요청값을 전달하면서 처리
+		location.href = "요청페이지?요청키=요청값"
+		a href = "요청페이지?요청키=요청값"
+		<jsp:forward/> 요청값을 함께 전송할 때, 처리한다.
+		RequestDispatcher rd = request.getRequestDispatcher("페이지")
+		rd.forward(request, response);
  
 --%>
 //

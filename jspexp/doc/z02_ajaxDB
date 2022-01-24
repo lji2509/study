@@ -72,13 +72,12 @@
 			넘길 데이터와 받을 데이터
 			$.ajax({
 				url:"해당 url 주소",
-				data:"요청값",
+				data:"요청값", //queryString형식 key=value
 				dataType:"받는 데이터 유형",
 				success:function(data){
 				
 				}
 			});
-2. dao 구현
 
 # 처리 시 에러에 대한 대응
 1. 브라우저에러

@@ -61,14 +61,35 @@
 				$("form").submit();
 			}
 		});
+		//1. 이벤트 결정
+		$("#ckIdBtn").click(function(){
+			//ajax 처리통해서 check해서 지금 등록된 id가 아닐 때
+			//2. 페이지와 요청값 설정
+			$.ajax({
+				url:"${path}/checkId.do",
+				data:"id="+$("[name=id]").val(),
+				success:function(data) {
+					//데이터(등록된 id)가 없을때만 "Y" 처리
+					//$("#ckId").val("Y");
+					alert("받은값 : " + data);
+					$("#ckId").val(data);
+					//if 유효성 check 후,
+					//$("[name=id]").attr("readonly",true|false) 속성 추가
+				}
+			});
+		});
 	});
 </script>
 </head>
 <body>
 	<h3>회원가입</h3>
 	<form method="post">
+		<input type="hidden" id="ckId"/>
 		<table>
-			<tr><th>아이디</th><td><input type="text" name="id"/></td></tr>
+			<tr><th>아이디</th><%--현재 id의 등록여부를 확인 --%>
+				<td><input type="text" name="id"/>
+					<input type="button" id="ckIdBtn" value="등록여부"/>
+				</td></tr>
 			<tr><th>패스워드</th><td><input type="password" name="pw"/></td></tr>
 			<tr><th>패스워드확인</th><td><input type="password" name="pwCfm"/></td></tr>
 			<tr><th>이름</th><td><input type="text" name="name"/></td></tr>

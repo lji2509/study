@@ -50,7 +50,7 @@ public class A09_ControllerDB extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
-		//ajax를 호출하년 success:function(){}
+		//ajax를 호출하면 success:function(){}
 		out.print(empJson);
 	}
 
