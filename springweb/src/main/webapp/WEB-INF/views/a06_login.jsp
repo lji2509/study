@@ -41,10 +41,6 @@
 </head>
 
 <body>
-<div class="jumbotron text-center">
-  <h2 data-toggle="modal" data-target="#exampleModalCenter">타이틀</h2>
-
-</div>
 <div class="container">
     <h2 align='center'>{{msg}}</h2>
     <%--action에 호출한 controller의 url을 지정하여 submit를 통해 요청값을 전달할 수 있게 처리 --%>
