@@ -29,4 +29,7 @@
 	<bean class="springweb.a01_start.a01_controller.A01_StartController"></bean>
 	<bean class="springweb.a01_start.a01_controller.A02_StartExp"></bean>
 	<bean class="springweb.a01_start.a01_controller.A03_ParamCtrl"/>
+	<bean class="springweb.a01_start.a01_controller.A04_MemberCtrl"/>
+	<bean class="springweb.a01_start.a01_controller.A05_ModelCtrl"/>
+	<bean class="springweb.a01_start.a01_controller.A06_ModelAttributeCtrl"/>
 </beans>

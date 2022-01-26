@@ -4,6 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import springweb.vo.Person;
+import springweb.vo.Product;
+
 //springweb.a01_start.a01_controller.A03_ParamCtrl
 @Controller
 public class A03_ParamCtrl {
@@ -34,5 +37,28 @@ public class A03_ParamCtrl {
 		System.out.println("연산자 : " + cal);
 		
 		return "WEB-INF\\views\\a05_gogo.jsp";
+	}
+	
+	/*
+	# 요청값은 객체로 setXXX(데이터)에 맞게 처리하면 받을 수 있다.
+	url?id=himan&pass=8888
+	
+	setId(String id){}, setPass(String pass) 가 있는 객체를 매개변수로 선언하면 데이터를 받을 수 있다.
+	*/
+	@RequestMapping("/objParam.do")
+	public String objParam(Person p1) {
+		System.out.println("#객체를 통한 요청값#");
+		System.out.println(p1.getName());
+		System.out.println(p1.getAge());
+		System.out.println(p1.getLoc());
+		return "";
+	}
+	
+	@RequestMapping("/buyProduct.do")
+	public String buyProduct(Product p) {
+		System.out.println("물건명 : " + p.getPname());
+		System.out.println("가격 : " + p.getPrice());
+		System.out.println("갯수 : " + p.getCnt());
+		return "";
 	}
 }

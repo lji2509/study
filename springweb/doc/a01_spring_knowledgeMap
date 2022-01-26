@@ -6,6 +6,30 @@
 
 2. 스프링의 기본적인 처리 순서
 	web.xml ==> dispatcher-servlet.xml ==> controller ==> view 호출
+	웹서버를 기동하고, 브라우저 주소값을 입력하고 서버에 접속할 때, web.xml에 가장 먼저 접근한다.
+	1.  초기 default 화면 로딩 : <welcome-file-list>
+		http://localhost:8000/springweb/ 으로 호출되는 파일 순서 리스트
+	2. front controller 설정
+		*.do 끝나면 스프링 프레임워크 환경으로 호출되게 설정
+		DispatcherServlet ==> 사용자정의 controller를 호출
+	3. DispatcherServlet 선언과 함께, WAS를 통해 사용할 객체들과 설정 내용을 
+		dispatcher-servlet.xml 안에 선언하고, 이 선언된 내용을 첫번째 url을 호출할 때, 메모리에 로딩된다.
+	4. 메모리에 로딩된 객체들 중에 url 패턴이 맞는 controller 안에 기능 메서드를 호출한다.
+		1) 요청하는 url
+			서버내용 동일한 url pattern을 설정하면 에러가 발생한다.
+			@RequestMapping("/start.do")
+		2) 요청값 즉, query string에 대한 처리
+		3) model 데이터 설정 처리
+		4) 호출한 view를 forward방식으로 호출
+			cf) redirect방식과 forward 방식의 차이
+				redirect : request, response 객체를 포함시키지 않고 호출하기에 모델데이터를 처리할 수 없다.
+				forward : request, response 객체를 포함시키면서 호출하기에 요청값, 모델데이터를 처리할 수 있다.
+		@RequestMapping("/start.do")
+		public String start() {
+			return "WEB-INF\\views\\a01_springStart.jsp";
+		}
+		주의) WEB-INF는 보안 폴더이기에 직접적인 호출은 불가능하게 되어있다.
+			스프링의 경로 보안을 위해 controller 단위 url을 통해서만 view단이 호출되게 처리
 	1) 스프링 MVC 초기화면 호출
 		- controller 생성
 			- urlpattern 설정, 기능메서드 호출
@@ -17,6 +41,8 @@
 		- controller에 설정되어 있는 url 패턴으로 호출하여 화면 로딩 처리
 	
 3. DI에 대한 처리
+	dispatcher-servlet.xml의 스프링에서 사용되는 컨테이너 메모리의 사용방법을 xml파일과 main()메서드가 있는 클래스를 통해 연습한다.
+	이 후, 전체 컨테이너 설정 및 활용을 하고자 한다.
 
 4. spring MVC
 	1) controller 호출 방식
