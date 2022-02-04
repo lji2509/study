@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 //springweb.a01_start.a01_controller.A04_MemberCtrl
@@ -20,10 +19,7 @@ public class A04_MemberCtrl {
 	public String loginFrm() {
 		return "WEB-INF\\views\\a06_login.jsp";
 	}
-	
-	
-	
-	
+
 	//2. 요청값 처리화면 호출 login.do?id=@@@&pass=@@@
 	@PostMapping("/login.do")
 	public String login(@RequestParam("id") String id, @RequestParam("pass") String pass, Model d) {

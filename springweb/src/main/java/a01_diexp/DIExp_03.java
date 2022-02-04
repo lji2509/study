@@ -3,6 +3,7 @@ package a01_diexp;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import a01_diexp.vo.GentleMan;
+import a01_diexp.vo.Romeo;
 
 public class DIExp_03 {
 
@@ -15,6 +16,8 @@ public class DIExp_03 {
 		GentleMan gt = ctx.getBean("gt", GentleMan.class);
 		gt.showInfo();
 		
+		Romeo romeo = ctx.getBean("romeo", Romeo.class);
+		romeo.callJuliet();
 		ctx.close();
 	}
 

@@ -1,0 +1,7 @@
+<!-- 파일명에 .properties 적어주면 한글 인코딩 처리-->
+name=hong
+kor=74
+eng=85
+math=82
+age=25
+loc=Seoul

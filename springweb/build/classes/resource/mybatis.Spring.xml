@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="emp" type="springweb.vo.Emp"/>
+		<typeAlias alias="emp2" type="springweb.vo.Emp2"/>
+		<typeAlias alias="dept" type="springweb.vo.Dept"/>
+		<typeAlias alias="salgrade" type="springweb.vo.Salgrade"/>
+		<typeAlias alias="deptsal" type="springweb.vo.DeptSal"/>
+		<typeAlias alias="deptemp" type="springweb.vo.DeptEmp"/>
+		<typeAlias alias="empsalgrade" type="springweb.vo.EmpSalgrade"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="resource/EmpMapper.xml"/>
+		<mapper resource="resource/DeptMapper.xml"/>
+		<mapper resource="resource/SalgradeMapper.xml"/>
+	</mappers>
+</configuration>
