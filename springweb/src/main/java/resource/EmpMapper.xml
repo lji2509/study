@@ -92,8 +92,37 @@
 		<result column="mgr" property="mgrno"/>
 		<result column="sal" property="salary"/>
 	</resultMap>
-	<select id="getEmpList2" resultMap="emp2Rst">
+	<select id="getEmpList3" resultMap="emp2Rst">
 		select *
 		from emp
 	</select>
+	<!-- public ArrayList<Emp> getSchEmp(@Param("mgr") int mgr, @Param("deptno") int deptno); -->
+	<select id="getSchEmp" resultType="emp">
+		select *
+		from emp
+		where mgr = #{mgr}
+		and deptno = #{deptno}
+	</select>
+	<insert id="insertEmp" parameterType="emp">
+		INSERT INTO emp2 
+		values(emp_seq.nextval, #{ename}, #{job}, #{mgr}, to_date(#{hiredateS},'yyyy-mm-dd'), #{sal}, #{comm}, #{deptno})
+	</insert>
+	<select id="getEmp" parameterType="int" resultType="emp">
+		select * from emp2 where empno=#{empno}
+	</select>
+	<update id="uptEmp" parameterType="emp">
+		update emp2
+			set ename=#{ename},
+				job=#{job},
+				mgr=#{mgr},
+				hiredate=to_date(#{hiredateS},'YYYY-MM-DD'),
+				sal=#{sal},
+				comm=#{comm},
+				deptno=#{deptno}
+			where empno=#{empno}
+	</update>
+	<delete id="delEmp" parameterType="int">
+		delete from emp2
+		where empno=#{empno}
+	</delete>
 </mapper>

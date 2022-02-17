@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+</head>
+<style>
+	td{text-align:center;}
+</style>
+<body>
+	<div id="show">
+		<h2 align="center">{{msg}}</h2>
+		<h3 v-for="(fruit, idx) in fruits">{{idx+1}} {{fruit}}</h3>
+		<table border>
+			<tr><th>속성</th><th>속성값</th></tr>
+			<tr v-for="val, prop in person">
+				<td>{{prop}}</td><td>{{val}}</td>
+			</tr>
+		</table>
+		<select>
+			<option v-for="val, prop in person" :value="prop">{{val}}</option>
+		</select>
+		<table border>
+			<tr v-for="(val, prop in player"><td>{{prop}}</td><td>{{val}}</tr>
+		</table>
+		<table border>
+			<tr><th>번호</th><th>물건명</th><th>가격</th><th>갯수</th><th>계</th></tr>
+			<tr v-for="(prod, idx) in plist">
+				<td>{{idx+1}}</td><td>{{prod.pname}}</td><td>{{prod.price}}</td><td>{{prod.cnt}}</td><td>{{prod.price*prod.cnt}}</td>
+			</tr>
+		</table>
+	</div>
+</body>
+<script>
+	/*
+	# 반복 랜더링 처리 v-for
+	1. 모델데이터의 배열, 객체, 객체형  배열을 반복문에 의해서 효과적으로 처리할 수 있다.
+	2. 기본 형식
+		1) 배열
+			<반복할 DOM v-for="(단위변수, index) in 배열형모델">
+				{{단위변수}}
+		2) 객체
+			<반복할 DOM v-for="(단위값, prop) in 객체모델">
+		3) 객체형 배열
+			<반복할 DOM v-for="(단위객체, index) in 객체형배열모델">
+				{}
+	*/
+	var vm = new Vue({
+		el:"#show",
+		data:{msg:"v-for문 활용", fruits:["사과","바나나","딸기"], person:{name:"홍길동", age:25, loc:"서울신림동"}, player:{tname:"키움", name:"홍길동", score:0.360},
+			plist:[{pname:"사과", price:3000, cnt:2}, {pname:"바나나", price:4000, cnt:3}, {pname:"딸기", price:5000, cnt:5}]}
+	});
+</script>
+</html>

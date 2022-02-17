@@ -9,7 +9,7 @@
 		from dept
 		where deptno=#{deptno}
 	</select>
-	<select id="getDeptList" resultType="dept" parameterType="String">
+	<select id="getDeptName" resultType="dept" parameterType="String">
 		select *
 		from dept
 		where dname LIKE '%'||upper(#{dname})||'%'
@@ -20,4 +20,29 @@
 		GROUP BY deptno
 		HAVING deptno = #{deptno}
 	</select>
+	<resultMap type="dept2" id="dept2Rst">
+		<result column="deptno" property="no"/>
+		<result column="dname" property="name"/>
+		<result column="loc" property="location"/>
+	</resultMap>
+	<select id="getDept2List" resultMap="dept2Rst">
+		select *
+		from dept
+	</select>
+	<select id="getDeptList" parameterType="dept" resultType="dept">
+		select *
+		from dept2
+		where dname like '%'||#{dname}||'%'
+		and loc like '%'||#{loc}||'%'
+	</select>
+	<insert id="insertDept" parameterType="dept">
+		insert into dept2
+		values(#{deptno}, #{dname}, #{loc})
+	</insert>
+	<update id="upbDept" parameterType="dept">
+		update dept2
+		set dname=#{danme},
+			loc=#{loc}
+		where deptno=#{deptno}
+	</update>
 </mapper>

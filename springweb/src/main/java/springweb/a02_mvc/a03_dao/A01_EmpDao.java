@@ -2,6 +2,7 @@ package springweb.a02_mvc.a03_dao;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import springweb.vo.DeptEmp;
@@ -21,5 +22,11 @@ public interface A01_EmpDao {
 	public ArrayList<Integer> getEmpnos(String job);
 	public ArrayList<DeptEmp> getDeptEmp();
 	public ArrayList<EmpSalgrade> getEmpSalgrade();
-	public ArrayList<Emp2> getEmpList2();
+	public ArrayList<Emp2> getEmpList3();
+	public ArrayList<Emp> getSchEmp(@Param("mgr") int mgr, @Param("deptno") int deptno);
+	//service dao.getSchEmp(7839, 20);
+	public void insertEmp(Emp ins);
+	public Emp getEmp(int empno);
+	public void uptEmp(Emp upt);
+	public void delEmp(int empno);
 }

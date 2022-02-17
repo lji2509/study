@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var vm = new Vue({
+			el:".container",
+			data:{pname:"", price:0, cnt:0, dis:0.0, tot:0},
+			watch:{
+				dis:function(disVal) {
+					//모델이 변경될 때, 함수를 처리
+					var sum = this.price*this.cnt;
+					this.tot = sum-(sum*disVal); //할인율이 적용된 총계값 처리
+				}
+			}
+		});	
+	});
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 align="center">물건명 : {{pname}}</h2>
+	  <h2 align="center">가격 : {{price}}</h2>
+	  <h2 align="center">갯수 : {{cnt}}</h2>
+	  <h2 align="center">할인전 : {{price*cnt}}</h2>
+	  <h2 align="center">할인율 : {{dis*100}}%</h2>
+	  <h2 align="center">할인후 : {{tot}}</h2>
+	</div>
+	<form id="frm01" class="form-inline"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" v-model="pname" />
+	    <input class="form-control mr-sm-2" v-model="price" />
+	    <input class="form-control mr-sm-2" v-model="cnt" />
+	    <select class="form-control mr-sm-2" v-model="dis">
+	    	<option value="0.05">5%</option>
+	    	<option value="0.1">10%</option>
+	    	<option value="0.2">20%</option>
+	    </select>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>

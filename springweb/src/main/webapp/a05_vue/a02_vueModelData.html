@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+</head>
+<body>
+	<div id="view2">
+		<h2>{{name}}</h2>
+		<h2>{{age}}</h2>
+		<h2>{{loc}}</h2>
+	</div>
+</body>
+<script>
+	var mdata = {name:"홍길동", age:25, loc:"서울"};
+	var vm = new Vue({
+		el:"#view2",
+		data:mdata
+	});
+</script>
+</html>

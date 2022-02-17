@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var vm = new Vue({
+			el:".container",
+			data:{color1:'', rainbow:''},
+			watch:{
+				rainbow:function(val) {
+					this.color1 = val;
+					console.log(color1);
+				}
+			}
+		});	
+	});
+</script>
+</head>
+<body>
+<!-- 
+1. style/class 인라인 설정에 있어서 기존 css와 vue의 설정방법을 차이를 기술하세요
+	1) style
+		기존 : <요소 style="color:red; background-color:yellow"
+		vue : <요소 :style="{color:'red', backgroundColor:'yellow'}"
+	2) class
+		기존 : <요소 class="클래스명1 클래스명2 클래스명3"
+		vue : <요소 :class="{클래스명1:true, 클래스명2:true}"
+		
+2. 모델명으로 글자색상을 파랑색으로 설정하고, 클래스 2가지 이상 클래스 적용을 선언하여, 인라인으로 호출하세요
+	<style>
+		.cls1 {font-size: 30px;}
+		.cls2 {border: 2px solid purple}
+	</style>
+	<body>
+       <h3 :style="{color:'blue'}" :class="{cls1:true, cls2:true}">문제2</h3>
+	</body>
+
+	3. select로 무지개 색상을 선택할 때마다 모델값이 변경되어 이와 연동되는 h2의 글자색상이 변경되게 하세요.
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var vm = new Vue({
+				el:".container",
+				data:{color1:'', rainbow:''},
+				watch:{
+					rainbow:function(val) {
+						this.color1 = val;
+						console.log(color1);
+					}
+				}
+			});	
+		});
+	</script>
+	<body>
+		<select v-model="rainbow">
+			<option value="red">red</option>
+			<option value="orange">orange</option>
+			<option value="yellow">yellow</option>
+			<option value="green">green</option>
+			<option value="blue">blue</option>
+			<option value="navy">navy</option>
+			<option value="purple">purple</option>
+		</select>
+		<h2 :style="{color:color1}">문제3</h2>
+	</body>
+ -->
+<div class="container">
+	<select v-model="rainbow">
+		<option value="red">red</option>
+		<option value="orange">orange</option>
+		<option value="yellow">yellow</option>
+		<option value="green">green</option>
+		<option value="blue">blue</option>
+		<option value="navy">navy</option>
+		<option value="purple">purple</option>
+	</select>
+	<h2 :style="{color:color1}">문제3</h2>
+</div>
+</body>
+</html>

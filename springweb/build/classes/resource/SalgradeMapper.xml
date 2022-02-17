@@ -9,4 +9,13 @@
 		from salgrade
 		where grade=#{grade}
 	</select>
+	<resultMap type="salgrade2" id="sal2Rst">
+		<result column="grade" property="level"/>
+		<result column="losal" property="lowsalary"/>
+		<result column="hisal" property="highsalary"/>
+	</resultMap>
+	<select id="getSalList" resultMap="sal2Rst">
+		select *
+		from salgrade
+	</select>
 </mapper>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+</head>
+<body>
+	<div id="show">
+		<h2 align="center">{{msg}}</h2>
+		입금할금액 : <input v-model="amount"/><br>
+		<button @click="balance+=parseInt(amount)">입금</button>
+		<button @click="balance-=parseInt(amount)">출금</button>
+		<button @click="deposit">입금(함수)</button>
+		<button @click="withdraw">출금(함수)</button>
+		<h2>현 계좌 잔액 : {{balance}}</h2>
+	</div>
+</body>
+<script>
+	var vm = new Vue({
+		el:"#show",
+		data:{msg:"이벤트처리", amount:0, balance:0},
+		methods:{
+			deposit:function(){
+				if(this.ckValid()) {
+					this.balance+=parseInt(this.amount);					
+				}
+			},
+			ckValid:function(){
+				var isValid=true;
+				if(isNaN(this.amount)){ //입력된 데이터가 숫자가 아닐 때
+					alert("숫자를 입력하세요.");
+					isValid=false;
+				}
+				return isValid;
+			},
+			withdraw:function(){
+				if(this.ckValid2()) {
+					this.balance-=parseInt(this.amount);
+				}
+			},
+			ckValid2:function(){
+				var isValid=true;
+				if(isNaN(this.amount)){
+					alert("숫자를 입력하세요.");
+					isValid=false;
+				}
+				var balance = this.balance;
+				var amount = this.amount;
+				var tot = balance-amount;
+				if(tot<0){
+					alert("차감 후 잔액이 0원 이하입니다. 다시 입력해주세요.");
+					isValid=false;
+				}
+				return isValid;
+			}
+		}
+	});
+</script>
+</html>

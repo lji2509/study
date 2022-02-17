@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import springweb.a02_mvc.a03_dao.A01_EmpDao;
 import springweb.vo.Emp;
+import springweb.vo.Emp2;
 
 @Service
 public class A01_EmpService {
@@ -41,5 +42,26 @@ public class A01_EmpService {
 	public ArrayList<Integer> getEmpnos(String job) {
 		System.out.println("데이터 건수 : " + dao.getEmpnos(job));
 		return dao.getEmpnos(job);
+	}
+	
+	public ArrayList<Emp2> getEmplist3() {
+		System.out.println("emp2 : " + dao.getEmpList3());
+		System.out.println("매개변수 동일유형 : " + dao.getSchEmp(7839, 20).get(0).getEname());
+		return dao.getEmpList3();
+	}
+	public void insertEmp(Emp ins) {
+		dao.insertEmp(ins);
+	}
+	
+	public Emp getEmp(int empno) {
+		return dao.getEmp(empno);
+	}
+	
+	public void uptEmp(Emp upt) {
+		dao.uptEmp(upt);
+	}
+	
+	public void delEmp(int empno) {
+		dao.delEmp(empno);
 	}
 }

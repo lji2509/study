@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+
+</head>
+<body>
+ <script>
+ 	$(document).ready(function(){
+ 		$("#btn").click(function(){
+ 			$("#cartIns").hide();
+ 			$("#modalText").text("로그인 후 시도해주세요.");
+ 			$("#login").show();
+ 		});
+ 		
+ 	});
+ </script>
+<button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-success" type="button" id="btn">장바구니</button>
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body">
+	 		 <div class="modal-title" id="exampleModalLongTitle" style="padding:20px;"><span id="modalText"></span></div>
+	      </div>
+	      <div class="modal-footer" style="justify-content: center;">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">현재 페이지 유지</button>
+	        <button type="button" class="btn btn-primary" id="login">로그인 페이지 이동</button>
+	        <button type="button" class="btn btn-primary" id="cartIns">장바구니 페이지 이동</button>
+	      </div>
+	    </div>
+	  </div>
+  </div>
+</body>
+</html>

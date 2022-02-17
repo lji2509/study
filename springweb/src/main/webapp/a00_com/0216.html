@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var vm = new Vue({
+			el:".container",
+			data:{msg:"시작!!(뷰와함께)"}
+		});	
+	});
+</script>
+</head>
+<body>
+<!--
+1. vue에서 이벤트 처리구조를 기술해보자
+	1). 기본 구조
+		v-on:이벤트명="기능핸들러메서드"
+		@이벤트명="기능핸들러메서드"
+	2). 기능 함수 정의
+		methods:{
+			함수명:function(){}
+		}
+		
+2. 이벤트 핸들러 함수를 기술하고, 버튼을 클릭시, 좋아요 수가 올라가게 해보자
+	v-model : 입력하는 요소객체에 설정하면, 입력하는 동시에 모델데이터에 영향을 미쳐 이 모델을 호출하는 모든 데이터에 영향을 미치게 처리하는 속성
+	@click : 클릭 이벤트 발생 시 처리할 함수
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var vm = new Vue({
+				el:".container",
+				data:{like:0},
+				methods:{
+					likeup:function(){
+					this.like++;	
+					}
+				}
+			});	
+		});
+	</script>
+	<body>
+		<div class="container">
+		  <h2 >{{msg}}</h2>
+		  <button type="button" @click="likeup">좋아요</button>
+		  <h3>좋아요 수 : {{like}}</h3>
+		</div>
+	</body>
+	
+3. vue를 활용하여 ajax를 처리하기 위한 기본 환경을 기술하세요
+	1) jquery lib, ajax관련 lib 설정
+	2) new Vue() 객체를 통한 model 데이터 선언
+	3) 화면 ui 구현
+	4) 이벤트 핸들러 함수 선언
+	5) ajax를 통해 서버단 호출 및 요청값 정리
+	
+4. vue로 서버에 조회리스트 처리하는 화면을 구성하려고 한다. 처리 순서를 기술하세요.
+	1) jquery lib, ajax 관련 lib 설정
+	2) VO, DAO, Service, Controller, Mapper 작성
+	3) 화면 ui 구현
+	4) new Vue() 객체를 통한 model 데이터 선언
+	5) 이벤트 핸들러 함수 선언
+	6) ajax 호출하여 요청값 넘기기
+	7) 리턴값 받아 출력하기
+	
+5. vue로 사원번호를 통해 사원정보 상세화면을 처리하는 화면을 구현해보자
+	<body>
+		<div class="container">
+			<form id="frm01" class="form-inline"  method="post">
+			    <input class="form-control mr-sm-2" v-model="sch.ename" placeholder="사원번호 @keyup="search" />
+			</form>
+		    <table class="table table-hover table-striped">
+			   	<col width="20%">
+			   	<col width="20%">
+			   	<col width="20%">
+			   	<col width="20%">
+			   	<col width="20%">
+			    <thead>
+			      <tr class="table-success text-center">
+			        <th>사원번호</th>
+			        <th>사원명</th>
+			        <th>직책명</th>
+			        <th>급여</th>
+			        <th>부서번호</th>
+			      </tr>
+			    </thead>	
+			    <tbody>
+			    	<tr v-for="(emp, i) in empList"><td>{{emp.empno}}</td><td>{{emp.ename}}</td><td>{{emp.job}}</td><td>{{emp.sal}}</td><td>{{emp.deptno}}</td></tr>
+			    </tbody>
+			</table> 
+		</div>   
+	</body>
+	<script>
+		var vm = new Vue({
+			el:".container",
+			data:{sch:{empno:""}, empList:[]},
+			methods:{
+				search:function(){
+					if(event.keyCode==13) {
+						var sch = this.sch;
+						$.ajax({
+							url:"/springweb/empAjax1.do",
+							data:sch,
+							dataType:"json",
+							success:function(data){
+								vm.empList = data.empList;
+							},
+							error:function(err){
+								console.log(err)
+							}
+						});
+					}
+				}
+			}
+		});
+	</script>
+-->
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	</div>
+	<form id="frm01" class="form-inline"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="제목" />
+	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>
