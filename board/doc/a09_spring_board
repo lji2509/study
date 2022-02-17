@@ -1,0 +1,74 @@
+# 답변형 게시판
+1. 주요 기능
+	0) 로그인 통해서 session 처리
+	1) 등록된 게시물 리스트
+		- 조회 : 작성자/제목(조회항목), 제목, 작성자, 등록일, 조회수(리스트)
+			- 최근글 표시(new)
+		- 페이지 처리 : 한 화면에서 보일 수 있는 게시물 설정
+			하단에 페이징 리스트 처리
+	2) 글등록 : 제목, 작성자(session id), 내용, 첨부파일, (등록일, 수정일, 조회수)
+	3) 글상세 : 제목, 작성자, 등록일, 수정일, 조회수, 내용, 첨부파일
+			기능버튼 : 수정, 삭제, 답글(등록자만이 수정/삭제 가능하게 처리)
+	4) 답글화면 : 답글 클릭시, 제목:RE:, 내용:이전글 내용 표시하여, 답글을 등록할 수 있게 처리 화면(글등록 화면을 활용)
+			
+2. 개발 순서(전체)
+	1) DB 설계
+		메인 게시판 테이블
+			create table board(
+				no number primary key,
+				refno number,
+				title varchar2(100),
+				writer varchar2(100),
+				content varchar2(2000),
+				regdte date,
+				uptdte date,
+				readcnt number
+			);
+		첨부파일 테이블
+		참고(member-아이디, 패스워드, 이름, 권한, 포인트)
+		board sequence
+			create sequence board_seq
+				start with 1
+				minvalue 1;
+		- 화면 개발 순서별 sql작성과 vo작성
+			insert into board values(board_seq.nextval, 0, '초기화면', '홍길동', '내용', sysdate, sysdate, 0);
+			insert into fileInfo values(#{fno}, #{pathinfo}, #{fname}, sysdate, sysdate, #{etc})
+	2) 초기 리스트 메인화면
+		- 기본 sql : 
+			select *
+			from board
+			where writer like '%%' and title like '%%'
+			order by no desc;
+		- vo : 리스트와 조회 Board.java
+		- dao/mapper
+			public List<Board> getBoardList(Board sch);
+		- service/controller
+		- controller - 게시판 전체 controller url : /board.do
+			각 기능별 메서드 method=list, method=insertFrm, method=insert, method=detail, method=update, method=delete
+			// http://localhost:8000/springweb/board.do?method=list
+			public String boardList(Board sch, Model d) {
+				d.addAttribute("boardList, service.getBoardList(sch))
+				return "";
+			}
+		- view(jsp)
+			- 조회 form 화면 구성
+			- 데이터 리스트 테이블 구성
+				<c:forEach var="board" items="${boardList}">
+			
+	3) 등록 처리
+		- 기본 처리 프로세스
+			등록 버튼 클릭시, 컨트롤러 호출(등록화면), 등록 화면 로딩
+			데이터 입력, 파일 첨부
+			등록 컨트롤러 호출
+			서비스, dao(게시판등록, 첨부파일정보등록)
+			등록완료 메시지 보이기
+		- 등록 개발 순서
+			사용할 sql, : board, 파일정보 DB
+			dto(데이터 전송 관련) vo 확인
+			dao/mapper 작성
+			service/controller
+			화면처리(jsp)
+				기본데이터 입력 name :
+				첨부파일에 대한 내용
+				form 속성
+			등록 처리 후, script 처리
