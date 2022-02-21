@@ -113,7 +113,7 @@
 		data:{title:"사원정보 뷰로 조회", sch:{ename:"", job:""}, empList:[], isProcess:false, emp:{}, empno:0},
 		methods:{
 			detail:function() {
-				var vm = this;
+				
 				$.ajax({
 					url:"/springweb/empAjaxDetail.do",
 					data:"empno="+vm.empno,

@@ -1,6 +1,9 @@
 package board.a04_vo;
 
+import java.util.ArrayList;
 import java.util.Date;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class Board {
 	private int no;
@@ -11,22 +14,9 @@ public class Board {
 	private Date regdte;
 	private Date uptdte;
 	private int readcnt;
-	public Board() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Board(int no, int refno, String title, String writer, String content, Date regdte, Date uptdte,
-			int readcnt) {
-		super();
-		this.no = no;
-		this.refno = refno;
-		this.title = title;
-		this.writer = writer;
-		this.content = content;
-		this.regdte = regdte;
-		this.uptdte = uptdte;
-		this.readcnt = readcnt;
-	}
+	private MultipartFile[] report;
+	private ArrayList<String> fnames;
+
 	public int getNo() {
 		return no;
 	}
@@ -74,6 +64,18 @@ public class Board {
 	}
 	public void setReadcnt(int readcnt) {
 		this.readcnt = readcnt;
+	}
+	public MultipartFile[] getReport() {
+		return report;
+	}
+	public void setReport(MultipartFile[] report) {
+		this.report = report;
+	}
+	public ArrayList<String> getFnames() {
+		return fnames;
+	}
+	public void setFnames(ArrayList<String> fnames) {
+		this.fnames = fnames;
 	}
 	
 }

@@ -29,9 +29,14 @@
 		
 		--%>
 		$("#regBtn").click(function() {
-			
+			if(confirm("등록하시겠습니까?")) {
+				location.href="${path}/board.do?method=insertFrm";
+			}
 		});
 	});
+	function getDetail(no) {
+		location.href="${path}/board.do?method=detail&no="+no;
+	}
 </script>
 </head>
 
@@ -46,7 +51,7 @@
 	    <input class="form-control mr-sm-2" name="title" value="${board.title}" placeholder="제목" />
 	    <input class="form-control mr-sm-2" name="writer" value="${board.writer}" placeholder="작성자" />
 	    <button class="btn btn-info" type="submit">조회</button>
-	    <button class="btn btn-success" type="button" name="regBtn">등록</button>
+	    <button class="btn btn-success" type="button" id="regBtn">등록</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
@@ -67,7 +72,7 @@
     </thead>	
     <tbody>
     	<c:forEach var="board" items="${boardList}">
-    		<tr><td>${board.no}</td><td>${board.title}</td><td>${board.writer}</td><td><fmt:formatDate value="${board.regdte}"/></td><td>${board.readcnt}</td></tr>
+    		<tr ondblclick="getDetail('${board.no}')"><td>${board.no}</td><td>${board.title}</td><td>${board.writer}</td><td><fmt:formatDate value="${board.regdte}"/></td><td>${board.readcnt}</td></tr>
     	</c:forEach>
     </tbody>
 	</table>    

@@ -66,9 +66,111 @@
 			사용할 sql, : board, 파일정보 DB
 			dto(데이터 전송 관련) vo 확인
 			dao/mapper 작성
+			a01_boardList.jsp
+				1) 등록 버튼 클릭시, 등록하시겠습니까? confirm
+					location.href="${path}/board/board.do?method=insertFrm";
 			service/controller
-			화면처리(jsp)
-				기본데이터 입력 name :
+				method=insert
+				/board/board.do?method=insertFrm
+					a02_boardInsert.jsp 등록 화면 호출
+				/board/board.do?method=insert
+					등록 msg 모델로 설정
+			화면처리(jsp) a02_boardInsert.jsp
+				기본데이터 입력 name : 제목, 내용, 작성자(추후 session)
 				첨부파일에 대한 내용
 				form 속성
+				필수항목 check 후, submit 클릭시,
+					/board/board.do?method=insert 호출
 			등록 처리 후, script 처리
+				등록했습니다. 계속하시겠습니까?
+				
+# 첨부파일 처리
+0. 컨테이너 : 파일업로드 뷰와 다운로드 뷰 bean으로 선언
+
+1. 뷰단
+	form enctype="multipart/form-data
+	
+2. VO 요청값으로 파일을 처리할 수 있게
+	MultipartFile 객체 선언
+	
+3. service단
+	1) 파일 업로드 처리
+		경로명(설정), 파일명
+		File 객체 생성
+		MultiPartFile ==> File로 전환
+		문제 발생시, 메시지를 리턴하여 예외처리
+	2) 첨부파일 처리 데이터 입력
+		dao의 첨부파일 처리
+		
+4. 다중 파일 첨부를 위한 개발
+	1) Vo MultiPartFile[] 선언
+	2) 화면 ui를 동적으로 파일 첨부를 하게 처리
+	3) service 안에 여러 개 파일이 등록 반복
+		- upload
+		- dao
+
+# 게시판 상세 내용 리스트 및 파일다운로드 처리
+0. 주요파일 및 VO
+	BoardController.java
+		상세화면 @RequestMapping(params="method=detail")
+	BoardDao.java
+		public Board getBoard(int empno);
+	BoardMapper.xml
+		\views\a01_boardList.jsp
+		\views\a03_boardDetail.jsp
+		
+1. 처리 프로세스
+	1) 리스트 화면에서 리스트 데이터 더블 클릭시, empno를 요청값에 넘기면서 controller 호출
+	2) 컨트롤러 호출되어 service, dao, mapper를 호출하여 empno 값 을 넘겨 단일 데이터를 가져오고,
+		- 데이터 정보 가져오기
+		- 파일 정보 가져오기
+	3) 컨트롤러에 모델 데이터로 Board정보와 파일명에 정보를 설정 처리
+	4) 화면에 상세 정보를 가져와서 출력한다.
+	
+2. 개발순서
+	0) controller 선언
+		@RequestMapping(params="method=detail")
+		int no 요청값을 가져와서 
+		\views\a03_boardDetail.jsp 생성하여, 상세화면에 no가 출력되게 처리
+	1) 리스트 화면에서 controller 호출
+		location.href="${path}/board.do?method=detail&no="+no
+	2) dao, mapper
+		sql = select * from board where no = ?
+			  select * from fileinfo where fno = ?
+		public Board getBoard(int no);
+		public FileInfo getFileInfo(int fno);
+	3) service, dao
+	4) controller
+		d.addAttribute("board", service.getBoard(no));
+		d.addAttribute("file", service.getFileInfo(no));
+	5) view
+		<input name="no" value="${board.no}"/>
+		<input name="title" value="${board.title}"/>
+		
+# 삭제
+1. 프로세스
+	1) 삭제 클릭시
+	2) 삭제 컨트롤러 호출
+	3) service ==> dao ==> mapper
+	4) 컨트롤러
+		모델 데이터 삭제완료
+	5) 화면단 삭제완료 msg표현
+	
+2. 개발순서
+	1) controller
+		method=del
+		int no
+	1) 삭제버튼 클릭 a03_boardDetail.jsp
+		location.href="${path}/board.do?method=del&no="+$("[name=no]").val();
+	2) controller
+		번호 확인
+	3) 화면에서
+		var msg = "${msg}"
+		if(msg != "") {
+			alert(msg+"\n조회화면 이동")
+			location.href="${path}/board.do?method=list";
+		}
+	4) sql : delete from board where no=#{no}
+	5) dao/mapper
+		public void deleteBoard(int no)
+	6) service ==> controller

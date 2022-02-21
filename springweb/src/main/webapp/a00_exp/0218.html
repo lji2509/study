@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+	.cls{border:1px solid purple; background:pink;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var vm = new Vue({
+			el:".container",
+			data:{ck:false},
+			watch:{
+				ck:function(){
+					if(ck) {
+						this.ck = false;
+					} else {
+						this.ck = true;
+					}
+				}
+			}
+		});	
+	});
+</script>
+</head>
+<body>
+<!-- 
+1. vue를 style1객체(배경색상), style2객체(글자색상)을 선언하여 배열로 속성 설정을 처리하는 h3을 선언하세요.
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var vm = new Vue({
+				el:".container",
+				data:{style1:{background:"navy"}, style2:{color: "yellow"}}
+			});	
+		});
+	</script>
+	<body>
+		 <h3 :style="[style1, style2]">문제1번</h3>
+	</body>
+	
+2. 클래스로 테두리/배경 색상을 설정하여, check box를 클릭시마다 적용여부 처리하게 하세요
+	<style>
+		td{text-align:center;}
+		.cls{border:1px solid purple; background:pink;}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var vm = new Vue({
+				el:".container",
+				data:{ck:false},
+				watch:{
+					ck:function(){
+						if(ck) {
+							this.ck = false;
+						} else {
+							this.ck = true;
+						}
+					}
+				}
+			});	
+		});
+	</script>
+	<body>
+		<h3 :class="{cls:ck}">문제2번</h3>
+	  	<input type="checkbox" v-model="ck" value="true"/>적용여부
+	</body>
+	
+3. web.xml의 contextConfigLocation 설정의 의미를 기술하세요
+	공통으로 사용할 의존성 사용파일을 지정한다.
+	<param-value>에 설정파일의 경로를 지정해준다.
+
+4. 컨테이너 설정에서 아래가 가지는 의미를 기술하세요.
+	<property name="prefix" value="WEB-INF\views\"/> : WEB-INF\views\ 경로에 있는
+	<property name="suffix" value=".jsp"/> : jsp을 불러온다 ("WEB-INF\views\파일명.jsp" ==> 파일명)
+	<property name="order" value="1"/> : 이 규칙의 우선순위는 1번
+ -->
+<div class="container">
+	<div class="jumbotron text-center">
+	  	<h3 :class="{cls:ck}">문제2번</h3>
+	  	<input type="checkbox" v-model="ck"/>적용여부
+	</div>
+	<form id="frm01" class="form-inline"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="제목" />
+	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>
