@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var vm = new Vue({
+			el:".container",
+			data:{msg:"시작!!(뷰와함께)"}
+		});	
+	});
+</script>
+</head>
+<body>
+<!-- 
+1. ec2 인스턴스를 통한 접근을 위한 보안 설정 종류와 방법을 간략하게 기술하세요.
+	1) 인스턴스 객체 생성시, 보안키 생성(@@.pem)
+	2) 방화벽 보안 설정, 웹서비스 처리를 위해 80포트 보안 설정
+
+2. putty gen은 어떤 용도로 활용되는가?
+	1) putty를 통해서 aws ec2 인스턴스를 접근할 때 필요한 개인 보안 키를 생성하기 위해 사용된다.
+	2) ec2 인스턴스의 @@.pem 보안 키를 @@@.ppk로 변환해준다.
+	
+3. aws를 통해 웹서버를 기동하고 배포할 때, 전체적인 절차를 간략하게 기술하세요.
+	1) ec2인스턴스 객체 생성 - 보안파일 생성
+	2) 방화벽 8080 추가
+	3) putty gen을 통한 ec2보안파일을 private 보안키로 생성
+	4) putty 접근
+	5) sudo -i 관리자권한
+	6) /usr/java 경로 만들기
+	7) open jdk 다운로드
+	8) jdk path 설정 - /conf/profile
+	9) tomcat 다운로드
+	10) 관리자 권한 설정을 위한 설정
+		webapps/manager/META-INF/context.xml : 주소부분 주석
+		conf/tomcat-users.xml
+			gui admin 접근 권한 설정 : admin/admin
+	11) tomcat 시작
+	12) ec2 공개 주소 : 8080포트를 통해 확인
+	13) dynamic 웹 프로젝트 생성 샘플 jsp 생성 ==> @@.war 파일 생성
+	14) ec2 공개 주소 관리자 페이지 접근 admin/admin 접근
+	15) 배포 파일 선택, 해당 초기 페이지 호출 처리
+	
+4. 리눅스에서 wget의 주된 기능과 사용방법을 기술하세요.
+	온라인상 공개된 주소로 해당 파일을 접근해서 다운 받을 수 있을 때
+	wget 주소를 통해서 현재 서버에 파일을 다운받게 한다.
+	 
+5. 톰캣서버의 기동과 중지에 대한 명령을 기술하세요.
+	톰캣서버의 bin폴더로 이동(cd)
+	기동 : service tomcat start(./startup.sh)
+	중지 : service tomcat stop(./shutdown.sh)
+	
+6. 다음의 리눅스 명령어를 기술하세요.
+	pwd : 현재 경로 위치
+	1) 폴드 이동
+		cd ../.. 최상위 경로 이동
+		cd 경로명
+	2) 압축 풀기
+		tar -xvf 압축파일명
+	3) text 파일 편집
+		vi 파일명
+		esc 키 : 명령모드 - 쓰기, 중지, text찾기 등
+			:wq - 저장하고 중지, :q - 중지
+		i 키 : 입력모드 - 텍스트에 내용 입력시 활용
+	
+7. jdbc 접속시, GMT 시간 설정 컨테이너 등록시 사용되는 controller의 내용을 기술하세요.
+	db접근시, GMT 시간을 설정해서 서버에 접속에 필요한 경우에 스프링의 경우, container에 설정이 되어있어야 한다.
+		TimeZone tz=TimeZone.getTimeZone("Asia/Seouls");
+		TimeZone.setDefault(tz);
+ -->
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	</div>
+	<form id="frm01" class="form-inline"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="제목" />
+	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>

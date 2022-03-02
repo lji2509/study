@@ -6,17 +6,23 @@
 	<!-- 
 	List<Board> getBoardList(Board sch)
 	 -->
-	 <select id="getBoardList" parameterType="board" resultType="board">
-		select *
-		from board
-		where 1=1
-		<if test="writer!=null and writer!=''"> <!-- mybatis에서 null이 아니고 공백이 아닐 때 -->
-		and writer like '%' || #{writer} || '%'
-		</if>
-		<if test="title!=null and title!=''">
-		and title like '%' || #{title} || '%'
-		</if>
-		order by no desc
+	 <select id="getBoardList" parameterType="boardSch" resultType="board">
+	 	select *
+	 	from (
+			select rownum cnt, level, b.*
+			from board b
+			where 1=1
+			<!-- mybatis에서 null이 아니고 공백이 아닐 때 -->
+			<if test="writer!=null and writer!=''"> 
+			and writer like '%' || #{writer} || '%'
+			</if>
+			<if test="title!=null and title!=''">
+			and title like '%' || #{title} || '%'
+			</if>
+			START WITH refno=0
+			CONNECT BY PRIOR NO=refno
+			ORDER siblings BY NO DESC)
+		where cnt between #{start} and #{end}
 	 </select>
 	 <insert id="insertBoard" parameterType="board">
 	 	insert into board values(board_seq.nextval, #{refno}, #{title}, #{writer}, #{content}, sysdate, sysdate, 0)
@@ -37,4 +43,28 @@
 	 <delete id="deleteBoard" parameterType="int">
 	 	delete from board where no=#{no}
 	 </delete>
+	 <select id="login" parameterType="member" resultType="member">
+	 	select *
+	 	from member
+	 	where id=#{id} and pass=#{pass}
+	 </select>
+	 <update id="updateBoard" parameterType="board">
+	 	UPDATE BOARD SET title=#{title}, content=#{content}, uptdte=sysdate WHERE no=#{no}
+	 </update>
+	 <update id="updateReadCnt" parameterType="int">
+		update board
+		set readcnt = readcnt+1
+		where no = #{no}
+	 </update>
+	 <select id="totcnt" parameterType="boardSch" resultType="int">
+		select count(*)
+		from board
+		where 1=1
+		<if test="writer!=null and writer!=''">
+		and writer like '%'||#{writer}||'%'
+		</if>
+		<if test="title!=null and title!=''">
+		and title like '%'||#{title}||'%'
+		</if>
+	 </select>
 </mapper>

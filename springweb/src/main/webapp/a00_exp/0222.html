@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+	Vue.component("com1", {
+		template:"#tmp1",
+		props:{
+			back:{type:String, default:"pink"},
+			col:{type:String}
+		}
+	});
+
+	$(document).ready(function(){
+		var vm = new Vue({
+			el:".container",
+			data:{msg:"시작!!(뷰와함께)"}
+		});	
+	});
+</script>
+</head>
+<body>
+<!-- 
+1. 게시판의 상세화면에서 기본정보와 파일정보를 가져오는 처리를 하세요
+	# vo
+		//board VO에서 파일이름까지 한번에 출력하기 위해 작성한다.
+		private ArrayList<String> fnames; 
+		
+	# service
+		//FileInfo에서 게시물 번호를 매개변수로 파일 정보를 가져온다.
+		public Board getBoard(int no) {
+			Board b = dao.getBoard(no);
+			b.setFnames(dao.getFileInfo(no));
+			return b;
+		}
+		
+		public ArrayList<String> getFileInfo(int fno) {
+			return dao.getFileInfo(fno);
+		}
+
+	# view
+		//파일이 2개 이상일수도 있기 때문에, jstl의 반복문을 이용하여 출력한다.
+		<c:forEach var="fname" items="${board.fnames}">
+		<div class="input-group mb-3 fileCls">
+			<div class="input-group-prepend">
+				<span class="input-group-text" onclick="downFile('${fname}')">첨부 파일(다운로드)</span>
+			</div>
+			<div class="custom-file">
+				<input type="file" name="report" class="custom-file-input" id="file01"/>
+				<label class="custom-file-label" for="file01">${fname}</label>
+			</div>		
+		</div> 	
+	</c:forEach> 
+	
+2. 게시물의 다운로드시 처리 순서를 기술하세요.
+	1) DownloadViewer 작성
+	2) servlet-context.xml에서 DownloadViewer 등록하고 id 설정
+	3) DownloadController 작성하고 return 값으로 DownloadViewer의 id값 지정
+	4) view에서 다운로드할 파일의 이름을 Controller로 넘길 수 있도록 location.href 지정
+
+3. 컴포넌트의 props는 어떤 속성을 설정할 수 있는가?
+	type : 속성이 어떤 형인지 지정(숫자, 문자열, 배열..)
+	default : body에서 태그 사용 시 속성값 지정하지 않을 때, 기본으로 사용할 값 지정
+	required : body에서 태그 사용 시 반드시 속성값을 지정해야 할 때 사용
+	
+4. h2 컴포넌트를 만들고, 글자색상/배경색상을 지정하고 배경색을 타이틀로 하여 3개를 출력하세요.
+	<template id="tmp1">
+		<h2 :style="{background:back, color:col}">안녕하세요</h2>
+	</template>
+	<script>
+		Vue.component("com1", {
+			template:"#tmp1",
+			props:{
+				back:{type:String, default:"pink"},
+				col:{type:String}
+			}
+		});
+	</script>
+	<body>
+		  <com1 col="red"></com1>
+		  <com1 col="purple"></com1>
+		  <com1 col="green"></com1>
+	</body>
+ -->
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	</div>
+	<form id="frm01" class="form-inline"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="제목" />
+	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>

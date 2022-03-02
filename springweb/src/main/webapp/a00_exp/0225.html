@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var vm = new Vue({
+			el:".container",
+			data:{msg:"시작!!(뷰와함께)"}
+		});	
+	});
+</script>
+</head>
+<body>
+<!-- 
+1. 답글을 처리하려고 한다. DB 처리 구조를 기술하세요.
+	계층형 sql을 이용하여 답글이 바로 밑에 나오게 한다.
+		SELECT LEVEL, b.*
+		FROM board b
+		START WITH refno=0
+		CONNECT BY PRIOR NO=refno
+		ORDER siblings BY NO DESC
+
+2. 답글을 처리하는 화면 처리 구조와 속성 변경을 view단과 controller단을 구분하여 기술하세요
+	1) view
+		- 답글 버튼 클릭시, confirm을 통해 답글 작성여부 확인
+		- 확인을 클릭하면, refno=no, title=RE:+title, content=\n\n\n===이전글===\n+content 등의 답글 화면을 위한 처리를하고,
+			form의 action속성과 submit을 통해 답글 처리를 위한 url로 데이터를 넘겨준다.
+		- 해당 답글 insert 후, 메시지를 전달받아 출력하고 조회화면으로 이동한다.
+		- 조회화면에서는, 답글임을 한눈에 보기 알아보기 쉽도록 c:forEach로 해당 답글의 level만큼 공백을 넣어주고, 
+			c:if를 이용하여 답글이미지를 넣어준다.
+	2) controller
+		- 호출된 url에서 답글 insert를 위한 service단을 호출하여 insert하고, 답글 등록이 완료되었다는 메시지를 전달한다.
+	
+3. springweb프로젝트에서 기본데이터가 있는 화면에서 답글 클릭시, 답글 등록화면 처리를 만들어 출력하세요.
+	DB없이 입력된 내용 기준 : @@@ ==> RE:@@@, 내용 ==> \n\n\n이전내용, no ==> refno 처리.
+	$("#reBtn").click(function() { //답글 버튼 클릭시
+		if(confirm("답글을 작성하시겠습니까?")) {
+			$("[name=refno]").val($("[name=no]").val());
+			$("[name=title]").val("RE:" + $("[name=title]").val());
+			$("[name=content]").val("\n\n\n\n\n\n=========이전글===========\n" + $("[name=content]").val());
+			$("form").attr("action", "${path}/board.do?method=insertFrm");
+			$("form").submit();
+		}
+	});
+	
+4. 계층적 sql의 주요 코드를 기술하고, board의 계층적 sql을 emp에서 empno와 mgr에 적용하여 처리하는 sql을 만드세요.
+	SELECT level, *
+	from 테이블명
+	START WITH 조건 : 최상위 root 계층 조건
+	CONNECT BY 조건 : 각 데이터가 어떻게 연결되는지 설정
+	PRIOR  하위컬럼 = 상위컬럼(순방향) | 상위컬럼 = 하위컬럼(역방향) : 상하위 계층을 연결하는 조건
+	ORDER SIBLINGS BY 컬럼 : 동일 LEVEL 사이에서 정렬을 수행
+	
+	SELECT level, e.*
+	FROM emp e
+	START WITH mgr is null
+	CONNECT BY PRIOR empno = mgr
+ -->
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	</div>
+	<form id="frm01" class="form-inline"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="제목" />
+	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>

@@ -25,22 +25,60 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		var msg = "${msg}";
+		if(msg!="") {
+			if(msg=="수정완료") {
+				if(confirm(msg+"\n조회화면 이동하시겠습니까?")) {
+					location.href="${path}/board.do?method=list";
+				}
+			}
+			if(msg=="삭제완료") {
+				alert(msg+"\n조회화면 이동")
+				location.href="${path}/board.do?method=list";
+			}
+		}
+		
 		$("#goMain").click(function() {
 			location.href="${path}/board.do?method=list";
 		});
 		
+		//삭제버튼 클릭시, session으로 수정권환 확인해서(작성자와 동일)
+		//권한이 있는 경우에만 삭제처리
+		var sessId = "${member.id}";
 		$("#delBtn").click(function(){
-			if(confirm("삭제하시겠습니까?")) {
-				location.href="${path}/board.do?method=del&no="+$("[name=no]").val();				
+			if(sessId!=$("[name=writer]").val()) {
+				alert("삭제는 작성자만이 가능합니다.");
+			} else {
+				if(confirm("삭제하시겠습니까?")) {
+					location.href="${path}/board.do?method=del&no="+$("[name=no]").val();				
+				}
 			}
 		});
 		
-		var msg = "${msg}";
-		if(msg!="") {
-			alert(msg+"\n조회화면 이동")
-			location.href="${path}/board.do?method=list";
-		}
+		$("#uptBtn").click(function() {
+			if(sessId!=$("[name=writer]").val()) {
+				alert("수정 권한이 없습니다.");
+			} else {
+				if(confirm("수정하시겠습니까?")) {
+					$("form").attr("action","${path}/board.do?method=upt");
+					$("form").submit();
+				}
+			}
+		});
+		
+		$("#reBtn").click(function() {
+			if(confirm("답글을 작성하시겠습니까?")) {
+				//등록 form에 기본적인 답글 형식을 만들어서 요청값으로 전송하여,
+				//등록 form에서 추가 데이터를 입력하여 처리하게한다.
+				$("[name=refno]").val($("[name=no]").val());
+				$("[name=title]").val("RE:" + $("[name=title]").val());
+				$("[name=content]").val("\n\n\n\n\n\n=========이전글===========\n" + $("[name=content]").val());
+				$("form").attr("action", "${path}/board.do?method=insertFrm");
+				$("form").submit();
+			}
+		});
 	});
+	
 	function downFile(fname) {
 		if(confirm("다운로드 파일 : " + fname)) {
 			location.href="${path}/download.do?fname="+fname;
@@ -58,65 +96,66 @@
 	.input-group-text{width:100%;font-weight:bolder;}
 </style>
 <div class="container">
-	<form method="post" enctype="multipart/form-data" action="${path}/board.do?method=update">
-	<div class="input-group mb-3 fileCls">	
-		<div class="input-group-prepend">
-			<span class="input-group-text">글번호</span>
-		</div>
-		<input name="no" class="form-control" value="${board.no}"/>	
-		<div class="input-group-prepend">
-			<span class="input-group-text">상위글번호</span>
-		</div>
-		<input name="refno" class="form-control" value="${board.refno}"/>	
-	</div>			
-	<div class="input-group mb-3">
-		<div class="input-group-prepend">
-			<span class="input-group-text">제 목</span>
-		</div>
-		<input name="title" class="form-control" placeholder="제목입력하세요" value="${board.title}"/>			 
-	</div>  
-	<div class="input-group mb-3 fileCls">	
-		<div class="input-group-prepend">
-			<span class="input-group-text">작 성 자</span>
-		</div>
-		<input name="writer" class="form-control" placeholder="작성자입력하세요" value="${board.writer}" />	
-		<div class="input-group-prepend">
-			<span class="input-group-text">조회수</span>
-		</div>
-		<input name="readcnt" class="form-control" value="${board.readcnt}"/>	
-	</div>	
-	<div class="input-group mb-3 fileCls">	
-		<div class="input-group-prepend">
-			<span class="input-group-text">등 록 일</span>
-		</div>
-		<input name="regdte" class="form-control" placeholder="작성자입력하세요" value='<fmt:formatDate value="${board.regdte}" type="both"/>'/>	
-		<div class="input-group-prepend">
-			<span class="input-group-text">수 정 일</span>
-		</div>
-		<input name="uptdte" class="form-control" value='<fmt:formatDate value="${board.uptdte}" type="both"/>'/>	
-	</div>			
-	<div class="input-group mb-3 fileCls">
-		<div class="input-group-prepend">
-			<span class="input-group-text">내 용</span>
-		</div>
-		<textarea name="content" rows="10" class="form-control" placeholder="내용입력하세요" value="${board.content}"></textarea>		 
-	</div> 
-	<c:forEach var="fname" items="${board.fnames}">
+	<form method="post" enctype="multipart/form-data" action="${path}/board.do?method=upd">
+		<div class="input-group mb-3 fileCls">	
+			<div class="input-group-prepend">
+				<span class="input-group-text">글번호</span>
+			</div>
+			<input name="no" class="form-control" value="${board.no}"/>	
+			<div class="input-group-prepend">
+				<span class="input-group-text">상위글번호</span>
+			</div>
+			<input name="refno" class="form-control" value="${board.refno}"/>	
+		</div>			
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text">제 목</span>
+			</div>
+			<input name="title" class="form-control" value="${board.title}" />			 
+		</div>  
+		<div class="input-group mb-3 fileCls">	
+			<div class="input-group-prepend">
+				<span class="input-group-text">작 성 자</span>
+			</div>
+			<input name="writer" class="form-control" placeholder="작성자입력하세요" value="${board.writer}" readonly/>
+			<!-- 작성자는 입력해서 변경불가능 처리 -->	
+			<div class="input-group-prepend">
+				<span class="input-group-text">조회수</span>
+			</div>
+			<input name="readcnt" class="form-control" value="${board.readcnt}"/>	
+		</div>	
+		<div class="input-group mb-3 fileCls">	
+			<div class="input-group-prepend">
+				<span class="input-group-text">등 록 일</span>
+			</div>
+			<input class="form-control" placeholder="작성자입력하세요" value='<fmt:formatDate type="both" value="${board.regdte}" />'/>	
+			<div class="input-group-prepend">
+				<span class="input-group-text">수 정일</span>
+			</div>
+			<input  class="form-control" value='<fmt:formatDate type="both" value="${board.uptdte}" />'/>	
+		</div>			
 		<div class="input-group mb-3 fileCls">
 			<div class="input-group-prepend">
-				<span class="input-group-text" onclick="downFile('${fname}')">첨부 파일(다운로드)</span>
+				<span class="input-group-text">내 용</span>
 			</div>
-			<div class="custom-file">
-				<input type="file" name="report" class="custom-file-input" id="file01"/>
-				<label class="custom-file-label" for="file01">${fname}</label>
-			</div>		
-		</div> 	
-	</c:forEach> 
+			<textarea name="content" rows="10" class="form-control" placeholder="내용입력하세요" >${board.content}</textarea>		 
+		</div> 
+		<c:forEach var="fname" items="${board.fnames}">
+			<div class="input-group mb-3 fileCls">
+				<div class="input-group-prepend">
+					<span class="input-group-text" onclick="downFile('${fname}')">첨부 파일(다운로드)</span>
+				</div>
+				<div class="custom-file">
+					<input type="file" name="report" class="custom-file-input" id="file01"/>
+					<label class="custom-file-label" for="file01">${fname}</label>
+				</div>		
+			</div> 	 
+		</c:forEach>
  	</form>
  	<div style="text-align:right;">
-		<input type="button" class="btn btn-important" value="답글" id="reBtn"/>
+ 		<input type="button" class="btn btn-primary" value="답글" id="reBtn"/>	
 		<input type="button" class="btn btn-warning" value="수정" id="uptBtn"/>
-		<input type="button" class="btn btn-danger" value="삭제" id="delBtn"/>
+		<input type="button" class="btn btn-danger" value="삭제" id="delBtn"/>			
 		<input type="button" class="btn btn-success" value="조회 화면으로" id="goMain"/>
 	</div>	
 </div>

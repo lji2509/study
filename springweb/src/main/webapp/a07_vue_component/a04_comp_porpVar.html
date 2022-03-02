@@ -24,7 +24,8 @@
 		Vue.component("comp1", {
 			template:"#tmp1",
 			props:{
-				name:{type:String},
+				name:{type:String, default:""}, 
+				//default:"", required:""
 				age:{type:Number},
 				loc:{type:String},
 				list:{type:Array}
