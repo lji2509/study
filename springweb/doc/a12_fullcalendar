@@ -1,0 +1,139 @@
+# jquery lib를 활용한 ajax 통신 처리
+1. 필요한 jquery lib를 다운 받는다.
+	fullcanlendar
+	webapp\fullcalendar-5.10.2\examples\selectable.html
+2. 기본 환경 내용과 파일을 확인 한다.
+3. 해당 lib의 doc파일을 확인한다.
+4. 스프링으로 초기화면이 나올 수 있도록 공통 파일을 설정한다.
+5. 핵심 json 데이터를 확인한다.
+6. DB 구조를 확인 하고 처리할 수 있도록 한다.
+	- 테이블 만들기
+	- 기본 sql 작성하기
+7. 데이터 처리를 위한 dao/mapper 설정 처리
+8. service/controller 설정..
+9. 각 내용별로 업무 내용 처리
+	1) 조회하기
+	2) 등록하기
+	3) 수정하기
+	4) 삭제하기
+	
+# DB 처리하기
+	1. json 데이터
+		속성 :
+		id : 일정아이디
+		title : 제목
+		start : 시작일
+		end : 마지막일
+		content : 내용
+		color : 배경색상
+		textColor : 글자 색상
+		allDay : 종일여부
+		
+		create table calendar(
+			id number primary key,
+			title varchar2(100),
+			start1 varchar2(50),
+			end1 varchar2(50),
+			content varchar2(500),
+			bordercolor varchar2(20),
+			backgroundcolor varchar2(20),
+			textcolor varchar2(20),
+			allday number(1,0)
+		);
+		create sequence cal_seq
+			start with 1
+			minvalue 1;
+		INSERT INTO calendar values(cal_seq.nextval, '일정등록시작', '2022-03-27', '2022-03-27', '내용', 'navy', 'navy', 'yellow', 1);
+		
+		class Calendar {
+			private int id;
+			private String title;
+			private String start;
+			private String end;
+			private String content;
+			private String borderColor;
+			private String backgroundColor;
+			private String textColor;
+			private boolean allDay;
+		}
+		
+		A10_FullCalDao.java
+			public List<Calendar> getCalendarList();
+			CalendarMapper.xml
+		A10_FullCalService.java
+		
+		url
+		[
+	    	{
+	            title: '일정 등록^^',
+	            start: '2022-03-02'   			
+	    	},
+	        {
+	          title: 'All Day Event',
+	          start: '2022-03-01'
+	        },
+	        {
+	          title: 'Long Event',
+	          start: '2022-03-07',
+	          end: '2022-03-10'
+	        },
+	        {
+	          groupId: 999,
+	          title: 'Repeating Event',
+	          start: '2022-03-09T16:00:00'
+	        },
+	        {
+	          groupId: 999,
+	          title: 'Repeating Event',
+	          start: '2022-03-16T16:00:00'
+	        },
+	        {
+	          title: 'Conference',
+	          start: '2022-03-11',
+	          end: '2022-03-13'
+	        },
+	        {
+	          title: 'Meeting',
+	          start: '2022-03-12T10:30:00',
+	          end: '2022-03-12T12:30:00'
+	        },
+	        {
+	          title: 'Lunch',
+	          start: '2022-03-12T12:00:00'
+	        },
+	        {
+	          title: 'Meeting',
+	          start: '2022-03-12T14:30:00'
+	        },
+	        {
+	          title: 'Happy Hour',
+	          start: '2022-03-12T17:30:00'
+	        },
+	        {
+	          title: 'Dinner',
+	          start: '2022-03-12T20:00:00'
+	        },
+	        {
+	          title: 'Birthday Party',
+	          start: '2022-03-13T07:00:00'
+	        },
+	        {
+	          title: 'Click for Google',
+	          url: 'http://google.com/',
+	          start: '2022-03-28'
+	        }
+		]
+	2. SQL : SELECT * FROM CALENDAR;
+		VO 만들기
+		DAO/MAPPER
+		SERVICE/CONTROLLER
+		
+# 일정 등록하기
+1. 등록 처리하는 event 확인
+2. 등록 처리할 기본 pop창 내용 확인 입력
+	'3/1절', '2022-03-01', '2022-03-01', '내용', 'navy', 'pink', 'yellow', 1);
+	제목, 등록일/종료일 확인, 내용, 테두리 색상, 배경색상, 글자 색상 지정, 종일여부 지정
+3. 등록 처리할 ajax controller 호출
+4. DB 처리
+	vo
+	dao/mapper

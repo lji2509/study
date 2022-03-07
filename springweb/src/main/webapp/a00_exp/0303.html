@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var vm = new Vue({
+			el:".container",
+			data:{msg:"시작!!(뷰와함께)"}
+		});	
+	});
+</script>
+</head>
+<body>
+<!-- 
+1. 페이징 처리시, service단의 BoardSch 속성 처리 순서를 기술하세요.
+	1) 전체 갯수(DB)
+	2) 한번에 보일 페이지 수(게시물 갯수) 초기값 설정(화면요청)
+	3) 총 페이지 수(로직)
+	4) 클릭한 현재 페이지 호출 및 초기값 설정(화면요청)
+	5) 시작번호(로직)
+	6) 마지막번호(로직)
+	7) block 크기 지정(지정)
+	7-1) 현재 블럭 그룹 번호
+	8) 블럭 그룹의 시작 페이지 번호(로직)
+	9) 블럭 그룹의 마지막 페이지 번호(로직)
+	9-1) 총페이지수보다 클 경우가 있을 수 있으므로 삼항연산자 사용
+	
+2. 위 내용을 화면요청값, DB, 로직으로 구분하여 기술하세요.
+	# 화면요청값
+		 <input type="hidden" name="curPage" value="1"/>
+	# DB
+		<select id="getBoardList" parameterType="boardSch" resultType="board">
+		 	select *
+		 	from (
+				select rownum cnt, level, b.*
+				from board b
+				where 1=1
+				<if test="writer!=null and writer!=''"> 
+				and writer like '%' || #{writer} || '%'
+				</if>
+				<if test="title!=null and title!=''">
+				and title like '%' || #{title} || '%'
+				</if>
+				START WITH refno=0
+				CONNECT BY PRIOR NO=refno
+				ORDER siblings BY NO DESC)
+			where cnt between #{start} and #{end}
+		 </select>
+	# 로직
+		//1. 전체 갯수
+		sch.setCount(dao.totcnt(sch));
+		//2. 한번에 보일 페이지 수 초기값 설정
+			//초기에는 0이기에 5개로 설정 처리
+		if(sch.getPageSize()==0) {
+			sch.setPageSize(5);
+		}
+		//3. 총 페이지 수
+		sch.setPageCount((int)Math.ceil((double)sch.getCount()/(double)sch.getPageSize()));
+		//4. 클릭한 현재 페이지 호출 및 초기값 설정
+		if(sch.getCurPage()==0) {
+			sch.setCurPage(1);
+		}		
+		//5. 시작번호
+		sch.setStart((sch.getCurPage()-1)*sch.getPageSize()+1);
+		//6. 마지막번호
+		sch.setEnd(sch.getCurPage()*sch.getPageSize());
+		//7) 페이지 block의 크기 지정
+		sch.setBlockSize(5);
+		//7-1) 현재 블럭 그룹 번호
+		int curBlockGrpNo = (int)Math.ceil(sch.getCurPage()/(double)sch.getBlockSize());
+		//8) 블럭 그룹의 시작 페이지 번호
+		sch.setStartBlock((curBlockGrpNo-1)*sch.getBlockSize()+1);
+		//9) 블럭 그룹의 마지막 페이지 번호
+		int endBlockGrpNo = curBlockGrpNo*sch.getBlockSize();
+		//9-1)총페이지수보다 크면 총페이지수를 마지막페이지 번호
+		sch.setEndBlock(endBlockGrpNo>sch.getPageCount()?sch.getPageCount():endBlockGrpNo);
+
+3. 위 속성 중 초기값 처리가 필요햔 속성과 이유를 기술하세요.
+	pageSize(한번에 보일 게시물 수), curPage(현재페이지)
+	처음 초기값이 0이기 때문에, if문으로 0인지를 비교하여 초기값을 설정해주어야한다.
+	
+4. 전체 페이지 갯수를 처리하는 로직을 기술하세요.
+	(int)Math.ceil(전체갯수/(double)페이지수)
+		sch.setPageCount((int)Math.ceil(sch.getCount()/(double)sch.getPageSize()));
+		
+5. 페이지당 시작번호와 마지막번호를 처리하는 로직을 기술하세요.
+	시작번호 : (현재페이지번호-1)*페이지수+1
+		sch.setStart((sch.getCurPage()-1)*sch.getPageSize()+1);
+	마지막번호 : 현재페이지번호*페이지수
+		sch.setEnd(sch.getCurPage()*sch.getPageSize());
+			
+6. 하단에 페이지 블럭단위를 처리하는 로직을 순서별로 기술하세요.
+	현재 블럭 그룹 번호 : (int)Math.ceil(현재 클릭한 페이지번호/(double)블럭의 크기)
+		int curBlockGrpNo = (int)Math.ceil(sch.getCurPage()/(double)sch.getBlockSize());
+	블럭 그룹의 시작 페이지 번호 : (현재블럭그룹번호-1)*블럭사이즈+1
+		sch.setStartBlock((curBlockGrpNo-1)*sch.getBlockSize()+1);
+	블럭 그룹의 마지막 페이지 번호 : 현재블럭그룹번호*블럭사이즈
+		int endBlockGrpNo = curBlockGrpNo*sch.getBlcokSize();
+		총페이지수보다 블럭 그룹의 마지막 페이지 번호가 클 수 있으므로 삼항연산자로 비교
+		sch.setEndBlock(endBlockGrpNo>sch.getPageCount()?sch.getPageCount():endBlockGrpNo);
+ -->
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	</div>
+	<form id="frm01" class="form-inline"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="제목" />
+	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>

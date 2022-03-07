@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var vm = new Vue({
+			el:".container",
+			data:{msg:"시작!!(뷰와함께)"}
+		});	
+	});
+</script>
+</head>
+<body>
+<!-- 
+1. 스프링 부트를 생성 후, resources\application.properties를 통해 설정할 속성값
+	자동으로 만들어질 컨테이너에 들어갈 내용을 text 형식으로 설정할 수 있다.
+	내장된 톰캣의 서버포트
+	DB 계정 정보
+	mybatis - 공통 설정파일, mapper 파일
+	view단에 대한 설정
+		
+2. gradle을 통해 설정할 내용과 적용할 방법을 기술하세요.
+	springweb\src\main\webapp\WEB-INF\lib에 들어갈 .jar로 된 프레임웍이나 lib 파일들을 온라인상 다운로드 할 수 있게 설정한다.
+	springboot01\build.gradle 파일에 선언하고 있고,
+		implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' : view단 템플릿
+		implementation 'org.springframework.boot:spring-boot-starter-web' : 스프링 web관련 framwork
+		implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0' : mybatis 프레임워크
+		runtimeOnly 'com.oracle.database.jdbc:ojdbc8' : DB의 jdbc 드라이버 설정
+	추가하거나 삭제하고, 오른쪽 마우스 클릭하여 메뉴에 gradle ==> refresh gradle을 통해서 필요한 파일을 온라인상 받아서 사용할 수 있다.
+			
+3. 스프링 부트의 기본 MVC 설정 구조를 기술하세요.
+	# backend 관련
+		기본 페이지 java\com\example\demo 하위에
+		controller/service/dao 패키지를 만들 수도 있고, 바로 해당 파일을 생성할 수 있다.
+		\src\main\resources\mybatis\mapper
+			- resources\application.properties에서 설정한 classpath:mybatis/mapper/**.xml 의 설정위치로 DB단에 대한 처리를 활용할 때, 주로 사용된다.
+		이렇게 해서 backend단 파일을 생성하여 처리하고,
+	
+	# frontend 관련
+		src\main\resources\templates
+			템플릿 파일 즉, controller을 통해 호출할 view단을 처리할 파일을 주로 선언하여 처리할 때 사용된다.
+			주로 html 파일이 많다.
+		src\main\resources\static
+			공통 css/js나 image 파일을 선언할 때, 해당 폴더에 위치하면 위 view 파일에서 /폴더명으로 접근하여 사용할 수 있다.
+			bootstrap/jquery 등 라이브러리 파일을 주로 위치시켜서 사용한다.
+
+4. 스프링 부트에서 DB를 처리하고자 한다. 설정할 파일과 설정할 내용을 기술하세요.
+	java\com\example\demo\configuration\MybatisConfig.java
+		마이바티즈 sql 템플릿 설정 파일
+	src\main\resources\application.properties
+		접근 계정 및 mybatis 공통 설정 및 mapper 파일
+	main\resources\mybatis\mapper\XXXXMapper.xml
+		각 단위 mapper 파일
+	java\com\exaple\demo\dao\XXXXDao.java	@Mapper 선언
+		dao 인터페이스 파일
+ -->
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	</div>
+	<form id="frm01" class="form-inline"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="제목" />
+	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>

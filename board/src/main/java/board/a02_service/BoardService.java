@@ -30,7 +30,6 @@ public class BoardService {
 		if(sch.getPageSize()==0) {
 			sch.setPageSize(5);
 		}
-		System.out.println(sch.getPageSize());
 		//3. 총 페이지 수(전체갯수, 한번에 보일 페이지 수)
 		sch.setPageCount((int)Math.ceil((double)sch.getCount()/(double)sch.getPageSize()));
 		//4. 클릭한 현재 페이지 호출
