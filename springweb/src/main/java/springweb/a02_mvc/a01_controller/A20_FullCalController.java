@@ -4,9 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import springweb.a02_mvc.a01_service.A10_FullCalService;
+import springweb.vo.Calendar;
 
 @Controller
 public class A20_FullCalController {
@@ -25,4 +28,24 @@ public class A20_FullCalController {
 		d.addAttribute("calList", service.getCalendarList());
 		return "pageJsonReport";
 	}
+	
+	@PostMapping("insertCalendar.do")
+	public String insertCalendar(Calendar ins) {
+		service.insertCalendar(ins);
+		return "redirect:/calendar.do";
+	}
+	
+	@RequestMapping("updateCalendar")
+	public String updateCalendar(Calendar ins){
+		System.out.println("수정 id:"+ins.getId());
+		service.updateCalendar(ins);
+		return "redirect:/calendar.do";
+	}
+	
+	@RequestMapping("deleteCalendar")
+	public String deleteCalendar(@RequestParam("id") int id){
+		System.out.println("삭제 id:"+id);
+		service.deleteCalendar(id);
+		return "redirect:/calendar.do";
+	}	
 }

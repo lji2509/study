@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var vm = new Vue({
+			el:".container",
+			data:{msg:"시작!!(뷰와함께)"}
+		});	
+	});
+</script>
+</head>
+<body>
+<!-- 
+1. jquey lib를 스프링 연동하기 위한 환경설정을 기술하세요.
+	1) 필요한 lib검색 및 확인 다운로드
+	2) sample 중에 초기 화면 선택
+	3) css/js의 default 경로 설정
+		- src\main\webapp\ 하위 특정 folder를 기준으로 lib 설정
+			상단에 선언된 필요한 css/js 파일로 복사한다.
+		- src\main\webapp\WEB-INF(X) : 보안 폴더라서 외부 또는 내부 경로로 호출 불가능하다.
+	4) 해당 default 경로 기준으로 설정 처리한다.
+		<script src='${path}/a00_com/lib/main.js'></script>
+
+2. DB column과 vo가 다를 때, 처리방법을 기술하세요.
+	start : 내장된 키워드로 DB 컬럼으로 사용할 수 없는 json propery 경우에 alias를 설정하거나 mybatis의 resultMap을 활용하여 column명과 property명을 변경해준다.
+	
+3. fullcalendar의 DB연동을 위한 기능함수와 처리방법을 기술하세요.
+    1. json 데이터 속성값 확인 - DB로 구성
+    2. api확인 ajax 호출 메서드 확인
+    3. 해당 처리 함수에서 ajax 처리
+    	- backend단 처리 - dao, mapper, service, controller(pageJsonReport)
+    4. 결과를 필요한 메서드에 할당처리
+    	받은 json 데이터를, 화면에 할당한 함수에 처리
+    	successCallback(data.calList);
+      
+4. fullcalendar 데이터베이스 설계를 위한 속성값 도출을 어떻게 하는지 기술하세요.
+	1. 기본 json 데이터 확인
+	2. doc에서 구체적인 내용 확인
+		항목을 확인해서, json 데이터들이 어떤 내부적인 속성이 있는지 파악한다.
+	3. js에서 console.log(객체) 속성을 확인할 수 있다. 
+ -->
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	</div>
+	<form id="frm01" class="form-inline"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="제목" />
+	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>
