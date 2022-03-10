@@ -83,17 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       eventClick: function(arg) {
     	console.log(arg.event)
-    	var event = arg.event;
-    	$("[name=id]").val(event.id)
-    	$("[name=title]").val(event.title)
-    	//내용을 기본 속성이 아니기에 extendedProps에 들어가있다.
-    	$("[name=content]").val(event.extendedProps.content)
-    	$("[name=start]").val(event.start.toISOString())
-    	$("[name=end]").val(event.end.toISOString())
-    	$("[name=borderColor]").val(event.borderColor)
-    	$("[name=backgroundColor]").val(event.backgroundColor)
-    	$("[name=textColor]").val(event.textColor)
-    	$("[name=allDay]").val(""+event.allDay)
+    	formData(arg.event)
     	$("#exampleModalLongTitle").text("일정상세");
     	$("#regBtn").hide();
     	$("#uptBtn").show();
@@ -104,6 +94,16 @@ document.addEventListener('DOMContentLoaded', function() {
           arg.event.remove()
         }
     	*/
+      },
+      eventDrop:function(info){
+    	  formData(info.event);
+		  $("#frm01").attr("action","${path}/updateCalendar.do");
+    	  $("#frm01").submit();
+      },
+      eventResize:function(info){
+    	  formData(info.event);
+		  $("#frm01").attr("action","${path}/updateCalendar.do");
+    	  $("#frm01").submit();
       },
       editable: true,
       dayMaxEvents: true, // allow "more" link when too many events
@@ -141,7 +141,19 @@ document.addEventListener('DOMContentLoaded', function() {
     calendar.setOption('themeSystem', "Bootstrap 5");
     calendar.render();
   });
-
+	function formData(event) {
+    	$("[name=id]").val(event.id)
+    	$("[name=title]").val(event.title)
+    	//내용을 기본 속성이 아니기에 extendedProps에 들어가있다.
+    	$("[name=content]").val(event.extendedProps.content)
+    	$("[name=start]").val(event.start.toISOString())
+    	$("[name=end]").val(event.end.toISOString())
+    	$("[name=borderColor]").val(event.borderColor)
+    	$("[name=backgroundColor]").val(event.backgroundColor)
+    	$("[name=textColor]").val(event.textColor)
+    	$("[name=allDay]").val(""+event.allDay)
+	}
+	
 	$(document).ready(function(){
 		$('[data-toggle="tooltip"]').tooltip();
 		$("#regBtn").click(function() {

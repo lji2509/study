@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var vm = new Vue({
+			el:".container",
+			data:{msg:"시작!!(뷰와함께)"}
+		});	
+	});
+</script>
+</head>
+<body>
+<!-- 
+1. fullcalendar의 등록 기능 수행 절차를 기술하세요.
+	1) select 이벤트 핸들러 확인
+		매개변수 내용 확인
+	2) 다이얼로그 박스 로딩 처리
+	3) 다이얼로그 박스 form 화면 구성
+	4) 매개변수로 온 데이터 날짜/시간, 종일여부 매개변수로 설정
+	5) 등록 버튼에 의해 form submit() 처리
+
+2. fullcalendar의 상세화면 로딩 기능 메서드와 이를 처리하기 위한 절차를 기술하세요.
+	1) 필요로하는 이벤트 핸들러 확인 - eventClick:function(arg){}
+	2) 매개변수로 받는 데이터 확인 - console.log(arg.event)
+	3) 매개변수 객체로 form 화면에 데이터 할당 처리
+	4) 다이얼로그 박스 : 타이틀 및 기능 버튼 처리
+
+3. fullcalendar의 속성을 확인하는 방법과 확장 속성을 처리할 때, 사용되는 키워드를 기술하세요.
+	  1) console.log(arg.event)를 통해서 넘겨오는 속성들 확인(초기 DB처리로 로딩됨)
+	  2) 기본 api에 없는 속성인 content는 event.extendedProps.content를 통해서 확인할 수 있다.
+
+4. fullcalendar의 수정/삭제 방법을 기술하세요.
+	1) 사용되는 이벤트 핸들러 확인
+		- 화면이 로딩되어 처리되는 경우 : eventClick:function(arg){}
+		- 바로 수정되는 경우 
+			eventDrop:function(arg){}, eventResize:function(arg){}
+		- 공통 매개변수 form형식 처리(공통 메서드 선언 - formData(arg.event))
+			$("[name=id]").value(event.id);
+		- 기능 버튼(수정/삭제)시, 처리한 backend단 처리
+			$("form").attr("action", "${path}/updateCalendar.do");
+			$("form").attr("action", "${path}/deleteCalendar.do");
+ -->
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	</div>
+	<form id="frm01" class="form-inline"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="제목" />
+	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>
