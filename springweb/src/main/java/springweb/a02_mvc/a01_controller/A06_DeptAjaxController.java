@@ -18,6 +18,7 @@ public class A06_DeptAjaxController {
 		return "WEB-INF\\views\\a02_mvc\\a06_deptAjaxList.jsp";
 	}
 	
+	//http://localhost:8000/springweb/deptAjax1.do
 	@GetMapping("/deptAjax1.do")
 	public String deptAjax1(Dept sch, Model d) {
 		d.addAttribute("deptList", service.getDeptList(sch));

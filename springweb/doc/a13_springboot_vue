@@ -28,3 +28,52 @@
 				mapper
 					boardMapper.xml
 				mybatis.Spring.xml
+				
+# 개발 순서
+1. 프로젝트 생성시, 사용하게될 lib 선언
+	- gradle 환경
+	- jdbc, spring web, mybatis
+2 기본 정보 설정
+	src\main\resources\application.properties
+	서버포트, DB정보, mapper 및 mybatis 공통 설정파일
+3. config 설정 파일 선언
+	com.web.vue.configuration 패키지 하위에 MvcConfiguration.java/MybatisConfig 설정
+	# 기본 설정위치 지정
+	- mybatis
+		application.properties파일에 설정된 위치
+			src\main\resources\mybatis\mybatis.Spring.xml
+			src\main\resources\mybatis\mapper\boardMapper.xml
+	- 웹화면호출 경로설정
+		MvcConfiguration.java 에서 설정된 위치
+			src\main\resources\templates
+			src\main\resources\static
+4. 초기 화면 로딩
+	controller를 통해서 초기화면 호출
+		//http://localhost:5080/boardList
+		@RequestMapping("boardList")
+		public String boardList() {
+			return "boardList.html";
+		}
+		
+		View단 : src\main\resources\templates\boardList.html
+5. ajax에 의해 처리할 초기 데이터 선언 및 화면 로딩
+	controller단 선언
+	dao/mapper/service/controller
+		@RequestMapping("boardData")
+		public String boardData(BoardSch sch, Model d) {
+			d.addAttribute("blist", service.getBoardList(sch));
+			return "jsonView";
+	}
+6. vue를 통한 초기 데이터 로딩
+	1) 초기 화면에서 ajax 데이터 로딩 확인
+7. vue를 통한 검색 처리
+	- 이벤트 $.emit
+	- 이벤트 버스선언과 이를 통한 처리
+	1) 검색 화면 ui 만들기
+	2) 이벤트 버스에 대한 이해를 위해 간단한 예제 처리하기
+	3) 게시판 검색시, 처리하기
+
+사용하게될 view단에 대한 호출 경로
+templates, static 폴더 위치 지정
+template : controller 호출할 main html 파일
+static : 공통 정적인 자원(css, js, 공통 html, image, lib)

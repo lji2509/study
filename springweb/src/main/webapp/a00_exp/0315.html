@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var vm = new Vue({
+			el:".container",
+			data:{msg:"시작!!(뷰와함께)"}
+		});	
+	});
+</script>
+</head>
+<body>
+<!-- 
+1. 스프링 boot vue의 기본 개발 환경 구성을 위한 설정을 기술하세요.
+	1) 초기에 프로젝트 만들시, gradle 환경에서 lib 설정 처리 build
+	2) 기본 환경 구성 설정(컨테이너)
+		application.properties : 서버포트, DB정보(연결정보), mybatis의 설정 파일 위치지정
+	3) config 파일 설정 - MvcConfiguration.java/MybatisConfig.java
+		# MvcConfiguration.java
+			경로설정
+				template : controller단에서 초기로딩할 html 파일
+				static : 공통 css/js/img 파일 설정 위치를 지정
+			여러가지 view단 호출
+				json데이터 view 선언
+		# MybatisConfig.java
+			mybatis 관련 
+		
+2. vue를 통해 backend 데이터 연동시 처리할 내용의 순서를 기술하세요.
+	1) 초기화면 호출 : 기본화면 처리
+	2) ajax 데이터 처리 요청 메서드 선언 : 
+		MvcConfiguration에서 선언한 view로 호출
+		@RestController 활용하면
+			public Person getPerson() {
+				return service.getPerson();
+			}
+		자바의 일반 객체나 List<Person> 형태의 객체를 json 형태로 변경 처리한다.
+	3) 초기 화면(view)에서 ajax 처리
+		Vue 인스턴스 객체에서 이벤트를 통해서 받은 데이터를 모델데이터와 연동해서 처리하여 화면에 출력한다.
+		<tr v-for="단위객체 in 모델객체"><td>{{단위객체.속성}}</td></tr>
+
+3. vue의 ajax를 통해 요청값을 전달하고, 특정 속성값(DB처리, 로직)을 처리하는 방식을 기술하세요.
+	<input v-model="bsch.title" @keyup.13=search><input v-model="bsch.writer" @keyup.13="search">
+		@keyup.13="search" : 입력한 후, enter키를 입력시, 기능 함수 search가 호출
+	new Vue({
+		data:{bsch{title:"", writer:""}, blist[]},
+		methods:{
+			search:function(){
+				var vm = this; //현재 Vue인스턴스 객체가 기능 메서드나 객체에 포함되더라도 사용할 수 있게 변수 지정
+				$.ajax({
+					url:"호출할 controller단",
+					data:vm.bsch, //입력한 요청값 title, wrtier를 전달 처리
+					dataType:"json",
+					success:function(data){
+						vm.blist = data.blist;
+						//해당 controller의 모델명 blist를 현재 vue의 인스턴스 모델 데이터 blist에 할당처리
+					} 
+				});
+			}
+		}
+	});
+	화면 : <tr v-for="bd in blist"><td>{{bd.no}}</td><td>{{bd.title}}</td><td>{{bd.writer}}</td> ...
+-->
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	</div>
+	<form id="frm01" class="form-inline"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="제목" />
+	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>
