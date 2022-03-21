@@ -43,23 +43,63 @@
 				conn();
 			}
 		});
+		$("#msg").keyup(function(){
+			if(event.keyCode==13) sendMsg();
+		});
+		$("#sendBtn").click(function(){
+			sendMsg();
+		});
+		//접속 종료를 처리했을시
+		$("#exitBtn").click(function(){
+			wsoket.send("msg:" + $("#id").val() + " : 접속 종료했습니다!");
+			wsoket.close();
+		});
+		//메시지는 보내는 기능 메서드
+		function sendMsg(){
+			var id = $("#id").val();
+			var msg = $("#msg").val();
+			//message를 보내는 처리 서버의 handler의 handleTextMessage()와 연동
+			wsocket.send("msg:" + id + " : " + msg);
+			$("#msg").val(""); $("#msg").focus();
+		}
 		<%-- 
 		
 		--%>	
 	});
 	function conn() {
+		//원격 접속시에는 고정ip 할당받아서 처리
+		//wsocket = new WebSocket("ws:/106.10.23.227:8000/${path}/chat-ws.do");
 		wsocket = new WebSocket("ws:/localhost:8000/${path}/chat-ws.do");
 		wsocket.onopen=function(evt){
 			//handler :afterConnectionEstablished(WebSocketSession session)와 연결
 			console.log(evt);
-			wsocket.send("msg : " + $("#id").val() + " : 연결 접속했습니다.")
+			wsocket.send("msg:" + $("#id").val() + " : 연결 접속했습니다.")
 		}
 		//handler의 handleTextMessage()
 		//연결되어있으면 메시지를 push형식으로 서버에서 받을 수 있다.
+		
 		wsocket.onmessage=function(evt){
 			//받은데이터
 			var msg = evt.data;
-			$("#chatMessageArea").append(msg+"<br>");
+			//msg 내용 삭제 후, 처리
+			if(msg.substring(0,4)=="msg:") {
+				//메시지 내용만 전달
+				var revMsg = msg.substring(4)
+				$("#chatMessageArea").append(revMsg+"<br>");
+				//1. 전체 chatMessageArea의 입력된 최대 높이 구하기
+				var mx = parseInt($("#chatMessageArea").height());
+				//2. 포함하고 있는 div의 scrollTop을 통해 최하단의 내용으로 scrolling 하기
+				//	chatArea
+				$("#chatArea").scrollTop(mx);
+			}
+		}
+		//handler의 afterConnectionClose와 연동
+		wsocket.onclose=function(){
+			wsocket.send("msg:" + $("#id").val() + " : 연결 종료했습니다.")
+			alert($("#id").val()+'접속 종료합니다.')
+			$("#chatMessageArea").text("");
+			$("#id").val("");
+			$("#id").focus();
 		}
 	}
 </script>
@@ -91,7 +131,7 @@
 		<div class="input-group-prepend ">
 			<span class="input-group-text ">메시지</span>
 		</div>
-		<input name="msg" class="form-control" placeholder="보낼 메시지를 입력하세요"/>	
+		<input id="msg" name="msg" class="form-control" placeholder="보낼 메시지를 입력하세요"/>	
 		<input type="button" id="sendBtn" class="btn btn-info" value="전송"/>	
 	</div>	
 </div>

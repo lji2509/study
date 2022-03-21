@@ -16,6 +16,7 @@ public class A04_FileExpController {
 	@Autowired
 	private A04_FileService service;
 	
+	//http://localhost:8000/springweb/uploadExp.do
 	@GetMapping("/uploadExp.do")
 	public String uploadExpFrm() {
 		return "WEB-INF\\views\\a02_mvc\\a04_fileUploadFrm.jsp";
